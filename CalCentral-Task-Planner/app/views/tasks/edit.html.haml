@@ -1,0 +1,16 @@
+%h1 Edit Existing Task
+
+= form_tag task_path(@task), :method => :put do
+
+  = label :task, :title, 'Title'
+  = text_field :task, 'title'
+
+  = label :task, :status, 'Status'
+  = select :task, :status, ['New','Ongoing','Complete']
+
+  = label :task, :due, 'Due Date'
+  = date_select :task, :due
+
+= submit_tag 'Update Task Info'
+
+  
