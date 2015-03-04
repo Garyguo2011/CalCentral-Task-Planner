@@ -1,7 +1,7 @@
-# Add a declarative step here for populating the DB with movies.
+# Add a declarative step here for populating the DB with tasks.
 
-Given /the following movies exist/ do |movies_table|
-  movies_table.hashes.each do |movie|
+Given /the following tasks exist/ do |tasks_table|
+  tasks_table.hashes.each do |movie|
     # each returned element will be a hash whose key is the table header.
     # you should arrange to add that movie to the database here.
   end
@@ -27,6 +27,6 @@ When /I (un)?check the following ratings: (.*)/ do |uncheck, rating_list|
   #   "When I uncheck..." steps in lines 89-95 of web_steps.rb
 end
 
-Then /I should see all the movies/ do
-  # Make sure that all the movies in the app are visible in the table
+Then /I should see all the tasks/ do
+  # Make sure that all the tasks in the app are visible in the table
 end
