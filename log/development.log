@@ -2344,3 +2344,73 @@ Served asset /scaffolds.css - 304 Not Modified (0ms)
 
 Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2015-03-03 22:53:11 -0800
 Served asset /application.js - 304 Not Modified (0ms)
+Connecting to database specified by database.yml
+
+
+Started GET "/" for 127.0.0.1 at 2015-03-04 12:32:34 -0800
+Processing by TasksController#index as HTML
+  [1m[36mTask Load (4.6ms)[0m  [1mSELECT "tasks".* FROM "tasks" [0m
+  Rendered tasks/index.html.haml within layouts/application (17.7ms)
+Completed 200 OK in 184.4ms (Views: 118.3ms | ActiveRecord: 8.7ms)
+
+
+Started GET "/assets/scaffolds.css?body=1" for 127.0.0.1 at 2015-03-04 12:32:35 -0800
+Served asset /scaffolds.css - 304 Not Modified (4ms)
+
+
+Started GET "/assets/tasks.css?body=1" for 127.0.0.1 at 2015-03-04 12:32:35 -0800
+Served asset /tasks.css - 304 Not Modified (2ms)
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2015-03-04 12:32:35 -0800
+Served asset /jquery.js - 304 Not Modified (3ms)
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2015-03-04 12:32:35 -0800
+Served asset /application.js - 304 Not Modified (6ms)
+
+
+Started GET "/assets/tasks.js?body=1" for 127.0.0.1 at 2015-03-04 12:32:35 -0800
+Served asset /tasks.js - 304 Not Modified (2ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2015-03-04 12:32:35 -0800
+Served asset /application.css - 304 Not Modified (2ms)
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2015-03-04 12:32:35 -0800
+Served asset /jquery_ujs.js - 304 Not Modified (2ms)
+
+
+Started GET "/tasks/new" for 127.0.0.1 at 2015-03-04 12:32:39 -0800
+Processing by TasksController#new as HTML
+  Rendered tasks/new.html.haml within layouts/application (16.2ms)
+Completed 200 OK in 22.4ms (Views: 21.9ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2015-03-04 12:32:39 -0800
+Served asset /jquery_ujs.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2015-03-04 12:32:39 -0800
+Served asset /application.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/tasks.css?body=1" for 127.0.0.1 at 2015-03-04 12:32:39 -0800
+Served asset /tasks.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2015-03-04 12:32:39 -0800
+Served asset /jquery.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/scaffolds.css?body=1" for 127.0.0.1 at 2015-03-04 12:32:39 -0800
+Served asset /scaffolds.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/tasks.js?body=1" for 127.0.0.1 at 2015-03-04 12:32:39 -0800
+Served asset /tasks.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2015-03-04 12:32:39 -0800
+Served asset /application.js - 304 Not Modified (0ms)
