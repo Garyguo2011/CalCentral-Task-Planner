@@ -1,0 +1,13 @@
+<p id="notice"><%= notice %></p>
+<ul>
+  <li>Title: <%= @task.title %></li>
+  <li>Course: <%= @task.course %></li>
+  <li>Kind: <%= @task.kind %></li>
+  <li>Relase Date: <%= @task.release %></li>
+  <li>Due Date: <%= @task.due %></li>
+  <li>Status: <%= @task.status %></li>
+</ul>
+<%= link_to 'Edit', edit_task_path(@task) %>
+<%= button_to 'Delete', task_path(@task), :method => :delete, :confirm => 'Are you sure?'%>
+<%= link_to 'Back to task list', tasks_path %>
+<%= link_to 'Subtasks', task_subtasks_path(@task)%>
