@@ -1,4 +1,4 @@
-!!! 5
+<!-- !!! 5
 %html
   %head
     %title CalCentral Task Planner
@@ -16,3 +16,20 @@
       %p{:class=>"notice"}= notice
       %p{:class=>"alert"}= alert
       = yield
+ -->
+
+<!DOCTYPE html>
+<html>
+<head>
+  <title>CalCentral Task Planner</title>
+  <%= stylesheet_link_tag 'application'%>
+  <%= javascript_include_tag 'application'%>
+  <%= csrf_meta_tags%>
+</head>
+<body>
+  <h1 class="title">CalCentral Task Planner</h1>
+  <p class="notice"><%= notice %></p>
+  <p class="alert"><%= alert %></p>
+  <%= yield %>
+</body>
+</html>

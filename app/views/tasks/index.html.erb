@@ -1,0 +1,25 @@
+<%= link_to 'Sign Out', destroy_user_session_path,  method: :delete %>
+<h1>All Tasks</h1>
+
+<table id="tasks">
+  <tr>
+    <th>Task Title</th>
+    <th>Course</th>
+    <th>Kind</th>
+    <th>Release Date</th>
+    <th>Due Date</th>
+    <th>Status</th>
+  </tr>
+<% @tasks.each do |task| %>
+  <tr>
+    <td><%= link_to task.title, task_path(task) %></td>
+    <td><%= task.course %></td>
+    <td><%= task.kind %></td>
+    <td><%= task.release.strftime("%B %d, %Y") %></td>
+    <td><%= task.due.strftime("%B %d, %Y")%></td>
+    <td><%= task.status%></td>
+  </tr>
+<% end %>
+</table>
+
+<%= link_to 'Add new task', new_task_path %>
