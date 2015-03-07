@@ -1,31 +1,35 @@
 class TasksController < ApplicationController
-  
-
-  # GET /tasks/1
-  # GET /tasks/1.json
-  def show
-    id = params[:id]
-    @task = Task.find(id)
-  end
-
   # GET /tasks
   # GET /tasks.json
   def index
     @tasks = Task.all
+
+    respond_to do |format|
+      format.html # index.html.erb
+      format.json { render json: @tasks }
+    end
+  end
+
+  # GET /tasks/1
+  # GET /tasks/1.json
+  def show
+    @task = Task.find(params[:id])
+
+    respond_to do |format|
+      format.html # show.html.erb
+      format.json { render json: @task }
+    end
   end
 
   # GET /tasks/new
   # GET /tasks/new.json
   def new
-    # default: reader 'new' template
-  end
+    @task = Task.new
 
-  # POST /tasks
-  # POST /tasks.json
-  def create
-    @task = Task.create!(params[:task])
-    flash[:notice] = "#{@task.title} was successfully updated."
-    redirect_to tasks_path
+    respond_to do |format|
+      format.html # new.html.erb
+      format.json { render json: @task }
+    end
   end
 
   # GET /tasks/1/edit
@@ -33,14 +37,36 @@ class TasksController < ApplicationController
     @task = Task.find(params[:id])
   end
 
+  # POST /tasks
+  # POST /tasks.json
+  def create
+    @task = Task.new(params[:task])
+
+    respond_to do |format|
+      if @task.save
+        format.html { redirect_to @task, notice: 'Task was successfully created.' }
+        format.json { render json: @task, status: :created, location: @task }
+      else
+        format.html { render action: "new" }
+        format.json { render json: @task.errors, status: :unprocessable_entity }
+      end
+    end
+  end
 
   # PUT /tasks/1
   # PUT /tasks/1.json
   def update
     @task = Task.find(params[:id])
-    @task.update_attributes!(params[:task])
-    flash[:notice] = "#{@task.title} was successfully updated."
-    redirect_to task_path(@task)
+
+    respond_to do |format|
+      if @task.update_attributes(params[:task])
+        format.html { redirect_to @task, notice: 'Task was successfully updated.' }
+        format.json { head :no_content }
+      else
+        format.html { render action: "edit" }
+        format.json { render json: @task.errors, status: :unprocessable_entity }
+      end
+    end
   end
 
   # DELETE /tasks/1
@@ -48,7 +74,10 @@ class TasksController < ApplicationController
   def destroy
     @task = Task.find(params[:id])
     @task.destroy
-    flash[:notice] = "#{@task.title} was successfully deleted."
-    redirect_to tasks_path
+
+    respond_to do |format|
+      format.html { redirect_to tasks_url }
+      format.json { head :no_content }
+    end
   end
 end
