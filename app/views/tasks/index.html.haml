@@ -6,16 +6,22 @@
   %thead
     %tr
       %th Task Title
+      %th Course
+      %th Kind
+      %th Release Date
       %th Due Date
       %th Status
-      %th More Info
+      / %th More Info
   %tbody
     - @tasks.each do |task|
       %tr
-        %td= task.title 
-        %td= task.due
+        %td= link_to task.title, task_path(task)
+        %td= task.course
+        %td= task.kind
+        %td= task.release.strftime("%B %d, %Y")
+        %td= task.due.strftime("%B %d, %Y")
         %td= task.status
-        %td= link_to "More about #{task.title}", task_path(task)
+        / %td= link_to "More about #{task.title}", task_path(task)
 
 = link_to 'Add new task', new_task_path
 

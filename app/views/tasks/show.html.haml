@@ -4,6 +4,18 @@
 
 %ul#details
   %li
+    Title:
+    =@task.title
+  %li
+    Course:
+    =@task.course
+  %li
+    Kind:
+    =@task.kind
+  %li
+    Relase Date:
+    =@task.release
+  %li
     Due Date:
     = @task.due.strftime("%B %d, %Y")
   %li
