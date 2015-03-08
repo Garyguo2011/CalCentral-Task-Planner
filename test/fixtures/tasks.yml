@@ -2,10 +2,16 @@
 
 one:
   title: MyString
-  due: 2015-03-02 19:35:43
+  due: 2015-03-07 23:14:59
   status: MyString
+  course: MyString
+  kind: MyString
+  release: 2015-03-07 23:14:59
 
 two:
   title: MyString
-  due: 2015-03-02 19:35:43
+  due: 2015-03-07 23:14:59
   status: MyString
+  course: MyString
+  kind: MyString
+  release: 2015-03-07 23:14:59
