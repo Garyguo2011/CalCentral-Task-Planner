@@ -18,7 +18,11 @@
     <td><%= task.release.strftime("%B %d, %Y") %></td>
     <td><%= task.due.strftime("%B %d, %Y")%></td>
     <td><%= task.status%></td>
-    <td><%= task.user.full_name%></td>
+    <% if task.user != nil%>
+      <td><%= task.user.full_name%></td>
+    <% else %>
+      <td> NO USERS </td>
+    <% end %>
   </tr>
 <% end %>
 </table>
