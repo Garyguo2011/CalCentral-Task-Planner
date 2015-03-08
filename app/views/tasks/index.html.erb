@@ -10,21 +10,23 @@
     <th>Status</th>
     <th>Owner</th>
   </tr>
-<% @tasks.each do |task| %>
-  <tr>
-    <td><%= link_to task.title, task_path(task) %></td>
-    <td><%= task.course %></td>
-    <td><%= task.kind %></td>
-    <td><%= task.release.strftime("%B %d, %Y") %></td>
-    <td><%= task.due.strftime("%B %d, %Y")%></td>
-    <td><%= task.status%></td>
-    <% if task.user != nil%>
-      <td><%= task.user.full_name%></td>
-    <% else %>
-      <td> NO USERS </td>
-    <% end %>
-  </tr>
+<% if @current_user != nil %>
+  <% @tasks.each do |task| %>
+    <tr>
+      <td><%= link_to task.title, task_path(task) %></td>
+      <td><%= task.course %></td>
+      <td><%= task.kind %></td>
+      <td><%= task.release.strftime("%B %d, %Y") %></td>
+      <td><%= task.due.strftime("%B %d, %Y")%></td>
+      <td><%= task.status%></td>
+      <% if task.user != nil%>
+        <td><%= task.user.full_name%></td>
+      <% else %>
+        <td> NO USERS </td>
+      <% end %>
+    </tr>
+  <% end %>
+  </table>
 <% end %>
-</table>
 
 <%= link_to 'Add new task', new_task_path %>
