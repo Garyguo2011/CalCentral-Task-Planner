@@ -1,11 +1,10 @@
-CalCentralTaskPlanner::Application.routes.draw do
-  # resources :subtasks
+CalcentralTaskPlanner::Application.routes.draw do
   devise_for :users
 
   resources :tasks do
     resources :subtasks
   end
-
+  # root to: 'tasks#index'
   root to: 'tasks#index'
 
   # The priority is based upon order of creation:

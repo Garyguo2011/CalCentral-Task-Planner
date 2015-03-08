@@ -4,4 +4,4 @@
 # If you change this key, all old signed cookies will become invalid!
 # Make sure the secret is at least 30 characters and all random,
 # no regular words or you'll be exposed to dictionary attacks.
-CalCentralTaskPlanner::Application.config.secret_token = '029618ada35a47b028875c16f6aa620d34ce8500e31fb2fe24e8acdefd882cad22b803aa80be28b1b2e4aa4caa1f2aee5a74cf15d468120127c3a79597eab0fd'
+CalcentralTaskPlanner::Application.config.secret_token = '070ed56a44e938d7c6f83b7570c29ec5dfbe234a052260ef8e35fd7ed91dff5acdd6b376aede7ee80b98078469fd19c4f0595938389533484eae9313b06daf8f'
