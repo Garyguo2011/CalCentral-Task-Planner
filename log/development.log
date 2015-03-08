@@ -12049,3 +12049,4 @@ Served asset /jquery_ujs.js - 304 Not Modified (0ms)
 
 Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2015-03-08 12:33:51 -0700
 Served asset /application.js - 304 Not Modified (0ms)
+Connecting to database specified by database.yml
