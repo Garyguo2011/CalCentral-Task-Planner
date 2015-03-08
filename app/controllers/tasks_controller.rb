@@ -1,8 +1,19 @@
 class TasksController < ApplicationController
+  def welcome
+    if current_user != nil
+      redirect_to tasks_path
+    else
+      render :file => 'public/index.html.erb'
+    end
+  end
   # GET /tasks
   # GET /tasks.json
   def index
-    @tasks = Task.all
+    if current_user == nil
+      @tasks = nil
+    else
+      @tasks = current_user.tasks
+    end
 
     respond_to do |format|
       format.html # index.html.erb
@@ -40,7 +51,11 @@ class TasksController < ApplicationController
   # POST /tasks
   # POST /tasks.json
   def create
-    @task = Task.new(params[:task])
+    if current_user == nil
+      @task = Task.new(params[:task])
+    else
+      @task = current_user.tasks.new(params[:task])
+    end
 
     respond_to do |format|
       if @task.save

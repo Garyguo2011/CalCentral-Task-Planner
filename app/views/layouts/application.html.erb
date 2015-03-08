@@ -27,15 +27,15 @@
   <%= csrf_meta_tags%>
 </head>
 <body>
-  <% if current_user != nil %>
-    <p>
+  <h1 class="title">
+    CalCentral Task Planner
+    <% if current_user != nil %>
     <%= link_to current_user.full_name, edit_user_registration_path %> |
     <%= link_to 'Sign Out', destroy_user_session_path,  method: :delete %>
-    </p>
-  <% else %>
-    <p><%=link_to 'Sign In', new_user_session_path %></p>
-  <% end %>
-  <h1 class="title">CalCentral Task Planner</h1>
+    <% else %>
+    <%=link_to 'Sign In', new_user_session_path %>
+    <% end %>
+  </h1>
   <p class="notice"><%= notice %></p>
   <p class="alert"><%= alert %></p>
   <%= yield %>
