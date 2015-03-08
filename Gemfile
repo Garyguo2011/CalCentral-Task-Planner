@@ -15,6 +15,8 @@ group :development, :test do
   gem 'ruby-debug19'
   gem 'database_cleaner'
   gem 'cucumber-rails', :require => false
+  gem 'rspec-rails', '~> 2.14.0'
+  gem 'simplecov'
 end
 
 group :production do
@@ -26,6 +28,7 @@ end
 group :assets do
   gem 'sass-rails',   '~> 3.2.3'
   gem 'coffee-rails', '~> 3.2.1'
+  gem 'therubyracer'
 
   # See https://github.com/sstephenson/execjs#readme for more supported runtimes
   # gem 'therubyracer', :platforms => :ruby
