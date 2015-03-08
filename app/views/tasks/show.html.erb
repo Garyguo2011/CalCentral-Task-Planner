@@ -1,3 +1,5 @@
+<h1>Details of <%= @task.title%></h1>
+
 <p id="notice"><%= notice %></p>
 <ul>
   <li>Title: <%= @task.title %></li>
@@ -7,7 +9,32 @@
   <li>Due Date: <%= @task.due %></li>
   <li>Status: <%= @task.status %></li>
 </ul>
-<%= link_to 'Edit', edit_task_path(@task) %>
-<%= button_to 'Delete', task_path(@task), :method => :delete, :confirm => 'Are you sure?'%>
-<%= link_to 'Back to task list', tasks_path %>
-<%= link_to 'Subtasks', task_subtasks_path(@task)%>
+
+<%= link_to 'Edit Task', edit_task_path(@task) %> <%= button_to 'Delete', task_path(@task), :method => :delete, :confirm => 'Are you sure?'%>
+<h1>Listing <%= link_to 'subtasks', task_subtasks_path(@task)%></h1>
+
+<table>
+  <tr>
+    <th>Is done</th>
+    <th>Description</th>
+    <!-- <th>Task</th> -->
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @task.subtasks.each do |subtask| %>
+  <tr>
+    <td><%= subtask.is_done %></td>
+    <td><%= subtask.description %></td>
+    <!-- <td><%= subtask.task %></td> -->
+    <td><%= link_to 'Show', [subtask.task, subtask] %></td>
+    <td><%= link_to 'Edit', edit_task_subtask_path(subtask.task, subtask) %></td>
+    <td><%= link_to 'Destroy', [subtask.task, subtask], method: :delete, data: { confirm: 'Are you sure?' } %></td>
+  </tr>
+<% end %>
+</table>
+<br>
+
+<%= link_to 'New Subtask', new_task_subtask_path(@task.id) %> <br>
+<%= link_to 'Back to task list', tasks_path %><br>

@@ -1,5 +1,100 @@
 Connecting to database specified by database.yml
-  [1m[36m (0.3ms)[0m  [1mbegin transaction[0m
+Connecting to database specified by database.yml
+Connecting to database specified by database.yml
+Connecting to database specified by database.yml
+  [1m[36m (0.5ms)[0m  [1mbegin transaction[0m
   [1m[35m (0.0ms)[0m  commit transaction
   [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
   [1m[35m (0.1ms)[0m  rollback transaction
+Connecting to database specified by database.yml
+  [1m[36m (0.5ms)[0m  [1mbegin transaction[0m
+  Rendered subtasks/_form.html.erb (53.9ms)
+  Rendered subtasks/edit.html.erb (63.3ms)
+  [1m[35m (0.1ms)[0m  rollback transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.0ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (12.0ms)[0m  [1mINSERT INTO "subtasks" ("created_at", "description", "is_done", "task_id", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["created_at", Sun, 08 Mar 2015 21:00:59 UTC +00:00], ["description", "MyString"], ["is_done", nil], ["task_id", nil], ["updated_at", Sun, 08 Mar 2015 21:00:59 UTC +00:00]]
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (1.2ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36m (0.0ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.4ms)[0m  INSERT INTO "subtasks" ("created_at", "description", "is_done", "task_id", "updated_at") VALUES (?, ?, ?, ?, ?)  [["created_at", Sun, 08 Mar 2015 21:00:59 UTC +00:00], ["description", "MyString"], ["is_done", nil], ["task_id", nil], ["updated_at", Sun, 08 Mar 2015 21:00:59 UTC +00:00]]
+  [1m[36m (0.0ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.5ms)[0m  rollback transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.0ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.4ms)[0m  [1mINSERT INTO "subtasks" ("created_at", "description", "is_done", "task_id", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["created_at", Sun, 08 Mar 2015 21:00:59 UTC +00:00], ["description", "MyString"], ["is_done", nil], ["task_id", nil], ["updated_at", Sun, 08 Mar 2015 21:00:59 UTC +00:00]]
+  [1m[35m (0.0ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (0.4ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.5ms)[0m  INSERT INTO "subtasks" ("created_at", "description", "is_done", "task_id", "updated_at") VALUES (?, ?, ?, ?, ?)  [["created_at", Sun, 08 Mar 2015 21:00:59 UTC +00:00], ["description", "MyString"], ["is_done", nil], ["task_id", nil], ["updated_at", Sun, 08 Mar 2015 21:00:59 UTC +00:00]]
+  [1m[36m (0.0ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  SELECT COUNT(*) FROM "subtasks" 
+  [1m[36m (1.1ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.5ms)[0m  INSERT INTO "subtasks" ("created_at", "description", "is_done", "task_id", "updated_at") VALUES (?, ?, ?, ?, ?)  [["created_at", Sun, 08 Mar 2015 21:00:59 UTC +00:00], ["description", "MyString"], ["is_done", nil], ["task_id", nil], ["updated_at", Sun, 08 Mar 2015 21:00:59 UTC +00:00]]
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.6ms)[0m  rollback transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.5ms)[0m  [1mINSERT INTO "subtasks" ("created_at", "description", "is_done", "task_id", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["created_at", Sun, 08 Mar 2015 21:00:59 UTC +00:00], ["description", "MyString"], ["is_done", nil], ["task_id", nil], ["updated_at", Sun, 08 Mar 2015 21:00:59 UTC +00:00]]
+  [1m[35m (0.0ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (0.5ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36m (0.0ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.4ms)[0m  INSERT INTO "subtasks" ("created_at", "description", "is_done", "task_id", "updated_at") VALUES (?, ?, ?, ?, ?)  [["created_at", Sun, 08 Mar 2015 21:00:59 UTC +00:00], ["description", "MyString"], ["is_done", nil], ["task_id", nil], ["updated_at", Sun, 08 Mar 2015 21:00:59 UTC +00:00]]
+  [1m[36m (0.0ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.5ms)[0m  rollback transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.0ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.4ms)[0m  [1mINSERT INTO "subtasks" ("created_at", "description", "is_done", "task_id", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["created_at", Sun, 08 Mar 2015 21:00:59 UTC +00:00], ["description", "MyString"], ["is_done", nil], ["task_id", nil], ["updated_at", Sun, 08 Mar 2015 21:00:59 UTC +00:00]]
+  [1m[35m (0.0ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (0.5ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.4ms)[0m  INSERT INTO "subtasks" ("created_at", "description", "is_done", "task_id", "updated_at") VALUES (?, ?, ?, ?, ?)  [["created_at", Sun, 08 Mar 2015 21:00:59 UTC +00:00], ["description", "MyString"], ["is_done", nil], ["task_id", nil], ["updated_at", Sun, 08 Mar 2015 21:00:59 UTC +00:00]]
+  [1m[36m (0.0ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.4ms)[0m  rollback transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.0ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.4ms)[0m  [1mINSERT INTO "subtasks" ("created_at", "description", "is_done", "task_id", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["created_at", Sun, 08 Mar 2015 21:00:59 UTC +00:00], ["description", "MyString"], ["is_done", nil], ["task_id", nil], ["updated_at", Sun, 08 Mar 2015 21:00:59 UTC +00:00]]
+  [1m[35m (0.0ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (1.3ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36m (0.0ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36m (0.1ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36m (0.1ms)[0m  [1mSELECT COUNT(*) FROM "subtasks" [0m
+  [1m[35m (0.1ms)[0m  rollback transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.0ms)[0m  rollback transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.0ms)[0m  rollback transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.0ms)[0m  rollback transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.1ms)[0m  rollback transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.0ms)[0m  rollback transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.1ms)[0m  rollback transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.0ms)[0m  rollback transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.0ms)[0m  rollback transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.0ms)[0m  rollback transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.0ms)[0m  rollback transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.1ms)[0m  rollback transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  Rendered subtasks/_form.html.erb (26.3ms)
+  [1m[35m (0.1ms)[0m  rollback transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.1ms)[0m  rollback transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.0ms)[0m  rollback transaction

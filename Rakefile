@@ -4,4 +4,4 @@
 
 require File.expand_path('../config/application', __FILE__)
 
-CalCentralTaskPlanner::Application.load_tasks
+CalcentralTaskPlanner::Application.load_tasks
