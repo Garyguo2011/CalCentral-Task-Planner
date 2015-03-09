@@ -17,11 +17,15 @@
   </div>
   <div class="field">
     <%= f.label :due %><br />
-    <%= f.datetime_select :due %>
+    <%= f.datetime_select :due, start_year: 1900, end_year: 2100 %>
   </div>
   <div class="field">
     <%= f.label :status %><br />
-    <%= f.text_field :status %>
+    <% if @task.status == nil %>
+      <%= f.select :status, options_for_select([["Select One", ""], "New", "Started", "Finished"])%>
+    <% else %>
+      <%= f.select :status, options_for_select([[@task.status, ""], "New", "Started", "Finished"], @task.status)%>
+    <% end %>
   </div>
   <div class="field">
     <%= f.label :course %><br />
@@ -29,13 +33,18 @@
   </div>
   <div class="field">
     <%= f.label :kind %><br />
-    <%= f.text_field :kind %>
+    <% if @task.kind == nil %>
+       <%= f.select :kind, options_for_select([["Select One", ""], "Project", "Homework", "Paper", "Exam", "Other"])%>
+    <% else %>
+       <%= f.select :kind, options_for_select([[@task.kind, ""], "Project", "Homework", "Paper", "Exam", "Other"], @task.kind)%>
+    <% end %>
   </div>
   <div class="field">
     <%= f.label :release %><br />
-    <%= f.datetime_select :release %>
+    <%= f.datetime_select :release, start_year: 1900, end_year: 2100 %>
   </div>
   <div class="actions">
     <%= f.submit %>
   </div>
 <% end %>
+
