@@ -98,3 +98,1864 @@ Connecting to database specified by database.yml
   [1m[35m (0.1ms)[0m  rollback transaction
   [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
   [1m[35m (0.0ms)[0m  rollback transaction
+Connecting to database specified by database.yml
+  [1m[36m (0.4ms)[0m  [1mbegin transaction[0m
+  Rendered subtasks/_form.html.erb (29.2ms)
+  Rendered subtasks/edit.html.erb (62.6ms)
+  [1m[35m (0.1ms)[0m  rollback transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.1ms)[0m  rollback transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.0ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (37.6ms)[0m  [1mINSERT INTO "subtasks" ("created_at", "description", "is_done", "task_id", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["created_at", Mon, 09 Mar 2015 20:07:35 PDT -07:00], ["description", "MyString"], ["is_done", nil], ["task_id", nil], ["updated_at", Mon, 09 Mar 2015 20:07:35 PDT -07:00]]
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (0.9ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.6ms)[0m  INSERT INTO "subtasks" ("created_at", "description", "is_done", "task_id", "updated_at") VALUES (?, ?, ?, ?, ?)  [["created_at", Mon, 09 Mar 2015 20:07:35 PDT -07:00], ["description", "MyString"], ["is_done", nil], ["task_id", nil], ["updated_at", Mon, 09 Mar 2015 20:07:35 PDT -07:00]]
+  [1m[36m (0.0ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.5ms)[0m  rollback transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.0ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.6ms)[0m  [1mINSERT INTO "subtasks" ("created_at", "description", "is_done", "task_id", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["created_at", Mon, 09 Mar 2015 20:07:35 PDT -07:00], ["description", "MyString"], ["is_done", nil], ["task_id", nil], ["updated_at", Mon, 09 Mar 2015 20:07:35 PDT -07:00]]
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (0.5ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.7ms)[0m  INSERT INTO "subtasks" ("created_at", "description", "is_done", "task_id", "updated_at") VALUES (?, ?, ?, ?, ?)  [["created_at", Mon, 09 Mar 2015 20:07:35 PDT -07:00], ["description", "MyString"], ["is_done", nil], ["task_id", nil], ["updated_at", Mon, 09 Mar 2015 20:07:35 PDT -07:00]]
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.5ms)[0m  rollback transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.0ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.6ms)[0m  [1mINSERT INTO "subtasks" ("created_at", "description", "is_done", "task_id", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["created_at", Mon, 09 Mar 2015 20:07:35 PDT -07:00], ["description", "MyString"], ["is_done", nil], ["task_id", nil], ["updated_at", Mon, 09 Mar 2015 20:07:35 PDT -07:00]]
+  [1m[35m (0.0ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (0.5ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.7ms)[0m  INSERT INTO "subtasks" ("created_at", "description", "is_done", "task_id", "updated_at") VALUES (?, ?, ?, ?, ?)  [["created_at", Mon, 09 Mar 2015 20:07:35 PDT -07:00], ["description", "MyString"], ["is_done", nil], ["task_id", nil], ["updated_at", Mon, 09 Mar 2015 20:07:35 PDT -07:00]]
+  [1m[36m (0.0ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.5ms)[0m  rollback transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.5ms)[0m  [1mINSERT INTO "subtasks" ("created_at", "description", "is_done", "task_id", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["created_at", Mon, 09 Mar 2015 20:07:35 PDT -07:00], ["description", "MyString"], ["is_done", nil], ["task_id", nil], ["updated_at", Mon, 09 Mar 2015 20:07:35 PDT -07:00]]
+  [1m[35m (0.0ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (0.5ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36m (0.0ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36m (0.0ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36m (0.1ms)[0m  [1mSELECT COUNT(*) FROM "subtasks" [0m
+  [1m[35m (0.1ms)[0m  rollback transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.0ms)[0m  rollback transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.0ms)[0m  rollback transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.0ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.5ms)[0m  [1mINSERT INTO "subtasks" ("created_at", "description", "is_done", "task_id", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["created_at", Mon, 09 Mar 2015 20:07:35 PDT -07:00], ["description", "MyString"], ["is_done", nil], ["task_id", nil], ["updated_at", Mon, 09 Mar 2015 20:07:35 PDT -07:00]]
+  [1m[35m (0.0ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (0.1ms)[0m  [1mSELECT COUNT(*) FROM "subtasks" [0m
+  [1m[35m (0.4ms)[0m  rollback transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.0ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.5ms)[0m  [1mINSERT INTO "subtasks" ("created_at", "description", "is_done", "task_id", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["created_at", Mon, 09 Mar 2015 20:07:35 PDT -07:00], ["description", "MyString"], ["is_done", nil], ["task_id", nil], ["updated_at", Mon, 09 Mar 2015 20:07:35 PDT -07:00]]
+  [1m[35m (0.0ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (0.4ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36m (0.0ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36m (0.0ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.6ms)[0m  INSERT INTO "subtasks" ("created_at", "description", "is_done", "task_id", "updated_at") VALUES (?, ?, ?, ?, ?)  [["created_at", Mon, 09 Mar 2015 20:07:35 PDT -07:00], ["description", "MyString"], ["is_done", nil], ["task_id", nil], ["updated_at", Mon, 09 Mar 2015 20:07:35 PDT -07:00]]
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (1.8ms)[0m  rollback transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.1ms)[0m  rollback transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.1ms)[0m  rollback transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.0ms)[0m  rollback transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.0ms)[0m  rollback transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.0ms)[0m  rollback transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.0ms)[0m  rollback transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.0ms)[0m  rollback transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.1ms)[0m  rollback transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  Rendered subtasks/_form.html.erb (78.7ms)
+  [1m[35m (0.1ms)[0m  rollback transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.0ms)[0m  rollback transaction
+Connecting to database specified by database.yml
+  [1m[36m (0.4ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.1ms)[0m  rollback transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.0ms)[0m  rollback transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35m (1.4ms)[0m  SELECT COUNT(*) FROM "subtasks" 
+  [1m[36m (0.0ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36m (0.0ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36m (0.0ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36m (0.0ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (6.3ms)[0m  INSERT INTO "subtasks" ("created_at", "description", "is_done", "task_id", "updated_at") VALUES (?, ?, ?, ?, ?)  [["created_at", Mon, 09 Mar 2015 20:18:17 PDT -07:00], ["description", "MyString"], ["is_done", nil], ["task_id", nil], ["updated_at", Mon, 09 Mar 2015 20:18:17 PDT -07:00]]
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (1.9ms)[0m  rollback transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.0ms)[0m  rollback transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.0ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.5ms)[0m  [1mINSERT INTO "subtasks" ("created_at", "description", "is_done", "task_id", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["created_at", Mon, 09 Mar 2015 20:18:17 PDT -07:00], ["description", "MyString"], ["is_done", nil], ["task_id", nil], ["updated_at", Mon, 09 Mar 2015 20:18:17 PDT -07:00]]
+  [1m[35m (0.0ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (0.1ms)[0m  [1mSELECT COUNT(*) FROM "subtasks" [0m
+  [1m[35m (0.4ms)[0m  rollback transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.0ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.4ms)[0m  [1mINSERT INTO "subtasks" ("created_at", "description", "is_done", "task_id", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["created_at", Mon, 09 Mar 2015 20:18:17 PDT -07:00], ["description", "MyString"], ["is_done", nil], ["task_id", nil], ["updated_at", Mon, 09 Mar 2015 20:18:17 PDT -07:00]]
+  [1m[35m (0.0ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (0.4ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36m (0.0ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.4ms)[0m  INSERT INTO "subtasks" ("created_at", "description", "is_done", "task_id", "updated_at") VALUES (?, ?, ?, ?, ?)  [["created_at", Mon, 09 Mar 2015 20:18:17 PDT -07:00], ["description", "MyString"], ["is_done", nil], ["task_id", nil], ["updated_at", Mon, 09 Mar 2015 20:18:17 PDT -07:00]]
+  [1m[36m (0.0ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.4ms)[0m  rollback transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.7ms)[0m  [1mINSERT INTO "subtasks" ("created_at", "description", "is_done", "task_id", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["created_at", Mon, 09 Mar 2015 20:18:17 PDT -07:00], ["description", "MyString"], ["is_done", nil], ["task_id", nil], ["updated_at", Mon, 09 Mar 2015 20:18:17 PDT -07:00]]
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (0.5ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (1.2ms)[0m  INSERT INTO "subtasks" ("created_at", "description", "is_done", "task_id", "updated_at") VALUES (?, ?, ?, ?, ?)  [["created_at", Mon, 09 Mar 2015 20:18:17 PDT -07:00], ["description", "MyString"], ["is_done", nil], ["task_id", nil], ["updated_at", Mon, 09 Mar 2015 20:18:17 PDT -07:00]]
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.6ms)[0m  rollback transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.5ms)[0m  [1mINSERT INTO "subtasks" ("created_at", "description", "is_done", "task_id", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["created_at", Mon, 09 Mar 2015 20:18:17 PDT -07:00], ["description", "MyString"], ["is_done", nil], ["task_id", nil], ["updated_at", Mon, 09 Mar 2015 20:18:17 PDT -07:00]]
+  [1m[35m (0.0ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (0.8ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.5ms)[0m  INSERT INTO "subtasks" ("created_at", "description", "is_done", "task_id", "updated_at") VALUES (?, ?, ?, ?, ?)  [["created_at", Mon, 09 Mar 2015 20:18:17 PDT -07:00], ["description", "MyString"], ["is_done", nil], ["task_id", nil], ["updated_at", Mon, 09 Mar 2015 20:18:17 PDT -07:00]]
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.4ms)[0m  rollback transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.0ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.5ms)[0m  [1mINSERT INTO "subtasks" ("created_at", "description", "is_done", "task_id", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["created_at", Mon, 09 Mar 2015 20:18:17 PDT -07:00], ["description", "MyString"], ["is_done", nil], ["task_id", nil], ["updated_at", Mon, 09 Mar 2015 20:18:17 PDT -07:00]]
+  [1m[35m (0.0ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (0.4ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36m (0.0ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.5ms)[0m  INSERT INTO "subtasks" ("created_at", "description", "is_done", "task_id", "updated_at") VALUES (?, ?, ?, ?, ?)  [["created_at", Mon, 09 Mar 2015 20:18:17 PDT -07:00], ["description", "MyString"], ["is_done", nil], ["task_id", nil], ["updated_at", Mon, 09 Mar 2015 20:18:17 PDT -07:00]]
+  [1m[36m (0.0ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.4ms)[0m  rollback transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.1ms)[0m  rollback transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.0ms)[0m  rollback transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  Rendered subtasks/_form.html.erb (42.7ms)
+  [1m[35m (0.1ms)[0m  rollback transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.1ms)[0m  rollback transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.0ms)[0m  rollback transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.0ms)[0m  rollback transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.0ms)[0m  rollback transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.0ms)[0m  rollback transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.0ms)[0m  rollback transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.0ms)[0m  rollback transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  Rendered subtasks/_form.html.erb (69.1ms)
+  [1m[35m (0.1ms)[0m  rollback transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.1ms)[0m  rollback transaction
+Connecting to database specified by database.yml
+  [1m[36m (0.4ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36m (0.1ms)[0m  [1mROLLBACK TO SAVEPOINT active_record_1[0m
+  [1m[35m (0.0ms)[0m  rollback transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.0ms)[0m  SAVEPOINT active_record_1
+  [1m[36m (0.0ms)[0m  [1mROLLBACK TO SAVEPOINT active_record_1[0m
+  [1m[35m (0.0ms)[0m  rollback transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.0ms)[0m  SAVEPOINT active_record_1
+  [1m[36m (0.0ms)[0m  [1mROLLBACK TO SAVEPOINT active_record_1[0m
+  [1m[35m (0.0ms)[0m  rollback transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.0ms)[0m  SAVEPOINT active_record_1
+  [1m[36m (0.0ms)[0m  [1mROLLBACK TO SAVEPOINT active_record_1[0m
+  [1m[35m (0.0ms)[0m  rollback transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.0ms)[0m  SAVEPOINT active_record_1
+  [1m[36m (0.0ms)[0m  [1mROLLBACK TO SAVEPOINT active_record_1[0m
+  [1m[35m (0.0ms)[0m  rollback transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.0ms)[0m  SAVEPOINT active_record_1
+  [1m[36m (0.0ms)[0m  [1mROLLBACK TO SAVEPOINT active_record_1[0m
+  [1m[35m (0.0ms)[0m  rollback transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.0ms)[0m  SAVEPOINT active_record_1
+  [1m[36m (0.0ms)[0m  [1mROLLBACK TO SAVEPOINT active_record_1[0m
+  [1m[35m (0.0ms)[0m  rollback transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.0ms)[0m  SAVEPOINT active_record_1
+  [1m[36m (0.0ms)[0m  [1mROLLBACK TO SAVEPOINT active_record_1[0m
+  [1m[35m (0.0ms)[0m  rollback transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+Processing by TasksController#create as HTML
+  Parameters: {"task"=>{"title"=>"MyString"}}
+Completed 500 Internal Server Error in 0.3ms
+  [1m[35m (0.1ms)[0m  rollback transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35m (1.6ms)[0m  SELECT COUNT(*) FROM "tasks" 
+Processing by TasksController#create as HTML
+  Parameters: {"task"=>{"title"=>"MyString"}}
+Completed 500 Internal Server Error in 0.2ms
+  [1m[36m (0.1ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+Processing by TasksController#create as HTML
+  Parameters: {"task"=>{"title"=>"MyString"}}
+Completed 500 Internal Server Error in 0.2ms
+  [1m[36m (0.0ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+Processing by TasksController#create as HTML
+  Parameters: {"task"=>{"title"=>"invalid value"}}
+Completed 500 Internal Server Error in 0.2ms
+  [1m[36m (0.0ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+Processing by TasksController#create as HTML
+  Parameters: {"task"=>{"title"=>"invalid value"}}
+Completed 500 Internal Server Error in 0.1ms
+  [1m[36m (0.0ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36m (0.0ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35m (0.0ms)[0m  ROLLBACK TO SAVEPOINT active_record_1
+  [1m[36m (0.0ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+Processing by TasksController#new as HTML
+Completed 200 OK in 10.3ms (Views: 9.8ms | ActiveRecord: 0.0ms)
+  [1m[36m (0.1ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36m (0.0ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35m (0.0ms)[0m  ROLLBACK TO SAVEPOINT active_record_1
+  [1m[36m (0.0ms)[0m  [1mrollback transaction[0m
+Connecting to database specified by database.yml
+  [1m[36m (0.4ms)[0m  [1mbegin transaction[0m
+  Rendered tasks/_form.html.erb (21.3ms)
+  Rendered tasks/edit.html.erb (28.4ms)
+  [1m[35m (0.1ms)[0m  rollback transaction
+Connecting to database specified by database.yml
+  [1m[36m (0.4ms)[0m  [1mbegin transaction[0m
+  Rendered tasks/index.html.erb (3.1ms)
+  [1m[35m (0.1ms)[0m  rollback transaction
+Connecting to database specified by database.yml
+  [1m[36m (0.4ms)[0m  [1mbegin transaction[0m
+  Rendered tasks/_form.html.erb (24.4ms)
+  Rendered tasks/new.html.erb (32.1ms)
+  [1m[35m (0.1ms)[0m  rollback transaction
+Connecting to database specified by database.yml
+  [1m[36m (0.4ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.0ms)[0m  SAVEPOINT active_record_1
+  [1m[36m (0.1ms)[0m  [1mROLLBACK TO SAVEPOINT active_record_1[0m
+  [1m[35m (0.0ms)[0m  rollback transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+Processing by TasksController#new as HTML
+Completed 200 OK in 11.9ms (Views: 11.4ms | ActiveRecord: 0.0ms)
+  [1m[35m (0.1ms)[0m  rollback transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.0ms)[0m  SAVEPOINT active_record_1
+  [1m[36m (0.0ms)[0m  [1mROLLBACK TO SAVEPOINT active_record_1[0m
+  [1m[35m (0.0ms)[0m  rollback transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35m (1.6ms)[0m  SELECT COUNT(*) FROM "tasks" 
+Processing by TasksController#create as HTML
+  Parameters: {"task"=>{"title"=>"MyString"}}
+Completed 500 Internal Server Error in 0.3ms
+  [1m[36m (0.1ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+Processing by TasksController#create as HTML
+  Parameters: {"task"=>{"title"=>"MyString"}}
+Completed 500 Internal Server Error in 0.1ms
+  [1m[36m (0.0ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+Processing by TasksController#create as HTML
+  Parameters: {"task"=>{"title"=>"MyString"}}
+Completed 500 Internal Server Error in 0.2ms
+  [1m[36m (0.1ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+Processing by TasksController#create as HTML
+  Parameters: {"task"=>{"title"=>"invalid value"}}
+Completed 500 Internal Server Error in 0.2ms
+  [1m[36m (0.0ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+Processing by TasksController#create as HTML
+  Parameters: {"task"=>{"title"=>"invalid value"}}
+Completed 500 Internal Server Error in 0.2ms
+  [1m[36m (0.0ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36m (0.0ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35m (0.0ms)[0m  ROLLBACK TO SAVEPOINT active_record_1
+  [1m[36m (0.0ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36m (0.0ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35m (0.0ms)[0m  ROLLBACK TO SAVEPOINT active_record_1
+  [1m[36m (0.0ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36m (0.0ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35m (0.0ms)[0m  ROLLBACK TO SAVEPOINT active_record_1
+  [1m[36m (0.0ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36m (0.0ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35m (0.0ms)[0m  ROLLBACK TO SAVEPOINT active_record_1
+  [1m[36m (0.0ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35m (0.0ms)[0m  ROLLBACK TO SAVEPOINT active_record_1
+  [1m[36m (0.0ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36m (0.0ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35m (0.0ms)[0m  ROLLBACK TO SAVEPOINT active_record_1
+  [1m[36m (0.0ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36m (0.0ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35m (0.0ms)[0m  ROLLBACK TO SAVEPOINT active_record_1
+  [1m[36m (0.0ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36m (0.0ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  ROLLBACK TO SAVEPOINT active_record_1
+  [1m[36m (0.1ms)[0m  [1mrollback transaction[0m
+Connecting to database specified by database.yml
+  [1m[36m (0.4ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (10.1ms)[0m  [1mINSERT INTO "tasks" ("course", "created_at", "due", "kind", "release", "status", "title", "updated_at", "user_id") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["course", "CS169"], ["created_at", Mon, 09 Mar 2015 22:20:46 PDT -07:00], ["due", Fri, 20 Mar 2015 00:59:00 PDT -07:00], ["kind", "Exam"], ["release", Fri, 13 Mar 2015 00:59:00 PDT -07:00], ["status", "New"], ["title", "Quiz#2"], ["updated_at", Mon, 09 Mar 2015 22:20:46 PDT -07:00], ["user_id", 1]]
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+Processing by TasksController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mTask Load (0.1ms)[0m  [1mSELECT "tasks".* FROM "tasks" WHERE "tasks"."id" = ? LIMIT 1[0m  [["id", "1"]]
+  Rendered tasks/show.html.erb within layouts/application (0.2ms)
+Completed 200 OK in 16.6ms (Views: 14.5ms | ActiveRecord: 0.1ms)
+  [1m[35m (0.5ms)[0m  rollback transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.0ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.5ms)[0m  [1mINSERT INTO "tasks" ("course", "created_at", "due", "kind", "release", "status", "title", "updated_at", "user_id") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["course", "CS169"], ["created_at", Mon, 09 Mar 2015 22:20:46 PDT -07:00], ["due", Fri, 20 Mar 2015 00:59:00 PDT -07:00], ["kind", "Exam"], ["release", Fri, 13 Mar 2015 00:59:00 PDT -07:00], ["status", "New"], ["title", "Quiz#2"], ["updated_at", Mon, 09 Mar 2015 22:20:46 PDT -07:00], ["user_id", 1]]
+  [1m[35m (0.0ms)[0m  RELEASE SAVEPOINT active_record_1
+Processing by TasksController#edit as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mTask Load (0.1ms)[0m  [1mSELECT "tasks".* FROM "tasks" WHERE "tasks"."id" = ? LIMIT 1[0m  [["id", "1"]]
+Completed 200 OK in 2.6ms (Views: 1.7ms | ActiveRecord: 0.1ms)
+  [1m[35m (0.5ms)[0m  rollback transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+Processing by TasksController#new as HTML
+Completed 200 OK in 1.9ms (Views: 1.5ms | ActiveRecord: 0.0ms)
+  [1m[35m (0.1ms)[0m  rollback transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+Processing by TasksController#create as HTML
+  Parameters: {"task"=>{"title"=>"Quiz#2", "course"=>"CS169", "kind"=>"Exam", "release"=>"12/Mar/2015 23:59:00 -0800", "due"=>"19/Mar/2015 23:59:00 -0800", "status"=>"New", "user_id"=>"1"}}
+Completed 500 Internal Server Error in 0.3ms
+  [1m[35m (0.0ms)[0m  rollback transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.1ms)[0m  SELECT COUNT(*) FROM "tasks" 
+Processing by TasksController#create as HTML
+  Parameters: {"task"=>{"title"=>"Quiz#2", "course"=>"CS169", "kind"=>"Exam", "release"=>"12/Mar/2015 23:59:00 -0800", "due"=>"19/Mar/2015 23:59:00 -0800", "status"=>"New", "user_id"=>"1"}}
+Completed 500 Internal Server Error in 0.2ms
+  [1m[36m (0.1ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+Processing by TasksController#create as HTML
+  Parameters: {"task"=>{"title"=>"Quiz#2", "course"=>"CS169", "kind"=>"Exam", "release"=>"12/Mar/2015 23:59:00 -0800", "due"=>"19/Mar/2015 23:59:00 -0800", "status"=>"New", "user_id"=>"1"}}
+Completed 500 Internal Server Error in 0.2ms
+  [1m[36m (0.0ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+Processing by TasksController#create as HTML
+  Parameters: {"task"=>{"title"=>"invalid value"}}
+Completed 500 Internal Server Error in 0.2ms
+  [1m[36m (0.0ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+Processing by TasksController#create as HTML
+  Parameters: {"task"=>{"title"=>"invalid value"}}
+Completed 500 Internal Server Error in 0.2ms
+  [1m[36m (0.0ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.5ms)[0m  INSERT INTO "tasks" ("course", "created_at", "due", "kind", "release", "status", "title", "updated_at", "user_id") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)  [["course", "CS169"], ["created_at", Mon, 09 Mar 2015 22:20:46 PDT -07:00], ["due", Fri, 20 Mar 2015 00:59:00 PDT -07:00], ["kind", "Exam"], ["release", Fri, 13 Mar 2015 00:59:00 PDT -07:00], ["status", "New"], ["title", "Quiz#2"], ["updated_at", Mon, 09 Mar 2015 22:20:46 PDT -07:00], ["user_id", 1]]
+  [1m[36m (0.0ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  SELECT COUNT(*) FROM "tasks" 
+Processing by TasksController#destroy as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mTask Load (0.1ms)[0m  [1mSELECT "tasks".* FROM "tasks" WHERE "tasks"."id" = ? LIMIT 1[0m  [["id", "1"]]
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (1.4ms)[0m  [1mDELETE FROM "tasks" WHERE "tasks"."id" = ?[0m  [["id", 1]]
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+Redirected to http://test.host/tasks
+Completed 302 Found in 4.5ms (ActiveRecord: 1.6ms)
+  [1m[36m (0.1ms)[0m  [1mSELECT COUNT(*) FROM "tasks" [0m
+  [1m[35m (0.8ms)[0m  rollback transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.0ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.6ms)[0m  [1mINSERT INTO "tasks" ("course", "created_at", "due", "kind", "release", "status", "title", "updated_at", "user_id") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["course", "CS169"], ["created_at", Mon, 09 Mar 2015 22:20:46 PDT -07:00], ["due", Fri, 20 Mar 2015 00:59:00 PDT -07:00], ["kind", "Exam"], ["release", Fri, 13 Mar 2015 00:59:00 PDT -07:00], ["status", "New"], ["title", "Quiz#2"], ["updated_at", Mon, 09 Mar 2015 22:20:46 PDT -07:00], ["user_id", 1]]
+  [1m[35m (0.0ms)[0m  RELEASE SAVEPOINT active_record_1
+Processing by TasksController#destroy as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mTask Load (0.0ms)[0m  [1mSELECT "tasks".* FROM "tasks" WHERE "tasks"."id" = ? LIMIT 1[0m  [["id", "1"]]
+  [1m[35m (0.0ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.3ms)[0m  [1mDELETE FROM "tasks" WHERE "tasks"."id" = ?[0m  [["id", 1]]
+  [1m[35m (0.0ms)[0m  RELEASE SAVEPOINT active_record_1
+Redirected to http://test.host/tasks
+Completed 302 Found in 1.6ms (ActiveRecord: 0.4ms)
+  [1m[36m (0.8ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36m (0.0ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.5ms)[0m  INSERT INTO "tasks" ("course", "created_at", "due", "kind", "release", "status", "title", "updated_at", "user_id") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)  [["course", "CS169"], ["created_at", Mon, 09 Mar 2015 22:20:46 PDT -07:00], ["due", Fri, 20 Mar 2015 00:59:00 PDT -07:00], ["kind", "Exam"], ["release", Fri, 13 Mar 2015 00:59:00 PDT -07:00], ["status", "New"], ["title", "Quiz#2"], ["updated_at", Mon, 09 Mar 2015 22:20:46 PDT -07:00], ["user_id", 1]]
+  [1m[36m (0.0ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+Processing by TasksController#update as HTML
+  Parameters: {"task"=>{"title"=>"Quiz#2", "course"=>"CS169", "kind"=>"Exam", "release"=>"12/Mar/2015 23:59:00 -0800", "due"=>"19/Mar/2015 23:59:00 -0800", "status"=>"New", "user_id"=>"1"}, "id"=>"1"}
+  [1m[35mTask Load (0.1ms)[0m  SELECT "tasks".* FROM "tasks" WHERE "tasks"."id" = ? LIMIT 1  [["id", "1"]]
+  [1m[36m (0.0ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35m (0.5ms)[0m  UPDATE "tasks" SET "release" = '2015-03-13 07:59:00.000000', "due" = '2015-03-20 07:59:00.000000', "updated_at" = '2015-03-10 05:20:46.921318' WHERE "tasks"."id" = 1
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+Redirected to http://test.host/tasks/1
+Completed 302 Found in 6.5ms (ActiveRecord: 0.6ms)
+  [1m[35m (0.8ms)[0m  rollback transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.0ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.5ms)[0m  [1mINSERT INTO "tasks" ("course", "created_at", "due", "kind", "release", "status", "title", "updated_at", "user_id") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["course", "CS169"], ["created_at", Mon, 09 Mar 2015 22:20:46 PDT -07:00], ["due", Fri, 20 Mar 2015 00:59:00 PDT -07:00], ["kind", "Exam"], ["release", Fri, 13 Mar 2015 00:59:00 PDT -07:00], ["status", "New"], ["title", "Quiz#2"], ["updated_at", Mon, 09 Mar 2015 22:20:46 PDT -07:00], ["user_id", 1]]
+  [1m[35m (0.0ms)[0m  RELEASE SAVEPOINT active_record_1
+Processing by TasksController#update as HTML
+  Parameters: {"task"=>{"title"=>"MyString"}, "id"=>"1"}
+  [1m[36mTask Load (0.1ms)[0m  [1mSELECT "tasks".* FROM "tasks" WHERE "tasks"."id" = ? LIMIT 1[0m  [["id", "1"]]
+Completed 200 OK in 2.1ms (Views: 0.9ms | ActiveRecord: 0.1ms)
+  [1m[35m (0.5ms)[0m  rollback transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.6ms)[0m  [1mINSERT INTO "tasks" ("course", "created_at", "due", "kind", "release", "status", "title", "updated_at", "user_id") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["course", "CS169"], ["created_at", Mon, 09 Mar 2015 22:20:46 PDT -07:00], ["due", Fri, 20 Mar 2015 00:59:00 PDT -07:00], ["kind", "Exam"], ["release", Fri, 13 Mar 2015 00:59:00 PDT -07:00], ["status", "New"], ["title", "Quiz#2"], ["updated_at", Mon, 09 Mar 2015 22:20:46 PDT -07:00], ["user_id", 1]]
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+Processing by TasksController#update as HTML
+  Parameters: {"task"=>{"title"=>"Quiz#2", "course"=>"CS169", "kind"=>"Exam", "release"=>"12/Mar/2015 23:59:00 -0800", "due"=>"19/Mar/2015 23:59:00 -0800", "status"=>"New", "user_id"=>"1"}, "id"=>"1"}
+  [1m[36mTask Load (0.1ms)[0m  [1mSELECT "tasks".* FROM "tasks" WHERE "tasks"."id" = ? LIMIT 1[0m  [["id", "1"]]
+  [1m[35m (0.0ms)[0m  SAVEPOINT active_record_1
+  [1m[36m (0.4ms)[0m  [1mUPDATE "tasks" SET "release" = '2015-03-13 07:59:00.000000', "due" = '2015-03-20 07:59:00.000000', "updated_at" = '2015-03-10 05:20:46.944426' WHERE "tasks"."id" = 1[0m
+  [1m[35m (0.0ms)[0m  RELEASE SAVEPOINT active_record_1
+Redirected to http://test.host/tasks/1
+Completed 302 Found in 4.8ms (ActiveRecord: 0.5ms)
+  [1m[36m (0.8ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36m (0.0ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.5ms)[0m  INSERT INTO "tasks" ("course", "created_at", "due", "kind", "release", "status", "title", "updated_at", "user_id") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)  [["course", "CS169"], ["created_at", Mon, 09 Mar 2015 22:20:46 PDT -07:00], ["due", Fri, 20 Mar 2015 00:59:00 PDT -07:00], ["kind", "Exam"], ["release", Fri, 13 Mar 2015 00:59:00 PDT -07:00], ["status", "New"], ["title", "Quiz#2"], ["updated_at", Mon, 09 Mar 2015 22:20:46 PDT -07:00], ["user_id", 1]]
+  [1m[36m (0.0ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+Processing by TasksController#update as HTML
+  Parameters: {"task"=>{"title"=>"invalid value"}, "id"=>"1"}
+  [1m[35mTask Load (0.1ms)[0m  SELECT "tasks".* FROM "tasks" WHERE "tasks"."id" = ? LIMIT 1  [["id", "1"]]
+  [1m[36m (0.0ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35m (0.0ms)[0m  ROLLBACK TO SAVEPOINT active_record_1
+Completed 200 OK in 2.8ms (Views: 1.0ms | ActiveRecord: 0.1ms)
+  [1m[36m (0.6ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36m (0.0ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.6ms)[0m  INSERT INTO "tasks" ("course", "created_at", "due", "kind", "release", "status", "title", "updated_at", "user_id") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)  [["course", "CS169"], ["created_at", Mon, 09 Mar 2015 22:20:46 PDT -07:00], ["due", Fri, 20 Mar 2015 00:59:00 PDT -07:00], ["kind", "Exam"], ["release", Fri, 13 Mar 2015 00:59:00 PDT -07:00], ["status", "New"], ["title", "Quiz#2"], ["updated_at", Mon, 09 Mar 2015 22:20:46 PDT -07:00], ["user_id", 1]]
+  [1m[36m (0.0ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+Processing by TasksController#update as HTML
+  Parameters: {"task"=>{"title"=>"invalid value"}, "id"=>"1"}
+  [1m[35mTask Load (0.1ms)[0m  SELECT "tasks".* FROM "tasks" WHERE "tasks"."id" = ? LIMIT 1  [["id", "1"]]
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35m (28.4ms)[0m  ROLLBACK TO SAVEPOINT active_record_1
+Completed 200 OK in 31.8ms (Views: 0.9ms | ActiveRecord: 28.5ms)
+  [1m[36m (0.8ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36m (0.0ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.5ms)[0m  INSERT INTO "tasks" ("course", "created_at", "due", "kind", "release", "status", "title", "updated_at", "user_id") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)  [["course", "CS169"], ["created_at", Mon, 09 Mar 2015 22:20:47 PDT -07:00], ["due", Fri, 20 Mar 2015 00:59:00 PDT -07:00], ["kind", "Exam"], ["release", Fri, 13 Mar 2015 00:59:00 PDT -07:00], ["status", "New"], ["title", "Quiz#2"], ["updated_at", Mon, 09 Mar 2015 22:20:47 PDT -07:00], ["user_id", 1]]
+  [1m[36m (0.0ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+Processing by TasksController#index as HTML
+Completed 500 Internal Server Error in 0.3ms
+  [1m[35m (0.5ms)[0m  rollback transaction
+Connecting to database specified by database.yml
+  [1m[36m (0.5ms)[0m  [1mbegin transaction[0m
+Processing by TasksController#create as HTML
+  Parameters: {"task"=>{"title"=>"MyString"}}
+Completed 500 Internal Server Error in 0.3ms
+  [1m[35m (0.1ms)[0m  rollback transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+Processing by TasksController#create as HTML
+  Parameters: {"task"=>{"title"=>"MyString"}}
+Completed 500 Internal Server Error in 0.2ms
+  [1m[35m (0.0ms)[0m  rollback transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35m (1.6ms)[0m  SELECT COUNT(*) FROM "tasks" 
+Processing by TasksController#create as HTML
+  Parameters: {"task"=>{"title"=>"MyString"}}
+Completed 500 Internal Server Error in 0.2ms
+  [1m[36m (0.1ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+Processing by TasksController#create as HTML
+  Parameters: {"task"=>{"title"=>"invalid value"}}
+Completed 500 Internal Server Error in 0.2ms
+  [1m[36m (0.0ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+Processing by TasksController#create as HTML
+  Parameters: {"task"=>{"title"=>"invalid value"}}
+Completed 500 Internal Server Error in 0.2ms
+  [1m[36m (0.0ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  ROLLBACK TO SAVEPOINT active_record_1
+  [1m[36m (0.0ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36m (0.0ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35m (0.0ms)[0m  ROLLBACK TO SAVEPOINT active_record_1
+  [1m[36m (0.0ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35m (0.0ms)[0m  ROLLBACK TO SAVEPOINT active_record_1
+  [1m[36m (0.0ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36m (0.0ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35m (0.0ms)[0m  ROLLBACK TO SAVEPOINT active_record_1
+  [1m[36m (0.0ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36m (0.0ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35m (0.0ms)[0m  ROLLBACK TO SAVEPOINT active_record_1
+  [1m[36m (0.1ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+Processing by TasksController#new as HTML
+Completed 200 OK in 10.2ms (Views: 9.7ms | ActiveRecord: 0.0ms)
+  [1m[36m (0.1ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36m (0.0ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35m (0.0ms)[0m  ROLLBACK TO SAVEPOINT active_record_1
+  [1m[36m (0.1ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36m (0.0ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  ROLLBACK TO SAVEPOINT active_record_1
+  [1m[36m (0.0ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36m (0.0ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35m (0.0ms)[0m  ROLLBACK TO SAVEPOINT active_record_1
+  [1m[36m (0.1ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36m (0.0ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35m (0.0ms)[0m  ROLLBACK TO SAVEPOINT active_record_1
+  [1m[36m (0.0ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35m (0.0ms)[0m  ROLLBACK TO SAVEPOINT active_record_1
+  [1m[36m (0.0ms)[0m  [1mrollback transaction[0m
+Connecting to database specified by database.yml
+  [1m[36m (0.4ms)[0m  [1mbegin transaction[0m
+  [1m[35m (1.5ms)[0m  SELECT COUNT(*) FROM "tasks" 
+Processing by TasksController#create as HTML
+  Parameters: {"task"=>{"title"=>"Quiz#2", "course"=>"CS169", "kind"=>"Exam", "release"=>"12/Mar/2015 23:59:00 -0800", "due"=>"19/Mar/2015 23:59:00 -0800", "status"=>"New", "user_id"=>"1"}}
+Completed 500 Internal Server Error in 0.3ms
+  [1m[36m (0.1ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+Processing by TasksController#create as HTML
+  Parameters: {"task"=>{"title"=>"Quiz#2", "course"=>"CS169", "kind"=>"Exam", "release"=>"12/Mar/2015 23:59:00 -0800", "due"=>"19/Mar/2015 23:59:00 -0800", "status"=>"New", "user_id"=>"1"}}
+Completed 500 Internal Server Error in 0.2ms
+  [1m[36m (0.1ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+Processing by TasksController#create as HTML
+  Parameters: {"task"=>{"title"=>"Quiz#2", "course"=>"CS169", "kind"=>"Exam", "release"=>"12/Mar/2015 23:59:00 -0800", "due"=>"19/Mar/2015 23:59:00 -0800", "status"=>"New", "user_id"=>"1"}}
+Completed 500 Internal Server Error in 0.2ms
+  [1m[36m (0.1ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+Processing by TasksController#create as HTML
+  Parameters: {"task"=>{"title"=>"invalid value"}}
+Completed 500 Internal Server Error in 0.3ms
+  [1m[36m (0.1ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+Processing by TasksController#create as HTML
+  Parameters: {"task"=>{"title"=>"invalid value"}}
+Completed 500 Internal Server Error in 0.5ms
+  [1m[36m (0.1ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (4.5ms)[0m  INSERT INTO "tasks" ("course", "created_at", "due", "kind", "release", "status", "title", "updated_at", "user_id") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)  [["course", "CS169"], ["created_at", Mon, 09 Mar 2015 22:21:50 PDT -07:00], ["due", Fri, 20 Mar 2015 00:59:00 PDT -07:00], ["kind", "Exam"], ["release", Fri, 13 Mar 2015 00:59:00 PDT -07:00], ["status", "New"], ["title", "Quiz#2"], ["updated_at", Mon, 09 Mar 2015 22:21:50 PDT -07:00], ["user_id", 1]]
+  [1m[36m (0.0ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+Processing by TasksController#edit as HTML
+  Parameters: {"id"=>"1"}
+  [1m[35mTask Load (0.1ms)[0m  SELECT "tasks".* FROM "tasks" WHERE "tasks"."id" = ? LIMIT 1  [["id", "1"]]
+Completed 200 OK in 15.8ms (Views: 13.7ms | ActiveRecord: 0.1ms)
+  [1m[36m (1.7ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36m (0.0ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.5ms)[0m  INSERT INTO "tasks" ("course", "created_at", "due", "kind", "release", "status", "title", "updated_at", "user_id") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)  [["course", "CS169"], ["created_at", Mon, 09 Mar 2015 22:21:50 PDT -07:00], ["due", Fri, 20 Mar 2015 00:59:00 PDT -07:00], ["kind", "Exam"], ["release", Fri, 13 Mar 2015 00:59:00 PDT -07:00], ["status", "New"], ["title", "Quiz#2"], ["updated_at", Mon, 09 Mar 2015 22:21:50 PDT -07:00], ["user_id", 1]]
+  [1m[36m (0.0ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+Processing by TasksController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[35mTask Load (0.1ms)[0m  SELECT "tasks".* FROM "tasks" WHERE "tasks"."id" = ? LIMIT 1  [["id", "1"]]
+Completed 200 OK in 3.5ms (Views: 1.9ms | ActiveRecord: 0.1ms)
+  [1m[36m (0.5ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+Processing by TasksController#new as HTML
+Completed 200 OK in 1.6ms (Views: 1.1ms | ActiveRecord: 0.0ms)
+  [1m[36m (0.1ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36m (0.0ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.7ms)[0m  INSERT INTO "tasks" ("course", "created_at", "due", "kind", "release", "status", "title", "updated_at", "user_id") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)  [["course", "CS169"], ["created_at", Mon, 09 Mar 2015 22:21:50 PDT -07:00], ["due", Fri, 20 Mar 2015 00:59:00 PDT -07:00], ["kind", "Exam"], ["release", Fri, 13 Mar 2015 00:59:00 PDT -07:00], ["status", "New"], ["title", "Quiz#2"], ["updated_at", Mon, 09 Mar 2015 22:21:50 PDT -07:00], ["user_id", 1]]
+  [1m[36m (0.0ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+Processing by TasksController#index as HTML
+Completed 500 Internal Server Error in 0.3ms
+  [1m[35m (0.4ms)[0m  rollback transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.0ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.5ms)[0m  [1mINSERT INTO "tasks" ("course", "created_at", "due", "kind", "release", "status", "title", "updated_at", "user_id") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["course", "CS169"], ["created_at", Mon, 09 Mar 2015 22:21:50 PDT -07:00], ["due", Fri, 20 Mar 2015 00:59:00 PDT -07:00], ["kind", "Exam"], ["release", Fri, 13 Mar 2015 00:59:00 PDT -07:00], ["status", "New"], ["title", "Quiz#2"], ["updated_at", Mon, 09 Mar 2015 22:21:50 PDT -07:00], ["user_id", 1]]
+  [1m[35m (0.0ms)[0m  RELEASE SAVEPOINT active_record_1
+Processing by TasksController#update as HTML
+  Parameters: {"task"=>{"title"=>"MyString"}, "id"=>"1"}
+  [1m[36mTask Load (0.1ms)[0m  [1mSELECT "tasks".* FROM "tasks" WHERE "tasks"."id" = ? LIMIT 1[0m  [["id", "1"]]
+Completed 200 OK in 3.4ms (Views: 1.4ms | ActiveRecord: 0.1ms)
+  [1m[35m (0.5ms)[0m  rollback transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.0ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.5ms)[0m  [1mINSERT INTO "tasks" ("course", "created_at", "due", "kind", "release", "status", "title", "updated_at", "user_id") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["course", "CS169"], ["created_at", Mon, 09 Mar 2015 22:21:50 PDT -07:00], ["due", Fri, 20 Mar 2015 00:59:00 PDT -07:00], ["kind", "Exam"], ["release", Fri, 13 Mar 2015 00:59:00 PDT -07:00], ["status", "New"], ["title", "Quiz#2"], ["updated_at", Mon, 09 Mar 2015 22:21:50 PDT -07:00], ["user_id", 1]]
+  [1m[35m (0.0ms)[0m  RELEASE SAVEPOINT active_record_1
+Processing by TasksController#update as HTML
+  Parameters: {"task"=>{"title"=>"Quiz#2", "course"=>"CS169", "kind"=>"Exam", "release"=>"12/Mar/2015 23:59:00 -0800", "due"=>"19/Mar/2015 23:59:00 -0800", "status"=>"New", "user_id"=>"1"}, "id"=>"1"}
+  [1m[36mTask Load (0.1ms)[0m  [1mSELECT "tasks".* FROM "tasks" WHERE "tasks"."id" = ? LIMIT 1[0m  [["id", "1"]]
+  [1m[35m (0.0ms)[0m  SAVEPOINT active_record_1
+  [1m[36m (1.2ms)[0m  [1mUPDATE "tasks" SET "release" = '2015-03-13 07:59:00.000000', "due" = '2015-03-20 07:59:00.000000', "updated_at" = '2015-03-10 05:21:50.307487' WHERE "tasks"."id" = 1[0m
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+Redirected to http://test.host/tasks/1
+Completed 302 Found in 8.8ms (ActiveRecord: 1.4ms)
+  [1m[36m (2.8ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.7ms)[0m  INSERT INTO "tasks" ("course", "created_at", "due", "kind", "release", "status", "title", "updated_at", "user_id") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)  [["course", "CS169"], ["created_at", Mon, 09 Mar 2015 22:21:50 PDT -07:00], ["due", Fri, 20 Mar 2015 00:59:00 PDT -07:00], ["kind", "Exam"], ["release", Fri, 13 Mar 2015 00:59:00 PDT -07:00], ["status", "New"], ["title", "Quiz#2"], ["updated_at", Mon, 09 Mar 2015 22:21:50 PDT -07:00], ["user_id", 1]]
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+Processing by TasksController#update as HTML
+  Parameters: {"task"=>{"title"=>"Quiz#2", "course"=>"CS169", "kind"=>"Exam", "release"=>"12/Mar/2015 23:59:00 -0800", "due"=>"19/Mar/2015 23:59:00 -0800", "status"=>"New", "user_id"=>"1"}, "id"=>"1"}
+  [1m[35mTask Load (0.1ms)[0m  SELECT "tasks".* FROM "tasks" WHERE "tasks"."id" = ? LIMIT 1  [["id", "1"]]
+  [1m[36m (0.0ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35m (0.4ms)[0m  UPDATE "tasks" SET "release" = '2015-03-13 07:59:00.000000', "due" = '2015-03-20 07:59:00.000000', "updated_at" = '2015-03-10 05:21:50.328232' WHERE "tasks"."id" = 1
+  [1m[36m (0.0ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+Redirected to http://test.host/tasks/1
+Completed 302 Found in 4.5ms (ActiveRecord: 0.5ms)
+  [1m[35m (0.6ms)[0m  rollback transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.8ms)[0m  [1mINSERT INTO "tasks" ("course", "created_at", "due", "kind", "release", "status", "title", "updated_at", "user_id") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["course", "CS169"], ["created_at", Mon, 09 Mar 2015 22:21:50 PDT -07:00], ["due", Fri, 20 Mar 2015 00:59:00 PDT -07:00], ["kind", "Exam"], ["release", Fri, 13 Mar 2015 00:59:00 PDT -07:00], ["status", "New"], ["title", "Quiz#2"], ["updated_at", Mon, 09 Mar 2015 22:21:50 PDT -07:00], ["user_id", 1]]
+  [1m[35m (0.0ms)[0m  RELEASE SAVEPOINT active_record_1
+Processing by TasksController#update as HTML
+  Parameters: {"task"=>{"title"=>"invalid value"}, "id"=>"1"}
+  [1m[36mTask Load (0.1ms)[0m  [1mSELECT "tasks".* FROM "tasks" WHERE "tasks"."id" = ? LIMIT 1[0m  [["id", "1"]]
+  [1m[35m (0.0ms)[0m  SAVEPOINT active_record_1
+  [1m[36m (0.0ms)[0m  [1mROLLBACK TO SAVEPOINT active_record_1[0m
+Completed 200 OK in 3.7ms (Views: 1.2ms | ActiveRecord: 0.2ms)
+  [1m[35m (0.5ms)[0m  rollback transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.0ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.7ms)[0m  [1mINSERT INTO "tasks" ("course", "created_at", "due", "kind", "release", "status", "title", "updated_at", "user_id") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["course", "CS169"], ["created_at", Mon, 09 Mar 2015 22:21:50 PDT -07:00], ["due", Fri, 20 Mar 2015 00:59:00 PDT -07:00], ["kind", "Exam"], ["release", Fri, 13 Mar 2015 00:59:00 PDT -07:00], ["status", "New"], ["title", "Quiz#2"], ["updated_at", Mon, 09 Mar 2015 22:21:50 PDT -07:00], ["user_id", 1]]
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+Processing by TasksController#update as HTML
+  Parameters: {"task"=>{"title"=>"invalid value"}, "id"=>"1"}
+  [1m[36mTask Load (0.1ms)[0m  [1mSELECT "tasks".* FROM "tasks" WHERE "tasks"."id" = ? LIMIT 1[0m  [["id", "1"]]
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36m (0.0ms)[0m  [1mROLLBACK TO SAVEPOINT active_record_1[0m
+Completed 200 OK in 3.6ms (Views: 1.1ms | ActiveRecord: 0.2ms)
+  [1m[35m (0.5ms)[0m  rollback transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.6ms)[0m  [1mINSERT INTO "tasks" ("course", "created_at", "due", "kind", "release", "status", "title", "updated_at", "user_id") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["course", "CS169"], ["created_at", Mon, 09 Mar 2015 22:21:50 PDT -07:00], ["due", Fri, 20 Mar 2015 00:59:00 PDT -07:00], ["kind", "Exam"], ["release", Fri, 13 Mar 2015 00:59:00 PDT -07:00], ["status", "New"], ["title", "Quiz#2"], ["updated_at", Mon, 09 Mar 2015 22:21:50 PDT -07:00], ["user_id", 1]]
+  [1m[35m (0.0ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (0.1ms)[0m  [1mSELECT COUNT(*) FROM "tasks" [0m
+Processing by TasksController#destroy as HTML
+  Parameters: {"id"=>"1"}
+  [1m[35mTask Load (0.1ms)[0m  SELECT "tasks".* FROM "tasks" WHERE "tasks"."id" = ? LIMIT 1  [["id", "1"]]
+  [1m[36m (30.9ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.4ms)[0m  DELETE FROM "tasks" WHERE "tasks"."id" = ?  [["id", 1]]
+  [1m[36m (0.0ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+Redirected to http://test.host/tasks
+Completed 302 Found in 34.0ms (ActiveRecord: 31.3ms)
+  [1m[35m (0.1ms)[0m  SELECT COUNT(*) FROM "tasks" 
+  [1m[36m (0.6ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36m (0.0ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.5ms)[0m  INSERT INTO "tasks" ("course", "created_at", "due", "kind", "release", "status", "title", "updated_at", "user_id") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)  [["course", "CS169"], ["created_at", Mon, 09 Mar 2015 22:21:50 PDT -07:00], ["due", Fri, 20 Mar 2015 00:59:00 PDT -07:00], ["kind", "Exam"], ["release", Fri, 13 Mar 2015 00:59:00 PDT -07:00], ["status", "New"], ["title", "Quiz#2"], ["updated_at", Mon, 09 Mar 2015 22:21:50 PDT -07:00], ["user_id", 1]]
+  [1m[36m (0.0ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+Processing by TasksController#destroy as HTML
+  Parameters: {"id"=>"1"}
+  [1m[35mTask Load (0.1ms)[0m  SELECT "tasks".* FROM "tasks" WHERE "tasks"."id" = ? LIMIT 1  [["id", "1"]]
+  [1m[36m (0.0ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.3ms)[0m  DELETE FROM "tasks" WHERE "tasks"."id" = ?  [["id", 1]]
+  [1m[36m (0.0ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+Redirected to http://test.host/tasks
+Completed 302 Found in 2.2ms (ActiveRecord: 0.5ms)
+  [1m[35m (0.7ms)[0m  rollback transaction
+Connecting to database specified by database.yml
+  [1m[36m (0.5ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (6.3ms)[0m  [1mINSERT INTO "tasks" ("course", "created_at", "due", "kind", "release", "status", "title", "updated_at", "user_id") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["course", "CS169"], ["created_at", Mon, 09 Mar 2015 22:26:55 PDT -07:00], ["due", Fri, 20 Mar 2015 00:59:00 PDT -07:00], ["kind", "Exam"], ["release", Fri, 13 Mar 2015 00:59:00 PDT -07:00], ["status", "New"], ["title", "Quiz#2"], ["updated_at", Mon, 09 Mar 2015 22:26:55 PDT -07:00], ["user_id", 1]]
+  [1m[35m (0.0ms)[0m  RELEASE SAVEPOINT active_record_1
+Processing by TasksController#update as HTML
+  Parameters: {"task"=>{"title"=>"MyString"}, "id"=>"1"}
+  [1m[36mTask Load (0.1ms)[0m  [1mSELECT "tasks".* FROM "tasks" WHERE "tasks"."id" = ? LIMIT 1[0m  [["id", "1"]]
+  Rendered tasks/edit.html.erb within layouts/application (0.3ms)
+Completed 200 OK in 18.0ms (Views: 15.5ms | ActiveRecord: 0.1ms)
+  [1m[35m (0.4ms)[0m  rollback transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.0ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.5ms)[0m  [1mINSERT INTO "tasks" ("course", "created_at", "due", "kind", "release", "status", "title", "updated_at", "user_id") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["course", "CS169"], ["created_at", Mon, 09 Mar 2015 22:26:55 PDT -07:00], ["due", Fri, 20 Mar 2015 00:59:00 PDT -07:00], ["kind", "Exam"], ["release", Fri, 13 Mar 2015 00:59:00 PDT -07:00], ["status", "New"], ["title", "Quiz#2"], ["updated_at", Mon, 09 Mar 2015 22:26:55 PDT -07:00], ["user_id", 1]]
+  [1m[35m (0.0ms)[0m  RELEASE SAVEPOINT active_record_1
+Processing by TasksController#update as HTML
+  Parameters: {"task"=>{"title"=>"Quiz#2", "course"=>"CS169", "kind"=>"Exam", "release"=>"12/Mar/2015 23:59:00 -0800", "due"=>"19/Mar/2015 23:59:00 -0800", "status"=>"New", "user_id"=>"1"}, "id"=>"1"}
+  [1m[36mTask Load (0.0ms)[0m  [1mSELECT "tasks".* FROM "tasks" WHERE "tasks"."id" = ? LIMIT 1[0m  [["id", "1"]]
+  [1m[35m (0.0ms)[0m  SAVEPOINT active_record_1
+  [1m[36m (1.3ms)[0m  [1mUPDATE "tasks" SET "release" = '2015-03-13 07:59:00.000000', "due" = '2015-03-20 07:59:00.000000', "updated_at" = '2015-03-10 05:26:55.954078' WHERE "tasks"."id" = 1[0m
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+Redirected to http://test.host/tasks/1
+Completed 302 Found in 7.6ms (ActiveRecord: 1.5ms)
+  [1m[36m (0.6ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.5ms)[0m  INSERT INTO "tasks" ("course", "created_at", "due", "kind", "release", "status", "title", "updated_at", "user_id") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)  [["course", "CS169"], ["created_at", Mon, 09 Mar 2015 22:26:55 PDT -07:00], ["due", Fri, 20 Mar 2015 00:59:00 PDT -07:00], ["kind", "Exam"], ["release", Fri, 13 Mar 2015 00:59:00 PDT -07:00], ["status", "New"], ["title", "Quiz#2"], ["updated_at", Mon, 09 Mar 2015 22:26:55 PDT -07:00], ["user_id", 1]]
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+Processing by TasksController#update as HTML
+  Parameters: {"task"=>{"title"=>"Quiz#2", "course"=>"CS169", "kind"=>"Exam", "release"=>"12/Mar/2015 23:59:00 -0800", "due"=>"19/Mar/2015 23:59:00 -0800", "status"=>"New", "user_id"=>"1"}, "id"=>"1"}
+  [1m[35mTask Load (0.1ms)[0m  SELECT "tasks".* FROM "tasks" WHERE "tasks"."id" = ? LIMIT 1  [["id", "1"]]
+  [1m[36m (0.0ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35m (0.4ms)[0m  UPDATE "tasks" SET "release" = '2015-03-13 07:59:00.000000', "due" = '2015-03-20 07:59:00.000000', "updated_at" = '2015-03-10 05:26:55.971616' WHERE "tasks"."id" = 1
+  [1m[36m (0.0ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+Redirected to http://test.host/tasks/1
+Completed 302 Found in 4.0ms (ActiveRecord: 0.5ms)
+  [1m[35m (0.6ms)[0m  rollback transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.7ms)[0m  [1mINSERT INTO "tasks" ("course", "created_at", "due", "kind", "release", "status", "title", "updated_at", "user_id") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["course", "CS169"], ["created_at", Mon, 09 Mar 2015 22:26:55 PDT -07:00], ["due", Fri, 20 Mar 2015 00:59:00 PDT -07:00], ["kind", "Exam"], ["release", Fri, 13 Mar 2015 00:59:00 PDT -07:00], ["status", "New"], ["title", "Quiz#2"], ["updated_at", Mon, 09 Mar 2015 22:26:55 PDT -07:00], ["user_id", 1]]
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+Processing by TasksController#update as HTML
+  Parameters: {"task"=>{"title"=>"invalid value"}, "id"=>"1"}
+  [1m[36mTask Load (0.1ms)[0m  [1mSELECT "tasks".* FROM "tasks" WHERE "tasks"."id" = ? LIMIT 1[0m  [["id", "1"]]
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36m (0.1ms)[0m  [1mROLLBACK TO SAVEPOINT active_record_1[0m
+Completed 200 OK in 4.5ms (Views: 1.3ms | ActiveRecord: 0.2ms)
+  [1m[35m (0.7ms)[0m  rollback transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.6ms)[0m  [1mINSERT INTO "tasks" ("course", "created_at", "due", "kind", "release", "status", "title", "updated_at", "user_id") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["course", "CS169"], ["created_at", Mon, 09 Mar 2015 22:26:55 PDT -07:00], ["due", Fri, 20 Mar 2015 00:59:00 PDT -07:00], ["kind", "Exam"], ["release", Fri, 13 Mar 2015 00:59:00 PDT -07:00], ["status", "New"], ["title", "Quiz#2"], ["updated_at", Mon, 09 Mar 2015 22:26:55 PDT -07:00], ["user_id", 1]]
+  [1m[35m (0.0ms)[0m  RELEASE SAVEPOINT active_record_1
+Processing by TasksController#update as HTML
+  Parameters: {"task"=>{"title"=>"invalid value"}, "id"=>"1"}
+  [1m[36mTask Load (0.1ms)[0m  [1mSELECT "tasks".* FROM "tasks" WHERE "tasks"."id" = ? LIMIT 1[0m  [["id", "1"]]
+  [1m[35m (0.0ms)[0m  SAVEPOINT active_record_1
+  [1m[36m (0.0ms)[0m  [1mROLLBACK TO SAVEPOINT active_record_1[0m
+Completed 200 OK in 2.7ms (Views: 0.9ms | ActiveRecord: 0.1ms)
+  [1m[35m (0.4ms)[0m  rollback transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+Processing by TasksController#new as HTML
+Completed 200 OK in 1.6ms (Views: 1.2ms | ActiveRecord: 0.0ms)
+  [1m[35m (0.1ms)[0m  rollback transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.0ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.5ms)[0m  [1mINSERT INTO "tasks" ("course", "created_at", "due", "kind", "release", "status", "title", "updated_at", "user_id") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["course", "CS169"], ["created_at", Mon, 09 Mar 2015 22:26:56 PDT -07:00], ["due", Fri, 20 Mar 2015 00:59:00 PDT -07:00], ["kind", "Exam"], ["release", Fri, 13 Mar 2015 00:59:00 PDT -07:00], ["status", "New"], ["title", "Quiz#2"], ["updated_at", Mon, 09 Mar 2015 22:26:56 PDT -07:00], ["user_id", 1]]
+  [1m[35m (0.0ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (0.1ms)[0m  [1mSELECT COUNT(*) FROM "tasks" [0m
+Processing by TasksController#destroy as HTML
+  Parameters: {"id"=>"1"}
+  [1m[35mTask Load (0.1ms)[0m  SELECT "tasks".* FROM "tasks" WHERE "tasks"."id" = ? LIMIT 1  [["id", "1"]]
+  [1m[36m (0.0ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.4ms)[0m  DELETE FROM "tasks" WHERE "tasks"."id" = ?  [["id", 1]]
+  [1m[36m (0.0ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+Redirected to http://test.host/tasks
+Completed 302 Found in 2.6ms (ActiveRecord: 0.5ms)
+  [1m[35m (0.1ms)[0m  SELECT COUNT(*) FROM "tasks" 
+  [1m[36m (0.6ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36m (0.0ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.5ms)[0m  INSERT INTO "tasks" ("course", "created_at", "due", "kind", "release", "status", "title", "updated_at", "user_id") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)  [["course", "CS169"], ["created_at", Mon, 09 Mar 2015 22:26:56 PDT -07:00], ["due", Fri, 20 Mar 2015 00:59:00 PDT -07:00], ["kind", "Exam"], ["release", Fri, 13 Mar 2015 00:59:00 PDT -07:00], ["status", "New"], ["title", "Quiz#2"], ["updated_at", Mon, 09 Mar 2015 22:26:56 PDT -07:00], ["user_id", 1]]
+  [1m[36m (0.0ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+Processing by TasksController#destroy as HTML
+  Parameters: {"id"=>"1"}
+  [1m[35mTask Load (0.0ms)[0m  SELECT "tasks".* FROM "tasks" WHERE "tasks"."id" = ? LIMIT 1  [["id", "1"]]
+  [1m[36m (0.0ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.3ms)[0m  DELETE FROM "tasks" WHERE "tasks"."id" = ?  [["id", 1]]
+  [1m[36m (0.0ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+Redirected to http://test.host/tasks
+Completed 302 Found in 1.8ms (ActiveRecord: 0.4ms)
+  [1m[35m (0.8ms)[0m  rollback transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.0ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.5ms)[0m  [1mINSERT INTO "tasks" ("course", "created_at", "due", "kind", "release", "status", "title", "updated_at", "user_id") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["course", "CS169"], ["created_at", Mon, 09 Mar 2015 22:26:56 PDT -07:00], ["due", Fri, 20 Mar 2015 00:59:00 PDT -07:00], ["kind", "Exam"], ["release", Fri, 13 Mar 2015 00:59:00 PDT -07:00], ["status", "New"], ["title", "Quiz#2"], ["updated_at", Mon, 09 Mar 2015 22:26:56 PDT -07:00], ["user_id", 1]]
+  [1m[35m (0.0ms)[0m  RELEASE SAVEPOINT active_record_1
+Processing by TasksController#index as HTML
+Completed 500 Internal Server Error in 0.5ms
+  [1m[36m (0.6ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36m (0.2ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.7ms)[0m  INSERT INTO "tasks" ("course", "created_at", "due", "kind", "release", "status", "title", "updated_at", "user_id") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)  [["course", "CS169"], ["created_at", Mon, 09 Mar 2015 22:26:56 PDT -07:00], ["due", Fri, 20 Mar 2015 00:59:00 PDT -07:00], ["kind", "Exam"], ["release", Fri, 13 Mar 2015 00:59:00 PDT -07:00], ["status", "New"], ["title", "Quiz#2"], ["updated_at", Mon, 09 Mar 2015 22:26:56 PDT -07:00], ["user_id", 1]]
+  [1m[36m (0.0ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+Processing by TasksController#edit as HTML
+  Parameters: {"id"=>"1"}
+  [1m[35mTask Load (0.1ms)[0m  SELECT "tasks".* FROM "tasks" WHERE "tasks"."id" = ? LIMIT 1  [["id", "1"]]
+Completed 200 OK in 1.8ms (Views: 0.8ms | ActiveRecord: 0.1ms)
+  [1m[36m (0.4ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36m (0.1ms)[0m  [1mSELECT COUNT(*) FROM "tasks" [0m
+Processing by TasksController#create as HTML
+  Parameters: {"task"=>{"title"=>"Quiz#2", "course"=>"CS169", "kind"=>"Exam", "release"=>"12/Mar/2015 23:59:00 -0800", "due"=>"19/Mar/2015 23:59:00 -0800", "status"=>"New", "user_id"=>"1"}}
+Completed 500 Internal Server Error in 0.3ms
+  [1m[35m (0.1ms)[0m  rollback transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+Processing by TasksController#create as HTML
+  Parameters: {"task"=>{"title"=>"Quiz#2", "course"=>"CS169", "kind"=>"Exam", "release"=>"12/Mar/2015 23:59:00 -0800", "due"=>"19/Mar/2015 23:59:00 -0800", "status"=>"New", "user_id"=>"1"}}
+Completed 500 Internal Server Error in 0.2ms
+  [1m[35m (0.1ms)[0m  rollback transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+Processing by TasksController#create as HTML
+  Parameters: {"task"=>{"title"=>"Quiz#2", "course"=>"CS169", "kind"=>"Exam", "release"=>"12/Mar/2015 23:59:00 -0800", "due"=>"19/Mar/2015 23:59:00 -0800", "status"=>"New", "user_id"=>"1"}}
+Completed 500 Internal Server Error in 0.3ms
+  [1m[35m (0.1ms)[0m  rollback transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+Processing by TasksController#create as HTML
+  Parameters: {"task"=>{"title"=>"invalid value"}}
+Completed 500 Internal Server Error in 0.2ms
+  [1m[35m (0.1ms)[0m  rollback transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+Processing by TasksController#create as HTML
+  Parameters: {"task"=>{"title"=>"invalid value"}}
+Completed 500 Internal Server Error in 0.2ms
+  [1m[35m (0.0ms)[0m  rollback transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.0ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.5ms)[0m  [1mINSERT INTO "tasks" ("course", "created_at", "due", "kind", "release", "status", "title", "updated_at", "user_id") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["course", "CS169"], ["created_at", Mon, 09 Mar 2015 22:26:56 PDT -07:00], ["due", Fri, 20 Mar 2015 00:59:00 PDT -07:00], ["kind", "Exam"], ["release", Fri, 13 Mar 2015 00:59:00 PDT -07:00], ["status", "New"], ["title", "Quiz#2"], ["updated_at", Mon, 09 Mar 2015 22:26:56 PDT -07:00], ["user_id", 1]]
+  [1m[35m (0.0ms)[0m  RELEASE SAVEPOINT active_record_1
+Processing by TasksController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mTask Load (0.1ms)[0m  [1mSELECT "tasks".* FROM "tasks" WHERE "tasks"."id" = ? LIMIT 1[0m  [["id", "1"]]
+Completed 200 OK in 2.2ms (Views: 1.2ms | ActiveRecord: 0.1ms)
+  [1m[35m (0.4ms)[0m  rollback transaction
+Connecting to database specified by database.yml
+  [1m[36m (0.4ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (11.8ms)[0m  [1mINSERT INTO "tasks" ("course", "created_at", "due", "kind", "release", "status", "title", "updated_at", "user_id") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["course", "CS169"], ["created_at", Mon, 09 Mar 2015 22:33:38 PDT -07:00], ["due", Fri, 20 Mar 2015 00:59:00 PDT -07:00], ["kind", "Exam"], ["release", Fri, 13 Mar 2015 00:59:00 PDT -07:00], ["status", "New"], ["title", "Quiz#2"], ["updated_at", Mon, 09 Mar 2015 22:33:38 PDT -07:00], ["user_id", 1]]
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+Processing by TasksController#index as HTML
+Completed 500 Internal Server Error in 0.5ms
+  [1m[36m (0.4ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36m (0.1ms)[0m  [1mSELECT COUNT(*) FROM "tasks" [0m
+Processing by TasksController#create as HTML
+  Parameters: {"task"=>{"title"=>"Quiz#2", "course"=>"CS169", "kind"=>"Exam", "release"=>"12/Mar/2015 23:59:00 -0800", "due"=>"19/Mar/2015 23:59:00 -0800", "status"=>"New", "user_id"=>"1"}}
+Completed 500 Internal Server Error in 0.3ms
+  [1m[35m (0.1ms)[0m  rollback transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+Processing by TasksController#create as HTML
+  Parameters: {"task"=>{"title"=>"Quiz#2", "course"=>"CS169", "kind"=>"Exam", "release"=>"12/Mar/2015 23:59:00 -0800", "due"=>"19/Mar/2015 23:59:00 -0800", "status"=>"New", "user_id"=>"1"}}
+Completed 500 Internal Server Error in 0.3ms
+  [1m[35m (0.1ms)[0m  rollback transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+Processing by TasksController#create as HTML
+  Parameters: {"task"=>{"title"=>"Quiz#2", "course"=>"CS169", "kind"=>"Exam", "release"=>"12/Mar/2015 23:59:00 -0800", "due"=>"19/Mar/2015 23:59:00 -0800", "status"=>"New", "user_id"=>"1"}}
+Completed 500 Internal Server Error in 0.2ms
+  [1m[35m (0.1ms)[0m  rollback transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+Processing by TasksController#create as HTML
+  Parameters: {"task"=>{"title"=>"invalid value"}}
+Completed 500 Internal Server Error in 0.2ms
+  [1m[35m (0.1ms)[0m  rollback transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+Processing by TasksController#create as HTML
+  Parameters: {"task"=>{"title"=>"invalid value"}}
+Completed 500 Internal Server Error in 0.2ms
+  [1m[35m (0.0ms)[0m  rollback transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.0ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.5ms)[0m  [1mINSERT INTO "tasks" ("course", "created_at", "due", "kind", "release", "status", "title", "updated_at", "user_id") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["course", "CS169"], ["created_at", Mon, 09 Mar 2015 22:33:38 PDT -07:00], ["due", Fri, 20 Mar 2015 00:59:00 PDT -07:00], ["kind", "Exam"], ["release", Fri, 13 Mar 2015 00:59:00 PDT -07:00], ["status", "New"], ["title", "Quiz#2"], ["updated_at", Mon, 09 Mar 2015 22:33:38 PDT -07:00], ["user_id", 1]]
+  [1m[35m (0.0ms)[0m  RELEASE SAVEPOINT active_record_1
+Processing by TasksController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mTask Load (0.1ms)[0m  [1mSELECT "tasks".* FROM "tasks" WHERE "tasks"."id" = ? LIMIT 1[0m  [["id", "1"]]
+Completed 200 OK in 23.9ms (Views: 21.9ms | ActiveRecord: 0.1ms)
+  [1m[35m (0.4ms)[0m  rollback transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.0ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.5ms)[0m  [1mINSERT INTO "tasks" ("course", "created_at", "due", "kind", "release", "status", "title", "updated_at", "user_id") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["course", "CS169"], ["created_at", Mon, 09 Mar 2015 22:33:38 PDT -07:00], ["due", Fri, 20 Mar 2015 00:59:00 PDT -07:00], ["kind", "Exam"], ["release", Fri, 13 Mar 2015 00:59:00 PDT -07:00], ["status", "New"], ["title", "Quiz#2"], ["updated_at", Mon, 09 Mar 2015 22:33:38 PDT -07:00], ["user_id", 1]]
+  [1m[35m (0.0ms)[0m  RELEASE SAVEPOINT active_record_1
+Processing by TasksController#update as HTML
+  Parameters: {"task"=>{"title"=>"MyString"}, "id"=>"1"}
+  [1m[36mTask Load (0.1ms)[0m  [1mSELECT "tasks".* FROM "tasks" WHERE "tasks"."id" = ? LIMIT 1[0m  [["id", "1"]]
+Completed 200 OK in 4.2ms (Views: 1.9ms | ActiveRecord: 0.1ms)
+  [1m[35m (0.5ms)[0m  rollback transaction
+  [1m[36m (0.2ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (1.2ms)[0m  [1mINSERT INTO "tasks" ("course", "created_at", "due", "kind", "release", "status", "title", "updated_at", "user_id") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["course", "CS169"], ["created_at", Mon, 09 Mar 2015 22:33:38 PDT -07:00], ["due", Fri, 20 Mar 2015 00:59:00 PDT -07:00], ["kind", "Exam"], ["release", Fri, 13 Mar 2015 00:59:00 PDT -07:00], ["status", "New"], ["title", "Quiz#2"], ["updated_at", Mon, 09 Mar 2015 22:33:38 PDT -07:00], ["user_id", 1]]
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+Processing by TasksController#update as HTML
+  Parameters: {"task"=>{"title"=>"Quiz#2", "course"=>"CS169", "kind"=>"Exam", "release"=>"12/Mar/2015 23:59:00 -0800", "due"=>"19/Mar/2015 23:59:00 -0800", "status"=>"New", "user_id"=>"1"}, "id"=>"1"}
+  [1m[36mTask Load (0.1ms)[0m  [1mSELECT "tasks".* FROM "tasks" WHERE "tasks"."id" = ? LIMIT 1[0m  [["id", "1"]]
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36m (1.3ms)[0m  [1mUPDATE "tasks" SET "release" = '2015-03-13 07:59:00.000000', "due" = '2015-03-20 07:59:00.000000', "updated_at" = '2015-03-10 05:33:38.211670' WHERE "tasks"."id" = 1[0m
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+Redirected to http://test.host/tasks/1
+Completed 302 Found in 9.8ms (ActiveRecord: 1.5ms)
+  [1m[36m (0.6ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36m (0.0ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.5ms)[0m  INSERT INTO "tasks" ("course", "created_at", "due", "kind", "release", "status", "title", "updated_at", "user_id") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)  [["course", "CS169"], ["created_at", Mon, 09 Mar 2015 22:33:38 PDT -07:00], ["due", Fri, 20 Mar 2015 00:59:00 PDT -07:00], ["kind", "Exam"], ["release", Fri, 13 Mar 2015 00:59:00 PDT -07:00], ["status", "New"], ["title", "Quiz#2"], ["updated_at", Mon, 09 Mar 2015 22:33:38 PDT -07:00], ["user_id", 1]]
+  [1m[36m (0.0ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+Processing by TasksController#update as HTML
+  Parameters: {"task"=>{"title"=>"Quiz#2", "course"=>"CS169", "kind"=>"Exam", "release"=>"12/Mar/2015 23:59:00 -0800", "due"=>"19/Mar/2015 23:59:00 -0800", "status"=>"New", "user_id"=>"1"}, "id"=>"1"}
+  [1m[35mTask Load (0.0ms)[0m  SELECT "tasks".* FROM "tasks" WHERE "tasks"."id" = ? LIMIT 1  [["id", "1"]]
+  [1m[36m (0.0ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35m (0.3ms)[0m  UPDATE "tasks" SET "release" = '2015-03-13 07:59:00.000000', "due" = '2015-03-20 07:59:00.000000', "updated_at" = '2015-03-10 05:33:38.225963' WHERE "tasks"."id" = 1
+  [1m[36m (0.0ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+Redirected to http://test.host/tasks/1
+Completed 302 Found in 4.6ms (ActiveRecord: 0.4ms)
+  [1m[35m (0.6ms)[0m  rollback transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.0ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.5ms)[0m  [1mINSERT INTO "tasks" ("course", "created_at", "due", "kind", "release", "status", "title", "updated_at", "user_id") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["course", "CS169"], ["created_at", Mon, 09 Mar 2015 22:33:38 PDT -07:00], ["due", Fri, 20 Mar 2015 00:59:00 PDT -07:00], ["kind", "Exam"], ["release", Fri, 13 Mar 2015 00:59:00 PDT -07:00], ["status", "New"], ["title", "Quiz#2"], ["updated_at", Mon, 09 Mar 2015 22:33:38 PDT -07:00], ["user_id", 1]]
+  [1m[35m (0.0ms)[0m  RELEASE SAVEPOINT active_record_1
+Processing by TasksController#update as HTML
+  Parameters: {"task"=>{"title"=>"invalid value"}, "id"=>"1"}
+  [1m[36mTask Load (0.1ms)[0m  [1mSELECT "tasks".* FROM "tasks" WHERE "tasks"."id" = ? LIMIT 1[0m  [["id", "1"]]
+  [1m[35m (0.0ms)[0m  SAVEPOINT active_record_1
+  [1m[36m (0.0ms)[0m  [1mROLLBACK TO SAVEPOINT active_record_1[0m
+Completed 200 OK in 3.0ms (Views: 1.0ms | ActiveRecord: 0.1ms)
+  [1m[35m (0.6ms)[0m  rollback transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.0ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.5ms)[0m  [1mINSERT INTO "tasks" ("course", "created_at", "due", "kind", "release", "status", "title", "updated_at", "user_id") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["course", "CS169"], ["created_at", Mon, 09 Mar 2015 22:33:38 PDT -07:00], ["due", Fri, 20 Mar 2015 00:59:00 PDT -07:00], ["kind", "Exam"], ["release", Fri, 13 Mar 2015 00:59:00 PDT -07:00], ["status", "New"], ["title", "Quiz#2"], ["updated_at", Mon, 09 Mar 2015 22:33:38 PDT -07:00], ["user_id", 1]]
+  [1m[35m (0.0ms)[0m  RELEASE SAVEPOINT active_record_1
+Processing by TasksController#update as HTML
+  Parameters: {"task"=>{"title"=>"invalid value"}, "id"=>"1"}
+  [1m[36mTask Load (0.1ms)[0m  [1mSELECT "tasks".* FROM "tasks" WHERE "tasks"."id" = ? LIMIT 1[0m  [["id", "1"]]
+  [1m[35m (0.0ms)[0m  SAVEPOINT active_record_1
+  [1m[36m (0.0ms)[0m  [1mROLLBACK TO SAVEPOINT active_record_1[0m
+Completed 200 OK in 2.5ms (Views: 0.7ms | ActiveRecord: 0.1ms)
+  [1m[35m (0.5ms)[0m  rollback transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+Processing by TasksController#new as HTML
+Completed 200 OK in 4.3ms (Views: 2.9ms | ActiveRecord: 0.0ms)
+  [1m[35m (0.1ms)[0m  rollback transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.0ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.5ms)[0m  [1mINSERT INTO "tasks" ("course", "created_at", "due", "kind", "release", "status", "title", "updated_at", "user_id") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["course", "CS169"], ["created_at", Mon, 09 Mar 2015 22:33:38 PDT -07:00], ["due", Fri, 20 Mar 2015 00:59:00 PDT -07:00], ["kind", "Exam"], ["release", Fri, 13 Mar 2015 00:59:00 PDT -07:00], ["status", "New"], ["title", "Quiz#2"], ["updated_at", Mon, 09 Mar 2015 22:33:38 PDT -07:00], ["user_id", 1]]
+  [1m[35m (0.0ms)[0m  RELEASE SAVEPOINT active_record_1
+Processing by TasksController#edit as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mTask Load (0.1ms)[0m  [1mSELECT "tasks".* FROM "tasks" WHERE "tasks"."id" = ? LIMIT 1[0m  [["id", "1"]]
+Completed 200 OK in 2.0ms (Views: 0.9ms | ActiveRecord: 0.1ms)
+  [1m[35m (0.4ms)[0m  rollback transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.0ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.5ms)[0m  [1mINSERT INTO "tasks" ("course", "created_at", "due", "kind", "release", "status", "title", "updated_at", "user_id") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["course", "CS169"], ["created_at", Mon, 09 Mar 2015 22:33:38 PDT -07:00], ["due", Fri, 20 Mar 2015 00:59:00 PDT -07:00], ["kind", "Exam"], ["release", Fri, 13 Mar 2015 00:59:00 PDT -07:00], ["status", "New"], ["title", "Quiz#2"], ["updated_at", Mon, 09 Mar 2015 22:33:38 PDT -07:00], ["user_id", 1]]
+  [1m[35m (0.0ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (0.1ms)[0m  [1mSELECT COUNT(*) FROM "tasks" [0m
+Processing by TasksController#destroy as HTML
+  Parameters: {"id"=>"1"}
+  [1m[35mTask Load (0.1ms)[0m  SELECT "tasks".* FROM "tasks" WHERE "tasks"."id" = ? LIMIT 1  [["id", "1"]]
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.3ms)[0m  DELETE FROM "tasks" WHERE "tasks"."id" = ?  [["id", 1]]
+  [1m[36m (0.0ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+Redirected to http://test.host/tasks
+Completed 302 Found in 3.4ms (ActiveRecord: 0.5ms)
+  [1m[35m (0.1ms)[0m  SELECT COUNT(*) FROM "tasks" 
+  [1m[36m (0.6ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36m (0.0ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.5ms)[0m  INSERT INTO "tasks" ("course", "created_at", "due", "kind", "release", "status", "title", "updated_at", "user_id") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)  [["course", "CS169"], ["created_at", Mon, 09 Mar 2015 22:33:38 PDT -07:00], ["due", Fri, 20 Mar 2015 00:59:00 PDT -07:00], ["kind", "Exam"], ["release", Fri, 13 Mar 2015 00:59:00 PDT -07:00], ["status", "New"], ["title", "Quiz#2"], ["updated_at", Mon, 09 Mar 2015 22:33:38 PDT -07:00], ["user_id", 1]]
+  [1m[36m (0.0ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+Processing by TasksController#destroy as HTML
+  Parameters: {"id"=>"1"}
+  [1m[35mTask Load (0.0ms)[0m  SELECT "tasks".* FROM "tasks" WHERE "tasks"."id" = ? LIMIT 1  [["id", "1"]]
+  [1m[36m (0.0ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.3ms)[0m  DELETE FROM "tasks" WHERE "tasks"."id" = ?  [["id", 1]]
+  [1m[36m (0.0ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+Redirected to http://test.host/tasks
+Completed 302 Found in 1.7ms (ActiveRecord: 0.4ms)
+  [1m[35m (0.6ms)[0m  rollback transaction
+Connecting to database specified by database.yml
+  [1m[36m (0.4ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (7.3ms)[0m  [1mINSERT INTO "tasks" ("course", "created_at", "due", "kind", "release", "status", "title", "updated_at", "user_id") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["course", "CS169"], ["created_at", Mon, 09 Mar 2015 22:38:22 PDT -07:00], ["due", Fri, 20 Mar 2015 00:59:00 PDT -07:00], ["kind", "Exam"], ["release", Fri, 13 Mar 2015 00:59:00 PDT -07:00], ["status", "New"], ["title", "Quiz#2"], ["updated_at", Mon, 09 Mar 2015 22:38:22 PDT -07:00], ["user_id", 1]]
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+Processing by TasksController#edit as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mTask Load (0.2ms)[0m  [1mSELECT "tasks".* FROM "tasks" WHERE "tasks"."id" = ? LIMIT 1[0m  [["id", "1"]]
+  Rendered tasks/edit.html.erb within layouts/application (0.2ms)
+Completed 200 OK in 19.5ms (Views: 14.9ms | ActiveRecord: 0.2ms)
+  [1m[35m (1.7ms)[0m  rollback transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.5ms)[0m  [1mINSERT INTO "tasks" ("course", "created_at", "due", "kind", "release", "status", "title", "updated_at", "user_id") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["course", "CS169"], ["created_at", Mon, 09 Mar 2015 22:38:22 PDT -07:00], ["due", Fri, 20 Mar 2015 00:59:00 PDT -07:00], ["kind", "Exam"], ["release", Fri, 13 Mar 2015 00:59:00 PDT -07:00], ["status", "New"], ["title", "Quiz#2"], ["updated_at", Mon, 09 Mar 2015 22:38:22 PDT -07:00], ["user_id", 1]]
+  [1m[35m (0.0ms)[0m  RELEASE SAVEPOINT active_record_1
+Processing by TasksController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mTask Load (0.1ms)[0m  [1mSELECT "tasks".* FROM "tasks" WHERE "tasks"."id" = ? LIMIT 1[0m  [["id", "1"]]
+Completed 200 OK in 2.2ms (Views: 1.2ms | ActiveRecord: 0.1ms)
+  [1m[35m (0.5ms)[0m  rollback transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+Processing by TasksController#create as HTML
+  Parameters: {"task"=>{"title"=>"Quiz#2", "course"=>"CS169", "kind"=>"Exam", "release"=>"12/Mar/2015 23:59:00 -0800", "due"=>"19/Mar/2015 23:59:00 -0800", "status"=>"New", "user_id"=>"1"}}
+Completed 500 Internal Server Error in 0.3ms
+  [1m[35m (0.1ms)[0m  rollback transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+Processing by TasksController#create as HTML
+  Parameters: {"task"=>{"title"=>"Quiz#2", "course"=>"CS169", "kind"=>"Exam", "release"=>"12/Mar/2015 23:59:00 -0800", "due"=>"19/Mar/2015 23:59:00 -0800", "status"=>"New", "user_id"=>"1"}}
+Completed 500 Internal Server Error in 0.4ms
+  [1m[35m (0.1ms)[0m  rollback transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.1ms)[0m  SELECT COUNT(*) FROM "tasks" 
+Processing by TasksController#create as HTML
+  Parameters: {"task"=>{"title"=>"Quiz#2", "course"=>"CS169", "kind"=>"Exam", "release"=>"12/Mar/2015 23:59:00 -0800", "due"=>"19/Mar/2015 23:59:00 -0800", "status"=>"New", "user_id"=>"1"}}
+Completed 500 Internal Server Error in 0.5ms
+  [1m[36m (0.1ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+Processing by TasksController#create as HTML
+  Parameters: {"task"=>{"title"=>"invalid value"}}
+Completed 500 Internal Server Error in 0.3ms
+  [1m[36m (0.1ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+Processing by TasksController#create as HTML
+  Parameters: {"task"=>{"title"=>"invalid value"}}
+Completed 500 Internal Server Error in 0.3ms
+  [1m[36m (0.1ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.8ms)[0m  INSERT INTO "tasks" ("course", "created_at", "due", "kind", "release", "status", "title", "updated_at", "user_id") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)  [["course", "CS169"], ["created_at", Mon, 09 Mar 2015 22:38:22 PDT -07:00], ["due", Fri, 20 Mar 2015 00:59:00 PDT -07:00], ["kind", "Exam"], ["release", Fri, 13 Mar 2015 00:59:00 PDT -07:00], ["status", "New"], ["title", "Quiz#2"], ["updated_at", Mon, 09 Mar 2015 22:38:22 PDT -07:00], ["user_id", 1]]
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+Processing by TasksController#update as HTML
+  Parameters: {"task"=>{"title"=>"Quiz#2", "course"=>"CS169", "kind"=>"Exam", "release"=>"12/Mar/2015 23:59:00 -0800", "due"=>"19/Mar/2015 23:59:00 -0800", "status"=>"New", "user_id"=>"1"}, "id"=>"1"}
+  [1m[35mTask Load (0.1ms)[0m  SELECT "tasks".* FROM "tasks" WHERE "tasks"."id" = ? LIMIT 1  [["id", "1"]]
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35m (1.1ms)[0m  UPDATE "tasks" SET "release" = '2015-03-13 07:59:00.000000', "due" = '2015-03-20 07:59:00.000000', "updated_at" = '2015-03-10 05:38:22.361782' WHERE "tasks"."id" = 1
+  [1m[36m (0.0ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+Redirected to http://test.host/tasks/1
+Completed 302 Found in 10.2ms (ActiveRecord: 1.3ms)
+  [1m[35m (0.6ms)[0m  rollback transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.6ms)[0m  [1mINSERT INTO "tasks" ("course", "created_at", "due", "kind", "release", "status", "title", "updated_at", "user_id") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["course", "CS169"], ["created_at", Mon, 09 Mar 2015 22:38:22 PDT -07:00], ["due", Fri, 20 Mar 2015 00:59:00 PDT -07:00], ["kind", "Exam"], ["release", Fri, 13 Mar 2015 00:59:00 PDT -07:00], ["status", "New"], ["title", "Quiz#2"], ["updated_at", Mon, 09 Mar 2015 22:38:22 PDT -07:00], ["user_id", 1]]
+  [1m[35m (0.0ms)[0m  RELEASE SAVEPOINT active_record_1
+Processing by TasksController#update as HTML
+  Parameters: {"task"=>{"title"=>"Quiz#2", "course"=>"CS169", "kind"=>"Exam", "release"=>"12/Mar/2015 23:59:00 -0800", "due"=>"19/Mar/2015 23:59:00 -0800", "status"=>"New", "user_id"=>"1"}, "id"=>"1"}
+  [1m[36mTask Load (0.1ms)[0m  [1mSELECT "tasks".* FROM "tasks" WHERE "tasks"."id" = ? LIMIT 1[0m  [["id", "1"]]
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36m (0.3ms)[0m  [1mUPDATE "tasks" SET "release" = '2015-03-13 07:59:00.000000', "due" = '2015-03-20 07:59:00.000000', "updated_at" = '2015-03-10 05:38:22.378581' WHERE "tasks"."id" = 1[0m
+  [1m[35m (0.0ms)[0m  RELEASE SAVEPOINT active_record_1
+Redirected to http://test.host/tasks/1
+Completed 302 Found in 4.9ms (ActiveRecord: 0.5ms)
+  [1m[36m (0.6ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.7ms)[0m  INSERT INTO "tasks" ("course", "created_at", "due", "kind", "release", "status", "title", "updated_at", "user_id") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)  [["course", "CS169"], ["created_at", Mon, 09 Mar 2015 22:38:22 PDT -07:00], ["due", Fri, 20 Mar 2015 00:59:00 PDT -07:00], ["kind", "Exam"], ["release", Fri, 13 Mar 2015 00:59:00 PDT -07:00], ["status", "New"], ["title", "Quiz#2"], ["updated_at", Mon, 09 Mar 2015 22:38:22 PDT -07:00], ["user_id", 1]]
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+Processing by TasksController#update as HTML
+  Parameters: {"task"=>{"title"=>"MyString"}, "id"=>"1"}
+  [1m[35mTask Load (0.1ms)[0m  SELECT "tasks".* FROM "tasks" WHERE "tasks"."id" = ? LIMIT 1  [["id", "1"]]
+Completed 200 OK in 2.3ms (Views: 0.8ms | ActiveRecord: 0.1ms)
+  [1m[36m (0.4ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36m (0.0ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.5ms)[0m  INSERT INTO "tasks" ("course", "created_at", "due", "kind", "release", "status", "title", "updated_at", "user_id") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)  [["course", "CS169"], ["created_at", Mon, 09 Mar 2015 22:38:22 PDT -07:00], ["due", Fri, 20 Mar 2015 00:59:00 PDT -07:00], ["kind", "Exam"], ["release", Fri, 13 Mar 2015 00:59:00 PDT -07:00], ["status", "New"], ["title", "Quiz#2"], ["updated_at", Mon, 09 Mar 2015 22:38:22 PDT -07:00], ["user_id", 1]]
+  [1m[36m (0.0ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+Processing by TasksController#update as HTML
+  Parameters: {"task"=>{"title"=>"invalid value"}, "id"=>"1"}
+  [1m[35mTask Load (0.1ms)[0m  SELECT "tasks".* FROM "tasks" WHERE "tasks"."id" = ? LIMIT 1  [["id", "1"]]
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  ROLLBACK TO SAVEPOINT active_record_1
+Completed 200 OK in 5.2ms (Views: 2.0ms | ActiveRecord: 0.2ms)
+  [1m[36m (0.5ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.5ms)[0m  INSERT INTO "tasks" ("course", "created_at", "due", "kind", "release", "status", "title", "updated_at", "user_id") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)  [["course", "CS169"], ["created_at", Mon, 09 Mar 2015 22:38:22 PDT -07:00], ["due", Fri, 20 Mar 2015 00:59:00 PDT -07:00], ["kind", "Exam"], ["release", Fri, 13 Mar 2015 00:59:00 PDT -07:00], ["status", "New"], ["title", "Quiz#2"], ["updated_at", Mon, 09 Mar 2015 22:38:22 PDT -07:00], ["user_id", 1]]
+  [1m[36m (0.0ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+Processing by TasksController#update as HTML
+  Parameters: {"task"=>{"title"=>"invalid value"}, "id"=>"1"}
+  [1m[35mTask Load (0.1ms)[0m  SELECT "tasks".* FROM "tasks" WHERE "tasks"."id" = ? LIMIT 1  [["id", "1"]]
+  [1m[36m (0.0ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35m (0.0ms)[0m  ROLLBACK TO SAVEPOINT active_record_1
+Completed 200 OK in 2.5ms (Views: 0.8ms | ActiveRecord: 0.1ms)
+  [1m[36m (0.4ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+Processing by TasksController#new as HTML
+Completed 200 OK in 2.3ms (Views: 1.6ms | ActiveRecord: 0.0ms)
+  [1m[36m (0.1ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36m (0.0ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.5ms)[0m  INSERT INTO "tasks" ("course", "created_at", "due", "kind", "release", "status", "title", "updated_at", "user_id") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)  [["course", "CS169"], ["created_at", Mon, 09 Mar 2015 22:38:22 PDT -07:00], ["due", Fri, 20 Mar 2015 00:59:00 PDT -07:00], ["kind", "Exam"], ["release", Fri, 13 Mar 2015 00:59:00 PDT -07:00], ["status", "New"], ["title", "Quiz#2"], ["updated_at", Mon, 09 Mar 2015 22:38:22 PDT -07:00], ["user_id", 1]]
+  [1m[36m (0.0ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+Processing by TasksController#index as HTML
+Completed 500 Internal Server Error in 0.5ms
+  [1m[35m (0.4ms)[0m  rollback transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.0ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.5ms)[0m  [1mINSERT INTO "tasks" ("course", "created_at", "due", "kind", "release", "status", "title", "updated_at", "user_id") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["course", "CS169"], ["created_at", Mon, 09 Mar 2015 22:38:22 PDT -07:00], ["due", Fri, 20 Mar 2015 00:59:00 PDT -07:00], ["kind", "Exam"], ["release", Fri, 13 Mar 2015 00:59:00 PDT -07:00], ["status", "New"], ["title", "Quiz#2"], ["updated_at", Mon, 09 Mar 2015 22:38:22 PDT -07:00], ["user_id", 1]]
+  [1m[35m (0.0ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (0.1ms)[0m  [1mSELECT COUNT(*) FROM "tasks" [0m
+Processing by TasksController#destroy as HTML
+  Parameters: {"id"=>"1"}
+  [1m[35mTask Load (0.1ms)[0m  SELECT "tasks".* FROM "tasks" WHERE "tasks"."id" = ? LIMIT 1  [["id", "1"]]
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.6ms)[0m  DELETE FROM "tasks" WHERE "tasks"."id" = ?  [["id", 1]]
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+Redirected to http://test.host/tasks
+Completed 302 Found in 47.0ms (ActiveRecord: 0.9ms)
+  [1m[35m (0.1ms)[0m  SELECT COUNT(*) FROM "tasks" 
+  [1m[36m (1.0ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.8ms)[0m  INSERT INTO "tasks" ("course", "created_at", "due", "kind", "release", "status", "title", "updated_at", "user_id") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)  [["course", "CS169"], ["created_at", Mon, 09 Mar 2015 22:38:22 PDT -07:00], ["due", Fri, 20 Mar 2015 00:59:00 PDT -07:00], ["kind", "Exam"], ["release", Fri, 13 Mar 2015 00:59:00 PDT -07:00], ["status", "New"], ["title", "Quiz#2"], ["updated_at", Mon, 09 Mar 2015 22:38:22 PDT -07:00], ["user_id", 1]]
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+Processing by TasksController#destroy as HTML
+  Parameters: {"id"=>"1"}
+  [1m[35mTask Load (0.1ms)[0m  SELECT "tasks".* FROM "tasks" WHERE "tasks"."id" = ? LIMIT 1  [["id", "1"]]
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.3ms)[0m  DELETE FROM "tasks" WHERE "tasks"."id" = ?  [["id", 1]]
+  [1m[36m (0.0ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+Redirected to http://test.host/tasks
+Completed 302 Found in 2.3ms (ActiveRecord: 0.4ms)
+  [1m[35m (0.7ms)[0m  rollback transaction
+Connecting to database specified by database.yml
+  [1m[36m (0.4ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (7.3ms)[0m  [1mINSERT INTO "tasks" ("course", "created_at", "due", "kind", "release", "status", "title", "updated_at", "user_id") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["course", "CS169"], ["created_at", Mon, 09 Mar 2015 22:41:06 PDT -07:00], ["due", Fri, 20 Mar 2015 00:59:00 PDT -07:00], ["kind", "Exam"], ["release", Fri, 13 Mar 2015 00:59:00 PDT -07:00], ["status", "New"], ["title", "Quiz#2"], ["updated_at", Mon, 09 Mar 2015 22:41:06 PDT -07:00], ["user_id", 1]]
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+Processing by TasksController#destroy as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mTask Load (0.1ms)[0m  [1mSELECT "tasks".* FROM "tasks" WHERE "tasks"."id" = ? LIMIT 1[0m  [["id", "1"]]
+  [1m[35m (0.0ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (1.1ms)[0m  [1mDELETE FROM "tasks" WHERE "tasks"."id" = ?[0m  [["id", 1]]
+  [1m[35m (0.0ms)[0m  RELEASE SAVEPOINT active_record_1
+Redirected to http://test.host/tasks
+Completed 302 Found in 4.7ms (ActiveRecord: 1.3ms)
+  [1m[36m (2.0ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36m (0.0ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.5ms)[0m  INSERT INTO "tasks" ("course", "created_at", "due", "kind", "release", "status", "title", "updated_at", "user_id") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)  [["course", "CS169"], ["created_at", Mon, 09 Mar 2015 22:41:06 PDT -07:00], ["due", Fri, 20 Mar 2015 00:59:00 PDT -07:00], ["kind", "Exam"], ["release", Fri, 13 Mar 2015 00:59:00 PDT -07:00], ["status", "New"], ["title", "Quiz#2"], ["updated_at", Mon, 09 Mar 2015 22:41:06 PDT -07:00], ["user_id", 1]]
+  [1m[36m (0.0ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  SELECT COUNT(*) FROM "tasks" 
+Processing by TasksController#destroy as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mTask Load (0.1ms)[0m  [1mSELECT "tasks".* FROM "tasks" WHERE "tasks"."id" = ? LIMIT 1[0m  [["id", "1"]]
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.4ms)[0m  [1mDELETE FROM "tasks" WHERE "tasks"."id" = ?[0m  [["id", 1]]
+  [1m[35m (0.0ms)[0m  RELEASE SAVEPOINT active_record_1
+Redirected to http://test.host/tasks
+Completed 302 Found in 2.6ms (ActiveRecord: 0.6ms)
+  [1m[36m (0.1ms)[0m  [1mSELECT COUNT(*) FROM "tasks" [0m
+  [1m[35m (0.6ms)[0m  rollback transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.0ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.5ms)[0m  [1mINSERT INTO "tasks" ("course", "created_at", "due", "kind", "release", "status", "title", "updated_at", "user_id") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["course", "CS169"], ["created_at", Mon, 09 Mar 2015 22:41:06 PDT -07:00], ["due", Fri, 20 Mar 2015 00:59:00 PDT -07:00], ["kind", "Exam"], ["release", Fri, 13 Mar 2015 00:59:00 PDT -07:00], ["status", "New"], ["title", "Quiz#2"], ["updated_at", Mon, 09 Mar 2015 22:41:06 PDT -07:00], ["user_id", 1]]
+  [1m[35m (0.0ms)[0m  RELEASE SAVEPOINT active_record_1
+Processing by TasksController#update as HTML
+  Parameters: {"task"=>{"title"=>"invalid value"}, "id"=>"1"}
+  [1m[36mTask Load (0.1ms)[0m  [1mSELECT "tasks".* FROM "tasks" WHERE "tasks"."id" = ? LIMIT 1[0m  [["id", "1"]]
+  [1m[35m (0.0ms)[0m  SAVEPOINT active_record_1
+  [1m[36m (0.0ms)[0m  [1mROLLBACK TO SAVEPOINT active_record_1[0m
+Completed 200 OK in 13.7ms (Views: 11.7ms | ActiveRecord: 0.1ms)
+  [1m[35m (0.5ms)[0m  rollback transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.5ms)[0m  [1mINSERT INTO "tasks" ("course", "created_at", "due", "kind", "release", "status", "title", "updated_at", "user_id") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["course", "CS169"], ["created_at", Mon, 09 Mar 2015 22:41:06 PDT -07:00], ["due", Fri, 20 Mar 2015 00:59:00 PDT -07:00], ["kind", "Exam"], ["release", Fri, 13 Mar 2015 00:59:00 PDT -07:00], ["status", "New"], ["title", "Quiz#2"], ["updated_at", Mon, 09 Mar 2015 22:41:06 PDT -07:00], ["user_id", 1]]
+  [1m[35m (0.0ms)[0m  RELEASE SAVEPOINT active_record_1
+Processing by TasksController#update as HTML
+  Parameters: {"task"=>{"title"=>"invalid value"}, "id"=>"1"}
+  [1m[36mTask Load (0.1ms)[0m  [1mSELECT "tasks".* FROM "tasks" WHERE "tasks"."id" = ? LIMIT 1[0m  [["id", "1"]]
+  [1m[35m (0.0ms)[0m  SAVEPOINT active_record_1
+  [1m[36m (0.0ms)[0m  [1mROLLBACK TO SAVEPOINT active_record_1[0m
+Completed 200 OK in 2.8ms (Views: 1.0ms | ActiveRecord: 0.1ms)
+  [1m[35m (0.5ms)[0m  rollback transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.0ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.5ms)[0m  [1mINSERT INTO "tasks" ("course", "created_at", "due", "kind", "release", "status", "title", "updated_at", "user_id") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["course", "CS169"], ["created_at", Mon, 09 Mar 2015 22:41:07 PDT -07:00], ["due", Fri, 20 Mar 2015 00:59:00 PDT -07:00], ["kind", "Exam"], ["release", Fri, 13 Mar 2015 00:59:00 PDT -07:00], ["status", "New"], ["title", "Quiz#2"], ["updated_at", Mon, 09 Mar 2015 22:41:07 PDT -07:00], ["user_id", 1]]
+  [1m[35m (0.0ms)[0m  RELEASE SAVEPOINT active_record_1
+Processing by TasksController#update as HTML
+  Parameters: {"task"=>{"title"=>"MyString"}, "id"=>"1"}
+  [1m[36mTask Load (0.1ms)[0m  [1mSELECT "tasks".* FROM "tasks" WHERE "tasks"."id" = ? LIMIT 1[0m  [["id", "1"]]
+Completed 200 OK in 1.9ms (Views: 0.7ms | ActiveRecord: 0.1ms)
+  [1m[35m (0.5ms)[0m  rollback transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.5ms)[0m  [1mINSERT INTO "tasks" ("course", "created_at", "due", "kind", "release", "status", "title", "updated_at", "user_id") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["course", "CS169"], ["created_at", Mon, 09 Mar 2015 22:41:07 PDT -07:00], ["due", Fri, 20 Mar 2015 00:59:00 PDT -07:00], ["kind", "Exam"], ["release", Fri, 13 Mar 2015 00:59:00 PDT -07:00], ["status", "New"], ["title", "Quiz#2"], ["updated_at", Mon, 09 Mar 2015 22:41:07 PDT -07:00], ["user_id", 1]]
+  [1m[35m (0.0ms)[0m  RELEASE SAVEPOINT active_record_1
+Processing by TasksController#update as HTML
+  Parameters: {"task"=>{"title"=>"Quiz#2", "course"=>"CS169", "kind"=>"Exam", "release"=>"12/Mar/2015 23:59:00 -0800", "due"=>"19/Mar/2015 23:59:00 -0800", "status"=>"New", "user_id"=>"1"}, "id"=>"1"}
+  [1m[36mTask Load (0.0ms)[0m  [1mSELECT "tasks".* FROM "tasks" WHERE "tasks"."id" = ? LIMIT 1[0m  [["id", "1"]]
+  [1m[35m (0.0ms)[0m  SAVEPOINT active_record_1
+  [1m[36m (0.4ms)[0m  [1mUPDATE "tasks" SET "release" = '2015-03-13 07:59:00.000000', "due" = '2015-03-20 07:59:00.000000', "updated_at" = '2015-03-10 05:41:07.018308' WHERE "tasks"."id" = 1[0m
+  [1m[35m (0.0ms)[0m  RELEASE SAVEPOINT active_record_1
+Redirected to http://test.host/tasks/1
+Completed 302 Found in 5.7ms (ActiveRecord: 0.5ms)
+  [1m[36m (0.7ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.5ms)[0m  INSERT INTO "tasks" ("course", "created_at", "due", "kind", "release", "status", "title", "updated_at", "user_id") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)  [["course", "CS169"], ["created_at", Mon, 09 Mar 2015 22:41:07 PDT -07:00], ["due", Fri, 20 Mar 2015 00:59:00 PDT -07:00], ["kind", "Exam"], ["release", Fri, 13 Mar 2015 00:59:00 PDT -07:00], ["status", "New"], ["title", "Quiz#2"], ["updated_at", Mon, 09 Mar 2015 22:41:07 PDT -07:00], ["user_id", 1]]
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+Processing by TasksController#update as HTML
+  Parameters: {"task"=>{"title"=>"Quiz#2", "course"=>"CS169", "kind"=>"Exam", "release"=>"12/Mar/2015 23:59:00 -0800", "due"=>"19/Mar/2015 23:59:00 -0800", "status"=>"New", "user_id"=>"1"}, "id"=>"1"}
+  [1m[35mTask Load (0.1ms)[0m  SELECT "tasks".* FROM "tasks" WHERE "tasks"."id" = ? LIMIT 1  [["id", "1"]]
+  [1m[36m (0.0ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35m (0.3ms)[0m  UPDATE "tasks" SET "release" = '2015-03-13 07:59:00.000000', "due" = '2015-03-20 07:59:00.000000', "updated_at" = '2015-03-10 05:41:07.032246' WHERE "tasks"."id" = 1
+  [1m[36m (0.0ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+Redirected to http://test.host/tasks/1
+Completed 302 Found in 4.1ms (ActiveRecord: 0.5ms)
+  [1m[35m (0.5ms)[0m  rollback transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+Processing by TasksController#create as HTML
+  Parameters: {"task"=>{"title"=>"invalid value"}}
+Completed 500 Internal Server Error in 0.3ms
+  [1m[35m (0.1ms)[0m  rollback transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+Processing by TasksController#create as HTML
+  Parameters: {"task"=>{"title"=>"invalid value"}}
+Completed 500 Internal Server Error in 0.2ms
+  [1m[35m (0.1ms)[0m  rollback transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.1ms)[0m  SELECT COUNT(*) FROM "tasks" 
+Processing by TasksController#create as HTML
+  Parameters: {"task"=>{"title"=>"Quiz#2", "course"=>"CS169", "kind"=>"Exam", "release"=>"12/Mar/2015 23:59:00 -0800", "due"=>"19/Mar/2015 23:59:00 -0800", "status"=>"New", "user_id"=>"1"}}
+Completed 500 Internal Server Error in 0.2ms
+  [1m[36m (0.1ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+Processing by TasksController#create as HTML
+  Parameters: {"task"=>{"title"=>"Quiz#2", "course"=>"CS169", "kind"=>"Exam", "release"=>"12/Mar/2015 23:59:00 -0800", "due"=>"19/Mar/2015 23:59:00 -0800", "status"=>"New", "user_id"=>"1"}}
+Completed 500 Internal Server Error in 0.2ms
+  [1m[36m (0.0ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+Processing by TasksController#create as HTML
+  Parameters: {"task"=>{"title"=>"Quiz#2", "course"=>"CS169", "kind"=>"Exam", "release"=>"12/Mar/2015 23:59:00 -0800", "due"=>"19/Mar/2015 23:59:00 -0800", "status"=>"New", "user_id"=>"1"}}
+Completed 500 Internal Server Error in 0.2ms
+  [1m[36m (0.0ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36m (0.0ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.5ms)[0m  INSERT INTO "tasks" ("course", "created_at", "due", "kind", "release", "status", "title", "updated_at", "user_id") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)  [["course", "CS169"], ["created_at", Mon, 09 Mar 2015 22:41:07 PDT -07:00], ["due", Fri, 20 Mar 2015 00:59:00 PDT -07:00], ["kind", "Exam"], ["release", Fri, 13 Mar 2015 00:59:00 PDT -07:00], ["status", "New"], ["title", "Quiz#2"], ["updated_at", Mon, 09 Mar 2015 22:41:07 PDT -07:00], ["user_id", 1]]
+  [1m[36m (0.0ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+Processing by TasksController#index as HTML
+Completed 500 Internal Server Error in 0.5ms
+  [1m[35m (0.4ms)[0m  rollback transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+Processing by TasksController#new as HTML
+Completed 200 OK in 2.1ms (Views: 1.6ms | ActiveRecord: 0.0ms)
+  [1m[35m (0.1ms)[0m  rollback transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.6ms)[0m  [1mINSERT INTO "tasks" ("course", "created_at", "due", "kind", "release", "status", "title", "updated_at", "user_id") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["course", "CS169"], ["created_at", Mon, 09 Mar 2015 22:41:07 PDT -07:00], ["due", Fri, 20 Mar 2015 00:59:00 PDT -07:00], ["kind", "Exam"], ["release", Fri, 13 Mar 2015 00:59:00 PDT -07:00], ["status", "New"], ["title", "Quiz#2"], ["updated_at", Mon, 09 Mar 2015 22:41:07 PDT -07:00], ["user_id", 1]]
+  [1m[35m (0.0ms)[0m  RELEASE SAVEPOINT active_record_1
+Processing by TasksController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mTask Load (0.1ms)[0m  [1mSELECT "tasks".* FROM "tasks" WHERE "tasks"."id" = ? LIMIT 1[0m  [["id", "1"]]
+Completed 200 OK in 2.5ms (Views: 1.3ms | ActiveRecord: 0.1ms)
+  [1m[35m (0.5ms)[0m  rollback transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.0ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.5ms)[0m  [1mINSERT INTO "tasks" ("course", "created_at", "due", "kind", "release", "status", "title", "updated_at", "user_id") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["course", "CS169"], ["created_at", Mon, 09 Mar 2015 22:41:07 PDT -07:00], ["due", Fri, 20 Mar 2015 00:59:00 PDT -07:00], ["kind", "Exam"], ["release", Fri, 13 Mar 2015 00:59:00 PDT -07:00], ["status", "New"], ["title", "Quiz#2"], ["updated_at", Mon, 09 Mar 2015 22:41:07 PDT -07:00], ["user_id", 1]]
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+Processing by TasksController#edit as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mTask Load (0.1ms)[0m  [1mSELECT "tasks".* FROM "tasks" WHERE "tasks"."id" = ? LIMIT 1[0m  [["id", "1"]]
+Completed 200 OK in 2.2ms (Views: 0.8ms | ActiveRecord: 0.1ms)
+  [1m[35m (0.5ms)[0m  rollback transaction
+Connecting to database specified by database.yml
+  [1m[36m (0.4ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (7.1ms)[0m  [1mINSERT INTO "tasks" ("course", "created_at", "due", "kind", "release", "status", "title", "updated_at", "user_id") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["course", "CS169"], ["created_at", Mon, 09 Mar 2015 22:41:27 PDT -07:00], ["due", Fri, 20 Mar 2015 00:59:00 PDT -07:00], ["kind", "Exam"], ["release", Fri, 13 Mar 2015 00:59:00 PDT -07:00], ["status", "New"], ["title", "Quiz#2"], ["updated_at", Mon, 09 Mar 2015 22:41:27 PDT -07:00], ["user_id", 1]]
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+Processing by TasksController#edit as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mTask Load (0.2ms)[0m  [1mSELECT "tasks".* FROM "tasks" WHERE "tasks"."id" = ? LIMIT 1[0m  [["id", "1"]]
+  Rendered tasks/edit.html.erb within layouts/application (0.4ms)
+Completed 200 OK in 18.3ms (Views: 15.0ms | ActiveRecord: 0.2ms)
+  [1m[35m (2.3ms)[0m  rollback transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.5ms)[0m  [1mINSERT INTO "tasks" ("course", "created_at", "due", "kind", "release", "status", "title", "updated_at", "user_id") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["course", "CS169"], ["created_at", Mon, 09 Mar 2015 22:41:28 PDT -07:00], ["due", Fri, 20 Mar 2015 00:59:00 PDT -07:00], ["kind", "Exam"], ["release", Fri, 13 Mar 2015 00:59:00 PDT -07:00], ["status", "New"], ["title", "Quiz#2"], ["updated_at", Mon, 09 Mar 2015 22:41:28 PDT -07:00], ["user_id", 1]]
+  [1m[35m (0.0ms)[0m  RELEASE SAVEPOINT active_record_1
+Processing by TasksController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mTask Load (0.1ms)[0m  [1mSELECT "tasks".* FROM "tasks" WHERE "tasks"."id" = ? LIMIT 1[0m  [["id", "1"]]
+Completed 200 OK in 2.8ms (Views: 1.7ms | ActiveRecord: 0.1ms)
+  [1m[35m (0.5ms)[0m  rollback transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.0ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.5ms)[0m  [1mINSERT INTO "tasks" ("course", "created_at", "due", "kind", "release", "status", "title", "updated_at", "user_id") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["course", "CS169"], ["created_at", Mon, 09 Mar 2015 22:41:28 PDT -07:00], ["due", Fri, 20 Mar 2015 00:59:00 PDT -07:00], ["kind", "Exam"], ["release", Fri, 13 Mar 2015 00:59:00 PDT -07:00], ["status", "New"], ["title", "Quiz#2"], ["updated_at", Mon, 09 Mar 2015 22:41:28 PDT -07:00], ["user_id", 1]]
+  [1m[35m (0.0ms)[0m  RELEASE SAVEPOINT active_record_1
+Processing by TasksController#update as HTML
+  Parameters: {"task"=>{"title"=>"MyString"}, "id"=>"1"}
+  [1m[36mTask Load (0.1ms)[0m  [1mSELECT "tasks".* FROM "tasks" WHERE "tasks"."id" = ? LIMIT 1[0m  [["id", "1"]]
+Completed 200 OK in 3.4ms (Views: 1.2ms | ActiveRecord: 0.1ms)
+  [1m[35m (0.4ms)[0m  rollback transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.6ms)[0m  [1mINSERT INTO "tasks" ("course", "created_at", "due", "kind", "release", "status", "title", "updated_at", "user_id") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["course", "CS169"], ["created_at", Mon, 09 Mar 2015 22:41:28 PDT -07:00], ["due", Fri, 20 Mar 2015 00:59:00 PDT -07:00], ["kind", "Exam"], ["release", Fri, 13 Mar 2015 00:59:00 PDT -07:00], ["status", "New"], ["title", "Quiz#2"], ["updated_at", Mon, 09 Mar 2015 22:41:28 PDT -07:00], ["user_id", 1]]
+  [1m[35m (0.0ms)[0m  RELEASE SAVEPOINT active_record_1
+Processing by TasksController#update as HTML
+  Parameters: {"task"=>{"title"=>"Quiz#2", "course"=>"CS169", "kind"=>"Exam", "release"=>"12/Mar/2015 23:59:00 -0800", "due"=>"19/Mar/2015 23:59:00 -0800", "status"=>"New", "user_id"=>"1"}, "id"=>"1"}
+  [1m[36mTask Load (0.1ms)[0m  [1mSELECT "tasks".* FROM "tasks" WHERE "tasks"."id" = ? LIMIT 1[0m  [["id", "1"]]
+  [1m[35m (0.0ms)[0m  SAVEPOINT active_record_1
+  [1m[36m (1.2ms)[0m  [1mUPDATE "tasks" SET "release" = '2015-03-13 07:59:00.000000', "due" = '2015-03-20 07:59:00.000000', "updated_at" = '2015-03-10 05:41:28.096809' WHERE "tasks"."id" = 1[0m
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+Redirected to http://test.host/tasks/1
+Completed 302 Found in 7.7ms (ActiveRecord: 1.3ms)
+  [1m[36m (0.6ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36m (0.0ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.5ms)[0m  INSERT INTO "tasks" ("course", "created_at", "due", "kind", "release", "status", "title", "updated_at", "user_id") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)  [["course", "CS169"], ["created_at", Mon, 09 Mar 2015 22:41:28 PDT -07:00], ["due", Fri, 20 Mar 2015 00:59:00 PDT -07:00], ["kind", "Exam"], ["release", Fri, 13 Mar 2015 00:59:00 PDT -07:00], ["status", "New"], ["title", "Quiz#2"], ["updated_at", Mon, 09 Mar 2015 22:41:28 PDT -07:00], ["user_id", 1]]
+  [1m[36m (0.0ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+Processing by TasksController#update as HTML
+  Parameters: {"task"=>{"title"=>"Quiz#2", "course"=>"CS169", "kind"=>"Exam", "release"=>"12/Mar/2015 23:59:00 -0800", "due"=>"19/Mar/2015 23:59:00 -0800", "status"=>"New", "user_id"=>"1"}, "id"=>"1"}
+  [1m[35mTask Load (0.0ms)[0m  SELECT "tasks".* FROM "tasks" WHERE "tasks"."id" = ? LIMIT 1  [["id", "1"]]
+  [1m[36m (0.0ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35m (0.4ms)[0m  UPDATE "tasks" SET "release" = '2015-03-13 07:59:00.000000', "due" = '2015-03-20 07:59:00.000000', "updated_at" = '2015-03-10 05:41:28.112104' WHERE "tasks"."id" = 1
+  [1m[36m (0.0ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+Redirected to http://test.host/tasks/1
+Completed 302 Found in 5.1ms (ActiveRecord: 0.5ms)
+  [1m[35m (0.7ms)[0m  rollback transaction
+  [1m[36m (0.2ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.5ms)[0m  [1mINSERT INTO "tasks" ("course", "created_at", "due", "kind", "release", "status", "title", "updated_at", "user_id") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["course", "CS169"], ["created_at", Mon, 09 Mar 2015 22:41:28 PDT -07:00], ["due", Fri, 20 Mar 2015 00:59:00 PDT -07:00], ["kind", "Exam"], ["release", Fri, 13 Mar 2015 00:59:00 PDT -07:00], ["status", "New"], ["title", "Quiz#2"], ["updated_at", Mon, 09 Mar 2015 22:41:28 PDT -07:00], ["user_id", 1]]
+  [1m[35m (0.0ms)[0m  RELEASE SAVEPOINT active_record_1
+Processing by TasksController#update as HTML
+  Parameters: {"task"=>{"title"=>"invalid value"}, "id"=>"1"}
+  [1m[36mTask Load (0.1ms)[0m  [1mSELECT "tasks".* FROM "tasks" WHERE "tasks"."id" = ? LIMIT 1[0m  [["id", "1"]]
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36m (0.1ms)[0m  [1mROLLBACK TO SAVEPOINT active_record_1[0m
+Completed 200 OK in 4.1ms (Views: 1.1ms | ActiveRecord: 0.2ms)
+  [1m[35m (0.5ms)[0m  rollback transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.5ms)[0m  [1mINSERT INTO "tasks" ("course", "created_at", "due", "kind", "release", "status", "title", "updated_at", "user_id") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["course", "CS169"], ["created_at", Mon, 09 Mar 2015 22:41:28 PDT -07:00], ["due", Fri, 20 Mar 2015 00:59:00 PDT -07:00], ["kind", "Exam"], ["release", Fri, 13 Mar 2015 00:59:00 PDT -07:00], ["status", "New"], ["title", "Quiz#2"], ["updated_at", Mon, 09 Mar 2015 22:41:28 PDT -07:00], ["user_id", 1]]
+  [1m[35m (0.0ms)[0m  RELEASE SAVEPOINT active_record_1
+Processing by TasksController#update as HTML
+  Parameters: {"task"=>{"title"=>"invalid value"}, "id"=>"1"}
+  [1m[36mTask Load (0.1ms)[0m  [1mSELECT "tasks".* FROM "tasks" WHERE "tasks"."id" = ? LIMIT 1[0m  [["id", "1"]]
+  [1m[35m (0.0ms)[0m  SAVEPOINT active_record_1
+  [1m[36m (0.0ms)[0m  [1mROLLBACK TO SAVEPOINT active_record_1[0m
+Completed 200 OK in 2.8ms (Views: 1.1ms | ActiveRecord: 0.1ms)
+  [1m[35m (0.5ms)[0m  rollback transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+Processing by TasksController#new as HTML
+Completed 200 OK in 2.4ms (Views: 1.7ms | ActiveRecord: 0.0ms)
+  [1m[35m (0.1ms)[0m  rollback transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.2ms)[0m  SELECT COUNT(*) FROM "tasks" 
+Processing by TasksController#create as HTML
+  Parameters: {"task"=>{"title"=>"Quiz#2", "course"=>"CS169", "kind"=>"Exam", "release"=>"12/Mar/2015 23:59:00 -0800", "due"=>"19/Mar/2015 23:59:00 -0800", "status"=>"New", "user_id"=>"1"}}
+Completed 500 Internal Server Error in 0.5ms
+  [1m[36m (0.1ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+Processing by TasksController#create as HTML
+  Parameters: {"task"=>{"title"=>"Quiz#2", "course"=>"CS169", "kind"=>"Exam", "release"=>"12/Mar/2015 23:59:00 -0800", "due"=>"19/Mar/2015 23:59:00 -0800", "status"=>"New", "user_id"=>"1"}}
+Completed 500 Internal Server Error in 0.2ms
+  [1m[36m (0.1ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+Processing by TasksController#create as HTML
+  Parameters: {"task"=>{"title"=>"Quiz#2", "course"=>"CS169", "kind"=>"Exam", "release"=>"12/Mar/2015 23:59:00 -0800", "due"=>"19/Mar/2015 23:59:00 -0800", "status"=>"New", "user_id"=>"1"}}
+Completed 500 Internal Server Error in 0.2ms
+  [1m[36m (0.0ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+Processing by TasksController#create as HTML
+  Parameters: {"task"=>{"title"=>"invalid value"}}
+Completed 500 Internal Server Error in 0.6ms
+  [1m[36m (0.1ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+Processing by TasksController#create as HTML
+  Parameters: {"task"=>{"title"=>"invalid value"}}
+Completed 500 Internal Server Error in 0.3ms
+  [1m[36m (0.1ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.7ms)[0m  INSERT INTO "tasks" ("course", "created_at", "due", "kind", "release", "status", "title", "updated_at", "user_id") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)  [["course", "CS169"], ["created_at", Mon, 09 Mar 2015 22:41:28 PDT -07:00], ["due", Fri, 20 Mar 2015 00:59:00 PDT -07:00], ["kind", "Exam"], ["release", Fri, 13 Mar 2015 00:59:00 PDT -07:00], ["status", "New"], ["title", "Quiz#2"], ["updated_at", Mon, 09 Mar 2015 22:41:28 PDT -07:00], ["user_id", 1]]
+  [1m[36m (0.0ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  SELECT COUNT(*) FROM "tasks" 
+Processing by TasksController#destroy as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mTask Load (0.1ms)[0m  [1mSELECT "tasks".* FROM "tasks" WHERE "tasks"."id" = ? LIMIT 1[0m  [["id", "1"]]
+  [1m[35m (0.0ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.4ms)[0m  [1mDELETE FROM "tasks" WHERE "tasks"."id" = ?[0m  [["id", 1]]
+  [1m[35m (0.0ms)[0m  RELEASE SAVEPOINT active_record_1
+Redirected to http://test.host/tasks
+Completed 302 Found in 2.6ms (ActiveRecord: 0.5ms)
+  [1m[36m (0.1ms)[0m  [1mSELECT COUNT(*) FROM "tasks" [0m
+  [1m[35m (0.6ms)[0m  rollback transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.8ms)[0m  [1mINSERT INTO "tasks" ("course", "created_at", "due", "kind", "release", "status", "title", "updated_at", "user_id") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["course", "CS169"], ["created_at", Mon, 09 Mar 2015 22:41:28 PDT -07:00], ["due", Fri, 20 Mar 2015 00:59:00 PDT -07:00], ["kind", "Exam"], ["release", Fri, 13 Mar 2015 00:59:00 PDT -07:00], ["status", "New"], ["title", "Quiz#2"], ["updated_at", Mon, 09 Mar 2015 22:41:28 PDT -07:00], ["user_id", 1]]
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+Processing by TasksController#destroy as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mTask Load (0.1ms)[0m  [1mSELECT "tasks".* FROM "tasks" WHERE "tasks"."id" = ? LIMIT 1[0m  [["id", "1"]]
+  [1m[35m (0.0ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.3ms)[0m  [1mDELETE FROM "tasks" WHERE "tasks"."id" = ?[0m  [["id", 1]]
+  [1m[35m (0.0ms)[0m  RELEASE SAVEPOINT active_record_1
+Redirected to http://test.host/tasks
+Completed 302 Found in 2.0ms (ActiveRecord: 0.4ms)
+  [1m[36m (0.6ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.7ms)[0m  INSERT INTO "tasks" ("course", "created_at", "due", "kind", "release", "status", "title", "updated_at", "user_id") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)  [["course", "CS169"], ["created_at", Mon, 09 Mar 2015 22:41:28 PDT -07:00], ["due", Fri, 20 Mar 2015 00:59:00 PDT -07:00], ["kind", "Exam"], ["release", Fri, 13 Mar 2015 00:59:00 PDT -07:00], ["status", "New"], ["title", "Quiz#2"], ["updated_at", Mon, 09 Mar 2015 22:41:28 PDT -07:00], ["user_id", 1]]
+  [1m[36m (0.0ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+Processing by TasksController#index as HTML
+Completed 500 Internal Server Error in 0.4ms
+  [1m[35m (0.4ms)[0m  rollback transaction
+Connecting to database specified by database.yml
+  [1m[36m (0.5ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (6.5ms)[0m  [1mINSERT INTO "tasks" ("course", "created_at", "due", "kind", "release", "status", "title", "updated_at", "user_id") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["course", "CS169"], ["created_at", Mon, 09 Mar 2015 22:44:56 PDT -07:00], ["due", Fri, 20 Mar 2015 00:59:00 PDT -07:00], ["kind", "Exam"], ["release", Fri, 13 Mar 2015 00:59:00 PDT -07:00], ["status", "New"], ["title", "Quiz#2"], ["updated_at", Mon, 09 Mar 2015 22:44:56 PDT -07:00], ["user_id", 1]]
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+Processing by TasksController#edit as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mTask Load (0.2ms)[0m  [1mSELECT "tasks".* FROM "tasks" WHERE "tasks"."id" = ? LIMIT 1[0m  [["id", "1"]]
+  Rendered tasks/edit.html.erb within layouts/application (0.2ms)
+Completed 200 OK in 14.6ms (Views: 12.5ms | ActiveRecord: 0.2ms)
+  [1m[35m (1.7ms)[0m  rollback transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.5ms)[0m  [1mINSERT INTO "tasks" ("course", "created_at", "due", "kind", "release", "status", "title", "updated_at", "user_id") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["course", "CS169"], ["created_at", Mon, 09 Mar 2015 22:44:56 PDT -07:00], ["due", Fri, 20 Mar 2015 00:59:00 PDT -07:00], ["kind", "Exam"], ["release", Fri, 13 Mar 2015 00:59:00 PDT -07:00], ["status", "New"], ["title", "Quiz#2"], ["updated_at", Mon, 09 Mar 2015 22:44:56 PDT -07:00], ["user_id", 1]]
+  [1m[35m (0.0ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (0.1ms)[0m  [1mSELECT COUNT(*) FROM "tasks" [0m
+Processing by TasksController#destroy as HTML
+  Parameters: {"id"=>"1"}
+  [1m[35mTask Load (0.1ms)[0m  SELECT "tasks".* FROM "tasks" WHERE "tasks"."id" = ? LIMIT 1  [["id", "1"]]
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (1.0ms)[0m  DELETE FROM "tasks" WHERE "tasks"."id" = ?  [["id", 1]]
+  [1m[36m (0.0ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+Redirected to http://test.host/tasks
+Completed 302 Found in 3.9ms (ActiveRecord: 1.2ms)
+  [1m[35m (0.1ms)[0m  SELECT COUNT(*) FROM "tasks" 
+  [1m[36m (0.7ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36m (0.0ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.5ms)[0m  INSERT INTO "tasks" ("course", "created_at", "due", "kind", "release", "status", "title", "updated_at", "user_id") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)  [["course", "CS169"], ["created_at", Mon, 09 Mar 2015 22:44:56 PDT -07:00], ["due", Fri, 20 Mar 2015 00:59:00 PDT -07:00], ["kind", "Exam"], ["release", Fri, 13 Mar 2015 00:59:00 PDT -07:00], ["status", "New"], ["title", "Quiz#2"], ["updated_at", Mon, 09 Mar 2015 22:44:56 PDT -07:00], ["user_id", 1]]
+  [1m[36m (0.0ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+Processing by TasksController#destroy as HTML
+  Parameters: {"id"=>"1"}
+  [1m[35mTask Load (0.1ms)[0m  SELECT "tasks".* FROM "tasks" WHERE "tasks"."id" = ? LIMIT 1  [["id", "1"]]
+  [1m[36m (0.0ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.4ms)[0m  DELETE FROM "tasks" WHERE "tasks"."id" = ?  [["id", 1]]
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+Redirected to http://test.host/tasks
+Completed 302 Found in 3.0ms (ActiveRecord: 0.6ms)
+  [1m[35m (0.7ms)[0m  rollback transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.8ms)[0m  [1mINSERT INTO "tasks" ("course", "created_at", "due", "kind", "release", "status", "title", "updated_at", "user_id") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["course", "CS169"], ["created_at", Mon, 09 Mar 2015 22:44:56 PDT -07:00], ["due", Fri, 20 Mar 2015 00:59:00 PDT -07:00], ["kind", "Exam"], ["release", Fri, 13 Mar 2015 00:59:00 PDT -07:00], ["status", "New"], ["title", "Quiz#2"], ["updated_at", Mon, 09 Mar 2015 22:44:56 PDT -07:00], ["user_id", 1]]
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+Processing by TasksController#update as HTML
+  Parameters: {"task"=>{"title"=>"MyString"}, "id"=>"1"}
+  [1m[36mTask Load (0.1ms)[0m  [1mSELECT "tasks".* FROM "tasks" WHERE "tasks"."id" = ? LIMIT 1[0m  [["id", "1"]]
+Completed 200 OK in 3.0ms (Views: 0.8ms | ActiveRecord: 0.1ms)
+  [1m[35m (0.4ms)[0m  rollback transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.0ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.5ms)[0m  [1mINSERT INTO "tasks" ("course", "created_at", "due", "kind", "release", "status", "title", "updated_at", "user_id") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["course", "CS169"], ["created_at", Mon, 09 Mar 2015 22:44:56 PDT -07:00], ["due", Fri, 20 Mar 2015 00:59:00 PDT -07:00], ["kind", "Exam"], ["release", Fri, 13 Mar 2015 00:59:00 PDT -07:00], ["status", "New"], ["title", "Quiz#2"], ["updated_at", Mon, 09 Mar 2015 22:44:56 PDT -07:00], ["user_id", 1]]
+  [1m[35m (0.0ms)[0m  RELEASE SAVEPOINT active_record_1
+Processing by TasksController#update as HTML
+  Parameters: {"task"=>{"title"=>"Quiz#2", "course"=>"CS169", "kind"=>"Exam", "release"=>"12/Mar/2015 23:59:00 -0800", "due"=>"19/Mar/2015 23:59:00 -0800", "status"=>"New", "user_id"=>"1"}, "id"=>"1"}
+  [1m[36mTask Load (0.1ms)[0m  [1mSELECT "tasks".* FROM "tasks" WHERE "tasks"."id" = ? LIMIT 1[0m  [["id", "1"]]
+  [1m[35m (0.0ms)[0m  SAVEPOINT active_record_1
+  [1m[36m (0.6ms)[0m  [1mUPDATE "tasks" SET "release" = '2015-03-13 07:59:00.000000', "due" = '2015-03-20 07:59:00.000000', "updated_at" = '2015-03-10 05:44:56.466284' WHERE "tasks"."id" = 1[0m
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+Redirected to http://test.host/tasks/1
+Completed 302 Found in 6.6ms (ActiveRecord: 0.8ms)
+  [1m[36m (0.7ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.8ms)[0m  INSERT INTO "tasks" ("course", "created_at", "due", "kind", "release", "status", "title", "updated_at", "user_id") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)  [["course", "CS169"], ["created_at", Mon, 09 Mar 2015 22:44:56 PDT -07:00], ["due", Fri, 20 Mar 2015 00:59:00 PDT -07:00], ["kind", "Exam"], ["release", Fri, 13 Mar 2015 00:59:00 PDT -07:00], ["status", "New"], ["title", "Quiz#2"], ["updated_at", Mon, 09 Mar 2015 22:44:56 PDT -07:00], ["user_id", 1]]
+  [1m[36m (0.0ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+Processing by TasksController#update as HTML
+  Parameters: {"task"=>{"title"=>"Quiz#2", "course"=>"CS169", "kind"=>"Exam", "release"=>"12/Mar/2015 23:59:00 -0800", "due"=>"19/Mar/2015 23:59:00 -0800", "status"=>"New", "user_id"=>"1"}, "id"=>"1"}
+  [1m[35mTask Load (0.1ms)[0m  SELECT "tasks".* FROM "tasks" WHERE "tasks"."id" = ? LIMIT 1  [["id", "1"]]
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35m (0.5ms)[0m  UPDATE "tasks" SET "release" = '2015-03-13 07:59:00.000000', "due" = '2015-03-20 07:59:00.000000', "updated_at" = '2015-03-10 05:44:56.484218' WHERE "tasks"."id" = 1
+  [1m[36m (0.0ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+Redirected to http://test.host/tasks/1
+Completed 302 Found in 5.2ms (ActiveRecord: 0.6ms)
+  [1m[35m (5.1ms)[0m  rollback transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.7ms)[0m  [1mINSERT INTO "tasks" ("course", "created_at", "due", "kind", "release", "status", "title", "updated_at", "user_id") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["course", "CS169"], ["created_at", Mon, 09 Mar 2015 22:44:56 PDT -07:00], ["due", Fri, 20 Mar 2015 00:59:00 PDT -07:00], ["kind", "Exam"], ["release", Fri, 13 Mar 2015 00:59:00 PDT -07:00], ["status", "New"], ["title", "Quiz#2"], ["updated_at", Mon, 09 Mar 2015 22:44:56 PDT -07:00], ["user_id", 1]]
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+Processing by TasksController#update as HTML
+  Parameters: {"task"=>{"title"=>"invalid value"}, "id"=>"1"}
+  [1m[36mTask Load (0.1ms)[0m  [1mSELECT "tasks".* FROM "tasks" WHERE "tasks"."id" = ? LIMIT 1[0m  [["id", "1"]]
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36m (0.1ms)[0m  [1mROLLBACK TO SAVEPOINT active_record_1[0m
+Completed 200 OK in 4.3ms (Views: 1.1ms | ActiveRecord: 0.2ms)
+  [1m[35m (1.0ms)[0m  rollback transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.0ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.5ms)[0m  [1mINSERT INTO "tasks" ("course", "created_at", "due", "kind", "release", "status", "title", "updated_at", "user_id") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["course", "CS169"], ["created_at", Mon, 09 Mar 2015 22:44:56 PDT -07:00], ["due", Fri, 20 Mar 2015 00:59:00 PDT -07:00], ["kind", "Exam"], ["release", Fri, 13 Mar 2015 00:59:00 PDT -07:00], ["status", "New"], ["title", "Quiz#2"], ["updated_at", Mon, 09 Mar 2015 22:44:56 PDT -07:00], ["user_id", 1]]
+  [1m[35m (0.0ms)[0m  RELEASE SAVEPOINT active_record_1
+Processing by TasksController#update as HTML
+  Parameters: {"task"=>{"title"=>"invalid value"}, "id"=>"1"}
+  [1m[36mTask Load (0.1ms)[0m  [1mSELECT "tasks".* FROM "tasks" WHERE "tasks"."id" = ? LIMIT 1[0m  [["id", "1"]]
+  [1m[35m (0.0ms)[0m  SAVEPOINT active_record_1
+  [1m[36m (0.0ms)[0m  [1mROLLBACK TO SAVEPOINT active_record_1[0m
+Completed 200 OK in 2.4ms (Views: 0.7ms | ActiveRecord: 0.1ms)
+  [1m[35m (0.5ms)[0m  rollback transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.5ms)[0m  [1mINSERT INTO "tasks" ("course", "created_at", "due", "kind", "release", "status", "title", "updated_at", "user_id") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["course", "CS169"], ["created_at", Mon, 09 Mar 2015 22:44:56 PDT -07:00], ["due", Fri, 20 Mar 2015 00:59:00 PDT -07:00], ["kind", "Exam"], ["release", Fri, 13 Mar 2015 00:59:00 PDT -07:00], ["status", "New"], ["title", "Quiz#2"], ["updated_at", Mon, 09 Mar 2015 22:44:56 PDT -07:00], ["user_id", 1]]
+  [1m[35m (0.0ms)[0m  RELEASE SAVEPOINT active_record_1
+Processing by TasksController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mTask Load (0.1ms)[0m  [1mSELECT "tasks".* FROM "tasks" WHERE "tasks"."id" = ? LIMIT 1[0m  [["id", "1"]]
+Completed 200 OK in 2.8ms (Views: 1.3ms | ActiveRecord: 0.1ms)
+  [1m[35m (0.4ms)[0m  rollback transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.1ms)[0m  SELECT COUNT(*) FROM "tasks" 
+Processing by TasksController#create as HTML
+  Parameters: {"task"=>{"title"=>"Quiz#2", "course"=>"CS169", "kind"=>"Exam", "release"=>"12/Mar/2015 23:59:00 -0800", "due"=>"19/Mar/2015 23:59:00 -0800", "status"=>"New", "user_id"=>"1"}}
+Completed 500 Internal Server Error in 0.6ms
+  [1m[36m (0.1ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+Processing by TasksController#create as HTML
+  Parameters: {"task"=>{"title"=>"Quiz#2", "course"=>"CS169", "kind"=>"Exam", "release"=>"12/Mar/2015 23:59:00 -0800", "due"=>"19/Mar/2015 23:59:00 -0800", "status"=>"New", "user_id"=>"1"}}
+Completed 500 Internal Server Error in 0.2ms
+  [1m[36m (0.0ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+Processing by TasksController#create as HTML
+  Parameters: {"task"=>{"title"=>"invalid value"}}
+Completed 500 Internal Server Error in 0.2ms
+  [1m[36m (0.1ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+Processing by TasksController#create as HTML
+  Parameters: {"task"=>{"title"=>"invalid value"}}
+Completed 500 Internal Server Error in 0.2ms
+  [1m[36m (0.1ms)[0m  [1mrollback transaction[0m
+Connecting to database specified by database.yml
+  [1m[36m (0.4ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (6.2ms)[0m  [1mINSERT INTO "tasks" ("course", "created_at", "due", "kind", "release", "status", "title", "updated_at", "user_id") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["course", "CS169"], ["created_at", Mon, 09 Mar 2015 22:47:02 PDT -07:00], ["due", Fri, 20 Mar 2015 00:59:00 PDT -07:00], ["kind", "Exam"], ["release", Fri, 13 Mar 2015 00:59:00 PDT -07:00], ["status", "New"], ["title", "Quiz#2"], ["updated_at", Mon, 09 Mar 2015 22:47:02 PDT -07:00], ["user_id", 1]]
+  [1m[35m (0.0ms)[0m  RELEASE SAVEPOINT active_record_1
+Processing by TasksController#edit as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mTask Load (0.1ms)[0m  [1mSELECT "tasks".* FROM "tasks" WHERE "tasks"."id" = ? LIMIT 1[0m  [["id", "1"]]
+  Rendered tasks/edit.html.erb within layouts/application (0.3ms)
+Completed 200 OK in 15.6ms (Views: 13.2ms | ActiveRecord: 0.1ms)
+  [1m[35m (1.7ms)[0m  rollback transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.0ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.5ms)[0m  [1mINSERT INTO "tasks" ("course", "created_at", "due", "kind", "release", "status", "title", "updated_at", "user_id") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["course", "CS169"], ["created_at", Mon, 09 Mar 2015 22:47:02 PDT -07:00], ["due", Fri, 20 Mar 2015 00:59:00 PDT -07:00], ["kind", "Exam"], ["release", Fri, 13 Mar 2015 00:59:00 PDT -07:00], ["status", "New"], ["title", "Quiz#2"], ["updated_at", Mon, 09 Mar 2015 22:47:02 PDT -07:00], ["user_id", 1]]
+  [1m[35m (0.0ms)[0m  RELEASE SAVEPOINT active_record_1
+Processing by TasksController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mTask Load (0.1ms)[0m  [1mSELECT "tasks".* FROM "tasks" WHERE "tasks"."id" = ? LIMIT 1[0m  [["id", "1"]]
+Completed 200 OK in 2.4ms (Views: 1.2ms | ActiveRecord: 0.1ms)
+  [1m[35m (0.5ms)[0m  rollback transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.7ms)[0m  [1mINSERT INTO "tasks" ("course", "created_at", "due", "kind", "release", "status", "title", "updated_at", "user_id") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["course", "CS169"], ["created_at", Mon, 09 Mar 2015 22:47:02 PDT -07:00], ["due", Fri, 20 Mar 2015 00:59:00 PDT -07:00], ["kind", "Exam"], ["release", Fri, 13 Mar 2015 00:59:00 PDT -07:00], ["status", "New"], ["title", "Quiz#2"], ["updated_at", Mon, 09 Mar 2015 22:47:02 PDT -07:00], ["user_id", 1]]
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+Processing by TasksController#update as HTML
+  Parameters: {"task"=>{"title"=>"MyString"}, "id"=>"1"}
+  [1m[36mTask Load (0.1ms)[0m  [1mSELECT "tasks".* FROM "tasks" WHERE "tasks"."id" = ? LIMIT 1[0m  [["id", "1"]]
+Completed 200 OK in 4.0ms (Views: 1.3ms | ActiveRecord: 0.1ms)
+  [1m[35m (0.5ms)[0m  rollback transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.8ms)[0m  [1mINSERT INTO "tasks" ("course", "created_at", "due", "kind", "release", "status", "title", "updated_at", "user_id") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["course", "CS169"], ["created_at", Mon, 09 Mar 2015 22:47:02 PDT -07:00], ["due", Fri, 20 Mar 2015 00:59:00 PDT -07:00], ["kind", "Exam"], ["release", Fri, 13 Mar 2015 00:59:00 PDT -07:00], ["status", "New"], ["title", "Quiz#2"], ["updated_at", Mon, 09 Mar 2015 22:47:02 PDT -07:00], ["user_id", 1]]
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+Processing by TasksController#update as HTML
+  Parameters: {"task"=>{"title"=>"Quiz#2", "course"=>"CS169", "kind"=>"Exam", "release"=>"12/Mar/2015 23:59:00 -0800", "due"=>"19/Mar/2015 23:59:00 -0800", "status"=>"New", "user_id"=>"1"}, "id"=>"1"}
+  [1m[36mTask Load (0.1ms)[0m  [1mSELECT "tasks".* FROM "tasks" WHERE "tasks"."id" = ? LIMIT 1[0m  [["id", "1"]]
+  [1m[35m (0.0ms)[0m  SAVEPOINT active_record_1
+  [1m[36m (1.1ms)[0m  [1mUPDATE "tasks" SET "release" = '2015-03-13 07:59:00.000000', "due" = '2015-03-20 07:59:00.000000', "updated_at" = '2015-03-10 05:47:02.145437' WHERE "tasks"."id" = 1[0m
+  [1m[35m (0.0ms)[0m  RELEASE SAVEPOINT active_record_1
+Redirected to http://test.host/tasks/1
+Completed 302 Found in 7.0ms (ActiveRecord: 1.2ms)
+  [1m[36m (0.6ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36m (0.0ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.5ms)[0m  INSERT INTO "tasks" ("course", "created_at", "due", "kind", "release", "status", "title", "updated_at", "user_id") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)  [["course", "CS169"], ["created_at", Mon, 09 Mar 2015 22:47:02 PDT -07:00], ["due", Fri, 20 Mar 2015 00:59:00 PDT -07:00], ["kind", "Exam"], ["release", Fri, 13 Mar 2015 00:59:00 PDT -07:00], ["status", "New"], ["title", "Quiz#2"], ["updated_at", Mon, 09 Mar 2015 22:47:02 PDT -07:00], ["user_id", 1]]
+  [1m[36m (0.0ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+Processing by TasksController#update as HTML
+  Parameters: {"task"=>{"title"=>"Quiz#2", "course"=>"CS169", "kind"=>"Exam", "release"=>"12/Mar/2015 23:59:00 -0800", "due"=>"19/Mar/2015 23:59:00 -0800", "status"=>"New", "user_id"=>"1"}, "id"=>"1"}
+  [1m[35mTask Load (0.1ms)[0m  SELECT "tasks".* FROM "tasks" WHERE "tasks"."id" = ? LIMIT 1  [["id", "1"]]
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35m (0.4ms)[0m  UPDATE "tasks" SET "release" = '2015-03-13 07:59:00.000000', "due" = '2015-03-20 07:59:00.000000', "updated_at" = '2015-03-10 05:47:02.159730' WHERE "tasks"."id" = 1
+  [1m[36m (0.0ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+Redirected to http://test.host/tasks/1
+Completed 302 Found in 6.4ms (ActiveRecord: 0.6ms)
+  [1m[35m (0.7ms)[0m  rollback transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (1.4ms)[0m  [1mINSERT INTO "tasks" ("course", "created_at", "due", "kind", "release", "status", "title", "updated_at", "user_id") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["course", "CS169"], ["created_at", Mon, 09 Mar 2015 22:47:02 PDT -07:00], ["due", Fri, 20 Mar 2015 00:59:00 PDT -07:00], ["kind", "Exam"], ["release", Fri, 13 Mar 2015 00:59:00 PDT -07:00], ["status", "New"], ["title", "Quiz#2"], ["updated_at", Mon, 09 Mar 2015 22:47:02 PDT -07:00], ["user_id", 1]]
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+Processing by TasksController#update as HTML
+  Parameters: {"task"=>{"title"=>"invalid value"}, "id"=>"1"}
+  [1m[36mTask Load (0.1ms)[0m  [1mSELECT "tasks".* FROM "tasks" WHERE "tasks"."id" = ? LIMIT 1[0m  [["id", "1"]]
+  [1m[35m (0.0ms)[0m  SAVEPOINT active_record_1
+  [1m[36m (0.0ms)[0m  [1mROLLBACK TO SAVEPOINT active_record_1[0m
+Completed 200 OK in 2.7ms (Views: 0.7ms | ActiveRecord: 0.2ms)
+  [1m[35m (0.5ms)[0m  rollback transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.7ms)[0m  [1mINSERT INTO "tasks" ("course", "created_at", "due", "kind", "release", "status", "title", "updated_at", "user_id") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["course", "CS169"], ["created_at", Mon, 09 Mar 2015 22:47:02 PDT -07:00], ["due", Fri, 20 Mar 2015 00:59:00 PDT -07:00], ["kind", "Exam"], ["release", Fri, 13 Mar 2015 00:59:00 PDT -07:00], ["status", "New"], ["title", "Quiz#2"], ["updated_at", Mon, 09 Mar 2015 22:47:02 PDT -07:00], ["user_id", 1]]
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+Processing by TasksController#update as HTML
+  Parameters: {"task"=>{"title"=>"invalid value"}, "id"=>"1"}
+  [1m[36mTask Load (0.1ms)[0m  [1mSELECT "tasks".* FROM "tasks" WHERE "tasks"."id" = ? LIMIT 1[0m  [["id", "1"]]
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36m (0.1ms)[0m  [1mROLLBACK TO SAVEPOINT active_record_1[0m
+Completed 200 OK in 3.7ms (Views: 1.2ms | ActiveRecord: 0.2ms)
+  [1m[35m (0.5ms)[0m  rollback transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.0ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.5ms)[0m  [1mINSERT INTO "tasks" ("course", "created_at", "due", "kind", "release", "status", "title", "updated_at", "user_id") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["course", "CS169"], ["created_at", Mon, 09 Mar 2015 22:47:02 PDT -07:00], ["due", Fri, 20 Mar 2015 00:59:00 PDT -07:00], ["kind", "Exam"], ["release", Fri, 13 Mar 2015 00:59:00 PDT -07:00], ["status", "New"], ["title", "Quiz#2"], ["updated_at", Mon, 09 Mar 2015 22:47:02 PDT -07:00], ["user_id", 1]]
+  [1m[35m (0.0ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (0.1ms)[0m  [1mSELECT COUNT(*) FROM "tasks" [0m
+Processing by TasksController#destroy as HTML
+  Parameters: {"id"=>"1"}
+  [1m[35mTask Load (0.3ms)[0m  SELECT "tasks".* FROM "tasks" WHERE "tasks"."id" = ? LIMIT 1  [["id", "1"]]
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.4ms)[0m  DELETE FROM "tasks" WHERE "tasks"."id" = ?  [["id", 1]]
+  [1m[36m (0.0ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+Redirected to http://test.host/tasks
+Completed 302 Found in 4.3ms (ActiveRecord: 0.7ms)
+  [1m[35m (0.1ms)[0m  SELECT COUNT(*) FROM "tasks" 
+  [1m[36m (0.6ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36m (0.0ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.5ms)[0m  INSERT INTO "tasks" ("course", "created_at", "due", "kind", "release", "status", "title", "updated_at", "user_id") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)  [["course", "CS169"], ["created_at", Mon, 09 Mar 2015 22:47:02 PDT -07:00], ["due", Fri, 20 Mar 2015 00:59:00 PDT -07:00], ["kind", "Exam"], ["release", Fri, 13 Mar 2015 00:59:00 PDT -07:00], ["status", "New"], ["title", "Quiz#2"], ["updated_at", Mon, 09 Mar 2015 22:47:02 PDT -07:00], ["user_id", 1]]
+  [1m[36m (0.0ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+Processing by TasksController#destroy as HTML
+  Parameters: {"id"=>"1"}
+  [1m[35mTask Load (0.0ms)[0m  SELECT "tasks".* FROM "tasks" WHERE "tasks"."id" = ? LIMIT 1  [["id", "1"]]
+  [1m[36m (0.0ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.3ms)[0m  DELETE FROM "tasks" WHERE "tasks"."id" = ?  [["id", 1]]
+  [1m[36m (0.0ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+Redirected to http://test.host/tasks
+Completed 302 Found in 1.7ms (ActiveRecord: 0.4ms)
+  [1m[35m (0.7ms)[0m  rollback transaction
+Connecting to database specified by database.yml
+  [1m[36m (0.4ms)[0m  [1mbegin transaction[0m
+  Rendered tasks/index.html.erb (4.9ms)
+  [1m[35m (0.1ms)[0m  rollback transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  Rendered tasks/_form.html.erb (27.4ms)
+  [1m[35m (0.1ms)[0m  rollback transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  Rendered tasks/_form.html.erb (15.0ms)
+  [1m[35m (0.1ms)[0m  rollback transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSubtask Load (1.9ms)[0m  SELECT "subtasks".* FROM "subtasks" WHERE "subtasks"."task_id" = 1005
+  [1m[36m (0.1ms)[0m  [1mrollback transaction[0m
+Connecting to database specified by database.yml
+  [1m[36m (0.4ms)[0m  [1mbegin transaction[0m
+  Rendered tasks/_form.html.erb (31.4ms)
+  Rendered tasks/new.html.erb (41.8ms)
+  [1m[35m (0.1ms)[0m  rollback transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.1ms)[0m  rollback transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSubtask Load (2.6ms)[0m  SELECT "subtasks".* FROM "subtasks" WHERE "subtasks"."task_id" = 1004
+  [1m[36m (0.1ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  Rendered tasks/_form.html.erb (16.3ms)
+  [1m[36m (0.1ms)[0m  [1mrollback transaction[0m
+Connecting to database specified by database.yml
+Connecting to database specified by database.yml
+  [1m[36m (0.4ms)[0m  [1mbegin transaction[0m
+  Rendered tasks/index.html.erb (3.7ms)
+  [1m[35m (0.1ms)[0m  rollback transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  Rendered tasks/_form.html.erb (21.8ms)
+  [1m[35m (0.1ms)[0m  rollback transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  Rendered tasks/_form.html.erb (15.3ms)
+  [1m[35m (0.1ms)[0m  rollback transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSubtask Load (2.2ms)[0m  SELECT "subtasks".* FROM "subtasks" WHERE "subtasks"."task_id" = 1005
+  [1m[36m (0.1ms)[0m  [1mrollback transaction[0m
+Connecting to database specified by database.yml
+  [1m[36m (0.5ms)[0m  [1mbegin transaction[0m
+  Rendered tasks/_form.html.erb (22.2ms)
+  Rendered tasks/edit.html.erb (28.6ms)
+  [1m[35m (0.1ms)[0m  rollback transaction
+Connecting to database specified by database.yml
+  [1m[36m (0.4ms)[0m  [1mbegin transaction[0m
+  Rendered tasks/index.html.erb (4.6ms)
+  [1m[35m (0.1ms)[0m  rollback transaction
+Connecting to database specified by database.yml
+  [1m[36m (0.4ms)[0m  [1mbegin transaction[0m
+  [1m[35mUser Load (3.8ms)[0m  SELECT "users".* FROM "users" 
+  Rendered tasks/index.html.erb (3.1ms)
+  [1m[36m (0.1ms)[0m  [1mrollback transaction[0m
+Connecting to database specified by database.yml
+  [1m[36m (0.4ms)[0m  [1mbegin transaction[0m
+  [1m[35mUser Load (25.6ms)[0m  SELECT "users".* FROM "users" 
+  [1m[36m (0.0ms)[0m  [1mrollback transaction[0m
+Connecting to database specified by database.yml
+  [1m[36m (0.4ms)[0m  [1mbegin transaction[0m
+  [1m[35mUser Load (27.8ms)[0m  SELECT "users".* FROM "users" 
+  Rendered tasks/index.html.erb (3.2ms)
+  [1m[36m (0.1ms)[0m  [1mrollback transaction[0m
+Connecting to database specified by database.yml
+  [1m[36m (0.4ms)[0m  [1mbegin transaction[0m
+  [1m[35mUser Load (1.7ms)[0m  SELECT "users".* FROM "users" 
+  Rendered tasks/index.html.erb (3.8ms)
+  [1m[36m (0.1ms)[0m  [1mrollback transaction[0m
+Connecting to database specified by database.yml
+  [1m[36m (0.5ms)[0m  [1mbegin transaction[0m
+  [1m[35mUser Load (1.9ms)[0m  SELECT "users".* FROM "users" 
+  Rendered tasks/index.html.erb (3.1ms)
+  [1m[36m (0.1ms)[0m  [1mrollback transaction[0m
+Connecting to database specified by database.yml
+  [1m[36m (0.5ms)[0m  [1mbegin transaction[0m
+  [1m[35mUser Load (1.7ms)[0m  SELECT "users".* FROM "users" 
+  Rendered tasks/index.html.erb (3.8ms)
+  [1m[36m (0.1ms)[0m  [1mrollback transaction[0m
+Connecting to database specified by database.yml
+  [1m[36m (0.4ms)[0m  [1mbegin transaction[0m
+  [1m[35mUser Load (1.7ms)[0m  SELECT "users".* FROM "users" 
+  Rendered tasks/index.html.erb (3.7ms)
+  [1m[36m (0.1ms)[0m  [1mrollback transaction[0m
+Connecting to database specified by database.yml
+  [1m[36m (0.4ms)[0m  [1mbegin transaction[0m
+  [1m[35mUser Load (8.6ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1  [["id", 1]]
+  [1m[36m (0.1ms)[0m  [1mrollback transaction[0m
+Connecting to database specified by database.yml
+  [1m[36m (0.4ms)[0m  [1mbegin transaction[0m
+  [1m[35mUser Load (5.3ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1  [["id", 1]]
+  [1m[36m (0.1ms)[0m  [1mrollback transaction[0m
+Connecting to database specified by database.yml
+  [1m[36m (0.4ms)[0m  [1mbegin transaction[0m
+  [1m[35mUser Load (4.8ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1  [["id", 1]]
+  [1m[36m (0.1ms)[0m  [1mrollback transaction[0m
+Connecting to database specified by database.yml
+  [1m[36m (0.4ms)[0m  [1mbegin transaction[0m
+  [1m[35mUser Load (1.7ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 1 LIMIT 1
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 1 LIMIT 1[0m
+  Rendered tasks/index.html.erb (35.1ms)
+  [1m[35m (0.0ms)[0m  rollback transaction
+Connecting to database specified by database.yml
+  [1m[36m (0.4ms)[0m  [1mbegin transaction[0m
+  [1m[35mUser Load (4.9ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1  [["id", 1]]
+  [1m[36m (0.1ms)[0m  [1mrollback transaction[0m
+Connecting to database specified by database.yml
+  [1m[36m (0.5ms)[0m  [1mbegin transaction[0m
+  [1m[35mUser Load (9.9ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1  [["id", 1]]
+  [1m[36m (0.1ms)[0m  [1mrollback transaction[0m
+Connecting to database specified by database.yml
+  [1m[36m (0.4ms)[0m  [1mbegin transaction[0m
+  [1m[35mUser Load (4.8ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1  [["id", 1]]
+  [1m[36m (0.1ms)[0m  [1mrollback transaction[0m
+Connecting to database specified by database.yml
+  [1m[36m (0.4ms)[0m  [1mbegin transaction[0m
+  [1m[35mUser Load (5.5ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1  [["id", 1]]
+  [1m[36m (0.1ms)[0m  [1mrollback transaction[0m
+Connecting to database specified by database.yml
+  [1m[36m (0.4ms)[0m  [1mbegin transaction[0m
+  [1m[35mUser Load (5.2ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1  [["id", 1]]
+  [1m[36m (0.1ms)[0m  [1mrollback transaction[0m
+Connecting to database specified by database.yml
+  [1m[36m (0.5ms)[0m  [1mbegin transaction[0m
+  [1m[35mUser Load (4.2ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 1 LIMIT 1
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 1 LIMIT 1[0m
+  Rendered tasks/index.html.erb (40.9ms)
+  [1m[35m (0.1ms)[0m  rollback transaction
+Connecting to database specified by database.yml
+  [1m[36m (0.4ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.1ms)[0m  rollback transaction
+Connecting to database specified by database.yml
+  [1m[36m (0.4ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.1ms)[0m  rollback transaction
+Connecting to database specified by database.yml
+  [1m[36m (0.4ms)[0m  [1mbegin transaction[0m
+  [1m[35mUser Load (4.0ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 1 LIMIT 1
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 1 LIMIT 1[0m
+  Rendered tasks/index.html.erb (39.6ms)
+  [1m[35m (0.1ms)[0m  rollback transaction
+Connecting to database specified by database.yml
+  [1m[36m (0.4ms)[0m  [1mbegin transaction[0m
+  [1m[35mUser Load (1.7ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 1 LIMIT 1
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 1 LIMIT 1[0m
+  Rendered tasks/index.html.erb (25.3ms)
+  [1m[35m (0.0ms)[0m  rollback transaction
+Connecting to database specified by database.yml
+  [1m[36m (0.6ms)[0m  [1mbegin transaction[0m
+  [1m[35mUser Load (1.7ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 1 LIMIT 1
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 1 LIMIT 1[0m
+  Rendered tasks/index.html.erb (24.9ms)
+  [1m[35m (0.0ms)[0m  rollback transaction
+Connecting to database specified by database.yml
+  [1m[36m (0.5ms)[0m  [1mbegin transaction[0m
+  [1m[35mUser Load (5.4ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 1 LIMIT 1
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 1 LIMIT 1[0m
+  Rendered tasks/index.html.erb (43.1ms)
+  [1m[35m (0.1ms)[0m  rollback transaction
+Connecting to database specified by database.yml
+  [1m[36m (0.4ms)[0m  [1mbegin transaction[0m
+  [1m[35mUser Load (1.6ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 1 LIMIT 1
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 1 LIMIT 1[0m
+  Rendered tasks/index.html.erb (26.7ms)
+  [1m[35m (0.1ms)[0m  rollback transaction
+Connecting to database specified by database.yml
+  [1m[36m (0.4ms)[0m  [1mbegin transaction[0m
+  [1m[35mUser Load (1.7ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 1 LIMIT 1
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 1 LIMIT 1[0m
+  Rendered tasks/index.html.erb (30.8ms)
+  [1m[35m (0.1ms)[0m  rollback transaction
+Connecting to database specified by database.yml
+  [1m[36m (0.4ms)[0m  [1mbegin transaction[0m
+  [1m[35mUser Load (1.7ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 1 LIMIT 1
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 1 LIMIT 1[0m
+  Rendered tasks/index.html.erb (31.7ms)
+  [1m[35m (0.1ms)[0m  rollback transaction
+Connecting to database specified by database.yml
+  [1m[36m (0.4ms)[0m  [1mbegin transaction[0m
+  [1m[35mUser Load (1.6ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 1 LIMIT 1
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 1 LIMIT 1[0m
+  Rendered tasks/index.html.erb (30.3ms)
+  [1m[35m (0.1ms)[0m  rollback transaction
+Connecting to database specified by database.yml
+  [1m[36m (0.4ms)[0m  [1mbegin transaction[0m
+  [1m[35mUser Load (1.8ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 1 LIMIT 1
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 1 LIMIT 1[0m
+  Rendered tasks/index.html.erb (26.8ms)
+  [1m[35m (0.1ms)[0m  rollback transaction
+Connecting to database specified by database.yml
+  [1m[36m (0.5ms)[0m  [1mbegin transaction[0m
+  [1m[35mUser Load (1.6ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 1 LIMIT 1
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 1 LIMIT 1[0m
+  Rendered tasks/index.html.erb (27.8ms)
+  [1m[35m (0.0ms)[0m  rollback transaction
+Connecting to database specified by database.yml
+  [1m[36m (0.4ms)[0m  [1mbegin transaction[0m
+  [1m[35mUser Load (1.6ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 1 LIMIT 1
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 1 LIMIT 1[0m
+  Rendered tasks/index.html.erb (28.6ms)
+  [1m[35m (0.1ms)[0m  rollback transaction
+Connecting to database specified by database.yml
+  [1m[36m (0.4ms)[0m  [1mbegin transaction[0m
+  [1m[35mUser Load (4.1ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 1 LIMIT 1
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 1 LIMIT 1[0m
+  Rendered tasks/index.html.erb (39.7ms)
+  [1m[35m (0.0ms)[0m  rollback transaction
+Connecting to database specified by database.yml
+  [1m[36m (0.6ms)[0m  [1mbegin transaction[0m
+  [1m[35mUser Load (2.3ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 1 LIMIT 1
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 1 LIMIT 1[0m
+  Rendered tasks/index.html.erb (43.1ms)
+  [1m[35m (0.1ms)[0m  rollback transaction
+Connecting to database specified by database.yml
+  [1m[36m (0.4ms)[0m  [1mbegin transaction[0m
+  [1m[35mUser Load (2.0ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 1 LIMIT 1
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 1 LIMIT 1[0m
+  Rendered tasks/index.html.erb (31.7ms)
+  [1m[35m (0.1ms)[0m  rollback transaction
+Connecting to database specified by database.yml
+  [1m[36m (0.4ms)[0m  [1mbegin transaction[0m
+  [1m[35mUser Load (2.0ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 1 LIMIT 1
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 1 LIMIT 1[0m
+  Rendered tasks/index.html.erb (31.8ms)
+  [1m[35m (0.1ms)[0m  rollback transaction
+Connecting to database specified by database.yml
+  [1m[36m (0.4ms)[0m  [1mbegin transaction[0m
+  [1m[35mUser Load (2.1ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 1 LIMIT 1
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 1 LIMIT 1[0m
+  Rendered tasks/index.html.erb (29.6ms)
+  [1m[35m (0.1ms)[0m  rollback transaction
