@@ -12,4 +12,7 @@
  *= require_tree .
  */
 
-
+div#saas-content-body 
+{
+padding: 10px;
+}

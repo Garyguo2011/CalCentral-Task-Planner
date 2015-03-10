@@ -10,40 +10,38 @@
   <li>Status: <%=@task.status %></li>
 </ul>
 <br />
-<% 
-button_to 'Edit Task', edit_task_path(@task)&nbsp;button_to 'Delete', task_path(@task), :method => :delete, :confirm => 'Are you sure?'
-%>
+<%button_to 'Edit Task', edit_task_path(@task)%>&nbsp;<%button_to 'Delete', task_path(@task), :method => :delete, :confirm => 'Are you sure?'%>
 <br />
 <h2>Subtasks:</h2>
 <br />
 <table>
   <tr>
-    <th>Completed</th>
+    <th class="center-text">Completed</th>
     <th>Description</th>
     <th>End Time</th>
     <th>Edit</th>
     <th>Delete</th>
   </tr>
 <% @task.subtasks.each do |subtask| %>
+<%= form_for([subtask.task, subtask]) do |f| %>
   <tr>
-    <% if (subtask.is_done) %>
-    <td><input type="checkbox" checked="checked" /></td>
-    <% else %>
-    <td><input type="checkbox" /></td>
-    <% end %>
-    <td><div name="subtask-description"><%=subtask.description%></div></td>
+    <td class="center-text"><%= f.check_box :is_done %></td>
+    <td><%= f.text_field :description %></td>
     <td>=TIMESTAMP=</td>
-    <td><%= link_to 'Edit', edit_task_subtask_path(subtask.task, subtask) %></td>
-    <td><%= link_to 'Delete', [subtask.task, subtask], method: :delete, data: { confirm: 'Are you sure?' } %></td>
+    <td><%= f.submit 'Edit' %></td>
+    <td></td>
   </tr>
 <% end %>
+<% end %>
+<%= form_for([@task, @subtask]) do |f| %>
   <tr>
-    <td><input type="checkbox" /></td>
-    <td><input type="textbox" placeholder="Enter new subtask here" /></td>
+    <td class="center-text"><%= f.check_box :is_done %></td>
+    <td><%= f.text_field :description, placeholder: 'Enter new subtask here' /></td>
     <td>=TIMESTAMP=</td>
-    <td><%= link_to 'Add', './' %></td>
-    <td><%= link_to 'Cancel', './' %></td>
+    <td><%= f.submit 'Add' %></td>
+    <td></td>
   </tr>
+<% end %>
 </table>
 <br />
 <%= link_to 'Back to task list', tasks_path %><br>
