@@ -16,6 +16,7 @@ group :development, :test do
   gem 'cucumber-rails', :require => false
   gem 'rspec-rails', '~> 2.14.0'
   gem 'simplecov'
+  gem "webrat", ">= 0.7.2"
 end
 
 group :production do

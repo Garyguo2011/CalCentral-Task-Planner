@@ -46,7 +46,7 @@ describe "tasks/index", :type => :feature do
 
   it "renders a list of tasks", :type => :feature do
     render
-    # rendered.should contain("Vatamin#5")
+    rendered.should contain("Vatamin#5")
     # Run the generator again with the --webrat flag if you want to use webrat matchers
 
     assert_select "tr>td", :text => "Vatamin#5".to_s, :count => 1
