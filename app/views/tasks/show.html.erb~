@@ -10,7 +10,9 @@
   <li>Status: <%=@task.status %></li>
 </ul>
 <br />
-<%button_to 'Edit Task', edit_task_path(@task)%>&nbsp;<%button_to 'Delete', task_path(@task), :method => :delete, :confirm => 'Are you sure?'%>
+<% 
+button_to 'Edit Task', edit_task_path(@task)&nbsp;button_to 'Delete', task_path(@task), :method => :delete, :confirm => 'Are you sure?'
+%>
 <br />
 <h2>Subtasks:</h2>
 <br />
