@@ -8,15 +8,15 @@ gem 'rails', '3.2.19'
 
 # gem 'sqlite3'
 gem 'devise'
-
+gem 'capybara'
 
 group :development, :test do
   gem 'sqlite3'
-  gem 'ruby-debug19'
   gem 'database_cleaner'
   gem 'cucumber-rails', :require => false
   gem 'rspec-rails', '~> 2.14.0'
   gem 'simplecov'
+  gem "webrat", ">= 0.7.2"
 end
 
 group :production do
