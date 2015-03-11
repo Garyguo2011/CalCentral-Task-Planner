@@ -7,7 +7,7 @@
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 
 tasks =[
-{:title => 'Midterm1', :course => 'CS164', :kind => 'Exam', :release => '4/Mar/2015 23:59:00 -0800', :due => '4/Mar/2015 23:59:00 -0800', :status => 'New', :user_id => 1},
+{:title => 'Midterm1', :course => 'CS164', :kind => 'Exam', :release => '4/Mar/2015 23:59:00 -0800', :due => '6/Mar/2015 23:59:00 -0800', :status => 'New', :user_id => 1},
 {:title => 'Homework5', :course => 'CS169', :kind => 'Homework', :release => '9/Mar/2015 23:59:00 -0800', :due => '16/Mar/2015 23:59:00 -0800', :status => 'New', :user_id => 1},
 {:title => 'Project2', :course => 'CS164', :kind => 'Project', :release => '9/Mar/2015 23:59:00 -0800', :due => '31/Mar/2015 23:59:00 -0800', :status => 'Ongoing', :user_id => 1},
 {:title => 'Vatamin#5', :course => 'CS186', :kind => 'Homework', :release => '27/Feb/2015 23:59:00 -0800', :due => '2/Mar/2015 23:59:00 -0800', :status => 'Complete', :user_id => 1},
