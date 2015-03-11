@@ -83,7 +83,7 @@ class SubtasksController < ApplicationController
     @subtask.destroy
 
     respond_to do |format|
-      format.html { redirect_to task_path(task) }
+      format.html { redirect_to [task], notice: 'Subtask was successfully deleted.' }
       format.json { head :no_content }
     end
   end

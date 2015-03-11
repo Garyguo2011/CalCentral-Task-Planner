@@ -21,3 +21,25 @@ padding: 10px;
 {
 text-align: center;
 }
+
+#notice 
+{
+font-weight: bold;
+}
+
+form.button_to
+{
+margin: 0;
+padding: 0;
+}
+
+input.subtask-button
+{
+background-color: #2b6281;
+color: #fff;
+border-style: none;
+padding: 5px;
+width: 120px;
+}
+
+

@@ -18,18 +18,16 @@
   <tr>
     <th class="center-text">Completed</th>
     <th>Description</th>
-    <th>End Time</th>
-    <th>Edit</th>
-    <th>Delete</th>
+    <th class="center-text">Edit</th>
+    <th class="center-text">Delete</th>
   </tr>
 <% @task.subtasks.each do |subtask| %>
 <%= form_for([subtask.task, subtask]) do |f| %>
   <tr>
-    <td class="center-text"><%= f.check_box :is_done %></td>
+    <td><div class="center-text"><%= f.check_box :is_done %></div></td>
     <td><%= f.text_field :description %></td>
-    <td>=TIMESTAMP=</td>
-    <td><%= f.submit 'Edit' %></td>
-    <td></td>
+    <td><div class="center-text"><%= button_to 'Update', [subtask.task, subtask], class: 'subtask-button' %></div></td>
+    <td><div class="center-text"><%= button_to 'Delete', [subtask.task, subtask], method: :delete, confirm: 'Are you sure?', class: 'subtask-button' %></div></td>
   </tr>
 <% end %>
 <% end %>
@@ -37,9 +35,8 @@
   <tr>
     <td class="center-text"><%= f.check_box :is_done %></td>
     <td><%= f.text_field :description, placeholder: 'Enter new subtask here' %></td>
-    <td>=TIMESTAMP=</td>
-    <td><%= f.submit 'Add' %></td>
-    <td></td>
+    <td class="center-text"><%= button_to 'Create', [@task, @subtask], class: 'subtask-button' %></td>
+    <td class="center-text"></td>
   </tr>
 <% end %>
 </table>
