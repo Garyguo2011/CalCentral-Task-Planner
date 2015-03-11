@@ -33,13 +33,20 @@ margin: 0;
 padding: 0;
 }
 
-input.subtask-button
+.subtask-button:link, 
+.subtask-button:visited
 {
-background-color: #2b6281;
+display: block;
+background-color: #002e5b;
 color: #fff;
+text-decoration: none;
 border-style: none;
 padding: 5px;
-width: 120px;
+width: 60px;
 }
-
+.subtask-button:hover, 
+.subtask-button:active
+{
+background-color: #2b6281;
+}
 

@@ -1,16 +1,28 @@
-<h1><%=@task.title%></h1>
+<h1><%=@task.course%>:&nbsp;<%=@task.title%></h1>
 <br>
-<p id="notice"><%=notice%></p>
+<% if (notice) %>
+  <p id="notice"><%=notice%></p>
+<% end %>
 <ul>
   <li>Title: <%=@task.title %></li>
   <li>Course: <%=@task.course %></li>
   <li>Type: <%=@task.kind %></li>
-  <li>Relase Date: <%=@task.release %></li>
-  <li>Due Date: <%=@task.due %></li>
+  <li>Relase Date: <%=@task.release.strftime("%m.%d.%Y") %></li>
+  <li>Due Date: <%=@task.due.strftime("%m.%d.%Y") %></li>
   <li>Status: <%=@task.status %></li>
 </ul>
 <br />
 <%button_to 'Edit Task', edit_task_path(@task)%>&nbsp;<%button_to 'Delete', task_path(@task), :method => :delete, :confirm => 'Are you sure?'%>
+<br />
+<h2>Statistics</h2>
+<ul>
+  <li>Elapsed Time: #helper method call#</li>
+  <% if (Time.now.utc < @task.due.utc) %>
+    <li>Remaining Time: #helper method call#</li>
+  <% else %>
+    <li class="overdue">Remaining Time: #helper method call#</li>
+  <% end %>
+</ul>
 <br />
 <h2>Subtasks:</h2>
 <br />
@@ -26,8 +38,8 @@
   <tr>
     <td><div class="center-text"><%= f.check_box :is_done %></div></td>
     <td><%= f.text_field :description %></td>
-    <td><div class="center-text"><%= button_to 'Update', [subtask.task, subtask], class: 'subtask-button' %></div></td>
-    <td><div class="center-text"><%= button_to 'Delete', [subtask.task, subtask], method: :delete, confirm: 'Are you sure?', class: 'subtask-button' %></div></td>
+    <td><div class="center-text"><%= link_to 'Update', [subtask.task, subtask], class: 'subtask-button' %></div></td>
+    <td><div class="center-text"><%= link_to 'Delete', [subtask.task, subtask], method: :delete, confirm: 'Are you sure?', class: 'subtask-button' %></div></td>
   </tr>
 <% end %>
 <% end %>
@@ -35,7 +47,7 @@
   <tr>
     <td class="center-text"><%= f.check_box :is_done %></td>
     <td><%= f.text_field :description, placeholder: 'Enter new subtask here' %></td>
-    <td class="center-text"><%= button_to 'Create', [@task, @subtask], class: 'subtask-button' %></td>
+    <td class="center-text"><%= link_to 'Create', [@task, @subtask], class: 'subtask-button' %></td>
     <td class="center-text"></td>
   </tr>
 <% end %>
