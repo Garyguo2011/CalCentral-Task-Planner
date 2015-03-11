@@ -1,9 +1,10 @@
 class SubtasksController < ApplicationController
   # GET /subtasks
   # GET /subtasks.json
+  before_filter :load_task
+
   def index
-    task = Task.find(params[:task_id])
-    @subtasks = task.subtasks
+    @subtasks = @task.subtasks
 
     respond_to do |format|
       format.html # index.html.erb
@@ -14,8 +15,7 @@ class SubtasksController < ApplicationController
   # GET /subtasks/1
   # GET /subtasks/1.json
   def show
-    task = Task.find(params[:task_id])
-    @subtask = task.subtasks.find(params[:id])
+    @subtask = @task.subtasks.find(params[:id])
 
     respond_to do |format|
       format.html # show.html.erb
@@ -26,9 +26,7 @@ class SubtasksController < ApplicationController
   # GET /subtasks/new
   # GET /subtasks/new.json
   def new
-    task = Task.find(params[:task_id])
-    @subtask = task.subtasks.build
-
+    @subtask = @task.subtasks.build
     respond_to do |format|
       format.html # new.html.erb
       format.json { render json: @subtask }
@@ -37,15 +35,13 @@ class SubtasksController < ApplicationController
 
   # GET /subtasks/1/edit
   def edit
-    task = Task.find(params[:task_id])
-    @subtask = task.subtasks.find(params[:id])
+    @subtask = @task.subtasks.find(params[:id])
   end
 
   # POST /subtasks
   # POST /subtasks.json
   def create
-    task = Task.find(params[:task_id])
-    @subtask = task.subtasks.create(params[:subtask])
+    @subtask = @task.subtasks.create(params[:subtask])
 
     respond_to do |format|
       if @subtask.save
@@ -61,8 +57,7 @@ class SubtasksController < ApplicationController
   # PUT /subtasks/1
   # PUT /subtasks/1.json
   def update
-    task = Task.find(params[:task_id])
-    @subtask = task.subtasks.find(params[:id])
+    @subtask = @task.subtasks.find(params[:id])
 
     respond_to do |format|
       if @subtask.update_attributes(params[:subtask])
@@ -78,13 +73,16 @@ class SubtasksController < ApplicationController
   # DELETE /subtasks/1
   # DELETE /subtasks/1.json
   def destroy
-    task = Task.find(params[:task_id])
-    @subtask = task.subtasks.find(params[:id])
+    @subtask = @task.subtasks.find(params[:id])
     @subtask.destroy
 
     respond_to do |format|
       format.html { redirect_to task_path(task) }
       format.json { head :no_content }
     end
+  end
+
+  def load_task
+    @task = Task.find(params[:task_id])
   end
 end
