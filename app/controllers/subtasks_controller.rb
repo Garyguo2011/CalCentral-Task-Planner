@@ -45,7 +45,7 @@ class SubtasksController < ApplicationController
 
     respond_to do |format|
       if @subtask.save
-        format.html { redirect_to [@subtask.task, @subtask], notice: 'Subtask was successfully created.' }
+        format.html { redirect_to [@subtask.task], notice: 'Subtask was successfully created.' }
         format.json { render json: @subtask, status: :created, location: @subtask }
       else
         format.html { render action: "new" }
@@ -61,7 +61,7 @@ class SubtasksController < ApplicationController
 
     respond_to do |format|
       if @subtask.update_attributes(params[:subtask])
-        format.html { redirect_to [@subtask.task, @subtask], notice: 'Subtask was successfully updated.' }
+        format.html { redirect_to [@subtask.task], notice: 'Subtask was successfully updated.' }
         format.json { head :no_content }
       else
         format.html { render action: "edit" }
@@ -77,7 +77,7 @@ class SubtasksController < ApplicationController
     @subtask.destroy
 
     respond_to do |format|
-      format.html { redirect_to task_path(task) }
+      format.html { redirect_to [task], notice: 'Subtask was successfully deleted.' }
       format.json { head :no_content }
     end
   end

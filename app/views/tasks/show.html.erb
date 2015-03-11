@@ -1,40 +1,56 @@
-<h1>Details of <%= @task.title%></h1>
-
-<p id="notice"><%= notice %></p>
+<h1><%=@task.course%>:&nbsp;<%=@task.title%></h1>
+<br>
+<% if (notice) %>
+  <p id="notice"><%=notice%></p>
+<% end %>
 <ul>
-  <li>Title: <%= @task.title %></li>
-  <li>Course: <%= @task.course %></li>
-  <li>Kind: <%= @task.kind %></li>
-  <li>Relase Date: <%= @task.release %></li>
-  <li>Due Date: <%= @task.due %></li>
-  <li>Status: <%= @task.status %></li>
+  <li>Title: <%=@task.title %></li>
+  <li>Course: <%=@task.course %></li>
+  <li>Type: <%=@task.kind %></li>
+  <li>Relase Date: <%=@task.release.strftime("%B %d, %Y") %></li>
+  <li>Due Date: <%=@task.due.strftime("%B %d, %Y") %></li>
+  <li>Status: <%=@task.status %></li>
 </ul>
-
-<%= link_to 'Edit Task', edit_task_path(@task) %> <%= button_to 'Delete', task_path(@task), :method => :delete, :confirm => 'Are you sure?'%>
-<h1>Listing <%= link_to 'subtasks', task_subtasks_path(@task)%></h1>
-
+<br />
+<%button_to 'Edit Task', edit_task_path(@task)%>&nbsp;<%button_to 'Delete', task_path(@task), :method => :delete, :confirm => 'Are you sure?'%>
+<br />
+<h2>Statistics</h2>
+<ul>
+  <li>Elapsed Time: #ElapsedTime#</li>
+  <% if (Time.now.utc < @task.due.utc) %>
+    <li>Remaining Time: #RemainingTime#</li>
+  <% else %>
+    <li class="overdue">Remaining Time: #RemainingTime#</li>
+  <% end %>
+</ul>
+<br />
+<h2>Subtasks:</h2>
+<br />
 <table>
   <tr>
-    <th>Is done</th>
+    <th class="center-text">Completed</th>
     <th>Description</th>
-    <!-- <th>Task</th> -->
-    <th></th>
-    <th></th>
-    <th></th>
+    <th class="center-text">Edit</th>
+    <th class="center-text">Delete</th>
   </tr>
-
 <% @task.subtasks.each do |subtask| %>
+<%= form_for([subtask.task, subtask]) do |f| %>
   <tr>
-    <td><%= subtask.is_done %></td>
-    <td><%= subtask.description %></td>
-    <!-- <td><%= subtask.task %></td> -->
-    <td><%= link_to 'Show', [subtask.task, subtask] %></td>
-    <td><%= link_to 'Edit', edit_task_subtask_path(subtask.task, subtask) %></td>
-    <td><%= link_to 'Destroy', [subtask.task, subtask], method: :delete, data: { confirm: 'Are you sure?' } %></td>
+    <td><div class="center-text"><%= f.check_box :is_done %></div></td>
+    <td><%= f.text_field :description %></td>
+    <td><div class="center-text"><%= button_to 'Update', [subtask.task, subtask], class: 'subtask-button' %></div></td>
+    <td><div class="center-text"><%= button_to 'Delete', [subtask.task, subtask], method: :delete, confirm: 'Are you sure?', class: 'subtask-button' %></div></td>
+  </tr>
+<% end %>
+<% end %>
+<%= form_for([@task, @subtask]) do |f| %>
+  <tr>
+    <td class="center-text"><%= f.check_box :is_done %></td>
+    <td><%= f.text_field :description, placeholder: 'Enter new subtask here' %></td>
+    <td class="center-text"><%= button_to 'Create', [@task, @subtask], class: 'subtask-button' %></td>
+    <td class="center-text"></td>
   </tr>
 <% end %>
 </table>
-<br>
-
-<%= link_to 'New Subtask', new_task_subtask_path(@task.id) %> <br>
+<br />
 <%= link_to 'Back to task list', tasks_path %><br>
