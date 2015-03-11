@@ -29,7 +29,11 @@
   </div>
   <div class="field">
     <%= f.label :course %><br />
-    <%= f.text_field :course %>
+    <% if @task.course == nil %>
+      <%= f.select(:course, @task.all_course)%>
+    <% else %>
+      <%= f.select(:course, @task.all_course)%>
+    <% end %>
   </div>
   <div class="field">
     <%= f.label :kind %><br />
