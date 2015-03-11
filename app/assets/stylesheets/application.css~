@@ -27,14 +27,19 @@ text-align: center;
 font-weight: bold;
 }
 
+.overdue 
+{
+font-weight: bold;
+color: #f00;
+}
+
 form.button_to
 {
 margin: 0;
 padding: 0;
 }
 
-.subtask-button:link, 
-.subtask-button:visited
+input.subtask-button
 {
 display: block;
 background-color: #002e5b;
@@ -44,9 +49,5 @@ border-style: none;
 padding: 5px;
 width: 60px;
 }
-.subtask-button:hover, 
-.subtask-button:active
-{
-background-color: #2b6281;
-}
+
 
