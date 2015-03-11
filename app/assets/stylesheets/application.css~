@@ -21,8 +21,3 @@ padding: 10px;
 {
 text-align: center;
 }
-
-#notice 
-{
-font-weight: bold;
-}

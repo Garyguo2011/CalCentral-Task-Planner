@@ -77,15 +77,12 @@
 <body data-ng-class="{&#39;cc-page-splash&#39;:(controllerName===&#39;SplashController&#39;),&#39;cc-offcanvas-show&#39;:(offCanvasMenu.show)}" data-ng-show="api.user.events.isLoaded" data-cc-iosfix-directive="" class="">
 
 <!-- inject:body:html -->
-<!-- ngInclude: 'accessibility.html' -->
-<div data-ng-include="&#39;accessibility.html&#39;" class="ng-scope">
-  <div class="cc-accessibility-links ng-scope">
+<!-- ngInclude: 'accessibility.html' --><div data-ng-include="&#39;accessibility.html&#39;" class="ng-scope"><div class="cc-accessibility-links ng-scope">
   <a href="" data-cc-scroll-to-directive="#cc-main-content" style="display: block;">Skip to content</a>
   <a href="" data-cc-scroll-to-directive="#cc-local-navigation" style="display: none;">Skip to local navigation</a>
-  </div>
 </div>
-<!-- ngInclude: 'ieold.html' -->
-<div data-ng-include="&#39;ieold.html&#39;" class="ng-scope"><!--[if lt IE 9]>
+</div>
+<!-- ngInclude: 'ieold.html' --><div data-ng-include="&#39;ieold.html&#39;" class="ng-scope"><!--[if lt IE 9]>
 <div class="row">
   <div class="medium-12 medium-centered columns cc-alert-box cc-old-ie">
     <p>This site will not work properly with your browser. We support the latest two versions of these browsers:</p>
@@ -108,16 +105,14 @@
 </script>
 <![endif]-->
 </div>
-<!-- ngInclude: 'launcher.html' -->
-<div data-ng-include="&#39;launcher.html&#39;" class="ng-scope"><header class="cc-masthead ng-scope">
+<!-- ngInclude: 'launcher.html' --><div data-ng-include="&#39;launcher.html&#39;" class="ng-scope"><header class="cc-masthead ng-scope">
   <div class="cc-offcanvas-icon cc-left" data-ng-show="api.user.events.isAuthenticated">
     <button data-ng-click="offCanvasMenu.show=!offCanvasMenu.show"><i class="fa fa-bars"></i></button>
   </div>
   <div class="cc-header-logo cc-print-show hide-for-small" data-ng-class="{&#39;hide-for-small&#39;:(api.user.events.isAuthenticated)}">
     <a href="./CalCentral_files/CalCentral.html">
       <span class="cc-visuallyhidden">Return to dashboard</span>
-      <!-- ngInclude: 'svg/calcentral_logo.html' -->
-      <div data-ng-include="&#39;svg/calcentral_logo.html&#39;" class="ng-scope"><svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="200px" height="35px" class="ng-scope">
+      <!-- ngInclude: 'svg/calcentral_logo.html' --><div data-ng-include="&#39;svg/calcentral_logo.html&#39;" class="ng-scope"><svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="200px" height="35px" class="ng-scope">
   <g>
     <path class="cc-svg-calcentral-logo-gold" d="M16.542,7.056c-1.4-0.896-3.024-1.4-4.872-1.4c-3.809,0-6.608,2.716-6.608,7.476
       c0,4.62,2.66,7.504,6.664,7.504c1.904,0,3.696-0.672,4.9-1.568l0.336,1.764c-1.288,0.84-3.22,1.428-5.265,1.428
@@ -711,7 +706,6 @@
   </div>
 
   <div id="saas-content-body">
-  <%= yield %>
   </div>
 
 </div>

@@ -36,7 +36,7 @@
 <%= form_for([@task, @subtask]) do |f| %>
   <tr>
     <td class="center-text"><%= f.check_box :is_done %></td>
-    <td><%= f.text_field :description, placeholder: 'Enter new subtask here' %></td>
+    <td><%= f.text_field :description, placeholder: 'Enter new subtask here' /></td>
     <td>=TIMESTAMP=</td>
     <td><%= f.submit 'Add' %></td>
     <td></td>

@@ -49,7 +49,7 @@ class SubtasksController < ApplicationController
 
     respond_to do |format|
       if @subtask.save
-        format.html { redirect_to [@subtask.task], notice: 'Subtask was successfully created.' }
+        format.html { redirect_to [@subtask.task, @subtask], notice: 'Subtask was successfully created.' }
         format.json { render json: @subtask, status: :created, location: @subtask }
       else
         format.html { render action: "new" }
