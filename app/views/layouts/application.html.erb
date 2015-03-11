@@ -697,13 +697,34 @@
     <li data-ng-class="{true:&#39;active&#39;}[controllerName==&#39;CampusController&#39;]"><a href="https://calcentral.berkeley.edu/campus" data-ng-click="offCanvasMenu.show=false"><i class="fa fa-th-large"></i>My Campus</a></li>
   </ul>
   <div class="cc-updated-feeds ng-scope" data-ng-controller="UpdatedFeedsController" data-ng-show="controllerName === &#39;DashboardController&#39;">
+    
+
+<!-- Important SignIn Function -->
     <div data-ng-show="hasUpdates" class="">
-      New data is available. <button class="cc-button" data-ng-click="refreshFeeds()">Load</button>
+      <div id="user-info">
+        <% if current_user != nil %>
+        <%= link_to current_user.full_name, edit_user_registration_path %> |
+        <%= link_to 'Sign Out', destroy_user_session_path,  method: :delete %>
+        <% else %>
+        <%=link_to 'Sign In', new_user_session_path %>
+        <% end %>
+      </div>
+
     </div>
   </div>
 </div>
 </div>
   </div>
+  
+  <div id="user-info">
+    <% if current_user != nil %>
+    <%= link_to current_user.full_name, edit_user_registration_path %> |
+    <%= link_to 'Sign Out', destroy_user_session_path,  method: :delete %>
+    <% else %>
+    <%=link_to 'Sign In', new_user_session_path %>
+    <% end %>
+  </div>
+
 
   <div id="saas-content-body">
   <%= yield %>
