@@ -12,9 +12,19 @@ class TasksController < ApplicationController
     if current_user == nil
       @tasks = nil
     else
-      @tasks = current_user.tasks
+      if params[:sort] == nil
+        sort_argument = :status
+      else
+        sort_argument = params[:sort]
+      end
+      @tasks = Task.where("status != ?", "Finished").order(sort_argument).find_all_by_user_id(current_user)
+      if params[:group] != nil and params[:group] != "Show All"
+        @tasks = Task.where("status != ? AND user_id = ?", "Finished", current_user).find_all_by_kind(params[:group])
+      end
+      if params[:show_finished] != nil
+        @tasks = Task.find_all_by_user_id(current_user)
+      end
     end
-
     respond_to do |format|
       format.html # index.html.erb
       format.json { render json: @tasks }

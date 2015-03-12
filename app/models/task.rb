@@ -15,4 +15,7 @@ class Task < ActiveRecord::Base
   validates :kind, :presence => true
   validates :course, :presence => true
   validates_with MyValidator
+  def self.all_kinds
+    ["Project", "Homework", "Paper", "Exam", "Other"]
+  end
 end
