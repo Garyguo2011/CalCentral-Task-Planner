@@ -8,15 +8,15 @@ gem 'rails', '3.2.19'
 
 # gem 'sqlite3'
 gem 'devise'
-
+gem 'capybara'
 
 group :development, :test do
   gem 'sqlite3'
-  gem 'ruby-debug19'
   gem 'database_cleaner'
   gem 'cucumber-rails', :require => false
   gem 'rspec-rails', '~> 2.14.0'
   gem 'simplecov'
+  gem "webrat", ">= 0.7.2"
 end
 
 group :production do
@@ -28,6 +28,7 @@ end
 group :assets do
   gem 'sass-rails',   '~> 3.2.3'
   gem 'coffee-rails', '~> 3.2.1'
+  gem 'jquery-rails'
   gem 'therubyracer'
 
   # See https://github.com/sstephenson/execjs#readme for more supported runtimes
@@ -36,7 +37,7 @@ group :assets do
   gem 'uglifier', '>= 1.0.3'
 end
 
-gem 'jquery-rails'
+gem 'cancan'
 
 # To use ActiveModel has_secure_password
 # gem 'bcrypt-ruby', '~> 3.0.0'

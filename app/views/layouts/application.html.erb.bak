@@ -1,0 +1,44 @@
+<!-- !!! 5
+%html
+  %head
+    %title CalCentral Task Planner
+    = stylesheet_link_tag 'application'
+    = javascript_include_tag 'application'
+    = csrf_meta_tags
+
+  %body
+    %h1.title CalCentral Task Planner
+    #main
+      - if flash[:notice]
+        #notice.message= flash[:notice]
+      - elsif flash[:warning]
+        #warning.message= flash[:warning]
+      %p{:class=>"notice"}= notice
+      %p{:class=>"alert"}= alert
+      = yield
+ -->
+
+<!DOCTYPE html>
+<html>
+<head>
+  <title>CalCentral Task Planner</title>
+  <%= stylesheet_link_tag 'cc-application'%>
+  <%= javascript_include_tag 'application'%>
+  <%= javascript_include_tag 'cc-application'%>
+  <%= csrf_meta_tags%>
+</head>
+<body>
+  <h1 class="title">
+    CalCentral Task Planner
+    <% if current_user != nil %>
+    <%= link_to current_user.full_name, edit_user_registration_path %> |
+    <%= link_to 'Sign Out', destroy_user_session_path,  method: :delete %>
+    <% else %>
+    <%=link_to 'Sign In', new_user_session_path %>
+    <% end %>
+  </h1>
+  <p class="notice"><%= notice %></p>
+  <p class="alert"><%= alert %></p>
+  <%= yield %>
+</body>
+</html>

@@ -1,43 +1,221 @@
-<!-- !!! 5
-%html
-  %head
-    %title CalCentral Task Planner
-    = stylesheet_link_tag 'application'
-    = javascript_include_tag 'application'
-    = csrf_meta_tags
-
-  %body
-    %h1.title CalCentral Task Planner
-    #main
-      - if flash[:notice]
-        #notice.message= flash[:notice]
-      - elsif flash[:warning]
-        #warning.message= flash[:warning]
-      %p{:class=>"notice"}= notice
-      %p{:class=>"alert"}= alert
-      = yield
- -->
-
 <!DOCTYPE html>
-<html>
-<head>
-  <title>CalCentral Task Planner</title>
+<!-- saved from url=(0041)https://calcentral.berkeley.edu/dashboard -->
+<html lang="en" data-ng-app="calcentral" data-ng-controller="CalcentralController" class="ng-scope"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8"><style type="text/css">@charset "UTF-8";[ng\:cloak],[ng-cloak],[data-ng-cloak],[x-ng-cloak],.ng-cloak,.x-ng-cloak,.ng-hide:not(.ng-hide-animate){display:none !important;}ng\:form{display:block;}</style>
+  <meta charset="utf-8">
+
+  <title data-ng-bind="title" class="ng-binding">Dashboard | CalCentral</title>
+
+  <!-- Set the viewport width to device width for mobile -->
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, minimal-ui">
+  <meta name="description" content="CalCentral is a new resource for the UC Berkeley community.">
+
+  <!-- Set a web app capable website -->
+  <meta name="apple-mobile-web-app-capable" content="no">
+  <meta name="mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-title" content="CalCentral">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black">
+
+  <!-- https://mathiasbynens.be/notes/touch-icons -->
+  <link href="https://calcentral.berkeley.edu/assets/images/app_icons/icon-small@2x-8306da8d64d30eb145ac.png" rel="apple-touch-icon">
+  <link href="https://calcentral.berkeley.edu/assets/images/app_icons/icon-72-47b4ab5796ebac2d4a1b.png" rel="apple-touch-icon" sizes="72x72">
+  <link href="https://calcentral.berkeley.edu/assets/images/app_icons/icon-76-c18495994f32710a7915.png" rel="apple-touch-icon" sizes="76x76">
+  <link href="https://calcentral.berkeley.edu/assets/images/app_icons/icon-60@2x-feb7c9e9d04ac89f5185.png" rel="apple-touch-icon" sizes="120x120">
+  <link href="https://calcentral.berkeley.edu/assets/images/app_icons/icon-72@2x-65f1995235c1927554a0.png" rel="apple-touch-icon" sizes="144x144">
+  <link href="https://calcentral.berkeley.edu/assets/images/app_icons/icon-76@2x-3e7b9ee4ff9282a517a3.png" rel="apple-touch-icon" sizes="152x152">
+  <link href="https://calcentral.berkeley.edu/assets/images/app_icons/icon-60@3x-320e55f6b4ac98d2b528.png" rel="apple-touch-icon" sizes="180x180">
+  <link href="https://calcentral.berkeley.edu/assets/images/app_icons/192-cd1d50d5b6b1378dcdaf.png" rel="icon" sizes="192x192">
+
+  <link href="https://calcentral.berkeley.edu/assets/images/favicon-e2c9af4af275e80c1ba6.ico" rel="shortcut icon" type="image/vnd.microsoft.icon">
+  <link href="https://calcentral.berkeley.edu/assets/images/favicon_16x16-57db7808d7449f4da991.png" rel="icon" sizes="16x16" type="image/png">
+  <link href="https://calcentral.berkeley.edu/assets/images/favicon_32x32-55428c5cdfbf7e200342.png" rel="icon" sizes="32x32" type="image/png">
+
+  <link rel="manifest" href="https://calcentral.berkeley.edu/manifest.json">
+
+  <noscript>&lt;meta http-equiv="Refresh" content="0; URL=/enable-javascript.html"&gt;</noscript>
+
+  <!--<base href="/">--><base href=".">
+
+  <script async="" src="./CalCentral_files/analytics.js"></script><script async="" src="./CalCentral_files/analytics.js"></script><script>
+    /**
+     * Expose the CalCentral config to the JS code
+     * Includes
+     *   csrf tokens
+     *   uid
+     *   google analytics id
+     *   app version
+     *   hostname
+     */
+    (function() {
+      'use strict';
+
+      // Create a new Ajax request
+      var request = new XMLHttpRequest();
+
+      // Callback when the Ajax request is loaded
+      var loaded = function() {
+        // Only set the calcentralConfig variable when the request was succesful
+        if (request.readyState === 4 && request.status === 200) {
+          window.calcentralConfig = JSON.parse(this.responseText);
+        }
+      };
+
+      // Add the onload listner
+      request.onload = loaded;
+      // The false option will make sure the request happens synchronously.
+      request.open('GET', '/api/config', false);
+      // Send the XHR request
+      request.send();
+    })();
+  </script>
+
   <%= stylesheet_link_tag 'application'%>
+  <%= stylesheet_link_tag 'cc-application'%>
   <%= javascript_include_tag 'application'%>
-  <%= csrf_meta_tags%>
+  <%= javascript_include_tag 'cc-application'%>
 </head>
-<body>
-  <h1 class="title">
-    CalCentral Task Planner
-    <% if current_user != nil %>
-    <%= link_to current_user.full_name, edit_user_registration_path %> |
-    <%= link_to 'Sign Out', destroy_user_session_path,  method: :delete %>
-    <% else %>
-    <%=link_to 'Sign In', new_user_session_path %>
-    <% end %>
-  </h1>
-  <p class="notice"><%= notice %></p>
-  <p class="alert"><%= alert %></p>
+
+<body data-ng-class="{&#39;cc-page-splash&#39;:(controllerName===&#39;SplashController&#39;),&#39;cc-offcanvas-show&#39;:(offCanvasMenu.show)}" data-ng-show="api.user.events.isLoaded" data-cc-iosfix-directive="" class="">
+
+<!-- inject:body:html -->
+<!-- ngInclude: 'accessibility.html' -->
+<div data-ng-include="&#39;accessibility.html&#39;" class="ng-scope">
+  <div class="cc-accessibility-links ng-scope">
+  <a href="" data-cc-scroll-to-directive="#cc-main-content" style="display: block;">Skip to content</a>
+  <a href="" data-cc-scroll-to-directive="#cc-local-navigation" style="display: none;">Skip to local navigation</a>
+  </div>
+</div>
+<div data-ng-include="&#39;launcher.html&#39;" class="ng-scope"><header class="cc-masthead ng-scope">
+  <div class="cc-offcanvas-icon cc-left" data-ng-show="api.user.events.isAuthenticated">
+    <button data-ng-click="offCanvasMenu.show=!offCanvasMenu.show"><i class="fa fa-bars"></i></button>
+  </div>
+  <div class="cc-header-logo cc-print-show hide-for-small" data-ng-class="{&#39;hide-for-small&#39;:(api.user.events.isAuthenticated)}">
+    <a href="./CalCentral_files/CalCentral.html">
+      <span class="cc-visuallyhidden">Return to dashboard</span>
+      <!-- ngInclude: 'svg/calcentral_logo.html' -->
+      <div data-ng-include="&#39;svg/calcentral_logo.html&#39;" class="ng-scope"><svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="200px" height="35px" class="ng-scope">
+  <g>
+    <path class="cc-svg-calcentral-logo-gold" d="M16.542,7.056c-1.4-0.896-3.024-1.4-4.872-1.4c-3.809,0-6.608,2.716-6.608,7.476
+      c0,4.62,2.66,7.504,6.664,7.504c1.904,0,3.696-0.672,4.9-1.568l0.336,1.764c-1.288,0.84-3.22,1.428-5.265,1.428
+      c-5.067,0-8.455-3.528-8.455-9.072c0-5.572,3.556-9.156,8.455-9.156c2.129,0,4.116,0.644,5.404,1.428L16.542,7.056z"></path>
+    <path class="cc-svg-calcentral-logo-gold" d="M35.693,21.896h-1.819l-1.849-5.012h-7.924l-1.848,5.012h-1.82l6.636-17.5h2.101L35.693,21.896z
+       M28.077,6.16l-3.359,9.1h6.691L28.077,6.16z"></path>
+    <path class="cc-svg-calcentral-logo-gold" d="M40.034,21.896v-17.5h1.792v15.82h8.651v1.68H40.034z"></path>
+    <path class="cc-svg-calcentral-logo-white" d="M67.752,8.316c-1.399-0.924-2.911-1.4-4.592-1.4c-3.416,0-5.684,2.352-5.684,6.16
+      c0,3.864,2.212,6.3,5.74,6.3c1.792,0,3.5-0.672,4.787-1.568l0.645,3.136c-1.4,0.84-3.584,1.372-5.572,1.372
+      c-5.376,0-9.044-3.388-9.044-9.128c0-5.6,3.668-9.212,9.128-9.212c2.044,0,4.145,0.532,5.656,1.372L67.752,8.316z"></path>
+    <path class="cc-svg-calcentral-logo-white" d="M74.388,21.896v-17.5h11.929V7.28h-8.568v4.396h7.028v2.884h-7.028v4.452h8.568v2.884H74.388z"></path>
+    <path class="cc-svg-calcentral-logo-white" d="M104.152,4.396h3.248v17.668h-3.641l-8.371-12.88v12.712H92.14v-17.5h3.725l8.287,12.74V4.396z"></path>
+    <path class="cc-svg-calcentral-logo-white" d="M121.766,7.392v14.504h-3.389V7.392h-5.852V4.396h15.092v2.996H121.766z"></path>
+    <path class="cc-svg-calcentral-logo-white" d="M136.156,21.896h-3.416v-17.5c0,0,6.188,0,6.133,0c4.424,0,6.775,2.1,6.775,5.32
+      c0,2.492-1.4,4.228-3.781,5.04l4.594,7.14h-3.893l-3.893-6.412l-2.52,0.168V21.896z M138.676,12.908
+      c2.1-0.112,3.473-1.064,3.473-2.968c0-1.82-1.373-2.688-3.809-2.688c-0.027,0-2.211,0-2.211,0v5.712L138.676,12.908z"></path>
+    <path class="cc-svg-calcentral-logo-white" d="M166.283,21.896h-3.443l-1.455-4.144h-7.057l-1.428,4.144h-3.443l6.383-17.5h4.145L166.283,21.896z
+       M157.885,7.336l-2.66,7.588h5.291L157.885,7.336z"></path>
+    <path class="cc-svg-calcentral-logo-white" d="M170.932,21.896v-17.5h3.416V18.9h7.896v2.996H170.932z"></path>
+  </g>
+</svg>
+</div>
+</a>
+</div>
+  <nav class="cc-header-icons" data-ng-show="api.user.events.isAuthenticated">
+    <!-- ngInclude: 'widgets/badges_popover.html' --><div class="cc-left ng-scope" data-ng-include="&#39;widgets/badges_popover.html&#39;"><div data-ng-controller="BadgesController" class="cc-launcher-icons ng-scope cc-badge-hasacademic" data-ng-class="{true:&#39;cc-badge-hasacademic&#39;}[studentInfo.regStatus.code != null &amp;&amp; api.user.profile.roles.student]">
+  <!-- ngRepeat: badge in badges -->
+  <div data-ng-repeat="badge in badges" class="cc-popover-container cc-popover-status cc-left ng-scope">
+    <button class="cc-header-icon" data-ng-class="{true:&#39;cc-header-icon-selected&#39;}[api.popover.status(badge.cssPopover)]" data-ng-click="api.util.preventBubble($event);api.popover.toggle(badge.cssPopover)" data-ng-attr-title="{{badge.display.name}}" title="bMail">
+      <div class="cc-ir cc-icon cc-icon-22 cc-left cc-icon-mail"></div>
+      <span class="cc-visuallyhidden" data-ng-hide="api.popover.status(badge.cssPopover)">Show</span>
+      <span class="cc-visuallyhidden ng-hide" data-ng-show="api.popover.status(badge.cssPopover)">Hide</span>
+      <span class="cc-visuallyhidden ng-binding" data-ng-bind-template="your bMail">your bMail</span>
+      <div class="cc-left cc-popover-count ng-binding" data-ng-hide="badge.display.name===&#39;bDrive&#39;" data-ng-bind="badge.count">324</div>
+    </button>
+  </div><!-- end ngRepeat: badge in badges -->
+  <div data-ng-repeat="badge in badges" class="cc-popover-container cc-popover-status cc-left ng-scope">
+    <button class="cc-header-icon" data-ng-class="{true:&#39;cc-header-icon-selected&#39;}[api.popover.status(badge.cssPopover)]" data-ng-click="api.util.preventBubble($event);api.popover.toggle(badge.cssPopover)" data-ng-attr-title="{{badge.display.name}}" title="bCal">
+      <div class="cc-ir cc-icon cc-icon-22 cc-left cc-icon-calendar"></div>
+      <span class="cc-visuallyhidden" data-ng-hide="api.popover.status(badge.cssPopover)">Show</span>
+      <span class="cc-visuallyhidden ng-hide" data-ng-show="api.popover.status(badge.cssPopover)">Hide</span>
+      <span class="cc-visuallyhidden ng-binding" data-ng-bind-template="your bCal">your bCal</span>
+      <div class="cc-left cc-popover-count ng-binding" data-ng-hide="badge.display.name===&#39;bDrive&#39;" data-ng-bind="badge.count">0</div>
+    </button>
+  </div><!-- end ngRepeat: badge in badges -->
+  <div data-ng-repeat="badge in badges" class="cc-popover-container cc-popover-status cc-left ng-scope">
+    <button class="cc-header-icon" data-ng-class="{true:&#39;cc-header-icon-selected&#39;}[api.popover.status(badge.cssPopover)]" data-ng-click="api.util.preventBubble($event);api.popover.toggle(badge.cssPopover)" data-ng-attr-title="{{badge.display.name}}" title="bDrive">
+      <div class="cc-ir cc-icon cc-icon-22 cc-left cc-icon-drive"></div>
+      <span class="cc-visuallyhidden" data-ng-hide="api.popover.status(badge.cssPopover)">Show</span>
+      <span class="cc-visuallyhidden ng-hide" data-ng-show="api.popover.status(badge.cssPopover)">Hide</span>
+      <span class="cc-visuallyhidden ng-binding" data-ng-bind-template="your bDrive">your bDrive</span>
+      <div class="cc-left cc-popover-count ng-binding ng-hide" data-ng-hide="badge.display.name===&#39;bDrive&#39;" data-ng-bind="badge.count">5</div>
+    </button>
+  </div><!-- end ngRepeat: badge in badges -->
+</div>
+</div>
+    <!-- ngInclude: 'widgets/academic_profile_popover.html' -->
+    <div class="cc-left ng-scope" data-ng-include="&#39;widgets/academic_profile_popover.html&#39;">
+      <div data-ng-controller="StatusController" class="cc-popover-container cc-popover-status ng-scope" data-ng-show="studentInfo.regStatus.code != null &amp;&amp; api.user.profile.roles.student">
+      <button class="cc-header-icon cc-header-icon-font cc-icon-status-person" data-ng-class="{&#39;cc-icon-status-person-haslayover&#39;:(hasAlerts),&#39;cc-header-icon-selected&#39;:(api.popover.status(&#39;cc-popover-academic-status&#39;))}" data-ng-click="api.util.preventBubble($event);api.popover.toggle(&#39;cc-popover-academic-status&#39;)" title="Show your status">
+      <i class="fa fa-user cc-left"></i>
+    <!-- ngIf: hasAlerts -->
+    <!-- ngIf: !hasAlerts && hasWarnings -->
+      </button>  
+      </div>
+    </div>
+    <!-- setting button -->
+    <div class="cc-left ng-scope" data-ng-include="&#39;widgets/gear_popover.html&#39;">
+      <div class="cc-popover-container cc-popover-gear ng-scope">
+      <button class="cc-header-icon cc-header-icon-font" data-ng-click="api.util.preventBubble($event);api.popover.toggle(&#39;cc-popover-menu&#39;)" data-ng-class="{true:&#39;cc-header-icon-selected&#39;}[api.popover.status(&#39;cc-popover-menu&#39;)]" title="Settings">
+      <i class="fa fa-cog"></i>
+      <span class="cc-visuallyhidden" data-ng-hide="api.popover.status(&#39;cc-popover-menu&#39;)">Show</span>
+      <span class="cc-visuallyhidden ng-hide" data-ng-show="api.popover.status(&#39;cc-popover-menu&#39;)">Hide</span>
+      <span class="cc-visuallyhidden">settings menu</span>
+      </button>
+      </div>
+    </div>  
+
+
+    <!-- 03/11, name/signin/signout button -->
+    <div class="cc-left ng-scope" data-ng-include="&#39;widgets/gear_popover.html&#39;">
+      <div class="cc-popover-container cc-popover-gear ng-scope">
+      <% if current_user != nil %>
+        <%= link_to current_user.full_name, edit_user_registration_path %> |
+        <%= link_to 'Sign Out', destroy_user_session_path,  method: :delete %>
+      <% else %>
+        <%=link_to 'Sign In', new_user_session_path %>
+      <% end %> 
+      </div>
+    </div> 
+  </nav>
+</header>
+</div>
+
+<div class="cc-off-canvas-container" data-ng-swipe-left="offCanvasMenu.show=false">
+  <div class="cc-offcanvas-left cc-print-hide" id="cc-navigation">
+    <!-- ngInclude: 'navigation.html' --><div data-ng-include="&#39;navigation.html&#39;" class="ng-scope"><!-- Top Navbar -->
+<div class="row cc-navigation-bar ng-scope" data-ng-show="api.user.events.isAuthenticated">
+  <ul>
+    <li data-ng-class="{true:&#39;active&#39;}[controllerName==&#39;DashboardController&#39;]" class="active"><a href="./CalCentral_files/CalCentral.html" data-ng-click="offCanvasMenu.show=false"><i class="fa fa-home"></i>My Dashboard</a></li>
+    <!-- ngIf: api.user.profile.hasAcademicsTab --><li data-ng-class="{true:&#39;active&#39;}[controllerName==&#39;AcademicsController&#39;]" data-ng-if="api.user.profile.hasAcademicsTab" class="ng-scope">
+      <a href="https://calcentral.berkeley.edu/academics" data-ng-click="offCanvasMenu.show=false"><i class="fa fa-book"></i>My Academics</a>
+    </li><!-- end ngIf: api.user.profile.hasAcademicsTab -->
+    <!-- ngIf: api.user.profile.hasFinancialsTab --><li data-ng-class="{true:&#39;active&#39;}[controllerName==&#39;MyFinancesController&#39;]" data-ng-if="api.user.profile.hasFinancialsTab" class="ng-scope"><a href="https://calcentral.berkeley.edu/finances" data-ng-click="offCanvasMenu.show=false"><i class="fa fa-usd"></i>My Finances</a></li><!-- end ngIf: api.user.profile.hasFinancialsTab -->
+    <li data-ng-class="{true:&#39;active&#39;}[controllerName==&#39;CampusController&#39;]"><a href="https://calcentral.berkeley.edu/campus" data-ng-click="offCanvasMenu.show=false"><i class="fa fa-th-large"></i>My Campus</a></li>
+
+<!--
+    roy incomplete
+    <li data-ng-class="{true:&#39;active&#39;}[controllerName==&#39;CampusCOntroleer&#39;]">
+
+-->
+  </ul>
+  <div class="cc-updated-feeds ng-scope" data-ng-controller="UpdatedFeedsController" data-ng-show="controllerName === &#39;DashboardController&#39;">
+    <div data-ng-show="hasUpdates" class="">
+      New data is available. <button class="cc-button" data-ng-click="refreshFeeds()">Load</button>
+    </div>
+  </div>
+</div>
+</div>
+  </div>
+  <div id="saas-content-body">
   <%= yield %>
+  </div>
+<!-- endinject -->
 </body>
 </html>

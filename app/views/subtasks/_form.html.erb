@@ -1,3 +1,4 @@
+<div class="user_input" >
 <%= form_for([@subtask.task, @subtask]) do |f| %>
   <% if @subtask.errors.any? %>
     <div id="error_explanation">
@@ -23,3 +24,4 @@
     <%= f.submit %>
   </div>
 <% end %>
+</div>

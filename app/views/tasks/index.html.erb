@@ -1,36 +1,73 @@
-<h1>All Tasks</h1>
+<head>
+<style type='text/css'>
 
-<table id="tasks">
-  <tr>
-    <th>Task Title</th>
-    <th>Course</th>
-    <th>Kind</th>
-    <th>Release Date</th>
-    <th>Due Date</th>
-    <th>Status</th>
-    <th>Owner</th>
-  </tr>
-<% if @current_user != nil %>
-  <% @tasks.each do |task| %>
-    <tr>
-      <td><%= link_to task.title, task_path(task) %></td>
-      <td><%= task.course %></td>
-      <td><%= task.kind %></td>
-      <td><%= task.release.strftime("%B %d, %Y") %></td>
-      <% if task.due > Time.now %>
-        <td><%= distance_of_time_in_words(task.due, Time.now, include_seconds: true) + " left" %></td>
-      <% else %>
-        <td><%= distance_of_time_in_words(task.due, Time.now, include_seconds: true) + " passed" %></td>
-      <% end %>
-      <td><%= task.status%></td>
-      <% if task.user != nil%>
-        <td><%= task.user.full_name%></td>
-      <% else %>
-        <td> NO USERS </td>
-      <% end %>
-    </tr>
+h1 {
+  font-weight: normal;
+  letter-spacing: -1px;
+  color: #34495E;
+}
+h1, table{
+  text-align: center
+}
+
+#MySelect{
+  margin-left: 10%;
+  margin-bottom: 10px;
+  width: 120px
+}
+</style>
+
+</head>
+
+
+<body>
+<h1>My Tasks</h1>
+<select id="MySelect" onchange="this.options[this.selectedIndex].value && (window.location = this.options[this.selectedIndex].value);">
+  <option>Select Task Type</option>
+  <%= Task.all_kinds.each do |task| %>
+  <%=options_for_select([["#{task}", "/tasks?filter=#{task}"]])%>
   <% end %>
-  </table>
+  <option value="tasks?filter=Show All">Show All</option>
+</select>
+<table id='tasks' align='center' width="80%">
+  <tr aligh='center'>
+    <th><%= link_to "Task Title", :sort => :title%></th>
+    <th><%= link_to "Course", :sort => :course%></th>
+    <th><%= link_to "Type", :sort => :kind%></th>
+    <th><%= link_to "Due Date", :sort => :due%></th>
+    <th><%= link_to "Status", :sort => :status%></th>
+    <th><%= link_to "Owner", :sort => :user_id%></th>
+  </tr>
+
+<% @tasks.each do |task| %>
+  <tr>
+    <td><%= link_to task.title, task_path(task) %></td>
+    <td><%= task.course %></td>
+    <td><%= task.kind %></td>
+    <% if task.due > Time.now %>
+      <td><%= distance_of_time_in_words(task.due, Time.now, include_seconds: true) + " left" %></td>
+    <% else %>
+      <td><%= distance_of_time_in_words(task.due, Time.now, include_seconds: true) + " passed" %></td>
+    <% end %>
+    <td><%= task.status%></td>
+    <% if task.user != nil%>
+      <td><%= task.user.full_name%></td>
+    <% else %>
+      <td> NO USERS </td>
+    <% end %>
+  </tr>
 <% end %>
 
-<%= link_to 'Add new task', new_task_path %>
+</table>
+<table align="center" border="1">
+  <tr>
+    <td><%= link_to 'Add new task', new_task_path %></td>
+    <% if params[:show_finished] == nil %>
+      <td><%= link_to "Show finished tasks", :show_finished => :yes%></td>
+    <% else %>
+      <td><%= link_to "Hide finished tasks", :show_finished => nil%></td>
+    <% end %>
+
+  </tr>
+</table>
+</body>

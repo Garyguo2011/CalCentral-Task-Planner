@@ -10,7 +10,6 @@ class User < ActiveRecord::Base
   # attr_accessible :title, :body
   validates :email, :uniqueness => true
   has_many :tasks
-  
   def full_name
   	first_name + " " + last_name
   end

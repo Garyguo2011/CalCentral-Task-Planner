@@ -4,7 +4,8 @@ CalcentralTaskPlanner::Application.routes.draw do
   resources :tasks do
     resources :subtasks
   end
-  root to: 'tasks#welcome'
+
+  root to: 'tasks#index'
 
   # The priority is based upon order of creation:
   # first created -> highest priority.

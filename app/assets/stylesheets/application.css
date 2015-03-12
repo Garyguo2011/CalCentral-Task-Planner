@@ -11,68 +11,51 @@
  *= require_self
  *= require_tree .
  */
- html, body {
-  margin: 0;
-  padding: 0;
-  background: White;
-  color: DarkSlateGrey;
-  font-family: Tahoma, Verdana, sans-serif;
-  font-size: 10pt;
-}
-div#main {
-  margin: 0;
-  padding: 0 20px 20px;
-}
-a {
-  background: transparent;
-  color: maroon;
-  text-decoration: underline;
-  font-weight: bold;
-}
-h1 {
-  color: maroon;
-  font-size: 150%;
-  font-style: italic;
-  display: block;
-  width: 100%;
-  border-bottom: 1px solid DarkSlateGrey;
-}
-h1.title {
-  margin: 0 0 1em;
-  padding: 10px;
-  background-color: orange;
-  color: white;
-  border-bottom: 4px solid gold;
-  font-size: 2em;
-  font-style: normal;
-}
-table#tasks {
-  margin: 10px;
-  border-collapse: collapse;
-  width: 100%;
-  border-bottom: 2px solid black;
-}
-table#tasks th {
-  border: 2px solid white;
-  font-weight: bold;
-  background-color: wheat;
-}
-table#tasks th, table#tasks td {
-  padding: 4px;
-  text-align: left;
-}
-table#tasks th.hilite {
-    background-color: yellow;
-}
-#notice #warning {
-  background: rosybrown;
-  margin: 1em 0;
-  padding: 4px;
-}
-form label {
-  display: block;
-  line-height: 25px;
-  font-weight: bold;
-  color: maroon;
+
+div#saas-content-body 
+{
+padding: 10px;
 }
 
+.center-text 
+{
+text-align: center;
+}
+
+#notice 
+{
+font-weight: bold;
+}
+
+.overdue 
+{
+font-weight: bold;
+color: #f00;
+}
+
+form.button_to
+{
+margin: 0;
+padding: 0;
+}
+
+input.subtask-button
+{
+display: block;
+background-color: #002e5b;
+color: #fff;
+text-decoration: none;
+border-style: none;
+padding: 5px;
+width: 100px;
+}
+
+#user-info
+{
+	color: #00ff00;
+}
+
+.user_input
+{
+	width: 40%
+}
