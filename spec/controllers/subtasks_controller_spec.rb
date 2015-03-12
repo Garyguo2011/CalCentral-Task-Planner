@@ -30,27 +30,27 @@ describe SubtasksController do
   # SubtasksController. Be sure to keep this updated too.
   let(:valid_session) { {} }
 
-  assign(:tasks, [
-      stub_model(Task,
-        :title => 'Vatamin#5',
-        :course => 'CS186',
-        :kind => 'Homework',
-        :release => '27/Feb/2015 23:59:00 -0800',
-        :due => '2/Mar/2015 23:59:00 -0800',
-        :status => 'Complete',
-        :user_id => 1
-      ),
-      stub_model(Task,
-        :title => 'Quiz#2',
-        :course => 'CS169',
-        :kind => 'Exam',
-        :release => '12/Mar/2015 23:59:00 -0800',
-        :due => '19/Mar/2015 23:59:00 -0800',
-        :status => 'New',
-        :user_id => 1
-      )
-    ])
-  end
+  # assign(:tasks, [
+  #     stub_model(Task,
+  #       :title => 'Vatamin#5',
+  #       :course => 'CS186',
+  #       :kind => 'Homework',
+  #       :release => '27/Feb/2015 23:59:00 -0800',
+  #       :due => '2/Mar/2015 23:59:00 -0800',
+  #       :status => 'Complete',
+  #       :user_id => 1
+  #     ),
+  #     stub_model(Task,
+  #       :title => 'Quiz#2',
+  #       :course => 'CS169',
+  #       :kind => 'Exam',
+  #       :release => '12/Mar/2015 23:59:00 -0800',
+  #       :due => '19/Mar/2015 23:59:00 -0800',
+  #       :status => 'New',
+  #       :user_id => 1
+  #     )
+  #   ])
+  # end
 
 
   describe "GET index" do
