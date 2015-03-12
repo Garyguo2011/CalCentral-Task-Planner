@@ -6,17 +6,20 @@ Feature: Show details of One Task
 
 Background: tasks have been added to database
 
-  Given the following movies exist:
-  | title    | course |     due              | status  |     owner     |
-  | Project1 | cs164  |  2015-03-05 11:59pm  |   NEW   |   Xinran Guo  |
-  | Vatamin1 | cs186  |  2015-03-15 11:59pm  |   NEW   |   Xinran Guo  |
-  | Quiz1    | cs169  |  2015-04-07 11:59pm  |   NEW   |   Xinran Guo  |
+  Given the following users exist:
+  | first_name | last_name | email                 | password  | 
+  | Xinran     | Guo       | 123454321@hotmail.com | 123454321 |
 
-  Given the following open question in "Project1":
-  |   Time             | problem description            | solution               |  Status  |
-  | 2015-03-02 01:30PM | How do we handle indentation?  | Create lexer to handle |  OPEN    | 
-  | 2015-03-01 01:30PM | How do we handle Fucntion_def? | NOT RESOLVE            |  OPEN    | 
-  | 2015-02-28 01:30PM | How do we handle If-statement? | Follow Python Grammer2 |  RESOLVE | 
+  Given the following tasks exist:
+  | title     | course | kind     | release                    | due                        | status   | user_id |
+  | HW1       | CS169  | Homework | 4/Mar/2015 23:59:00 -0800  | 6/Mar/2015 23:59:00 -0800  | New      | 1       |
+  | PROJ1     | CS188  | Project  | 9/Mar/2015 23:59:00 -0800  | 16/Mar/2015 23:59:00 -0800 | New      | 1       |
+
+  Given the following subtasks exist:
+  | description        | is_done | task_id |
+  | Checkout Website   | true    | 1       |
+  | Bring Calculator   | false   | 1       |                   
+  
 
 Scenario: Show details of a task
   When I am on the home page.
