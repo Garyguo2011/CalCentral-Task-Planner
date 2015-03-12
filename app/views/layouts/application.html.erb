@@ -77,42 +77,22 @@
 <body data-ng-class="{&#39;cc-page-splash&#39;:(controllerName===&#39;SplashController&#39;),&#39;cc-offcanvas-show&#39;:(offCanvasMenu.show)}" data-ng-show="api.user.events.isLoaded" data-cc-iosfix-directive="" class="">
 
 <!-- inject:body:html -->
-<!-- ngInclude: 'accessibility.html' --><div data-ng-include="&#39;accessibility.html&#39;" class="ng-scope"><div class="cc-accessibility-links ng-scope">
+<!-- ngInclude: 'accessibility.html' -->
+<div data-ng-include="&#39;accessibility.html&#39;" class="ng-scope">
+  <div class="cc-accessibility-links ng-scope">
   <a href="" data-cc-scroll-to-directive="#cc-main-content" style="display: block;">Skip to content</a>
   <a href="" data-cc-scroll-to-directive="#cc-local-navigation" style="display: none;">Skip to local navigation</a>
-</div>
-</div>
-<!-- ngInclude: 'ieold.html' --><div data-ng-include="&#39;ieold.html&#39;" class="ng-scope"><!--[if lt IE 9]>
-<div class="row">
-  <div class="medium-12 medium-centered columns cc-alert-box cc-old-ie">
-    <p>This site will not work properly with your browser. We support the latest two versions of these browsers:</p>
-    <ul>
-      <li><a href="http://getfirefox.com">Firefox</a></li>
-      <li><a href="http://google.com/chrome">Google Chrome</a></li>
-      <li><a href="http://www.microsoft.com/windows/internet-explorer/">Internet Explorer</a></li>
-      <li><a href="http://www.apple.com/safari/">Safari</a></li>
-    </ul>
   </div>
 </div>
-
-<script>
-  document.createElement('article');
-  document.createElement('aside');
-  document.createElement('header');
-  document.createElement('nav');
-  document.createElement('section');
-  document.createElement('footer');
-</script>
-<![endif]-->
-</div>
-<!-- ngInclude: 'launcher.html' --><div data-ng-include="&#39;launcher.html&#39;" class="ng-scope"><header class="cc-masthead ng-scope">
+<div data-ng-include="&#39;launcher.html&#39;" class="ng-scope"><header class="cc-masthead ng-scope">
   <div class="cc-offcanvas-icon cc-left" data-ng-show="api.user.events.isAuthenticated">
     <button data-ng-click="offCanvasMenu.show=!offCanvasMenu.show"><i class="fa fa-bars"></i></button>
   </div>
   <div class="cc-header-logo cc-print-show hide-for-small" data-ng-class="{&#39;hide-for-small&#39;:(api.user.events.isAuthenticated)}">
     <a href="./CalCentral_files/CalCentral.html">
       <span class="cc-visuallyhidden">Return to dashboard</span>
-      <!-- ngInclude: 'svg/calcentral_logo.html' --><div data-ng-include="&#39;svg/calcentral_logo.html&#39;" class="ng-scope"><svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="200px" height="35px" class="ng-scope">
+      <!-- ngInclude: 'svg/calcentral_logo.html' -->
+      <div data-ng-include="&#39;svg/calcentral_logo.html&#39;" class="ng-scope"><svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="200px" height="35px" class="ng-scope">
   <g>
     <path class="cc-svg-calcentral-logo-gold" d="M16.542,7.056c-1.4-0.896-3.024-1.4-4.872-1.4c-3.809,0-6.608,2.716-6.608,7.476
       c0,4.62,2.66,7.504,6.664,7.504c1.904,0,3.696-0.672,4.9-1.568l0.336,1.764c-1.288,0.84-3.22,1.428-5.265,1.428
@@ -135,11 +115,12 @@
   </g>
 </svg>
 </div>
-    </a>
-  </div>
+</a>
+</div>
   <nav class="cc-header-icons" data-ng-show="api.user.events.isAuthenticated">
     <!-- ngInclude: 'widgets/badges_popover.html' --><div class="cc-left ng-scope" data-ng-include="&#39;widgets/badges_popover.html&#39;"><div data-ng-controller="BadgesController" class="cc-launcher-icons ng-scope cc-badge-hasacademic" data-ng-class="{true:&#39;cc-badge-hasacademic&#39;}[studentInfo.regStatus.code != null &amp;&amp; api.user.profile.roles.student]">
-  <!-- ngRepeat: badge in badges --><div data-ng-repeat="badge in badges" class="cc-popover-container cc-popover-status cc-left ng-scope">
+  <!-- ngRepeat: badge in badges -->
+  <div data-ng-repeat="badge in badges" class="cc-popover-container cc-popover-status cc-left ng-scope">
     <button class="cc-header-icon" data-ng-class="{true:&#39;cc-header-icon-selected&#39;}[api.popover.status(badge.cssPopover)]" data-ng-click="api.util.preventBubble($event);api.popover.toggle(badge.cssPopover)" data-ng-attr-title="{{badge.display.name}}" title="bMail">
       <div class="cc-ir cc-icon cc-icon-22 cc-left cc-icon-mail"></div>
       <span class="cc-visuallyhidden" data-ng-hide="api.popover.status(badge.cssPopover)">Show</span>
@@ -147,349 +128,8 @@
       <span class="cc-visuallyhidden ng-binding" data-ng-bind-template="your bMail">your bMail</span>
       <div class="cc-left cc-popover-count ng-binding" data-ng-hide="badge.display.name===&#39;bDrive&#39;" data-ng-bind="badge.count">324</div>
     </button>
-    <div class="cc-popover cc-popover-arrow cc-badgepopover cc-badgepopover-bmail ng-hide" data-ng-show="api.popover.status(badge.cssPopover)">
-      <!-- Title -->
-      <div class="cc-popover-title" data-ng-switch="" on="api.user.profile.hasGoogleAccessToken &amp;&amp; badge.display.name">
-        <a class="cc-popover-title-link cc-right cc-outbound-link" data-ng-href="http://bmail.berkeley.edu" href="http://bmail.berkeley.edu/" target="_blank"><i class="fa fa-external-link"></i>
-          <span class="cc-visuallyhidden ng-binding" data-ng-bind-template="Go to bMail">Go to bMail</span>
-        <span class="cc-outbound-link cc-visuallyhidden cc-print-hide"> - opens in new window</span></a>
-        <!-- ngSwitchWhen: bMail --><h4 data-ng-switch-when="bMail" data-ng-bind-template="Unread bMail Messages" class="ng-binding ng-scope">Unread bMail Messages</h4><!-- end ngSwitchWhen: -->
-        <!-- ngSwitchWhen: bCal -->
-        <!-- ngSwitchDefault:  -->
-      </div>
-      <div class="cc-popover-noitems ng-hide" data-ng-show="!badge.items.length &amp;&amp; api.user.profile.hasGoogleAccessToken">
-        No items available for your <a data-ng-href="http://bmail.berkeley.edu" data-ng-click="api.popover.clickThrough(badge.display.name + &#39; - No Items&#39;)" data-ng-bind-template="bMail account" class="ng-binding cc-outbound-link" href="http://bmail.berkeley.edu/" target="_blank">bMail account<span class="cc-outbound-link cc-visuallyhidden cc-print-hide"> - opens in new window</span></a>
-      </div>
-      <div class="cc-popover-noitems ng-hide" data-ng-show="!badge.items.length &amp;&amp; !api.user.profile.hasGoogleAccessToken">
-        To display your bConnected activity, visit the
-         <button class="cc-button-link cc-popover-link" data-ng-click="api.popover.clickThrough(badge.display.name + &#39; - No Google Account&#39;);api.util.redirect(&#39;settings&#39;)">settings page</button>
-      </div>
-      <!-- Item container -->
-      <ul class="cc-popover-items cc-scroll" data-ng-click="api.popover.clickThrough(badge.display.name)" data-ng-show="badge.items.length">
-        <!-- ngRepeat: item in badge.items --><li class="cc-popover-item ng-scope" data-ng-repeat="item in badge.items">
-          <div data-ng-switch="" on="badge.display.name">
-            <!-- ngSwitchWhen: bMail --><div data-ng-switch-when="bMail" class="ng-scope">
-              <a data-ng-href="http://bmail.berkeley.edu/" class="cc-badgepopover-item-details cc-outbound-link" href="http://bmail.berkeley.edu/" target="_blank">
-                <div class="cc-ellipsis cc-badgepopover-item-details-title cc-popover-link ng-binding" data-ng-bind="item.editor">CS 162 on Piazza</div>
-                <div class="cc-ellipsis">
-                  <span data-ng-bind="item.title" class="ng-binding">Activity Digest since 8:12PM for CS 162 on Piazza</span>
-                </div>
-                <div class="cc-badgepopover-item-details-summary" data-ng-show="item.summary">
-                  <i class="fa fa-envelope-o cc-left"></i><span class="cc-ellipsis ng-binding" data-ng-bind="item.summary">Your email preferences are currently set to a 6-hour Auto Digest, so you'll receive at most one</span>
-                </div>
-              <span class="cc-outbound-link cc-visuallyhidden cc-print-hide"> - opens in new window</span></a>
-            </div><!-- end ngSwitchWhen: -->
-            <!-- ngSwitchWhen: bCal -->
-            <!-- ngSwitchWhen: bDrive -->
-          </div>
-        </li><!-- end ngRepeat: item in badge.items --><li class="cc-popover-item ng-scope" data-ng-repeat="item in badge.items">
-          <div data-ng-switch="" on="badge.display.name">
-            <!-- ngSwitchWhen: bMail --><div data-ng-switch-when="bMail" class="ng-scope">
-              <a data-ng-href="http://bmail.berkeley.edu/" class="cc-badgepopover-item-details cc-outbound-link" href="http://bmail.berkeley.edu/" target="_blank">
-                <div class="cc-ellipsis cc-badgepopover-item-details-title cc-popover-link ng-binding" data-ng-bind="item.editor">CS 162 on Piazza</div>
-                <div class="cc-ellipsis">
-                  <span data-ng-bind="item.title" class="ng-binding">Activity Digest since 5:15PM for CS 162 on Piazza</span>
-                </div>
-                <div class="cc-badgepopover-item-details-summary" data-ng-show="item.summary">
-                  <i class="fa fa-envelope-o cc-left"></i><span class="cc-ellipsis ng-binding" data-ng-bind="item.summary">Your email preferences are currently set to a 6-hour Auto Digest, so you'll receive at most one</span>
-                </div>
-              <span class="cc-outbound-link cc-visuallyhidden cc-print-hide"> - opens in new window</span></a>
-            </div><!-- end ngSwitchWhen: -->
-            <!-- ngSwitchWhen: bCal -->
-            <!-- ngSwitchWhen: bDrive -->
-          </div>
-        </li><!-- end ngRepeat: item in badge.items --><li class="cc-popover-item ng-scope" data-ng-repeat="item in badge.items">
-          <div data-ng-switch="" on="badge.display.name">
-            <!-- ngSwitchWhen: bMail --><div data-ng-switch-when="bMail" class="ng-scope">
-              <a data-ng-href="http://bmail.berkeley.edu/" class="cc-badgepopover-item-details cc-outbound-link" href="http://bmail.berkeley.edu/" target="_blank">
-                <div class="cc-ellipsis cc-badgepopover-item-details-title cc-popover-link ng-binding" data-ng-bind="item.editor">Garyguo2011</div>
-                <div class="cc-ellipsis">
-                  <span data-ng-bind="item.title" class="ng-binding">[CalCentral-Task-Planner] Dev xg (#3)</span>
-                </div>
-                <div class="cc-badgepopover-item-details-summary" data-ng-show="item.summary">
-                  <i class="fa fa-envelope-o cc-left"></i><span class="cc-ellipsis ng-binding" data-ng-bind="item.summary">You can view, comment on, or merge this pull request online at: https://github.com/Garyguo2011/</span>
-                </div>
-              <span class="cc-outbound-link cc-visuallyhidden cc-print-hide"> - opens in new window</span></a>
-            </div><!-- end ngSwitchWhen: -->
-            <!-- ngSwitchWhen: bCal -->
-            <!-- ngSwitchWhen: bDrive -->
-          </div>
-        </li><!-- end ngRepeat: item in badge.items --><li class="cc-popover-item ng-scope" data-ng-repeat="item in badge.items">
-          <div data-ng-switch="" on="badge.display.name">
-            <!-- ngSwitchWhen: bMail --><div data-ng-switch-when="bMail" class="ng-scope">
-              <a data-ng-href="http://bmail.berkeley.edu/" class="cc-badgepopover-item-details cc-outbound-link" href="http://bmail.berkeley.edu/" target="_blank">
-                <div class="cc-ellipsis cc-badgepopover-item-details-title cc-popover-link ng-binding" data-ng-bind="item.editor">CS 162 on Piazza</div>
-                <div class="cc-ellipsis">
-                  <span data-ng-bind="item.title" class="ng-binding">what is the purpose of yield in this code?</span>
-                </div>
-                <div class="cc-badgepopover-item-details-summary" data-ng-show="item.summary">
-                  <i class="fa fa-envelope-o cc-left"></i><span class="cc-ellipsis ng-binding" data-ng-bind="item.summary">Your classmate posted a new Question. what is the purpose of yield in this code? If the main thread</span>
-                </div>
-              <span class="cc-outbound-link cc-visuallyhidden cc-print-hide"> - opens in new window</span></a>
-            </div><!-- end ngSwitchWhen: -->
-            <!-- ngSwitchWhen: bCal -->
-            <!-- ngSwitchWhen: bDrive -->
-          </div>
-        </li><!-- end ngRepeat: item in badge.items --><li class="cc-popover-item ng-scope" data-ng-repeat="item in badge.items">
-          <div data-ng-switch="" on="badge.display.name">
-            <!-- ngSwitchWhen: bMail --><div data-ng-switch-when="bMail" class="ng-scope">
-              <a data-ng-href="http://bmail.berkeley.edu/" class="cc-badgepopover-item-details cc-outbound-link" href="http://bmail.berkeley.edu/" target="_blank">
-                <div class="cc-ellipsis cc-badgepopover-item-details-title cc-popover-link ng-binding" data-ng-bind="item.editor">CS 162 on Piazza</div>
-                <div class="cc-ellipsis">
-                  <span data-ng-bind="item.title" class="ng-binding">Activity Digest since 6:16PM for CS 162 on Piazza</span>
-                </div>
-                <div class="cc-badgepopover-item-details-summary" data-ng-show="item.summary">
-                  <i class="fa fa-envelope-o cc-left"></i><span class="cc-ellipsis ng-binding" data-ng-bind="item.summary">Your email preferences are currently set to a 6-hour Auto Digest, so you'll receive at most one</span>
-                </div>
-              <span class="cc-outbound-link cc-visuallyhidden cc-print-hide"> - opens in new window</span></a>
-            </div><!-- end ngSwitchWhen: -->
-            <!-- ngSwitchWhen: bCal -->
-            <!-- ngSwitchWhen: bDrive -->
-          </div>
-        </li><!-- end ngRepeat: item in badge.items --><li class="cc-popover-item ng-scope" data-ng-repeat="item in badge.items">
-          <div data-ng-switch="" on="badge.display.name">
-            <!-- ngSwitchWhen: bMail --><div data-ng-switch-when="bMail" class="ng-scope">
-              <a data-ng-href="http://bmail.berkeley.edu/" class="cc-badgepopover-item-details cc-outbound-link" href="http://bmail.berkeley.edu/" target="_blank">
-                <div class="cc-ellipsis cc-badgepopover-item-details-title cc-popover-link ng-binding" data-ng-bind="item.editor">CS 162 on Piazza</div>
-                <div class="cc-ellipsis">
-                  <span data-ng-bind="item.title" class="ng-binding">Activity Digest since 10:41AM for CS 162 on Piazza</span>
-                </div>
-                <div class="cc-badgepopover-item-details-summary" data-ng-show="item.summary">
-                  <i class="fa fa-envelope-o cc-left"></i><span class="cc-ellipsis ng-binding" data-ng-bind="item.summary">Your email preferences are currently set to a 6-hour Auto Digest, so you'll receive at most one</span>
-                </div>
-              <span class="cc-outbound-link cc-visuallyhidden cc-print-hide"> - opens in new window</span></a>
-            </div><!-- end ngSwitchWhen: -->
-            <!-- ngSwitchWhen: bCal -->
-            <!-- ngSwitchWhen: bDrive -->
-          </div>
-        </li><!-- end ngRepeat: item in badge.items --><li class="cc-popover-item ng-scope" data-ng-repeat="item in badge.items">
-          <div data-ng-switch="" on="badge.display.name">
-            <!-- ngSwitchWhen: bMail --><div data-ng-switch-when="bMail" class="ng-scope">
-              <a data-ng-href="http://bmail.berkeley.edu/" class="cc-badgepopover-item-details cc-outbound-link" href="http://bmail.berkeley.edu/" target="_blank">
-                <div class="cc-ellipsis cc-badgepopover-item-details-title cc-popover-link ng-binding" data-ng-bind="item.editor">Sarah Van Nostrand</div>
-                <div class="cc-ellipsis">
-                  <span data-ng-bind="item.title" class="ng-binding">[eecs-ugrads] New Policy about Job Postings</span>
-                </div>
-                <div class="cc-badgepopover-item-details-summary" data-ng-show="item.summary">
-                  <i class="fa fa-envelope-o cc-left"></i><span class="cc-ellipsis ng-binding" data-ng-bind="item.summary">Dear Students; Effective March 6, 2015, the EECS department will be discontinuing the weekly email</span>
-                </div>
-              <span class="cc-outbound-link cc-visuallyhidden cc-print-hide"> - opens in new window</span></a>
-            </div><!-- end ngSwitchWhen: -->
-            <!-- ngSwitchWhen: bCal -->
-            <!-- ngSwitchWhen: bDrive -->
-          </div>
-        </li><!-- end ngRepeat: item in badge.items --><li class="cc-popover-item ng-scope" data-ng-repeat="item in badge.items">
-          <div data-ng-switch="" on="badge.display.name">
-            <!-- ngSwitchWhen: bMail --><div data-ng-switch-when="bMail" class="ng-scope">
-              <a data-ng-href="http://bmail.berkeley.edu/" class="cc-badgepopover-item-details cc-outbound-link" href="http://bmail.berkeley.edu/" target="_blank">
-                <div class="cc-ellipsis cc-badgepopover-item-details-title cc-popover-link ng-binding" data-ng-bind="item.editor">Alice V. Deng</div>
-                <div class="cc-ellipsis">
-                  <span data-ng-bind="item.title" class="ng-binding">[eecs-ugrads] 3.6.15 Undergraduate Announcements</span>
-                </div>
-                <div class="cc-badgepopover-item-details-summary" data-ng-show="item.summary">
-                  <i class="fa fa-envelope-o cc-left"></i><span class="cc-ellipsis ng-binding" data-ng-bind="item.summary">Dear Students, Have a great weekend and be sure to enjoy the beautiful Bay Area weather! Go bears! In</span>
-                </div>
-              <span class="cc-outbound-link cc-visuallyhidden cc-print-hide"> - opens in new window</span></a>
-            </div><!-- end ngSwitchWhen: -->
-            <!-- ngSwitchWhen: bCal -->
-            <!-- ngSwitchWhen: bDrive -->
-          </div>
-        </li><!-- end ngRepeat: item in badge.items --><li class="cc-popover-item ng-scope" data-ng-repeat="item in badge.items">
-          <div data-ng-switch="" on="badge.display.name">
-            <!-- ngSwitchWhen: bMail --><div data-ng-switch-when="bMail" class="ng-scope">
-              <a data-ng-href="http://bmail.berkeley.edu/" class="cc-badgepopover-item-details cc-outbound-link" href="http://bmail.berkeley.edu/" target="_blank">
-                <div class="cc-ellipsis cc-badgepopover-item-details-title cc-popover-link ng-binding" data-ng-bind="item.editor">Cal Career Center</div>
-                <div class="cc-ellipsis">
-                  <span data-ng-bind="item.title" class="ng-binding">Engineering CareerMail - 03/06/15</span>
-                </div>
-                <div class="cc-badgepopover-item-details-summary" data-ng-show="item.summary">
-                  <i class="fa fa-envelope-o cc-left"></i><span class="cc-ellipsis ng-binding" data-ng-bind="item.summary">Career Center CareerMail ENGINEERING CAREERMAIL - 03/06/15 In This Issue: 1. Today! How to Market</span>
-                </div>
-              <span class="cc-outbound-link cc-visuallyhidden cc-print-hide"> - opens in new window</span></a>
-            </div><!-- end ngSwitchWhen: -->
-            <!-- ngSwitchWhen: bCal -->
-            <!-- ngSwitchWhen: bDrive -->
-          </div>
-        </li><!-- end ngRepeat: item in badge.items --><li class="cc-popover-item ng-scope" data-ng-repeat="item in badge.items">
-          <div data-ng-switch="" on="badge.display.name">
-            <!-- ngSwitchWhen: bMail --><div data-ng-switch-when="bMail" class="ng-scope">
-              <a data-ng-href="http://bmail.berkeley.edu/" class="cc-badgepopover-item-details cc-outbound-link" href="http://bmail.berkeley.edu/" target="_blank">
-                <div class="cc-ellipsis cc-badgepopover-item-details-title cc-popover-link ng-binding" data-ng-bind="item.editor">CS 162 on Piazza</div>
-                <div class="cc-ellipsis">
-                  <span data-ng-bind="item.title" class="ng-binding">Activity Digest since 12:05AM for CS 162 on Piazza</span>
-                </div>
-                <div class="cc-badgepopover-item-details-summary" data-ng-show="item.summary">
-                  <i class="fa fa-envelope-o cc-left"></i><span class="cc-ellipsis ng-binding" data-ng-bind="item.summary">Your email preferences are currently set to a 6-hour Auto Digest, so you'll receive at most one</span>
-                </div>
-              <span class="cc-outbound-link cc-visuallyhidden cc-print-hide"> - opens in new window</span></a>
-            </div><!-- end ngSwitchWhen: -->
-            <!-- ngSwitchWhen: bCal -->
-            <!-- ngSwitchWhen: bDrive -->
-          </div>
-        </li><!-- end ngRepeat: item in badge.items --><li class="cc-popover-item ng-scope" data-ng-repeat="item in badge.items">
-          <div data-ng-switch="" on="badge.display.name">
-            <!-- ngSwitchWhen: bMail --><div data-ng-switch-when="bMail" class="ng-scope">
-              <a data-ng-href="http://bmail.berkeley.edu/" class="cc-badgepopover-item-details cc-outbound-link" href="http://bmail.berkeley.edu/" target="_blank">
-                <div class="cc-ellipsis cc-badgepopover-item-details-title cc-popover-link ng-binding" data-ng-bind="item.editor">CS 162 on Piazza</div>
-                <div class="cc-ellipsis">
-                  <span data-ng-bind="item.title" class="ng-binding">Activity Digest since 5:41PM for CS 162 on Piazza</span>
-                </div>
-                <div class="cc-badgepopover-item-details-summary" data-ng-show="item.summary">
-                  <i class="fa fa-envelope-o cc-left"></i><span class="cc-ellipsis ng-binding" data-ng-bind="item.summary">Your email preferences are currently set to a 6-hour Auto Digest, so you'll receive at most one</span>
-                </div>
-              <span class="cc-outbound-link cc-visuallyhidden cc-print-hide"> - opens in new window</span></a>
-            </div><!-- end ngSwitchWhen: -->
-            <!-- ngSwitchWhen: bCal -->
-            <!-- ngSwitchWhen: bDrive -->
-          </div>
-        </li><!-- end ngRepeat: item in badge.items --><li class="cc-popover-item ng-scope" data-ng-repeat="item in badge.items">
-          <div data-ng-switch="" on="badge.display.name">
-            <!-- ngSwitchWhen: bMail --><div data-ng-switch-when="bMail" class="ng-scope">
-              <a data-ng-href="http://bmail.berkeley.edu/" class="cc-badgepopover-item-details cc-outbound-link" href="http://bmail.berkeley.edu/" target="_blank">
-                <div class="cc-ellipsis cc-badgepopover-item-details-title cc-popover-link ng-binding" data-ng-bind="item.editor">CS 162 on Piazza</div>
-                <div class="cc-ellipsis">
-                  <span data-ng-bind="item.title" class="ng-binding">Activity Digest since 10:50AM for CS 162 on Piazza</span>
-                </div>
-                <div class="cc-badgepopover-item-details-summary" data-ng-show="item.summary">
-                  <i class="fa fa-envelope-o cc-left"></i><span class="cc-ellipsis ng-binding" data-ng-bind="item.summary">Your email preferences are currently set to a 6-hour Auto Digest, so you'll receive at most one</span>
-                </div>
-              <span class="cc-outbound-link cc-visuallyhidden cc-print-hide"> - opens in new window</span></a>
-            </div><!-- end ngSwitchWhen: -->
-            <!-- ngSwitchWhen: bCal -->
-            <!-- ngSwitchWhen: bDrive -->
-          </div>
-        </li><!-- end ngRepeat: item in badge.items --><li class="cc-popover-item ng-scope" data-ng-repeat="item in badge.items">
-          <div data-ng-switch="" on="badge.display.name">
-            <!-- ngSwitchWhen: bMail --><div data-ng-switch-when="bMail" class="ng-scope">
-              <a data-ng-href="http://bmail.berkeley.edu/" class="cc-badgepopover-item-details cc-outbound-link" href="http://bmail.berkeley.edu/" target="_blank">
-                <div class="cc-ellipsis cc-badgepopover-item-details-title cc-popover-link ng-binding" data-ng-bind="item.editor">Recommended Updates.</div>
-                <div class="cc-ellipsis">
-                  <span data-ng-bind="item.title" class="ng-binding">[Confluence] Recommended in Confluence for Sterling P DE Mille - Mar 05, 2015</span>
-                </div>
-                <div class="cc-badgepopover-item-details-summary" data-ng-show="item.summary">
-                  <i class="fa fa-envelope-o cc-left"></i><span class="cc-ellipsis ng-binding" data-ng-bind="item.summary">Recommended in Confluence Mar 05, 2015 • Go to Confluence Most Popular Iteration 1 User Stories Gary</span>
-                </div>
-              <span class="cc-outbound-link cc-visuallyhidden cc-print-hide"> - opens in new window</span></a>
-            </div><!-- end ngSwitchWhen: -->
-            <!-- ngSwitchWhen: bCal -->
-            <!-- ngSwitchWhen: bDrive -->
-          </div>
-        </li><!-- end ngRepeat: item in badge.items --><li class="cc-popover-item ng-scope" data-ng-repeat="item in badge.items">
-          <div data-ng-switch="" on="badge.display.name">
-            <!-- ngSwitchWhen: bMail --><div data-ng-switch-when="bMail" class="ng-scope">
-              <a data-ng-href="http://bmail.berkeley.edu/" class="cc-badgepopover-item-details cc-outbound-link" href="http://bmail.berkeley.edu/" target="_blank">
-                <div class="cc-ellipsis cc-badgepopover-item-details-title cc-popover-link ng-binding" data-ng-bind="item.editor">Anthony Abril</div>
-                <div class="cc-ellipsis">
-                  <span data-ng-bind="item.title" class="ng-binding">Independent Student Solutions Town Hall</span>
-                </div>
-                <div class="cc-badgepopover-item-details-summary" data-ng-show="item.summary">
-                  <i class="fa fa-envelope-o cc-left"></i><span class="cc-ellipsis ng-binding" data-ng-bind="item.summary">Hello all, I hope everyone has been enjoying their week so far! Good luck with midterms, and remember</span>
-                </div>
-              <span class="cc-outbound-link cc-visuallyhidden cc-print-hide"> - opens in new window</span></a>
-            </div><!-- end ngSwitchWhen: -->
-            <!-- ngSwitchWhen: bCal -->
-            <!-- ngSwitchWhen: bDrive -->
-          </div>
-        </li><!-- end ngRepeat: item in badge.items --><li class="cc-popover-item ng-scope" data-ng-repeat="item in badge.items">
-          <div data-ng-switch="" on="badge.display.name">
-            <!-- ngSwitchWhen: bMail --><div data-ng-switch-when="bMail" class="ng-scope">
-              <a data-ng-href="http://bmail.berkeley.edu/" class="cc-badgepopover-item-details cc-outbound-link" href="http://bmail.berkeley.edu/" target="_blank">
-                <div class="cc-ellipsis cc-badgepopover-item-details-title cc-popover-link ng-binding" data-ng-bind="item.editor">CS 162 on Piazza</div>
-                <div class="cc-ellipsis">
-                  <span data-ng-bind="item.title" class="ng-binding">Activity Digest since 10:55PM for CS 162 on Piazza</span>
-                </div>
-                <div class="cc-badgepopover-item-details-summary" data-ng-show="item.summary">
-                  <i class="fa fa-envelope-o cc-left"></i><span class="cc-ellipsis ng-binding" data-ng-bind="item.summary">Your email preferences are currently set to a 6-hour Auto Digest, so you'll receive at most one</span>
-                </div>
-              <span class="cc-outbound-link cc-visuallyhidden cc-print-hide"> - opens in new window</span></a>
-            </div><!-- end ngSwitchWhen: -->
-            <!-- ngSwitchWhen: bCal -->
-            <!-- ngSwitchWhen: bDrive -->
-          </div>
-        </li><!-- end ngRepeat: item in badge.items --><li class="cc-popover-item ng-scope" data-ng-repeat="item in badge.items">
-          <div data-ng-switch="" on="badge.display.name">
-            <!-- ngSwitchWhen: bMail --><div data-ng-switch-when="bMail" class="ng-scope">
-              <a data-ng-href="http://bmail.berkeley.edu/" class="cc-badgepopover-item-details cc-outbound-link" href="http://bmail.berkeley.edu/" target="_blank">
-                <div class="cc-ellipsis cc-badgepopover-item-details-title cc-popover-link ng-binding" data-ng-bind="item.editor">CS 162 on Piazza</div>
-                <div class="cc-ellipsis">
-                  <span data-ng-bind="item.title" class="ng-binding">Activity Digest since 4:27PM for CS 162 on Piazza</span>
-                </div>
-                <div class="cc-badgepopover-item-details-summary" data-ng-show="item.summary">
-                  <i class="fa fa-envelope-o cc-left"></i><span class="cc-ellipsis ng-binding" data-ng-bind="item.summary">Your email preferences are currently set to a 6-hour Auto Digest, so you'll receive at most one</span>
-                </div>
-              <span class="cc-outbound-link cc-visuallyhidden cc-print-hide"> - opens in new window</span></a>
-            </div><!-- end ngSwitchWhen: -->
-            <!-- ngSwitchWhen: bCal -->
-            <!-- ngSwitchWhen: bDrive -->
-          </div>
-        </li><!-- end ngRepeat: item in badge.items --><li class="cc-popover-item ng-scope" data-ng-repeat="item in badge.items">
-          <div data-ng-switch="" on="badge.display.name">
-            <!-- ngSwitchWhen: bMail --><div data-ng-switch-when="bMail" class="ng-scope">
-              <a data-ng-href="http://bmail.berkeley.edu/" class="cc-badgepopover-item-details cc-outbound-link" href="http://bmail.berkeley.edu/" target="_blank">
-                <div class="cc-ellipsis cc-badgepopover-item-details-title cc-popover-link ng-binding" data-ng-bind="item.editor">CS 169 on Piazza</div>
-                <div class="cc-ellipsis">
-                  <span data-ng-bind="item.title" class="ng-binding">[Instr Note] Tips, Tricks, and Patterns for Your Apps</span>
-                </div>
-                <div class="cc-badgepopover-item-details-summary" data-ng-show="item.summary">
-                  <i class="fa fa-envelope-o cc-left"></i><span class="cc-ellipsis ng-binding" data-ng-bind="item.summary">Instructor Sam Lau posted a new Note. Your instructor selected to notify everyone in real time of</span>
-                </div>
-              <span class="cc-outbound-link cc-visuallyhidden cc-print-hide"> - opens in new window</span></a>
-            </div><!-- end ngSwitchWhen: -->
-            <!-- ngSwitchWhen: bCal -->
-            <!-- ngSwitchWhen: bDrive -->
-          </div>
-        </li><!-- end ngRepeat: item in badge.items --><li class="cc-popover-item ng-scope" data-ng-repeat="item in badge.items">
-          <div data-ng-switch="" on="badge.display.name">
-            <!-- ngSwitchWhen: bMail --><div data-ng-switch-when="bMail" class="ng-scope">
-              <a data-ng-href="http://bmail.berkeley.edu/" class="cc-badgepopover-item-details cc-outbound-link" href="http://bmail.berkeley.edu/" target="_blank">
-                <div class="cc-ellipsis cc-badgepopover-item-details-title cc-popover-link ng-binding" data-ng-bind="item.editor">Economic Analysis--.</div>
-                <div class="cc-ellipsis">
-                  <span data-ng-bind="item.title" class="ng-binding">Assignment Graded: Exam #1, Economic Analysis--Macro</span>
-                </div>
-                <div class="cc-badgepopover-item-details-summary" data-ng-show="item.summary">
-                  <i class="fa fa-envelope-o cc-left"></i><span class="cc-ellipsis ng-binding" data-ng-bind="item.summary">Your assignment, Exam #1, has been graded. graded: Mar 4 at 2:10pm You can review the assignment here</span>
-                </div>
-              <span class="cc-outbound-link cc-visuallyhidden cc-print-hide"> - opens in new window</span></a>
-            </div><!-- end ngSwitchWhen: -->
-            <!-- ngSwitchWhen: bCal -->
-            <!-- ngSwitchWhen: bDrive -->
-          </div>
-        </li><!-- end ngRepeat: item in badge.items --><li class="cc-popover-item ng-scope" data-ng-repeat="item in badge.items">
-          <div data-ng-switch="" on="badge.display.name">
-            <!-- ngSwitchWhen: bMail --><div data-ng-switch-when="bMail" class="ng-scope">
-              <a data-ng-href="http://bmail.berkeley.edu/" class="cc-badgepopover-item-details cc-outbound-link" href="http://bmail.berkeley.edu/" target="_blank">
-                <div class="cc-ellipsis cc-badgepopover-item-details-title cc-popover-link ng-binding" data-ng-bind="item.editor">Xinran Guo</div>
-                <div class="cc-ellipsis">
-                  <span data-ng-bind="item.title" class="ng-binding">Notice By TA</span>
-                </div>
-                <div class="cc-badgepopover-item-details-summary" data-ng-show="item.summary">
-                  <i class="fa fa-envelope-o cc-left"></i><span class="cc-ellipsis ng-binding" data-ng-bind="item.summary">Hi Team, I'd like to let your guys know. TA expect all of our team member should come to section</span>
-                </div>
-              <span class="cc-outbound-link cc-visuallyhidden cc-print-hide"> - opens in new window</span></a>
-            </div><!-- end ngSwitchWhen: -->
-            <!-- ngSwitchWhen: bCal -->
-            <!-- ngSwitchWhen: bDrive -->
-          </div>
-        </li><!-- end ngRepeat: item in badge.items --><li class="cc-popover-item ng-scope" data-ng-repeat="item in badge.items">
-          <div data-ng-switch="" on="badge.display.name">
-            <!-- ngSwitchWhen: bMail --><div data-ng-switch-when="bMail" class="ng-scope">
-              <a data-ng-href="http://bmail.berkeley.edu/" class="cc-badgepopover-item-details cc-outbound-link" href="http://bmail.berkeley.edu/" target="_blank">
-                <div class="cc-ellipsis cc-badgepopover-item-details-title cc-popover-link ng-binding" data-ng-bind="item.editor">Pivotal Tracker</div>
-                <div class="cc-ellipsis">
-                  <span data-ng-bind="item.title" class="ng-binding">[CalCentral] Open Questions associate with a Task</span>
-                </div>
-                <div class="cc-badgepopover-item-details-summary" data-ng-show="item.summary">
-                  <i class="fa fa-envelope-o cc-left"></i><span class="cc-ellipsis ng-binding" data-ng-bind="item.summary">--Reply above-- You were added as a story owner to Open Questions associate with a Task by Xinran Guo</span>
-                </div>
-              <span class="cc-outbound-link cc-visuallyhidden cc-print-hide"> - opens in new window</span></a>
-            </div><!-- end ngSwitchWhen: -->
-            <!-- ngSwitchWhen: bCal -->
-            <!-- ngSwitchWhen: bDrive -->
-          </div>
-        </li><!-- end ngRepeat: item in badge.items -->
-      </ul>
-    </div>
-  </div><!-- end ngRepeat: badge in badges --><div data-ng-repeat="badge in badges" class="cc-popover-container cc-popover-status cc-left ng-scope">
+  </div><!-- end ngRepeat: badge in badges -->
+  <div data-ng-repeat="badge in badges" class="cc-popover-container cc-popover-status cc-left ng-scope">
     <button class="cc-header-icon" data-ng-class="{true:&#39;cc-header-icon-selected&#39;}[api.popover.status(badge.cssPopover)]" data-ng-click="api.util.preventBubble($event);api.popover.toggle(badge.cssPopover)" data-ng-attr-title="{{badge.display.name}}" title="bCal">
       <div class="cc-ir cc-icon cc-icon-22 cc-left cc-icon-calendar"></div>
       <span class="cc-visuallyhidden" data-ng-hide="api.popover.status(badge.cssPopover)">Show</span>
@@ -497,29 +137,8 @@
       <span class="cc-visuallyhidden ng-binding" data-ng-bind-template="your bCal">your bCal</span>
       <div class="cc-left cc-popover-count ng-binding" data-ng-hide="badge.display.name===&#39;bDrive&#39;" data-ng-bind="badge.count">0</div>
     </button>
-    <div class="cc-popover cc-popover-arrow cc-badgepopover cc-badgepopover-bcal ng-hide" data-ng-show="api.popover.status(badge.cssPopover)">
-      <!-- Title -->
-      <div class="cc-popover-title" data-ng-switch="" on="api.user.profile.hasGoogleAccessToken &amp;&amp; badge.display.name">
-        <a class="cc-popover-title-link cc-right cc-outbound-link" data-ng-href="http://bcal.berkeley.edu" href="http://bcal.berkeley.edu/" target="_blank"><i class="fa fa-external-link"></i>
-          <span class="cc-visuallyhidden ng-binding" data-ng-bind-template="Go to bCal">Go to bCal</span>
-        <span class="cc-outbound-link cc-visuallyhidden cc-print-hide"> - opens in new window</span></a>
-        <!-- ngSwitchWhen: bMail -->
-        <!-- ngSwitchWhen: bCal --><h4 data-ng-switch-when="bCal" data-ng-bind-template="Unaccepted bCal Invitations" class="ng-binding ng-scope">Unaccepted bCal Invitations</h4><!-- end ngSwitchWhen: -->
-        <!-- ngSwitchDefault:  -->
-      </div>
-      <div class="cc-popover-noitems" data-ng-show="!badge.items.length &amp;&amp; api.user.profile.hasGoogleAccessToken">
-        No items available for your <a data-ng-href="http://bcal.berkeley.edu" data-ng-click="api.popover.clickThrough(badge.display.name + &#39; - No Items&#39;)" data-ng-bind-template="bCal account" class="ng-binding cc-outbound-link" href="http://bcal.berkeley.edu/" target="_blank">bCal account<span class="cc-outbound-link cc-visuallyhidden cc-print-hide"> - opens in new window</span></a>
-      </div>
-      <div class="cc-popover-noitems ng-hide" data-ng-show="!badge.items.length &amp;&amp; !api.user.profile.hasGoogleAccessToken">
-        To display your bConnected activity, visit the
-         <button class="cc-button-link cc-popover-link" data-ng-click="api.popover.clickThrough(badge.display.name + &#39; - No Google Account&#39;);api.util.redirect(&#39;settings&#39;)">settings page</button>
-      </div>
-      <!-- Item container -->
-      <ul class="cc-popover-items cc-scroll ng-hide" data-ng-click="api.popover.clickThrough(badge.display.name)" data-ng-show="badge.items.length">
-        <!-- ngRepeat: item in badge.items -->
-      </ul>
-    </div>
-  </div><!-- end ngRepeat: badge in badges --><div data-ng-repeat="badge in badges" class="cc-popover-container cc-popover-status cc-left ng-scope">
+  </div><!-- end ngRepeat: badge in badges -->
+  <div data-ng-repeat="badge in badges" class="cc-popover-container cc-popover-status cc-left ng-scope">
     <button class="cc-header-icon" data-ng-class="{true:&#39;cc-header-icon-selected&#39;}[api.popover.status(badge.cssPopover)]" data-ng-click="api.util.preventBubble($event);api.popover.toggle(badge.cssPopover)" data-ng-attr-title="{{badge.display.name}}" title="bDrive">
       <div class="cc-ir cc-icon cc-icon-22 cc-left cc-icon-drive"></div>
       <span class="cc-visuallyhidden" data-ng-hide="api.popover.status(badge.cssPopover)">Show</span>
@@ -527,159 +146,43 @@
       <span class="cc-visuallyhidden ng-binding" data-ng-bind-template="your bDrive">your bDrive</span>
       <div class="cc-left cc-popover-count ng-binding ng-hide" data-ng-hide="badge.display.name===&#39;bDrive&#39;" data-ng-bind="badge.count">5</div>
     </button>
-    <div class="cc-popover cc-popover-arrow cc-badgepopover cc-badgepopover-bdrive ng-hide" data-ng-show="api.popover.status(badge.cssPopover)">
-      <!-- Title -->
-      <div class="cc-popover-title" data-ng-switch="" on="api.user.profile.hasGoogleAccessToken &amp;&amp; badge.display.name">
-        <a class="cc-popover-title-link cc-right cc-outbound-link" data-ng-href="http://bdrive.berkeley.edu" href="http://bdrive.berkeley.edu/" target="_blank"><i class="fa fa-external-link"></i>
-          <span class="cc-visuallyhidden ng-binding" data-ng-bind-template="Go to bDrive">Go to bDrive</span>
-        <span class="cc-outbound-link cc-visuallyhidden cc-print-hide"> - opens in new window</span></a>
-        <!-- ngSwitchWhen: bMail -->
-        <!-- ngSwitchWhen: bCal -->
-        <!-- ngSwitchDefault:  --><div data-ng-switch-default="" class="ng-scope">
-          <h4 data-ng-bind-template="bDrive (Not connected)" data-ng-show="!api.user.profile.hasGoogleAccessToken" class="ng-binding ng-hide">bDrive (Not connected)</h4>
-          <h4 data-ng-bind-template="bDrive Updates" data-ng-show="api.user.profile.hasGoogleAccessToken" class="ng-binding">bDrive Updates</h4>
-        </div><!-- end ngSwitchWhen: -->
-      </div>
-      <div class="cc-popover-noitems ng-hide" data-ng-show="!badge.items.length &amp;&amp; api.user.profile.hasGoogleAccessToken">
-        No items available for your <a data-ng-href="http://bdrive.berkeley.edu" data-ng-click="api.popover.clickThrough(badge.display.name + &#39; - No Items&#39;)" data-ng-bind-template="bDrive account" class="ng-binding cc-outbound-link" href="http://bdrive.berkeley.edu/" target="_blank">bDrive account<span class="cc-outbound-link cc-visuallyhidden cc-print-hide"> - opens in new window</span></a>
-      </div>
-      <div class="cc-popover-noitems ng-hide" data-ng-show="!badge.items.length &amp;&amp; !api.user.profile.hasGoogleAccessToken">
-        To display your bConnected activity, visit the
-         <button class="cc-button-link cc-popover-link" data-ng-click="api.popover.clickThrough(badge.display.name + &#39; - No Google Account&#39;);api.util.redirect(&#39;settings&#39;)">settings page</button>
-      </div>
-      <!-- Item container -->
-      <ul class="cc-popover-items cc-scroll" data-ng-click="api.popover.clickThrough(badge.display.name)" data-ng-show="badge.items.length">
-        <!-- ngRepeat: item in badge.items --><li class="cc-popover-item ng-scope" data-ng-repeat="item in badge.items">
-          <div data-ng-switch="" on="badge.display.name">
-            <!-- ngSwitchWhen: bMail -->
-            <!-- ngSwitchWhen: bCal -->
-            <!-- ngSwitchWhen: bDrive --><div data-ng-switch-when="bDrive" class="ng-scope">
-              <a class="cc-badgepopover-item-details cc-badgepopover-item-drive cc-outbound-link" data-ng-href="https://docs.google.com/a/berkeley.edu/document/d/1B0sZ2nvqRdFoGnFGCNA7iw5CClFv1nYsTBcjyZaOLt0/edit?usp=drivesdk" href="https://docs.google.com/a/berkeley.edu/document/d/1B0sZ2nvqRdFoGnFGCNA7iw5CClFv1nYsTBcjyZaOLt0/edit?usp=drivesdk" target="_blank">
-                <i data-ng-hide="item.icon_class" class="fa fa-hdd-o cc-left"></i>
-                <div class="cc-icon bdrive-icon  ng-hide" data-ng-show="item.icon_class"></div>
-                <div class="cc-badgepopover-item-details-title cc-ellipsis">
-                  <span class="cc-popover-link ng-binding" data-ng-bind="item.title">CS 162 Project 1 Design</span>
-                </div>
-                <div class="cc-badgepopover-item-details-summary cc-ellipsis ng-binding" data-ng-bind-template="modified by DAMIEN NICOLAS MENDOZA-ROW • 2 days ago">modified by DAMIEN NICOLAS MENDOZA-ROW • 2 days ago</div>
-              <span class="cc-outbound-link cc-visuallyhidden cc-print-hide"> - opens in new window</span></a>
-            </div><!-- end ngSwitchWhen: -->
-          </div>
-        </li><!-- end ngRepeat: item in badge.items --><li class="cc-popover-item ng-scope" data-ng-repeat="item in badge.items">
-          <div data-ng-switch="" on="badge.display.name">
-            <!-- ngSwitchWhen: bMail -->
-            <!-- ngSwitchWhen: bCal -->
-            <!-- ngSwitchWhen: bDrive --><div data-ng-switch-when="bDrive" class="ng-scope">
-              <a class="cc-badgepopover-item-details cc-badgepopover-item-drive cc-outbound-link" data-ng-href="https://docs.google.com/a/berkeley.edu/document/d/1SXZRWMr6QxCeLi83g_S4t8xsEKEWRedtd16IpucH1P0/edit?usp=drivesdk" href="https://docs.google.com/a/berkeley.edu/document/d/1SXZRWMr6QxCeLi83g_S4t8xsEKEWRedtd16IpucH1P0/edit?usp=drivesdk" target="_blank">
-                <i data-ng-hide="item.icon_class" class="fa fa-hdd-o cc-left"></i>
-                <div class="cc-icon bdrive-icon  ng-hide" data-ng-show="item.icon_class"></div>
-                <div class="cc-badgepopover-item-details-title cc-ellipsis">
-                  <span class="cc-popover-link ng-binding" data-ng-bind="item.title">CS169 S'15 syllabus</span>
-                </div>
-                <div class="cc-badgepopover-item-details-summary cc-ellipsis ng-binding" data-ng-bind-template="modified by Armando Fox • 4 days ago">modified by Armando Fox • 4 days ago</div>
-              <span class="cc-outbound-link cc-visuallyhidden cc-print-hide"> - opens in new window</span></a>
-            </div><!-- end ngSwitchWhen: -->
-          </div>
-        </li><!-- end ngRepeat: item in badge.items --><li class="cc-popover-item ng-scope" data-ng-repeat="item in badge.items">
-          <div data-ng-switch="" on="badge.display.name">
-            <!-- ngSwitchWhen: bMail -->
-            <!-- ngSwitchWhen: bCal -->
-            <!-- ngSwitchWhen: bDrive --><div data-ng-switch-when="bDrive" class="ng-scope">
-              <a class="cc-badgepopover-item-details cc-badgepopover-item-drive cc-outbound-link" data-ng-href="https://docs.google.com/a/berkeley.edu/document/d/1tQ9cTccVjQDl3NmA7KlyFGLb6tulxeXMPe-IYPOXRbE/edit?usp=drivesdk" href="https://docs.google.com/a/berkeley.edu/document/d/1tQ9cTccVjQDl3NmA7KlyFGLb6tulxeXMPe-IYPOXRbE/edit?usp=drivesdk" target="_blank">
-                <i data-ng-hide="item.icon_class" class="fa fa-hdd-o cc-left"></i>
-                <div class="cc-icon bdrive-icon  ng-hide" data-ng-show="item.icon_class"></div>
-                <div class="cc-badgepopover-item-details-title cc-ellipsis">
-                  <span class="cc-popover-link ng-binding" data-ng-bind="item.title">Iteration1-1, Kevin Casey, Group 27</span>
-                </div>
-                <div class="cc-badgepopover-item-details-summary cc-ellipsis ng-binding" data-ng-bind-template="modified by XINRAN GUO • 4 days ago">modified by XINRAN GUO • 4 days ago</div>
-              <span class="cc-outbound-link cc-visuallyhidden cc-print-hide"> - opens in new window</span></a>
-            </div><!-- end ngSwitchWhen: -->
-          </div>
-        </li><!-- end ngRepeat: item in badge.items --><li class="cc-popover-item ng-scope" data-ng-repeat="item in badge.items">
-          <div data-ng-switch="" on="badge.display.name">
-            <!-- ngSwitchWhen: bMail -->
-            <!-- ngSwitchWhen: bCal -->
-            <!-- ngSwitchWhen: bDrive --><div data-ng-switch-when="bDrive" class="ng-scope">
-              <a class="cc-badgepopover-item-details cc-badgepopover-item-drive cc-outbound-link" data-ng-href="https://docs.google.com/a/berkeley.edu/presentation/d/19tUvj-lFaFKDhZ8BwyUFdq-ZXYl9jws_TlcFhmqMkgg/edit?usp=drivesdk" href="https://docs.google.com/a/berkeley.edu/presentation/d/19tUvj-lFaFKDhZ8BwyUFdq-ZXYl9jws_TlcFhmqMkgg/edit?usp=drivesdk" target="_blank">
-                <i data-ng-hide="item.icon_class" class="fa fa-hdd-o cc-left"></i>
-                <div class="cc-icon bdrive-icon  ng-hide" data-ng-show="item.icon_class"></div>
-                <div class="cc-badgepopover-item-details-title cc-ellipsis">
-                  <span class="cc-popover-link ng-binding" data-ng-bind="item.title">iBearHost Survey Report</span>
-                </div>
-                <div class="cc-badgepopover-item-details-summary cc-ellipsis ng-binding" data-ng-bind-template="modified by Sterling P DE MILLE • 11 days ago">modified by Sterling P DE MILLE • 11 days ago</div>
-              <span class="cc-outbound-link cc-visuallyhidden cc-print-hide"> - opens in new window</span></a>
-            </div><!-- end ngSwitchWhen: -->
-          </div>
-        </li><!-- end ngRepeat: item in badge.items --><li class="cc-popover-item ng-scope" data-ng-repeat="item in badge.items">
-          <div data-ng-switch="" on="badge.display.name">
-            <!-- ngSwitchWhen: bMail -->
-            <!-- ngSwitchWhen: bCal -->
-            <!-- ngSwitchWhen: bDrive --><div data-ng-switch-when="bDrive" class="ng-scope">
-              <a class="cc-badgepopover-item-details cc-badgepopover-item-drive cc-outbound-link" data-ng-href="https://docs.google.com/a/berkeley.edu/spreadsheets/d/1VnksdpEjaO6JJxVYbb8NU7Ild8o533O7OEsqVuWX4d4/edit?usp=drivesdk" href="https://docs.google.com/a/berkeley.edu/spreadsheets/d/1VnksdpEjaO6JJxVYbb8NU7Ild8o533O7OEsqVuWX4d4/edit?usp=drivesdk" target="_blank">
-                <i data-ng-hide="item.icon_class" class="fa fa-hdd-o cc-left"></i>
-                <div class="cc-icon bdrive-icon  ng-hide" data-ng-show="item.icon_class"></div>
-                <div class="cc-badgepopover-item-details-title cc-ellipsis">
-                  <span class="cc-popover-link ng-binding" data-ng-bind="item.title">Iris' Design Reviews</span>
-                </div>
-                <div class="cc-badgepopover-item-details-summary cc-ellipsis ng-binding" data-ng-bind-template="modified by Iris C. Wang • 14 days ago">modified by Iris C. Wang • 14 days ago</div>
-              <span class="cc-outbound-link cc-visuallyhidden cc-print-hide"> - opens in new window</span></a>
-            </div><!-- end ngSwitchWhen: -->
-          </div>
-        </li><!-- end ngRepeat: item in badge.items -->
-      </ul>
-    </div>
   </div><!-- end ngRepeat: badge in badges -->
 </div>
 </div>
-    <!-- ngInclude: 'widgets/academic_profile_popover.html' --><div class="cc-left ng-scope" data-ng-include="&#39;widgets/academic_profile_popover.html&#39;"><div data-ng-controller="StatusController" class="cc-popover-container cc-popover-status ng-scope" data-ng-show="studentInfo.regStatus.code != null &amp;&amp; api.user.profile.roles.student">
-  <button class="cc-header-icon cc-header-icon-font cc-icon-status-person" data-ng-class="{&#39;cc-icon-status-person-haslayover&#39;:(hasAlerts),&#39;cc-header-icon-selected&#39;:(api.popover.status(&#39;cc-popover-academic-status&#39;))}" data-ng-click="api.util.preventBubble($event);api.popover.toggle(&#39;cc-popover-academic-status&#39;)" title="Show your status">
-    <i class="fa fa-user cc-left"></i>
+    <!-- ngInclude: 'widgets/academic_profile_popover.html' -->
+    <div class="cc-left ng-scope" data-ng-include="&#39;widgets/academic_profile_popover.html&#39;">
+      <div data-ng-controller="StatusController" class="cc-popover-container cc-popover-status ng-scope" data-ng-show="studentInfo.regStatus.code != null &amp;&amp; api.user.profile.roles.student">
+      <button class="cc-header-icon cc-header-icon-font cc-icon-status-person" data-ng-class="{&#39;cc-icon-status-person-haslayover&#39;:(hasAlerts),&#39;cc-header-icon-selected&#39;:(api.popover.status(&#39;cc-popover-academic-status&#39;))}" data-ng-click="api.util.preventBubble($event);api.popover.toggle(&#39;cc-popover-academic-status&#39;)" title="Show your status">
+      <i class="fa fa-user cc-left"></i>
     <!-- ngIf: hasAlerts -->
     <!-- ngIf: !hasAlerts && hasWarnings -->
-  </button>
-  <div class="cc-popover cc-popover-arrow cc-popover-academic-status ng-hide" data-ng-show="api.popover.status(&#39;cc-popover-academic-status&#39;)">
-    <div class="cc-popover-title">
-      <h4>Status</h4>
+      </button>  
+      </div>
     </div>
-    <!-- ngIf: count === 0 && !statusLoading && !(studentInfo.regStatus.needsAction && !(studentInfo.regBlock.needsAction || studentInfo.regBlock.errored) && api.user.profile.features.regstatus) && minimumAmountDue <= 0 --><div class="cc-popover-noitems ng-scope" data-ng-if="count === 0 &amp;&amp; !statusLoading &amp;&amp; !(studentInfo.regStatus.needsAction &amp;&amp; !(studentInfo.regBlock.needsAction || studentInfo.regBlock.errored) &amp;&amp; api.user.profile.features.regstatus) &amp;&amp; minimumAmountDue &lt;= 0">
-      <i class="cc-left fa fa-check-circle cc-icon-green"></i>
-      <strong>No Active Alerts</strong>
-    </div><!-- end ngIf: count === 0 && !statusLoading && !(studentInfo.regStatus.needsAction && !(studentInfo.regBlock.needsAction || studentInfo.regBlock.errored) && api.user.profile.features.regstatus) && minimumAmountDue <= 0 -->
-    <ul class="cc-popover-items" data-ng-click="api.popover.clickThrough(&#39;Status&#39;)">
-      <li class="cc-popover-item ng-hide" data-ng-show="statusLoading">
-        <div class="cc-launcher-status-loading cc-loading" data-cc-loading-directive="statusLoading" data-cc-loading-process="Loading..."></div>
-      </li>
-      <!-- ngIf: studentInfo.regStatus.needsAction && api.user.profile.features.regstatus -->
-      <!-- ngIf: studentInfo.regBlock.needsAction || studentInfo.regBlock.errored -->
-      <!-- ngIf: minimumAmountDue && minimumAmountDue > 0 -->
-      <!-- ngIf: countUndatedFinaid > 0 -->
-    </ul></div>
-  
-</div>
-</div>
-    <!-- ngInclude: 'widgets/gear_popover.html' --><div class="cc-left ng-scope" data-ng-include="&#39;widgets/gear_popover.html&#39;"><div class="cc-popover-container cc-popover-gear ng-scope">
-  <button class="cc-header-icon cc-header-icon-font" data-ng-click="api.util.preventBubble($event);api.popover.toggle(&#39;cc-popover-menu&#39;)" data-ng-class="{true:&#39;cc-header-icon-selected&#39;}[api.popover.status(&#39;cc-popover-menu&#39;)]" title="Settings">
-    <i class="fa fa-cog"></i>
-    <span class="cc-visuallyhidden" data-ng-hide="api.popover.status(&#39;cc-popover-menu&#39;)">Show</span>
-    <span class="cc-visuallyhidden ng-hide" data-ng-show="api.popover.status(&#39;cc-popover-menu&#39;)">Hide</span>
-    <span class="cc-visuallyhidden">settings menu</span>
-  </button>
-  <div class="cc-popover cc-dropdown cc-launcher-dropdown-menu ng-hide" data-ng-show="api.popover.status(&#39;cc-popover-menu&#39;)">
-    <div class="cc-popover-title">
-      <h4 data-ng-bind="api.user.profile.fullName" class="ng-binding">STERLING P DE MILLE</h4>
-    </div>
-    <ul class="cc-popover-items">
-      <li class="cc-popover-item">
-        <button class="cc-button-link cc-popover-link" data-ng-click="api.popover.clickThrough(&#39;Gear - Settings&#39;);api.util.redirect(&#39;settings&#39;)">Settings
-        </button>
-      </li>
-      <li class="cc-popover-item">
-        <button class="cc-button-link cc-popover-link" data-ng-click="api.popover.clickThrough(&#39;Gear - Logout&#39;);api.user.signOut()">Log out
-        </button>
-      </li>
-    </ul>
-  </div>
-</div>
-</div>
+    <!-- setting button -->
+    <div class="cc-left ng-scope" data-ng-include="&#39;widgets/gear_popover.html&#39;">
+      <div class="cc-popover-container cc-popover-gear ng-scope">
+      <button class="cc-header-icon cc-header-icon-font" data-ng-click="api.util.preventBubble($event);api.popover.toggle(&#39;cc-popover-menu&#39;)" data-ng-class="{true:&#39;cc-header-icon-selected&#39;}[api.popover.status(&#39;cc-popover-menu&#39;)]" title="Settings">
+      <i class="fa fa-cog"></i>
+      <span class="cc-visuallyhidden" data-ng-hide="api.popover.status(&#39;cc-popover-menu&#39;)">Show</span>
+      <span class="cc-visuallyhidden ng-hide" data-ng-show="api.popover.status(&#39;cc-popover-menu&#39;)">Hide</span>
+      <span class="cc-visuallyhidden">settings menu</span>
+      </button>
+      </div>
+    </div>  
+
+
+    <!-- 03/11, name/signin/signout button -->
+    <div class="cc-left ng-scope" data-ng-include="&#39;widgets/gear_popover.html&#39;">
+      <div class="cc-popover-container cc-popover-gear ng-scope">
+      <% if current_user != nil %>
+        <%= link_to current_user.full_name, edit_user_registration_path %> |
+        <%= link_to 'Sign Out', destroy_user_session_path,  method: :delete %>
+      <% else %>
+        <%=link_to 'Sign In', new_user_session_path %>
+      <% end %> 
+      </div>
+    </div> 
   </nav>
 </header>
 </div>
@@ -695,46 +198,24 @@
     </li><!-- end ngIf: api.user.profile.hasAcademicsTab -->
     <!-- ngIf: api.user.profile.hasFinancialsTab --><li data-ng-class="{true:&#39;active&#39;}[controllerName==&#39;MyFinancesController&#39;]" data-ng-if="api.user.profile.hasFinancialsTab" class="ng-scope"><a href="https://calcentral.berkeley.edu/finances" data-ng-click="offCanvasMenu.show=false"><i class="fa fa-usd"></i>My Finances</a></li><!-- end ngIf: api.user.profile.hasFinancialsTab -->
     <li data-ng-class="{true:&#39;active&#39;}[controllerName==&#39;CampusController&#39;]"><a href="https://calcentral.berkeley.edu/campus" data-ng-click="offCanvasMenu.show=false"><i class="fa fa-th-large"></i>My Campus</a></li>
+
+<!--
+    roy incomplete
+    <li data-ng-class="{true:&#39;active&#39;}[controllerName==&#39;CampusCOntroleer&#39;]">
+
+-->
   </ul>
   <div class="cc-updated-feeds ng-scope" data-ng-controller="UpdatedFeedsController" data-ng-show="controllerName === &#39;DashboardController&#39;">
-    
-
-<!-- Important SignIn Function -->
     <div data-ng-show="hasUpdates" class="">
-      <div id="user-info">
-        <% if current_user != nil %>
-        <%= link_to current_user.full_name, edit_user_registration_path %> |
-        <%= link_to 'Sign Out', destroy_user_session_path,  method: :delete %>
-        <% else %>
-        <%=link_to 'Sign In', new_user_session_path %>
-        <% end %>
-      </div>
-
+      New data is available. <button class="cc-button" data-ng-click="refreshFeeds()">Load</button>
     </div>
   </div>
 </div>
 </div>
   </div>
-  
-  <div id="user-info">
-    <% if current_user != nil %>
-    <%= link_to current_user.full_name, edit_user_registration_path %> |
-    <%= link_to 'Sign Out', destroy_user_session_path,  method: :delete %>
-    <% else %>
-    <%=link_to 'Sign In', new_user_session_path %>
-    <% end %>
-  </div>
-
-
   <div id="saas-content-body">
   <%= yield %>
   </div>
-
-</div>
-<!-- ngInclude: 'actingas.html' --><div data-ng-include="&#39;actingas.html&#39;" class="ng-scope"><!-- ngIf: api.user.profile.actingAsUid -->
-</div>
-
 <!-- endinject -->
-
-
-</body></html>
+</body>
+</html>

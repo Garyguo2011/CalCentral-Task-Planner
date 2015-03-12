@@ -15,6 +15,7 @@ class Task < ActiveRecord::Base
   validates :kind, :presence => true
   validates :course, :presence => true
   validates_with MyValidator
+
   def all_course
     arr = Array.new
     f = File.open("data.csv", "r")
@@ -31,5 +32,9 @@ class Task < ActiveRecord::Base
       a << temp[0]
     end
     return a
- end
+  end
+  
+  def self.all_kinds
+    ["Project", "Homework", "Paper", "Exam", "Other"]
+  end
 end
