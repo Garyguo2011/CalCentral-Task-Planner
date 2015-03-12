@@ -12,17 +12,43 @@ class TasksController < ApplicationController
     if current_user == nil
       @tasks = nil
     else
-      if params[:sort] == nil
-        sort_argument = :status
-      else
+      if params[:sort] != nil
         sort_argument = params[:sort]
+        session[:sort] = sort_argument
+      elsif session[:sort] != nil
+        sort_argument = session[:sort]
+      else
+        sort_argument = :status
+        session[:sort] = sort_argument
       end
-      @tasks = Task.where("status != ?", "Finished").order(sort_argument).find_all_by_user_id(current_user)
-      if params[:group] != nil and params[:group] != "Show All"
-        @tasks = Task.where("status != ? AND user_id = ?", "Finished", current_user).find_all_by_kind(params[:group])
+      #@tasks = Task.where("status != ?", "Finished").order(sort_argument).find_all_by_user_id(current_user)
+      if params[:filter] != nil and params[:filter] != "Show All"
+        filter_argument = params[:filter]
+        session[:filter] = filter_argument
+      elsif params[:filter] == nil
+        if session[:filter] == nil
+          filter_argument = nil
+        else
+          filter_argument = session[:filter]
+        end
+      else
+        filter_argument = nil
+        session[:filter] = filter_argument
       end
       if params[:show_finished] != nil
-        @tasks = Task.find_all_by_user_id(current_user)
+        show_finished = "Finished"
+      else
+        show_finished = nil
+      end
+
+      if filter_argument == nil and show_finished == nil
+        @tasks = Task.where("status != ? AND user_id = ?", "Finished", current_user).order(sort_argument)
+      elsif filter_argument != nil and show_finished != nil
+        @tasks = Task.where("user_id = ?", current_user).order(sort_argument).find_all_by_kind(filter_argument)
+      elsif filter_argument != nil
+        @tasks = Task.where("status != ? AND user_id = ?", "Finished", current_user).order(sort_argument).find_all_by_kind(filter_argument)
+      else
+        @tasks = Task.where("user_id = ?", current_user).order(sort_argument)
       end
     end
     respond_to do |format|

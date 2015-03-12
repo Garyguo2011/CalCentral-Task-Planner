@@ -25,9 +25,9 @@ h1, table{
 <select id="MySelect" onchange="this.options[this.selectedIndex].value && (window.location = this.options[this.selectedIndex].value);">
   <option>Select Task Type</option>
   <%= Task.all_kinds.each do |task| %>
-  <%=options_for_select([["#{task}", "/tasks?group=#{task}"]])%>
+  <%=options_for_select([["#{task}", "/tasks?filter=#{task}"]])%>
   <% end %>
-  <option value="tasks?group=Show All">Show All</option>
+  <option value="tasks?filter=Show All">Show All</option>
 </select>
 <table id='tasks' align='center' width="80%">
   <tr aligh='center'>
