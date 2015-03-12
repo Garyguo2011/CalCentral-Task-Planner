@@ -1,32 +1,35 @@
-<h1>All Tasks</h1>
+<h1>My Tasks</h1>
 
 <table id="tasks">
   <tr>
     <th>Task Title</th>
     <th>Course</th>
-    <th>Kind</th>
+    <th>Type</th>
     <th>Release Date</th>
     <th>Due Date</th>
     <th>Status</th>
     <th>Owner</th>
   </tr>
-<% if @current_user != nil %>
-  <% @tasks.each do |task| %>
-    <tr>
-      <td><%= link_to task.title, task_path(task) %></td>
-      <td><%= task.course %></td>
-      <td><%= task.kind %></td>
-      <td><%= task.release.strftime("%B %d, %Y") %></td>
-      <td><%= task.due.strftime("%B %d, %Y")%></td>
-      <td><%= task.status%></td>
-      <% if task.user != nil%>
-        <td><%= task.user.full_name%></td>
-      <% else %>
-        <td> NO USERS </td>
-      <% end %>
-    </tr>
-  <% end %>
-  </table>
-<% end %>
+<% @tasks.each do |task| %>
+  <tr>
+    <td><%= link_to task.title, task_path(task) %></td>
+    <td><%= task.course %></td>
+    <td><%= task.kind %></td>
+    <td><%= task.release.strftime("%B %d, %Y") %></td>
+    <% if task.due > Time.now %>
+      <td><%= distance_of_time_in_words(task.due, Time.now, include_seconds: true) + " left" %></td>
+    <% else %>
+      <td><%= distance_of_time_in_words(task.due, Time.now, include_seconds: true) + " passed" %></td>
+    <% end %>
+    <td><%= task.status%></td>
+    <% if task.user != nil%>
+      <td><%= task.user.full_name%></td>
+    <% else %>
+      <td> NO USERS </td>
+    <% end %>
+  </tr>
+<% end %>  
+</table>
+
 
 <%= link_to 'Add new task', new_task_path %>

@@ -1,20 +1,10 @@
 class TasksController < ApplicationController
-  def welcome
-    if current_user != nil
-      redirect_to tasks_path
-    else
-      render :file => 'public/index.html.erb'
-    end
-  end
+  #load_and_authorize_resource
+
   # GET /tasks
   # GET /tasks.json
   def index
-    if current_user == nil
-      @tasks = nil
-    else
-      @tasks = current_user.tasks
-    end
-
+    @tasks = Task.accessible_by(current_ability)
     respond_to do |format|
       format.html # index.html.erb
       format.json { render json: @tasks }
@@ -25,7 +15,7 @@ class TasksController < ApplicationController
   # GET /tasks/1.json
   def show
     @task = Task.find(params[:id])
-
+    @subtask = Subtask.new({ :task => @task })
     respond_to do |format|
       format.html # show.html.erb
       format.json { render json: @task }
@@ -51,11 +41,7 @@ class TasksController < ApplicationController
   # POST /tasks
   # POST /tasks.json
   def create
-    if current_user == nil
-      @task = Task.new(params[:task])
-    else
-      @task = current_user.tasks.new(params[:task])
-    end
+    @task = current_user.tasks.new(params[:task])
 
     respond_to do |format|
       if @task.save
