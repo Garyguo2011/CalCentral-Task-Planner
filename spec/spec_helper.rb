@@ -7,6 +7,7 @@ require File.expand_path("../../config/environment", __FILE__)
 require 'rspec/rails'
 require 'rspec/autorun'
 require 'capybara/rspec'
+require 'devise'
 
 # Requires supporting ruby files with custom matchers and macros, etc,
 # in spec/support/ and its subdirectories.
@@ -39,4 +40,21 @@ RSpec.configure do |config|
   # the seed, which is printed after each run.
   #     --seed 1234
   config.order = "random"
+  config.include Devise::TestHelpers, :type => :controller
+  # config.extend ControllerMacros, :type => :controller
+end
+
+
+module Spec
+  module Mocks
+    module Methods
+      def stub_association!(association_name, methods_to_be_stubbed = {})
+        mock_association = Spec::Mocks::Mock.new(association_name.to_s)
+        methods_to_be_stubbed.each do |method, return_value|
+          mock_association.stub!(method).and_return(return_value)
+        end
+        self.stub!(association_name).and_return(mock_association)
+      end
+    end
+  end
 end

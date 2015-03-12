@@ -9,6 +9,8 @@ gem 'rails', '3.2.19'
 # gem 'sqlite3'
 gem 'devise'
 gem 'capybara'
+gem 'factory_girl'
+gem 'factory_girl_rails'
 
 group :development, :test do
   gem 'sqlite3'
