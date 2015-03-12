@@ -1,28 +1,18 @@
 # Add a declarative step here for populating the DB with tasks.
 
-Given /the following users exist/ do |users_table|
-  users_table.hashes.each do |user|
+Given /the following (.*) exist/ do |which, table|
+  table.hashes.each do |elem|
     # each returned element will be a hash whose key is the table header.
     # you should arrange to add that movie to the database here.
-    puts(user)
-    User.create!(user)
+    if which == "users"
+      User.create!(elem)
+    elsif which == "tasks"
+      Task.create!(elem)
+    else
+      Subtask.create!(elem)
+    end
   end
 end
-
-
-Given /the following tasks exist/ do |tasks_table|
-  tasks_table.hashes.each do |task|
-    # each returned element will be a hash whose key is the table header.
-    # you should arrange to add that movie to the database here.
-    Task.new(task).save!
-  end
-end
-
-# Given /the following open question in "(.*)"/ do |open_questions_table|
-#   open_questions_table.hashes.each do |open_question|
-#     Subtask.new(open_question).save!
-#   end
-# end
 
 
 Then /I should see "(.*)" before "(.*)"/ do |e1, e2|
