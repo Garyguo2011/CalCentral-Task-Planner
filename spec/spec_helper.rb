@@ -8,6 +8,7 @@ require 'rspec/rails'
 require 'rspec/autorun'
 require 'capybara/rspec'
 require 'devise'
+require 'support/login_helper'
 
 # Requires supporting ruby files with custom matchers and macros, etc,
 # in spec/support/ and its subdirectories.
@@ -42,6 +43,7 @@ RSpec.configure do |config|
   config.order = "random"
   config.include Devise::TestHelpers, :type => :controller
   # config.extend ControllerMacros, :type => :controller
+  config.include LoginHelper
 end
 
 
