@@ -22,8 +22,10 @@ end
 
 When /I select (.*) to filter/ do |field|
   # puts(page.html)
-  find("option[value='/tasks?filter=#{field}']").click
-  # puts(page.html)
+  within '#MySelect' do
+    click_link(find("option[value='/tasks?filter=#{field}']"))
+  end
+  puts(page.html)
 end
 
 
