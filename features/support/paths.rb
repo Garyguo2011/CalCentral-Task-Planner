@@ -14,6 +14,10 @@ module NavigationHelpers
     case page_name
 
     when /^the sign-in page/ then '/users/sign_in'
+    when /^the (Task Planner )?home\s?page$/ then '/tasks'
+    when /^the tasks page$/ then '/tasks'
+    when /^new_task$/ then '/users/tasks/new'
+
     # Add more mappings here.
     # Here is an example that pulls values out of the Regexp:
     #

@@ -22,8 +22,10 @@ Background: tasks have been added to database
   | Checkout Website | true    | 1       |
   | Bring Calculator | false   | 2       |
 
+  And I am on the sign-in page
+
 Scenario: General details of a task
-  When I sign in as "xinran@gmail.com" with "111111111"
+  When I sign in "xinran@gmail.com" with "111111111"
   Then I should on the home page.
   When I press "PROJ1"
   Then I should on "Detail" page of "PORJ1"
@@ -32,7 +34,7 @@ Scenario: General details of a task
   Then I should not see "Bring Calculator"
 
 Scenario: Users can not visit the other users task detail page
-  When I sign in as "xu@ibearHost.com" with "111111111"
+  When I sign in "xu@ibearHost.com" with "111111111"
   When I visit "Detail" page of "PORJ1"
   Then I should on the home page
   Then I should see "XU-hw3"
