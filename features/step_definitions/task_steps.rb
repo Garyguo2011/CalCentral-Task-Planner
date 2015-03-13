@@ -22,8 +22,10 @@ end
 
 When /I select (.*) to filter/ do |field|
   # puts(page.html)
-  find("option[value='/tasks?filter=#{field}']").click
-  # puts(page.html)
+  within '#MySelect' do
+    click_link(find("option[value='/tasks?filter=#{field}']"))
+  end
+  puts(page.html)
 end
 
 
@@ -135,6 +137,27 @@ Then /^I should (not )?see the done checkbox checked for "(.*)"$/ do |is_not, su
     end 
   end
 end
+
+When /^I (change|add) description for "(.*?)" to "(.*?)"$/ do |action, subtask_title, content|
+  if action == "change"
+    subtask = Subtask.find_by_description(subtask_title)
+    css_class = "#subtask_#{subtask.id}"
+    within (css_class) do
+      puts find("#subtask_description")[:value]
+      fill_in("subtask[description]", :with => content)
+      puts find("#subtask_description")[:value]
+      click_on("Update")
+      puts find("#subtask_description")[:value]
+    end
+  else
+    within ('#subtask_new') do
+      fill_in("subtask[description]", :with => content)
+      
+    end
+  end
+end
+
+
 
 # Then /^the done checkbox for "(.*)" should be checked$/ do |subtask_title|
 #   subtask = Subtask.find_by_description(subtask_title)

@@ -45,7 +45,7 @@
 <% end %>
 <% end %>
 <%= form_for([@task, @subtask]) do |f| %>
-  <tr>
+  <tr id="subtask_new">
     <td class="center-text"><%= f.check_box :is_done %></td>
     <td><%= f.text_field :description, placeholder: 'Enter new subtask here' %></td>
     <td class="center-text"><%= button_to 'Create', [@task, @subtask], class: 'subtask-button' %></td>

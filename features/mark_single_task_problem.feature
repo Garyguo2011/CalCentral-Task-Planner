@@ -48,8 +48,13 @@ Scenario: Unmark a subtask done
   Then I should not see the done checkbox checked for "Go to OfficeHour"
 
 Scenario: Change description of subtask
-  Thne I should see "Checkout Website"
-  When I change description for "Checkout Website" to "Check CS169 Website"
-  Then I press "Update" for "Checkout Website"
-  Then I should see "Check CS169 Website"
+  Thne I should see "Bring Calculator"
+  When I change description for "Bring Calculator" to "Bring TI-89 Calculator"
+  Then I press "Update" for "Bring Calculator"
+  Then I should not see "Bring Calculator" in Subtask
 
+Scenario: Add description of subtask
+  Thne I should see "Checkout Website"
+  When I change description for "Bring Calculator" to "Bring TI-89 Calculator"
+  Then I press "Update" for "Bring Calculator"
+  Then I should see "Bring Calculator" in Subtask

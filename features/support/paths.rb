@@ -17,6 +17,8 @@ module NavigationHelpers
     when /^the (Task Planner )?home\s?page$/ then '/'
     when /^the tasks page$/ then '/tasks'
     when /^new_task$/ then '/users/tasks/new'
+    when /^Project filter page/ then '/tasks?filter=Project'
+    when /^Show All page/ then 'tasks?filter=Show%20All'
 
     when /^the detail page for "([^"]*)"$/i
      task_path(Task.find_by_title($1))
