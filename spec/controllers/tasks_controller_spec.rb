@@ -144,12 +144,13 @@ describe TasksController, :type => :controller do
 				put :update, {:id => @task.user_id}
 				response.should_not be_success
 			end
+		end
+	end
 
-			it "should render the edit screen again with errors if the model doesn't save" do
-				user.should_receive(:update_attributes).and_return false
-    		put :update, user, {}
-    		response.should render_template("edit")
-			end
+	describe 'DELETE destroy' do
+		it "deletes the task" do
+			@task = FactoryGirl.create(:task, user: subject.current_user)
+			expect{ delete :destroy, id: @task}.to change(Task, :count).by(-1)
 		end
 	end
 end
