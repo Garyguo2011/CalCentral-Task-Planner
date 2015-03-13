@@ -94,9 +94,6 @@ end
 
 Then /^I should (not )?see "(.*?)" in Subtask$/ do |is_not, content|
   subtask_position = page.body.index("Subtasks")
-  # puts page.body.index(content)
-  # puts page.body
-  # puts Task.all
   content_position = page.body.index(content) ? page.body.index(content) : -1
   if is_not
     assert(content_position == -1)
@@ -143,15 +140,16 @@ When /^I (change|add) description for "(.*?)" to "(.*?)"$/ do |action, subtask_t
     subtask = Subtask.find_by_description(subtask_title)
     css_class = "#subtask_#{subtask.id}"
     within (css_class) do
-      puts find("#subtask_description")[:value]
+      # puts find("#subtask_description")[:value]
       fill_in("subtask[description]", :with => content)
-      puts find("#subtask_description")[:value]
+      # puts find("#subtask_description")[:value]
       click_on("Update")
-      puts find("#subtask_description")[:value]
+      # puts find("#subtask_description")[:value]
     end
   else
     within ('#subtask_new') do
       fill_in("subtask[description]", :with => content)
+      # puts page.body
     end
   end
 end

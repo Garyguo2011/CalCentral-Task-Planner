@@ -79,7 +79,7 @@ Scenario: Read/Edit task
   Then I should see "CS169: HW1"
   When I press "Edit Task"
   Then I should see "Editing task"
-  Then I should see "HW1" in my "Title"
+  Then I would see "HW1" in my "Title"
   When I fill in "Title" with "CS169 HW1"
   Then I press "Update Task"
   Then I should see "Task was successfully updated."
