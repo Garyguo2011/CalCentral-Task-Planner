@@ -61,7 +61,7 @@ class TasksController < ApplicationController
         format.json { render json: @task }
       end
     rescue
-      redirect_to tasks_path, alert: 'Task was not find.'
+      redirect_to root_path, alert: 'Task was not find.'
     end
   end
 
@@ -80,7 +80,7 @@ class TasksController < ApplicationController
     begin
       @task = Task.accessible_by(current_ability).find(params[:id])
     rescue
-      redirect_to tasks_path, alert: 'Task was not find.'
+      redirect_to root_path, alert: 'Task was not find.'
     end
   end
 
@@ -125,14 +125,6 @@ class TasksController < ApplicationController
     respond_to do |format|
       format.html { redirect_to tasks_url }
       format.json { head :no_content }
-    end
-  end
-
-  def render_404
-    respond_to do |format|
-      format.html { render :file => "#{Rails.root}/public/404", :layout => false, :status => :not_found }
-      format.xml  { head :not_found }
-      format.any  { head :not_found }
     end
   end
 end

@@ -30,12 +30,12 @@ Scenario: General details of a task
   When I follow "PROJ1"
   Then I should be on the detail page for "PROJ1"
   Then I should see the following "PROJ1", "CS188", "Project", "March 03, 2015", "March 17, 2015", "New"
-  Then I should see "Checkout Website"
-  Then I should not see "Bring Calculator"
+  Then I should see "Bring Calculator" in Subtask
+  Then I should not see "Checkout Website" in Subtask
 
 Scenario: Users can not visit the other users task detail page
   When I sign in "xu@ibearHost.com" with "111111111"
-  When I visit "Detail" page of "PORJ1"
-  Then I should on the home page
+  When I go to the detail page for "PROJ1"
+  Then I should be on the homepage
   Then I should see "XU-hw3"
-  Then I should not "PROJ1"
+  Then I should not see "PROJ1"
