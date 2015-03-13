@@ -21,7 +21,7 @@ Background: users and tasks have been added to database
   
  
 Scenario: Sign up
-  Given I am currently on the sign_in page
+  Given I am currently on the sign-in page
   When I follow "Sign up"
   When I fill in "First name" with "Jinge"
   When I fill in "Last name" with "Zhang"
@@ -32,7 +32,7 @@ Scenario: Sign up
   Then I should see "Jinge Zhang"
 
 Scenario:  Sign in
-  Given I am currently on the sign_in page
+  Given I am currently on the sign-in page
   When I fill in "Email" with "zhangjinge588@gmail.com"
   When I fill in "user_password" with "12345678"
   When I press "Log in"
@@ -44,7 +44,7 @@ Scenario:  Sign in
   Then I should not see "MIDTERM1"
 
 Scenario: User only view its own task, with finished tasks filtered out initally
-  Given I am currently on the sign_in page
+  Given I am currently on the sign-in page
   When I fill in "Email" with "zhangjinge0110@126.com"
   When I fill in "user_password" with "12345678"
   When I press "Log in"
@@ -61,10 +61,10 @@ Scenario: User only view its own task, with finished tasks filtered out initally
   Then I should see "HW2"
   Then I should not see "MIDTERM1" 
 Scenario: Sign out
-  Given I am currently on the sign_in page
+  Given I am currently on the sign-in page
   When I fill in "Email" with "zhangjinge588@gmail.com"
   When I fill in "user_password" with "12345678"
   When I press "Log in"
   Then I should see "Jinge Zhang"
   When I follow "Sign Out"
-  Then I should currently on the sign_in page 
+  Then I should currently on the sign-in page 
