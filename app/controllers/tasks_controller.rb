@@ -53,11 +53,15 @@ class TasksController < ApplicationController
   # GET /tasks/1
   # GET /tasks/1.json
   def show
-    @task = Task.find(params[:id])
-    @subtask = Subtask.new({ :task => @task })
-    respond_to do |format|
-      format.html # show.html.erb
-      format.json { render json: @task }
+    begin
+      @task = Task.accessible_by(current_ability).find(params[:id])
+      @subtask = Subtask.new({ :task => @task })
+      respond_to do |format|
+        format.html # show.html.erb
+        format.json { render json: @task }
+      end
+    rescue
+      redirect_to tasks_path, alert: 'Task was not find.'
     end
   end
 
@@ -65,7 +69,6 @@ class TasksController < ApplicationController
   # GET /tasks/new.json
   def new
     @task = Task.new
-
     respond_to do |format|
       format.html # new.html.erb
       format.json { render json: @task }
@@ -74,7 +77,11 @@ class TasksController < ApplicationController
 
   # GET /tasks/1/edit
   def edit
-    @task = Task.find(params[:id])
+    begin
+      @task = Task.accessible_by(current_ability).find(params[:id])
+    rescue
+      redirect_to tasks_path, alert: 'Task was not find.'
+    end
   end
 
   # POST /tasks
@@ -118,6 +125,14 @@ class TasksController < ApplicationController
     respond_to do |format|
       format.html { redirect_to tasks_url }
       format.json { head :no_content }
+    end
+  end
+
+  def render_404
+    respond_to do |format|
+      format.html { render :file => "#{Rails.root}/public/404", :layout => false, :status => :not_found }
+      format.xml  { head :not_found }
+      format.any  { head :not_found }
     end
   end
 end
