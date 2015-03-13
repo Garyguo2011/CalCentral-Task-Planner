@@ -35,16 +35,12 @@ Then /I should not see the following tasks:(.*)/ do |task_list|
   end
 end
 
-
-
 Then /I should see "(.*)" before "(.*)"/ do |e1, e2|
   #  ensure that that e1 occurs before e2.
   #  page.body is the entire content of the page as a string.
   elem = page.html
   assert(elem.index(e1) < elem.index(e2), "incorrect order, #{e1} should be before #{e2}")
 end 
-
-
 
 Then /I should see all the tasks/ do
   # Make sure that all the tasks in the app are visible in the table
@@ -91,5 +87,18 @@ Then /I should (not )?see the following (.*) in form field/ do |is_not, content|
         assert page.has_content?(text)
       end
     end
+  end
+end
+
+Then /^I should (not )?see "(.*?)" in Subtask$/ do |is_not, content|
+  subtask_position = page.body.index("Subtasks")
+  # puts page.body.index(content)
+  # puts page.body
+  # puts Task.all
+  content_position = page.body.index(content) ? page.body.index(content) : -1
+  if is_not
+    assert(content_position == -1)
+  else
+    assert(subtask_position < content_position && content_position != -1, "Error")
   end
 end

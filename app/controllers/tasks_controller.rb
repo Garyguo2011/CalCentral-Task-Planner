@@ -61,7 +61,7 @@ class TasksController < ApplicationController
         format.json { render json: @task }
       end
     rescue
-      redirect_to tasks_path, alert: 'Task was not find.'
+      redirect_to root_path, alert: 'Task was not find.'
     end
   end
 
@@ -80,7 +80,7 @@ class TasksController < ApplicationController
     begin
       @task = Task.accessible_by(current_ability).find(params[:id])
     rescue
-      redirect_to tasks_path, alert: 'Task was not find.'
+      redirect_to root_path, alert: 'Task was not find.'
     end
   end
 
