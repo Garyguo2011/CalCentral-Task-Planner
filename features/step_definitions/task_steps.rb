@@ -14,13 +14,25 @@ Given /the following (.*) exist/ do |which, table|
   end
 end
 
+When /I sign in "(.*)" with "(.*)"/ do |email, password|
+  fill_in("Email", :with => email)
+  fill_in("user_password", :with => password)
+  click_button("Log in")
+
+
+end
+
+When /I select (.*) to filter/ do |field|
+  # puts(page.html)
+  find("option[value='/tasks?filter=#{field}']").click
+end
 
 Then /I should see "(.*)" before "(.*)"/ do |e1, e2|
   #  ensure that that e1 occurs before e2.
   #  page.body is the entire content of the page as a string.
-  elem = page.html
+  # elem = page.html
   assert(elem.index(e1) < elem.index(e2), "incorrect order, #{e1} should be before #{e2}")
-end
+end 
 
 
 When /I (un)?check the following courses: (.*)/ do |uncheck, course_list|

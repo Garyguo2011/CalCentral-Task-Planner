@@ -18,8 +18,12 @@ Background: users and tasks have been added to database
   | HW2       | CS186  | Homework | 27/Feb/2015 23:59:00 -0800 | 2/Mar/2015 23:59:00 -0800  | Started  | 1       |
   | MIDTERM1  | CS164  | Exam     | 1/Mar/2015 12:00:00 -8000  | 1/Apr/2015 16:00:00 -0800  | Finished | 1       |
 
+  And I am on the sign-in page
+
 Scenario: sort tasks in increasing order of due date
-  When I follow "Task Title"
+  When I sign in as Xu
+  Then I am on the homepage
+  And I follow "Task Title"
   Then I should see "MIDTERM1" before "HW1" in New list
   And I should see "MIDTERM1" before "ESSAY1" in New list
   And I should see "HW2" before "PROJ1" in Ongoing list
