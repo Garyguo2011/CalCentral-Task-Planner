@@ -15,6 +15,8 @@ module NavigationHelpers
 
     when /^the (Task Planner )?home\s?page$/ then '/tasks'
     when /^the tasks page$/ then '/tasks'
+    when /^sign_in$/ then '/users/sign_in'
+    when /^new_task$/ then '/users/tasks/new'
 
     # Add more mappings here.
     # Here is an example that pulls values out of the Regexp:
