@@ -69,7 +69,7 @@
   </script>
 
   <%= stylesheet_link_tag 'application'%>
-  <link rel="stylesheet" type="text/css" href="/assets/stylesheets/cc-application.css">
+  <link rel="stylesheet" type="text/css" href="https://calcentral.berkeley.edu/manifest.json">
   <%= javascript_include_tag 'application'%>
   <script async="" src="/assets/javascripts/cc-application.js"></script>
 </head>
