@@ -28,24 +28,28 @@ Background: tasks have been added to database
   Given I sign in "xinran@gmail.com" with "111111111"
   Given I am on the detail page for "PROJ1"
 
-Scenario: Mark a sutask done
+Scenario: Delete a task
+  Then I should see "Google Answer" in Subtask
+  When I press "Delete" for "Google Answer"
+  Then I should not see "Google Answer" in Subtask
+
+Scenario: Mark a subtask done
   When I check "Bring Calculator" done
   Then I press "Update" for "Bring Calculator"
-  Then the done checkbox for "Bring Calculator" should be checked
+  Then I should see the done checkbox checked for "Bring Calculator"
   When I go to the detail page for "PROJ1"
   Then I should see the done checkbox checked for "Bring Calculator"
 
-Scenario: Unmark a sutask done
+Scenario: Unmark a subtask done
   When I uncheck "Go to OfficeHour" done
   Then I press "Update" for "Go to OfficeHour"
   Then I should not see the done checkbox checked for "Go to OfficeHour"
   When I go to the detail page for "PROJ1"
   Then I should not see the done checkbox checked for "Go to OfficeHour"
 
+Scenario: Change description of subtask
+  Thne I should see "Checkout Website"
+  When I change description for "Checkout Website" to "Check CS169 Website"
+  Then I press "Update" for "Checkout Website"
+  Then I should see "Check CS169 Website"
 
-Scenario: Users can not visit the other users task detail page
-  When I sign in "xu@ibearHost.com" with "111111111"
-  When I go to the detail page for "PROJ1"
-  Then I should be on the homepage
-  Then I should see "XU-hw3"
-  Then I should not see "PROJ1"
