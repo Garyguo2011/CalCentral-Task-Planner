@@ -152,7 +152,6 @@ When /^I (change|add) description for "(.*?)" to "(.*?)"$/ do |action, subtask_t
   else
     within ('#subtask_new') do
       fill_in("subtask[description]", :with => content)
-      
     end
   end
 end

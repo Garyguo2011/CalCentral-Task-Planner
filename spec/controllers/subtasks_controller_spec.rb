@@ -80,13 +80,13 @@ describe SubtasksController, :type => :controller do
 
       # get :index,{:task_id => '1'}
       # sign_in
-      get :index, :task_id => '9'
-
+      # get :index, :task_id => '9'
+      get :show, :task_id => '9', :id => 1
       # pp task_subtask_path(@task, @subtask)
       # get task_subtasks_path(@task, @subtask)
       # get task_subtask_path(@task, @subtask)
       expect(response).to be_success
-      expect(response).to render_template('index')
+      # expect(response).to render_template('index')
       # expect(response).to have_http_status(200)
       # subtask = Subtask.create! valid_attributes
       # get :show, {:id => subtask.to_param}, valid_session
