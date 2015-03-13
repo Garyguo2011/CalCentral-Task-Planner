@@ -29,7 +29,8 @@ Scenario: originally hide the finished tasks
   Then I should not see "MIDTERM1"
 
 Scenario: filter the tasks based on types
-  When I select Project to filter
+  When I am on Project filter page
+  And I follow "Show finished tasks"
   Then I should not see "MIDTERM1"
-  When I select Paper to filter
-  Then I should not see "MIDTERM1"
+  When I am on Show All page
+  Then I should see all the tasks
