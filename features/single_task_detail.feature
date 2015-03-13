@@ -21,6 +21,7 @@ Background: tasks have been added to database
   | description      | is_done | task_id |
   | Checkout Website | true    | 1       |
   | Bring Calculator | false   | 2       |
+  | Bring Pencil     | false   | 2       |
 
   And I am on the sign-in page
 
@@ -37,5 +38,18 @@ Scenario: Users can not visit the other users task detail page
   When I sign in "xu@ibearHost.com" with "111111111"
   When I go to the detail page for "PROJ1"
   Then I should be on the homepage
+  When I go to the edit page for "PROJ1"
+  Then I should be on the homepage
   Then I should see "XU-hw3"
   Then I should not see "PROJ1"
+
+Scenario: Users should vist some detail subtask page
+  When I sign in "xu@ibearHost.com" with "111111111"
+  When I go to the subtask new page for "PROJ1"
+  Then I should be on the subtask new page for "PROJ1"
+  When I go to the subtask index page for "PROJ1"
+  Then I should be on the subtask index page for "PROJ1"
+  When I go to the subtask edit page for "Bring Calculator"
+  Then I should be on the subtask edit page for "Bring Calculator"
+  When I go to the subtask show page for "Bring Pencil"
+  Then I should be on the subtask show page for "Bring Pencil"

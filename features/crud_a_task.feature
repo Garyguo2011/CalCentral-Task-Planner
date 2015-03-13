@@ -20,7 +20,7 @@ Background: users and tasks have been added to database
   | MIDTERM1  | CS164  | Exam     | 1/Mar/2015 12:00:00 -8000  | 1/Apr/2015 16:00:00 -0800  | Finished | 2       |
   
 
-Scenario:  add task with CS169 HW, 3/15/2015
+Scenario: add task with CS169 HW, 3/15/2015
   Given I am currently on the sign-in page
   When I fill in "Email" with "zhangjinge588@gmail.com"
   When I fill in "user_password" with "12345678"
@@ -44,6 +44,7 @@ Scenario:  add task with CS169 HW, 3/15/2015
   When I select "49" from "task_release_5i"
   And I press "Create Task"
   Then I should see "Task was successfully created."
+
 Scenario: add task (sad path)
   Given I am currently on the sign-in page
   When I fill in "Email" with "zhangjinge588@gmail.com"
@@ -86,5 +87,14 @@ Scenario: Read/Edit task
   When I follow "Back to task list"
   Then I should see "CS169 HW1"
 
- 
-
+Scenario: Read/Delete task
+  Given I am currently on the sign-in page
+  When I fill in "Email" with "zhangjinge588@gmail.com"
+  When I fill in "user_password" with "12345678"
+  When I press "Log in"
+  Then I should see "HW1"
+  When I follow "HW1"
+  Then I should see "CS169: HW1"
+  When I press "Delete"
+  Then I should currently on the home page
+  Then I should not see "HW1" 

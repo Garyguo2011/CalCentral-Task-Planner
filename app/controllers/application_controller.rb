@@ -4,7 +4,7 @@ class ApplicationController < ActionController::Base
   def require_login
    redirect_to new_user_session_path, alert: "You must be logged in to perform this action" if current_user.nil?
   end
-   rescue_from CanCan::AccessDenied do |e|
-     redirect_to new_user_session_path, alert: e.message
-   end
+   # rescue_from CanCan::AccessDenied do |e|
+   #   redirect_to new_user_session_path, alert: e.message
+   # end
 end

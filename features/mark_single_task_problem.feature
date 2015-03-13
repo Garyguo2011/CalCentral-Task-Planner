@@ -43,17 +43,16 @@ Scenario: Mark a subtask done
 Scenario: Unmark a subtask done
   When I uncheck "Go to OfficeHour" done
   Then I press "Update" for "Go to OfficeHour"
-  Then I should not see the done checkbox checked for "Go to OfficeHour"
   When I go to the detail page for "PROJ1"
   Then I should not see the done checkbox checked for "Go to OfficeHour"
 
-Scenario: Change description of subtask
+Scenario: Change description of subtask, and edit a subtask
   Then I should see "Bring Calculator" in Subtask
   When I change description for "Bring Calculator" to "Bring TI-89 Calculator"
   Then I press "Update" for "Bring Calculator"
   Then I should not see "Bring  Calculator" in Subtask
 
-Scenario: Add description of subtask
+Scenario: Add description of subtask, and create a new subtask
   Then I should see "Go to OfficeHour" in Subtask
   When I add description for "New Subtask" to "Go to OfficeHour"
   Then I press "Create"
