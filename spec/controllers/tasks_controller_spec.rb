@@ -63,10 +63,11 @@ describe TasksController, :type => :controller do
   end
 
   describe "GET show" do
+
     it "does not show a detailed task page" do
       task = FactoryGirl.build(:task)
       get :show, id: task.id
-      response.should_not be_success
+      expect(response).to redirect_to('/')
     end
 
     it "shows a detailed task page" do
@@ -118,6 +119,7 @@ describe TasksController, :type => :controller do
 
   describe "PUT update" do
     before(:each) do
+      # User.stub(:find).returns(user)
       @task = FactoryGirl.create(:task)
       session[:current_user] = @task.user_id
       @current_user = User.find_by_id(session[:current_user]) if session[:current_user]
@@ -143,9 +145,13 @@ describe TasksController, :type => :controller do
         put :update, {:id => @task.user_id}
         response.should_not be_success
       end
-
     end
   end
 
-  
+  describe 'DELETE destroy' do
+    it "deletes the task" do
+      @task = FactoryGirl.create(:task, user: subject.current_user)
+      expect{ delete :destroy, id: @task}.to change(Task, :count).by(-1)
+    end
+  end
 end
