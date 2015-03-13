@@ -39,7 +39,6 @@ margin: 0;
 padding: 0;
 }
 
-input.task-button, 
 input.subtask-button
 {
 display: block;
@@ -49,21 +48,6 @@ text-decoration: none;
 border-style: none;
 padding: 5px;
 width: 100px;
-}
-
-ul#task-edit-buttons 
-{
-display: block;
-height: 50px;
-list-style: none;
-}
-ul#task-edit-buttons li 
-{
-display: block;
-height: 50px;
-width: 100px;
-margin-right: 10px;
-float: left;
 }
 
 #user-info
