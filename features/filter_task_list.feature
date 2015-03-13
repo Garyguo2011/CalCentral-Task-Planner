@@ -19,8 +19,17 @@ Background: users and tasks have been added to database
   | MIDTERM1  | CS164  | Exam     | 1/Mar/2015 12:00:00 -8000  | 1/Apr/2015 16:00:00 -0800  | Finished | 1       |
 
   And I am on the sign-in page
+  And I sign in "123454321@hotmail.com" with "123454321"
 
-Scenario: filter based on the task types
-  When I sign in "123454321@hotmail.com" with "123454321"
+Scenario: originally hide the finished tasks
+  Then I should not see "MIDTERM1"
+  When I follow "Show finished tasks"
+  Then I should see all the tasks
+  When I follow "Hide finished tasks"
+  Then I should not see "MIDTERM1"
+
+Scenario: filter the tasks based on types
   When I select Project to filter
-
+  Then I should not see "MIDTERM1"
+  When I select Paper to filter
+  Then I should not see "MIDTERM1"
