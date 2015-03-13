@@ -1,29 +1,51 @@
-Feature: Mark a question Open/Resolved
+Feature: Mark a Subtask Open/Resolved
  
   As student in Berkeley
   So that I can keep track of all my open questions for a tasks
-  I want to mark a question as open or resolved and add solutions
+  I want to mark a subtask as open or resolved and add solutions
 
 Background: tasks have been added to database
 
-  Given the following movies exist:
-  | title    | course |     due                  |   status  |     owner     |
-  | Project1 | cs164  |  2015-03-05 11:59pm PDT  |     NEW   |   Xinran Guo  |
+  Given the following users exist:
+  | first_name | last_name | email            | password  | 
+  | Xinran     | Guo       | xinran@gmail.com | 111111111 |
+  | Xu         | He        | xu@ibearHost.com | 111111111 |
 
-  Given the following open question in "Project1":
-  |   Time             | problem description            | solution               |  Status  |
-  | 2015-03-02 01:30PM | How do we handle indentation?  | Create lexer to handle |  OPEN    | 
-  | 2015-03-01 01:30PM | How do we handle Fucntion_def? | NOT RESOLVE            |  OPEN    | 
-  | 2015-02-28 01:30PM | How do we handle If-statement? | Follow Python Grammer2 |  RESOLVE | 
+  Given the following tasks exist:
+  | title     | course | kind     | release                    | due                        | status   | user_id |
+  | HW1       | CS169  | Homework | 4/Mar/2015 23:59:00 -0800  | 6/Mar/2015 23:59:00 -0800  | New      | 1       |
+  | PROJ1     | CS188  | Project  | 3/Mar/2015 23:59:00 -0800  | 16/Mar/2015 23:59:00 -0800 | New      | 1       |
+  | XU-hw3    | CS188  | Quiz     | 3/Mar/2015 23:59:00 -0800  | 16/Mar/2015 23:59:00 -0800 | New      | 2       |
 
-Scenario: Mark a quesiton as resolve
-  Given I am on the deails page for "Project1"
-  And I press "Resolve" button of "How do we handle indentation?"
-  Then "How do we handle indentation?" should in "close question" area
+  Given the following subtasks exist:
+  | description      | is_done | task_id |
+  | Checkout Website | true    | 1       |
+  | Bring Calculator | false   | 2       |
+  | Go to OfficeHour | true    | 2       |
+  | Google Answer    | false   | 2       |
 
-Scenario: Mark a question as Reopen
-  Given I am on the deails page for "Project1"
-  And I press "Reopen" button of "How do we handle If-statement?"
-  Then "How do we handle If-statement?" shoud in "open question" area
+  And I am on the sign-in page
+  Given I sign in "xinran@gmail.com" with "111111111"
+  Given I am on the detail page for "PROJ1"
+
+Scenario: Mark a sutask done
+  When I check "Bring Calculator" done
+  Then I press "Update" for "Bring Calculator"
+  Then the done checkbox for "Bring Calculator" should be checked
+  When I go to the detail page for "PROJ1"
+  Then I should see the done checkbox checked for "Bring Calculator"
+
+Scenario: Unmark a sutask done
+  When I uncheck "Go to OfficeHour" done
+  Then I press "Update" for "Go to OfficeHour"
+  Then I should not see the done checkbox checked for "Go to OfficeHour"
+  When I go to the detail page for "PROJ1"
+  Then I should not see the done checkbox checked for "Go to OfficeHour"
 
 
+Scenario: Users can not visit the other users task detail page
+  When I sign in "xu@ibearHost.com" with "111111111"
+  When I go to the detail page for "PROJ1"
+  Then I should be on the homepage
+  Then I should see "XU-hw3"
+  Then I should not see "PROJ1"

@@ -102,3 +102,85 @@ Then /^I should (not )?see "(.*?)" in Subtask$/ do |is_not, content|
     assert(subtask_position < content_position && content_position != -1, "Error")
   end
 end
+
+Then /^I press "(.*?)" for "(.*?)"/ do |button, subtask_title|
+  subtask = Subtask.find_by_description(subtask_title)
+  css_class = "#subtask_#{subtask.id}"
+  within(css_class) do
+    click_on(button)
+  end
+end
+
+When /^(?:|I )(un)?check "(.*?)" done$/ do |uncheck, subtask_title|
+  subtask = Subtask.find_by_description(subtask_title)
+  css_class = "#subtask_#{subtask.id}"
+  within(css_class) do
+    if uncheck
+      done_box = find('#subtask_is_done')
+      # puts done_box
+      puts "before"
+      puts done_box.checked? == nil
+      uncheck("subtask_is_done")
+      puts "after"
+      puts done_box.checked? == nil
+    else
+      done_box = find('#subtask_is_done')
+      # puts done_box
+      puts "before"
+      # puts done_box.checked? == nil
+      field_checked = find_field('subtask_is_done')['checked']
+      puts find_field('subtask_is_done')
+      puts find_field('subtask_is_done')[:checked]
+      check("subtask_is_done")
+      puts "after"
+      puts find_field('subtask_is_done')[:checked]
+      # puts done_box.checked? == nil
+    end
+  end
+end
+
+Then /^I should (not )?see the done checkbox checked for "(.*)"$/ do |is_not, subtask_title|
+  subtask = Subtask.find_by_description(subtask_title)
+  css_class = "#subtask_#{subtask.id}"
+  within(css_class) do
+    done_box = find('#subtask_is_done')
+    # puts done_box
+    puts done_box.checked? == nil
+    puts is_not
+
+    if is_not.nil?
+      puts "1"
+      assert (done_box.checked? == nil)
+    else
+      puts "2"
+      assert (done_box.checked? != nil)
+    end 
+  end
+end
+
+
+Then /^the done checkbox for "(.*)" should be checked$/ do |subtask_title|
+  subtask = Subtask.find_by_description(subtask_title)
+  css_class = "#subtask_#{subtask.id}"
+  within(css_class) do
+    field_checked = find_field('subtask_is_done')['checked']
+    puts find_field('subtask_is_done')
+    puts find_field('subtask_is_done')[:checked]
+    if field_checked.respond_to? :should
+      field_checked.should be_true
+    else
+      assert field_checked
+    end
+  end
+end
+
+Then /^the "([^"]*)" checkbox(?: within (.*))? should not be checked$/ do |label, parent|
+  with_scope(parent) do
+    field_checked = find_field(label)['checked']
+    if field_checked.respond_to? :should
+      field_checked.should be_false
+    else
+      assert !field_checked
+    end
+  end
+end

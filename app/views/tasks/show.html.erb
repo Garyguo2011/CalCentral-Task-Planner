@@ -36,10 +36,10 @@
   </tr>
 <% @task.subtasks.each do |subtask| %>
 <%= form_for([subtask.task, subtask]) do |f| %>
-  <tr>
+  <tr id="subtask_<%= subtask.id %>">
     <td><div class="center-text"><%= f.check_box :is_done %></div></td>
     <td><%= f.text_field :description %></td>
-    <td><div class="center-text"><%= button_to 'Update', [subtask.task, subtask], class: 'subtask-button' %></div></td>
+    <td><div class="center-text"><%= button_to 'Update', [subtask.task, subtask], method: :put, class: 'subtask-button' %></div></td>
     <td><div class="center-text"><%= button_to 'Delete', [subtask.task, subtask], method: :delete, confirm: 'Are you sure?', class: 'subtask-button' %></div></td>
   </tr>
 <% end %>

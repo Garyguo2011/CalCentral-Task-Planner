@@ -25,7 +25,7 @@ Background: tasks have been added to database
   And I am on the sign-in page
 
 Scenario: General details of a task
-  When I sign in "xinran@gmail.com" with "111111111"
+  Given I sign in "xinran@gmail.com" with "111111111"
   Then I should be on the homepage
   When I follow "PROJ1"
   Then I should be on the detail page for "PROJ1"
