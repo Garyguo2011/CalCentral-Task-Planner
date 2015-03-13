@@ -18,8 +18,6 @@ When /I sign in "(.*)" with "(.*)"/ do |email, password|
   fill_in("Email", :with => email)
   fill_in("user_password", :with => password)
   click_button("Log in")
-
-
 end
 
 When /I select (.*) to filter/ do |field|
@@ -51,5 +49,41 @@ Then /I should see all the tasks/ do
     end
   else
     return false
+  end
+end
+
+Then /I should (not )?see the following (.*)/ do |is_not, content|
+  content.delete('"').split(',').each do |text|
+    if is_not
+      if page.respond_to? :should
+        page.should_not have_content(text)
+      else
+        assert !page.has_content?(text)
+      end
+    else
+      if page.respond_to? :should
+        page.should have_content(text)
+      else
+        assert page.has_content?(text)
+      end
+    end
+  end
+end
+
+Then /I should (not )?see the following (.*) in form field/ do |is_not, content|
+  content.delete('"').split(',').each do |text|
+    if is_not
+      if page.respond_to? :should
+        page.should_not have_content(text)
+      else
+        assert !page.has_content?(text)
+      end
+    else
+      if page.respond_to? :should
+        page.should have_content(text)
+      else
+        assert page.has_content?(text)
+      end
+    end
   end
 end
