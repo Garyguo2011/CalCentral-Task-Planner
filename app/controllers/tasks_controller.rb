@@ -53,11 +53,15 @@ class TasksController < ApplicationController
   # GET /tasks/1
   # GET /tasks/1.json
   def show
-    @task = Task.find(params[:id])
-    @subtask = Subtask.new({ :task => @task })
-    respond_to do |format|
-      format.html # show.html.erb
-      format.json { render json: @task }
+    begin
+      @task = Task.accessible_by(current_ability).find(params[:id])
+      @subtask = Subtask.new({ :task => @task })
+      respond_to do |format|
+        format.html # show.html.erb
+        format.json { render json: @task }
+      end
+    rescue
+      redirect_to root_path, alert: 'Task was not find.'
     end
   end
 
@@ -65,7 +69,6 @@ class TasksController < ApplicationController
   # GET /tasks/new.json
   def new
     @task = Task.new
-
     respond_to do |format|
       format.html # new.html.erb
       format.json { render json: @task }
@@ -74,7 +77,11 @@ class TasksController < ApplicationController
 
   # GET /tasks/1/edit
   def edit
-    @task = Task.find(params[:id])
+    begin
+      @task = Task.accessible_by(current_ability).find(params[:id])
+    rescue
+      redirect_to root_path, alert: 'Task was not find.'
+    end
   end
 
   # POST /tasks

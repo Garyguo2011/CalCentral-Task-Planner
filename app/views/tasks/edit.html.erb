@@ -1,12 +1,5 @@
-<h1>Editing subtask</h1>
+<h1>Editing task</h1>
 
-
-<% if can? :crud, @task %>
-	<%= render 'form' %>
-	<%= link_to 'Show', @task %> |
-	<%= link_to 'Back', tasks_path %>
-<% else %>
-	<div>You can't edit on this page!</div>
-	<%= link_to 'Back', tasks_path%>
-<% end %>
-
+<%= render 'form' %>
+<%= link_to 'Show', @task %> |
+<%= link_to 'Back', tasks_path %>

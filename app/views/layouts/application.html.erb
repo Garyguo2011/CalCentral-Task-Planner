@@ -69,9 +69,9 @@
   </script>
 
   <%= stylesheet_link_tag 'application'%>
-  <%= stylesheet_link_tag 'cc-application'%>
+  <link ref="stylesheet" type="text/css" href="/assets/stylesheets/cc-application.css" />
   <%= javascript_include_tag 'application'%>
-  <%= javascript_include_tag 'cc-application'%>
+  <script type="textjavascript" src="/assets/javascripts/cc-application.js"></script>
 </head>
 
 <body data-ng-class="{&#39;cc-page-splash&#39;:(controllerName===&#39;SplashController&#39;),&#39;cc-offcanvas-show&#39;:(offCanvasMenu.show)}" data-ng-show="api.user.events.isLoaded" data-cc-iosfix-directive="" class="">

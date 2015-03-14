@@ -6,32 +6,50 @@ Feature: Show details of One Task
 
 Background: tasks have been added to database
 
-  Given the following movies exist:
-  | title    | course |     due              | status  |     owner     |
-  | Project1 | cs164  |  2015-03-05 11:59pm  |   NEW   |   Xinran Guo  |
-  | Vatamin1 | cs186  |  2015-03-15 11:59pm  |   NEW   |   Xinran Guo  |
-  | Quiz1    | cs169  |  2015-04-07 11:59pm  |   NEW   |   Xinran Guo  |
+  Given the following users exist:
+  | first_name | last_name | email            | password  | 
+  | Xinran     | Guo       | xinran@gmail.com | 111111111 |
+  | Xu         | He        | xu@ibearHost.com | 111111111 |
 
-  Given the following open question in "Project1":
-  |   Time             | problem description            | solution               |  Status  |
-  | 2015-03-02 01:30PM | How do we handle indentation?  | Create lexer to handle |  OPEN    | 
-  | 2015-03-01 01:30PM | How do we handle Fucntion_def? | NOT RESOLVE            |  OPEN    | 
-  | 2015-02-28 01:30PM | How do we handle If-statement? | Follow Python Grammer2 |  RESOLVE | 
+  Given the following tasks exist:
+  | title     | course | kind     | release                    | due                        | status   | user_id |
+  | HW1       | CS169  | Homework | 4/Mar/2015 23:59:00 -0800  | 6/Mar/2015 23:59:00 -0800  | New      | 1       |
+  | PROJ1     | CS188  | Project  | 3/Mar/2015 23:59:00 -0800  | 16/Mar/2015 23:59:00 -0800 | New      | 1       |
+  | XU-hw3    | CS188  | Quiz     | 3/Mar/2015 23:59:00 -0800  | 16/Mar/2015 23:59:00 -0800 | New      | 2       |
 
-Scenario: Show details of a task
-  When I am on the home page.
-  Then I press "Project1"
-  Then I should see "How do we handle indentation?" in "open question" area
-  Then I should see "How do we handle If-statement?" in "close question" area
+  Given the following subtasks exist:
+  | description      | is_done | task_id |
+  | Checkout Website | true    | 1       |
+  | Bring Calculator | false   | 2       |
+  | Bring Pencil     | false   | 2       |
 
-Scenario: Open question progress
-  When I am on the home page.
-  Then I press "Project1"
-  Then I should see 2 remaining questions and 3 total questions
-  Then I should see "Open questions progress bar" with 67%
+  And I am on the sign-in page
 
-Scenario: Remaining Time
-  When I am on the home page.
-  Then I press "Project1"
-  And the current time is 2015-03-01 8:00am PDT
-  Then I should see the remaining time is "5 Days Left"
+Scenario: General details of a task
+  Given I sign in "xinran@gmail.com" with "111111111"
+  Then I should be on the homepage
+  When I follow "PROJ1"
+  Then I should be on the detail page for "PROJ1"
+  Then I should see the following "PROJ1", "CS188", "Project", "March 03, 2015", "March 17, 2015", "New"
+  Then I should see "Bring Calculator" in Subtask
+  Then I should not see "Checkout Website" in Subtask
+
+Scenario: Users can not visit the other users task detail page
+  When I sign in "xu@ibearHost.com" with "111111111"
+  When I go to the detail page for "PROJ1"
+  Then I should be on the homepage
+  When I go to the edit page for "PROJ1"
+  Then I should be on the homepage
+  Then I should see "XU-hw3"
+  Then I should not see "PROJ1"
+
+Scenario: Users should vist some detail subtask page
+  When I sign in "xu@ibearHost.com" with "111111111"
+  When I go to the subtask new page for "PROJ1"
+  Then I should be on the subtask new page for "PROJ1"
+  When I go to the subtask index page for "PROJ1"
+  Then I should be on the subtask index page for "PROJ1"
+  When I go to the subtask edit page for "Bring Calculator"
+  Then I should be on the subtask edit page for "Bring Calculator"
+  When I go to the subtask show page for "Bring Pencil"
+  Then I should be on the subtask show page for "Bring Pencil"

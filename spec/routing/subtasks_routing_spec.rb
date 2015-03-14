@@ -4,31 +4,31 @@ describe SubtasksController do
   describe "routing" do
 
     it "routes to #index" do
-      get("/subtasks").should route_to("subtasks#index")
+      get("/tasks/1/subtasks").should route_to("subtasks#index", :task_id => '1')
     end
 
     it "routes to #new" do
-      get("/subtasks/new").should route_to("subtasks#new")
+      get("/tasks/1/subtasks/new").should route_to("subtasks#new", :task_id => '1')
     end
 
     it "routes to #show" do
-      get("/subtasks/1").should route_to("subtasks#show", :id => "1")
+      get("/tasks/1/subtasks/1").should route_to("subtasks#show", :task_id => '1', :id => "1")
     end
 
     it "routes to #edit" do
-      get("/subtasks/1/edit").should route_to("subtasks#edit", :id => "1")
+      get("/tasks/1/subtasks/1/edit").should route_to("subtasks#edit", :task_id => '1', :id => "1")
     end
 
     it "routes to #create" do
-      post("/subtasks").should route_to("subtasks#create")
+      post("/tasks/1/subtasks").should route_to("subtasks#create", :task_id => '1')
     end
 
     it "routes to #update" do
-      put("/subtasks/1").should route_to("subtasks#update", :id => "1")
+      put("/tasks/1/subtasks/1").should route_to("subtasks#update", :task_id => '1', :id => "1")
     end
 
     it "routes to #destroy" do
-      delete("/subtasks/1").should route_to("subtasks#destroy", :id => "1")
+      delete("/tasks/1/subtasks/1").should route_to("subtasks#destroy", :task_id => '1', :id => "1")
     end
 
   end

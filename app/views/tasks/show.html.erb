@@ -1,5 +1,5 @@
 <h1><%=@task.course%>:&nbsp;<%=@task.title%></h1>
-<br>
+<br />
 <% if (notice) %>
   <p id="notice"><%=notice%></p>
 <% end %>
@@ -12,9 +12,11 @@
   <li>Status: <%=@task.status %></li>
 </ul>
 <br />
-<%=button_to 'Edit Task', edit_task_path(@task), :method => :get%>
-<%=button_to 'Delete', task_path(@task), :method => :delete, :confirm => 'Are you sure?'%>
-<br />
+<ul id="task-edit-buttons">
+<li><%= button_to 'Edit Task', edit_task_path(@task), :method => :get, class: 'task-button' %></li>
+<li><%= button_to 'Delete', task_path(@task), :method => :delete, class: 'task-button' %></li>
+</ul>
+<hr />
 <h2>Statistics</h2>
 <ul>
   <li>Elapsed Time: #ElapsedTime#</li>
@@ -24,7 +26,7 @@
     <li class="overdue">Remaining Time: #RemainingTime#</li>
   <% end %>
 </ul>
-<br />
+<hr />
 <h2>Subtasks:</h2>
 <br />
 <table>
@@ -35,17 +37,17 @@
     <th class="center-text">Delete</th>
   </tr>
 <% @task.subtasks.each do |subtask| %>
-<%= form_for([subtask.task, subtask]) do |f| %>
-  <tr>
-    <td><div class="center-text"><%= f.check_box :is_done %></div></td>
-    <td><%= f.text_field :description %></td>
-    <td><div class="center-text"><%= button_to 'Update', [subtask.task, subtask], class: 'subtask-button' %></div></td>
-    <td><div class="center-text"><%= button_to 'Delete', [subtask.task, subtask], method: :delete, confirm: 'Are you sure?', class: 'subtask-button' %></div></td>
-  </tr>
-<% end %>
+  <%= form_for([subtask.task, subtask]) do |f| %>
+    <tr id="subtask_<%= subtask.id %>">
+      <td><div class="center-text"><%= f.check_box :is_done %></div></td>
+      <td><%= f.text_field :description %></td>
+      <td><div class="center-text"><%= button_to 'Update', [subtask.task, subtask], method: :put, class: 'subtask-button' %></div></td>
+      <td><div class="center-text"><%= button_to 'Delete', [subtask.task, subtask], method: :delete, class: 'subtask-button' %></div></td>
+    </tr>
+  <% end %>
 <% end %>
 <%= form_for([@task, @subtask]) do |f| %>
-  <tr>
+  <tr id="subtask_new">
     <td class="center-text"><%= f.check_box :is_done %></td>
     <td><%= f.text_field :description, placeholder: 'Enter new subtask here' %></td>
     <td class="center-text"><%= button_to 'Create', [@task, @subtask], class: 'subtask-button' %></td>

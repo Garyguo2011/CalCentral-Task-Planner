@@ -13,8 +13,25 @@ module NavigationHelpers
   def path_to(page_name)
     case page_name
 
-    when /^the (RottenPotatoes )?home\s?page$/ then '/movies'
-    when /^the movies page$/ then '/movies'
+    when /^the sign-in page/ then '/users/sign_in'
+    when /^the (Task Planner )?home\s?page$/ then '/'
+    when /^the tasks page$/ then '/tasks'
+    when /^new_task$/ then '/users/tasks/new'
+    when /^Project filter page/ then '/tasks?filter=Project'
+    when /^Show All page/ then 'tasks?filter=Show%20All'
+
+    when /^the detail page for "([^"]*)"$/i
+     task_path(Task.find_by_title($1))
+    when /^the edit page for "([^"]*)"$/i
+     edit_task_path(Task.find_by_title($1))
+    when /^the subtask index page for "([^"]*)"$/i
+     task_subtasks_path(Task.find_by_title($1))
+    when /^the subtask new page for "([^"]*)"$/i
+     new_task_subtask_path(Task.find_by_title($1))
+    when /^the subtask edit page for "([^"]*)"$/i
+     edit_task_subtask_path(Subtask.find_by_description($1).task, Subtask.find_by_description($1))
+    when /^the subtask show page for "([^"]*)"$/i
+     task_subtask_path(Subtask.find_by_description($1).task, Subtask.find_by_description($1))
 
     # Add more mappings here.
     # Here is an example that pulls values out of the Regexp:

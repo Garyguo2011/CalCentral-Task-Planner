@@ -58,8 +58,11 @@ class SubtasksController < ApplicationController
   # PUT /subtasks/1.json
   def update
     @subtask = @task.subtasks.find(params[:id])
-
+    puts "task controll update function"
+    puts "should some parameter"
     respond_to do |format|
+      puts params[:subtask]
+      p params
       if @subtask.update_attributes(params[:subtask])
         format.html { redirect_to [@subtask.task], notice: 'Subtask was successfully updated.' }
         format.json { head :no_content }
@@ -77,7 +80,7 @@ class SubtasksController < ApplicationController
     @subtask.destroy
 
     respond_to do |format|
-      format.html { redirect_to [task], notice: 'Subtask was successfully deleted.' }
+      format.html { redirect_to [@task], notice: 'Subtask was successfully deleted.' }
       format.json { head :no_content }
     end
   end
