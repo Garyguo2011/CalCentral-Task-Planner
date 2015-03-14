@@ -97,4 +97,4 @@ Scenario: Read/Delete task
   Then I should see "CS169: HW1"
   When I press "Delete"
   Then I should currently on the home page
-  Then I should not see "HW1" 
+  Then I should not see "HW1"
