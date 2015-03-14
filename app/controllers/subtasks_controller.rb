@@ -42,15 +42,15 @@ class SubtasksController < ApplicationController
   # POST /subtasks.json
   def create
     @subtask = @task.subtasks.create(params[:subtask])
-
     respond_to do |format|
       if @subtask.save
         format.html { redirect_to [@subtask.task], notice: 'Subtask was successfully created.' }
         format.json { render json: @subtask, status: :created, location: @subtask }
-      else
-        format.html { render action: "new" }
-        format.json { render json: @subtask.errors, status: :unprocessable_entity }
       end
+      # else
+      #   format.html { render action: "new" }
+      #   format.json { render json: @subtask.errors, status: :unprocessable_entity }
+      # end
     end
   end
 
@@ -58,18 +58,15 @@ class SubtasksController < ApplicationController
   # PUT /subtasks/1.json
   def update
     @subtask = @task.subtasks.find(params[:id])
-    puts "task controll update function"
-    puts "should some parameter"
     respond_to do |format|
-      puts params[:subtask]
-      p params
       if @subtask.update_attributes(params[:subtask])
         format.html { redirect_to [@subtask.task], notice: 'Subtask was successfully updated.' }
         format.json { head :no_content }
-      else
-        format.html { render action: "edit" }
-        format.json { render json: @subtask.errors, status: :unprocessable_entity }
       end
+      # else
+      #   format.html { render action: "edit" }
+      #   format.json { render json: @subtask.errors, status: :unprocessable_entity }
+      # end
     end
   end
 
