@@ -13,9 +13,11 @@ describe SubtasksController, :type => :controller do
     @task.stub(:subtasks).and_return(@subtasks)
     Task.stub(:find).and_return(@task)
     @subtask.stub(:task).and_return(@task)
+    @subtask.stub(:save).and_return(@task)
     Subtask.stub(:find).and_return(@subtask)
     @subtasks.stub(:find).and_return(@subtask)
     @subtasks.stub(:build).and_return(@subtask)
+    @subtasks.stub(:create).and_return(@subtask)
   end
 
   describe "GET index" do
@@ -56,6 +58,8 @@ describe SubtasksController, :type => :controller do
   end
 
   describe "POST create" do
+    before(:each) do
+      @task = FactoryGirl.create(:user)
     it "should save a users subtask into current_task" do
       post :create, {:task_id => 1, :subtask => {:id => 1, :description => 'how to create a model', :is_done => false, :task => nil}}
       expect(response).to be_success
