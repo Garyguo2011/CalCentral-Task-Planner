@@ -33,4 +33,5 @@ Scenario: filter the tasks based on types
   And I follow "Show finished tasks"
   Then I should not see "MIDTERM1"
   When I am on Show All page
+  And I follow "Show finished tasks"
   Then I should see all the tasks

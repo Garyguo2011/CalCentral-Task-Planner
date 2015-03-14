@@ -22,6 +22,16 @@ module NavigationHelpers
 
     when /^the detail page for "([^"]*)"$/i
      task_path(Task.find_by_title($1))
+    when /^the edit page for "([^"]*)"$/i
+     edit_task_path(Task.find_by_title($1))
+    when /^the subtask index page for "([^"]*)"$/i
+     task_subtasks_path(Task.find_by_title($1))
+    when /^the subtask new page for "([^"]*)"$/i
+     new_task_subtask_path(Task.find_by_title($1))
+    when /^the subtask edit page for "([^"]*)"$/i
+     edit_task_subtask_path(Subtask.find_by_description($1).task, Subtask.find_by_description($1))
+    when /^the subtask show page for "([^"]*)"$/i
+     task_subtask_path(Subtask.find_by_description($1).task, Subtask.find_by_description($1))
 
     # Add more mappings here.
     # Here is an example that pulls values out of the Regexp:

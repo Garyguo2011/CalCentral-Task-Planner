@@ -94,9 +94,6 @@ end
 
 Then /^I should (not )?see "(.*?)" in Subtask$/ do |is_not, content|
   subtask_position = page.body.index("Subtasks")
-  # puts page.body.index(content)
-  # puts page.body
-  # puts Task.all
   content_position = page.body.index(content) ? page.body.index(content) : -1
   if is_not
     assert(content_position == -1)
@@ -104,3 +101,72 @@ Then /^I should (not )?see "(.*?)" in Subtask$/ do |is_not, content|
     assert(subtask_position < content_position && content_position != -1, "Error")
   end
 end
+
+Then /^I press "(.*?)" for "(.*?)"/ do |button, subtask_title|
+  subtask = Subtask.find_by_description(subtask_title)
+  css_class = "#subtask_#{subtask.id}"
+  within(css_class) do
+    click_on(button)
+  end
+end
+
+When /^(?:|I )(un)?check "(.*?)" done$/ do |uncheck, subtask_title|
+  subtask = Subtask.find_by_description(subtask_title)
+  css_class = "#subtask_#{subtask.id}"
+  within(css_class) do
+    if uncheck
+      uncheck("subtask_is_done")
+    else
+      check("subtask_is_done")
+    end
+  end
+end
+
+Then /^I should (not )?see the done checkbox checked for "(.*)"$/ do |is_not, subtask_title|
+  subtask = Subtask.find_by_description(subtask_title)
+  css_class = "#subtask_#{subtask.id}"
+  within(css_class) do
+    done_box = find('#subtask_is_done')
+    if is_not.nil?
+      assert (done_box.checked? == nil)
+    else
+      assert (done_box.checked? != nil)
+    end 
+  end
+end
+
+When /^I (change|add) description for "(.*?)" to "(.*?)"$/ do |action, subtask_title, content|
+  if action == "change"
+    subtask = Subtask.find_by_description(subtask_title)
+    css_class = "#subtask_#{subtask.id}"
+    within (css_class) do
+      # puts find("#subtask_description")[:value]
+      fill_in("subtask[description]", :with => content)
+      # puts find("#subtask_description")[:value]
+      click_on("Update")
+      # puts find("#subtask_description")[:value]
+    end
+  else
+    within ('#subtask_new') do
+      fill_in("subtask[description]", :with => content)
+      # puts page.body
+    end
+  end
+end
+
+
+
+# Then /^the done checkbox for "(.*)" should be checked$/ do |subtask_title|
+#   subtask = Subtask.find_by_description(subtask_title)
+#   css_class = "#subtask_#{subtask.id}"
+#   # puts subtask_title
+#   # puts Subtask.find_by_description(subtask_title).is_done
+#   within(css_class) do
+#     field_checked = find_field('subtask_is_done')['checked']
+#     if field_checked.respond_to? :should
+#       field_checked.should be_true
+#     else
+#       assert field_checked
+#     end
+#   end
+# end
