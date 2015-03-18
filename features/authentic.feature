@@ -1,6 +1,6 @@
 Feature: Only Owner can see his/her Task
  
-  As a authentic user 
+  As an authentic user 
   So that I can only manage my task
   I want to view my own task 
 
