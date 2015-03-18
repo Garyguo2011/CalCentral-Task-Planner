@@ -189,6 +189,7 @@ DEPENDENCIES
   jquery-rails
   pg
   rails (= 3.2.19)
+  rake
   rspec-rails (~> 2.14.0)
   sass-rails (~> 3.2.3)
   simplecov
