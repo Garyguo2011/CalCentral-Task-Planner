@@ -4,7 +4,9 @@ Feature: Multiple bloggers
   I want to rate my task difficulty from 1 to 5
 
   Background: 
-    Given the following tasks exist:
+    Given the tasks has been created
+
+    And the following users exist:
     | title          | type     | rating |
     | Read Chapter 4 | Homework |        |
     | Hello, world!  | Homework | 3      |
