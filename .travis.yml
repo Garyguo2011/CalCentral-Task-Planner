@@ -1,0 +1,13 @@
+language: ruby
+rvm:
+  - 1.9.3
+env:
+  - DB=postgresql
+script:
+  - RAILS_ENV=test bundle exec rake db:migrate --trace
+  - bundle exec rake db:test:prepare
+  - CODECLIMATE_REPO_TOKEN=0cc2aa588b6ea5f82854d8146e39e9ddf5025f42a38ea30976f8fe53491f2425 bundle exec rake
+addons:
+  code_climate:
+    repo_token: 0cc2aa588b6ea5f82854d8146e39e9ddf5025f42a38ea30976f8fe53491f2425
+
