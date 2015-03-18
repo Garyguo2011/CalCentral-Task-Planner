@@ -6,4 +6,7 @@ env:
 script:
   - RAILS_ENV=test bundle exec rake db:migrate --trace
   - bundle exec rake db:test:prepare
+addons:
+  code_climate:
+    repo_token: 160fd7a30883182d28f45ff405f5113dc2c1067f
 
