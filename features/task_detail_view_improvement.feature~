@@ -1,30 +1,27 @@
-Feature: Multiple bloggers
+Feature: Task Detail View Improvement
   As a student at UC Berkeley
-  In order to reserve proper time to finish a task
-  I want to rate my task difficulty from 1 to 5
+  So that I can see the ramaining unfinished subtasks
+  I want to see the a progress bar of my subtasks' completeness
 
   Background: 
-    Given the tasks has been created
+    Given the following subtasks exist:
+    | title                  | task          | is_done   |
+    | Create hello.c         | Hello, world! | checked   |
+    | Write main function    | Hello, world! | checked   |
+    | Write a makefile       | Hello, world! | unchecked |
+    | Commit to git repo     | Hello, world! | unchecked |
+    | Submit homework online | Hello, world! | unchecked |
 
-    And the following subtasks exist:
-    | title          | type     | rating |
-    | Read Chapter 4 | Homework |        |
-    | Hello, world!  | Homework | 3      |
+  Scenario: Check a given task's progress
+    Given I am on the view task page for "Hello, world!"
+    Then I should see "40% Complete"
+    And the value of "progress" should be "0.40"
 
-  Scenario: Add a rating to a task
-    Given I am on the view task page for "Read Chapter 4"
-    And I fill in "2" for "rating"
-    And I press "Update"
-    Then I should be on the home page
-    And I should see the rating "2" for "Read Chapter 4"
-
-  Scenario: Change a rating for a task
-    Given I am on the home page
-    Then I should see the rating "3" for "Hello, world!"
-    When I follow "Hello, world!"
+  Scenario: Update a given's task's progress
+    Given I am on the view task page for "Hello, world!"
+    When I check "is_done" for "Write a makefile"
+    And I press "Update" for "Write a makefile"
     Then I should be on the view task page for "Hello, world!"
-    When I fill in "4" for "rating"
-    And I press "Update"
-    Then I should be on the home page
-    And I should see the rating "4" for "Hello, world!"
+    And I should see "60% Complete"
+    And the value of "progress" should be "0.60"
 

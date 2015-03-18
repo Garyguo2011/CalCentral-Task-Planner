@@ -1,4 +1,4 @@
-Feature: Multiple bloggers
+Feature: Rate My Task
   As a student at UC Berkeley
   In order to reserve proper time to finish a task
   I want to rate my task difficulty from 1 to 5
