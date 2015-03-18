@@ -8,5 +8,5 @@ script:
   - bundle exec rake db:test:prepare
 addons:
   code_climate:
-    repo_token: 160fd7a30883182d28f45ff405f5113dc2c1067f
+    repo_token: 0cc2aa588b6ea5f82854d8146e39e9ddf5025f42a38ea30976f8fe53491f2425
 
