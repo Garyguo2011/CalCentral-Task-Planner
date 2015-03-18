@@ -6,11 +6,15 @@ gem 'rails', '3.2.19'
 # Bundle edge Rails instead:
 # gem 'rails', :git => 'git://github.com/rails/rails.git'
 
+gem 'rake'
+gem "codeclimate-test-reporter", group: :test, require: nil
+
 # gem 'sqlite3'
 gem 'devise'
 gem 'capybara'
 gem 'factory_girl'
 gem 'factory_girl_rails'
+gem 'jquery-rails'
 
 group :development, :test do
   gem 'sqlite3'
@@ -30,7 +34,6 @@ end
 group :assets do
   gem 'sass-rails',   '~> 3.2.3'
   gem 'coffee-rails', '~> 3.2.1'
-  gem 'jquery-rails'
   gem 'therubyracer'
 
   # See https://github.com/sstephenson/execjs#readme for more supported runtimes

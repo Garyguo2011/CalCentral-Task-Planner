@@ -12,9 +12,11 @@
   <li>Status: <%=@task.status %></li>
 </ul>
 <br />
-<%=button_to 'Edit Task', edit_task_path(@task), :method => :get%>
-<%=button_to 'Delete', task_path(@task), :method => :delete%>
-<br />
+<ul id="task-edit-buttons">
+<li><%= button_to 'Edit Task', edit_task_path(@task), :method => :get, class: 'task-button' %></li>
+<li><%= button_to 'Delete', task_path(@task), :method => :delete, class: 'task-button' %></li>
+</ul>
+<hr />
 <h2>Statistics</h2>
 <ul>
   <li>Elapsed Time: #ElapsedTime#</li>
@@ -24,7 +26,7 @@
     <li class="overdue">Remaining Time: #RemainingTime#</li>
   <% end %>
 </ul>
-<br />
+<hr />
 <h2>Subtasks:</h2>
 <br />
 <table>
