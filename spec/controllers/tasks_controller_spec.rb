@@ -145,6 +145,16 @@ describe TasksController, :type => :controller do
 				response.should_not be_success
 			end
 		end
+		# Dev - Xinran Guo
+		describe "with invalid params" do
+			it "can't update" do
+				@task.stub(:update_attributes).and_return(false)
+				put :update, {:id => @task.user_id}
+				# expect(response).to render_template("edit")
+				# Cannot work
+				response.should_not be_success
+			end
+		end
 	end
 
 	describe 'DELETE destroy' do

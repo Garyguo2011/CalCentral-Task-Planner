@@ -128,9 +128,9 @@ Then /^I should (not )?see the done checkbox checked for "(.*)"$/ do |is_not, su
   within(css_class) do
     done_box = find('#subtask_is_done')
     if is_not.nil?
-      assert (done_box.checked? == nil)
+      assert (done_box[:checked] == true)
     else
-      assert (done_box.checked? != nil)
+      assert (done_box[:checked] == false)
     end 
   end
 end
@@ -143,7 +143,7 @@ When /^I (change|add) description for "(.*?)" to "(.*?)"$/ do |action, subtask_t
       # puts find("#subtask_description")[:value]
       fill_in("subtask[description]", :with => content)
       # puts find("#subtask_description")[:value]
-      click_on("Update")
+      # click_on("Update")
       # puts find("#subtask_description")[:value]
     end
   else

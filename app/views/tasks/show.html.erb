@@ -37,20 +37,20 @@
     <th class="center-text">Delete</th>
   </tr>
 <% @task.subtasks.each do |subtask| %>
+  <tr id="subtask_<%= subtask.id %>">
   <%= form_for([subtask.task, subtask]) do |f| %>
-    <tr id="subtask_<%= subtask.id %>">
       <td><div class="center-text"><%= f.check_box :is_done %></div></td>
       <td><%= f.text_field :description %></td>
-      <td><div class="center-text"><%= button_to 'Update', [subtask.task, subtask], method: :put, class: 'subtask-button' %></div></td>
-      <td><div class="center-text"><%= button_to 'Delete', [subtask.task, subtask], method: :delete, class: 'subtask-button' %></div></td>
-    </tr>
+      <td><div class="center-text"><%= f.submit "Update" %></div></td>
   <% end %>
+    <td><div class="center-text"><%= button_to 'Delete', [subtask.task, subtask], method: :delete, class: 'subtask-button' %></div></td>
+  </tr>
 <% end %>
 <%= form_for([@task, @subtask]) do |f| %>
   <tr id="subtask_new">
     <td class="center-text"><%= f.check_box :is_done %></td>
     <td><%= f.text_field :description, placeholder: 'Enter new subtask here' %></td>
-    <td class="center-text"><%= button_to 'Create', [@task, @subtask], class: 'subtask-button' %></td>
+    <td><div class="center-text"><%= f.submit "Create" %></div></td>
     <td class="center-text"></td>
   </tr>
 <% end %>

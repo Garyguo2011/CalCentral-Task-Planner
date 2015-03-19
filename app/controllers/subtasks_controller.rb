@@ -46,11 +46,10 @@ class SubtasksController < ApplicationController
       if @subtask.save
         format.html { redirect_to [@subtask.task], notice: 'Subtask was successfully created.' }
         format.json { render json: @subtask, status: :created, location: @subtask }
+      else
+        format.html { render action: "new" }
+        format.json { render json: @subtask.errors, status: :unprocessable_entity }
       end
-      # else
-      #   format.html { render action: "new" }
-      #   format.json { render json: @subtask.errors, status: :unprocessable_entity }
-      # end
     end
   end
 
@@ -62,11 +61,10 @@ class SubtasksController < ApplicationController
       if @subtask.update_attributes(params[:subtask])
         format.html { redirect_to [@subtask.task], notice: 'Subtask was successfully updated.' }
         format.json { head :no_content }
+      else
+        format.html { render action: "edit" }
+        format.json { render json: @subtask.errors, status: :unprocessable_entity }
       end
-      # else
-      #   format.html { render action: "edit" }
-      #   format.json { render json: @subtask.errors, status: :unprocessable_entity }
-      # end
     end
   end
 

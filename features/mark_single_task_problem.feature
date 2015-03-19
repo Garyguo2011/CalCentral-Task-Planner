@@ -34,6 +34,7 @@ Scenario: Delete a task
   Then I should not see "Google Answer" in Subtask
 
 Scenario: Mark a subtask done
+  Then I should not see the done checkbox checked for "Bring Calculator"
   When I check "Bring Calculator" done
   Then I press "Update" for "Bring Calculator"
   Then I should see the done checkbox checked for "Bring Calculator"
@@ -41,8 +42,10 @@ Scenario: Mark a subtask done
   Then I should see the done checkbox checked for "Bring Calculator"
 
 Scenario: Unmark a subtask done
+  Then I should see the done checkbox checked for "Go to OfficeHour"
   When I uncheck "Go to OfficeHour" done
   Then I press "Update" for "Go to OfficeHour"
+  Then I should not see the done checkbox checked for "Go to OfficeHour"
   When I go to the detail page for "PROJ1"
   Then I should not see the done checkbox checked for "Go to OfficeHour"
 
@@ -50,10 +53,20 @@ Scenario: Change description of subtask, and edit a subtask
   Then I should see "Bring Calculator" in Subtask
   When I change description for "Bring Calculator" to "Bring TI-89 Calculator"
   Then I press "Update" for "Bring Calculator"
-  Then I should not see "Bring  Calculator" in Subtask
+  Then I should see "Bring TI-89 Calculator" in Subtask
 
 Scenario: Add description of subtask, and create a new subtask
-  Then I should see "Go to OfficeHour" in Subtask
-  When I add description for "New Subtask" to "Go to OfficeHour"
+  Then I should not see "Team Meeting Tomrrow" in Subtask
+  When I add description for "New Subtask" to "Team Meeting Tomrrow"
   Then I press "Create"
-  Then I should see "Go to OfficeHour" in Subtask
+  Then I should see "Team Meeting Tomrrow" in Subtask
+
+Scenario: Add empty new subtask should not be created
+  When I add description for "New Subtask" to ""
+  Then I press "Create"
+  Then I should see "Description can't be blank"
+
+Scenario: Update subtask to an empty subtask should not be updated
+  When I change description for "Bring Calculator" to ""
+  Then I press "Update" for "Bring Calculator"
+  Then I should see "Description can't be blank"

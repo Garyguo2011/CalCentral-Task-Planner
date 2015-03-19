@@ -13,8 +13,7 @@ describe SubtasksController, :type => :controller do
     @task.stub(:subtasks).and_return(@subtasks)
     @task.stub(:user_id).and_return(@user)
     @subtask.stub(:task).and_return(@task)
-    @subtask.stub(:save).and_return(@task)
-    @subtask.stub(:update_attributes).and_return(@subtask)
+    
     Subtask.stub(:find).and_return(@subtask)
     @subtasks.stub(:find).and_return(@subtask)
     @subtasks.stub(:build).and_return(@subtask)
@@ -61,23 +60,37 @@ describe SubtasksController, :type => :controller do
   end
 
   describe "POST create" do
-    before(:each) do
+    # before(:each) do
       # User.stub(:find).returns(user)
-      @task = FactoryGirl.create(:task)
-      session[:current_user] = @task.user_id
-      @current_user = User.find_by_id(session[:current_user]) if session[:current_user]
-    end
+      # @task = FactoryGirl.create(:task)
+      # session[:current_user] = @task.user_id
+      # @current_user = User.find_by_id(session[:current_user]) if session[:current_user]
+    # end
 
     it "should save a users subtask into current_task" do
+      @subtask.stub(:save).and_return(@task)
       post :create, {:task_id => @task.id, :subtask => {:id => 1, :description => 'how to create a model', :is_done => false, :task_id => 1}}
       expect(response).to redirect_to(task_url(assigns(:task)))
+    end
+
+    it "should redirect to new page and show error message" do
+      @subtask.stub(:save).and_return(false)
+      post :create, {:task_id => @task.id, :subtask => {:id => 1, :description => '', :is_done => false, :task_id => 1}}
+      expect(response).to render_template('new')
     end
   end
 
   describe "POST update" do
     it "should save a users subtask into current_task" do
+      @subtask.stub(:update_attributes).and_return(@subtask)
       put :update, {:task_id => @task.id, :id => @subtask.id, :subtask => {:id => 1, :description => 'how to create a model', :is_done => false, :task_id => 1}}
       expect(response).to redirect_to(task_url(assigns(:task)))
+    end
+
+    it "should redirect to edit page when attribute not legal" do
+      @subtask.stub(:update_attributes).and_return(false)
+      put :update, {:task_id => @task.id, :id => @subtask.id, :subtask => {:id => 1, :description => '', :is_done => false, :task_id => 1}}
+      expect(response).to render_template('edit')
     end
   end
 
