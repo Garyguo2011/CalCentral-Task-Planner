@@ -83,6 +83,6 @@ class SubtasksController < ApplicationController
   end
 
   def load_task
-    @task = Task.find(params[:task_id])
+    @task = Task.accessible_by(current_ability).find(params[:task_id])
   end
 end

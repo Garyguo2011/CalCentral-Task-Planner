@@ -44,7 +44,7 @@ Scenario: Users can not visit the other users task detail page
   Then I should not see "PROJ1"
 
 Scenario: Users should vist some detail subtask page
-  When I sign in "xu@ibearHost.com" with "111111111"
+  Given I sign in "xinran@gmail.com" with "111111111"
   When I go to the subtask new page for "PROJ1"
   Then I should be on the subtask new page for "PROJ1"
   When I go to the subtask index page for "PROJ1"

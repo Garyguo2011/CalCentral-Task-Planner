@@ -12,7 +12,6 @@ describe SubtasksController, :type => :controller do
     @subtasks = double("subtasks")
     @task.stub(:subtasks).and_return(@subtasks)
     @task.stub(:user_id).and_return(@user)
-    Task.stub(:find).and_return(@task)
     @subtask.stub(:task).and_return(@task)
     @subtask.stub(:save).and_return(@task)
     @subtask.stub(:update_attributes).and_return(@subtask)
@@ -20,7 +19,8 @@ describe SubtasksController, :type => :controller do
     @subtasks.stub(:find).and_return(@subtask)
     @subtasks.stub(:build).and_return(@subtask)
     @subtasks.stub(:create).and_return(@subtask)
-
+    Task.stub(:find).and_return(@task)
+    Task.stub(:accessible_by).and_return(Task)
   end
 
   describe "GET index" do
@@ -70,42 +70,21 @@ describe SubtasksController, :type => :controller do
 
     it "should save a users subtask into current_task" do
       post :create, {:task_id => @task.id, :subtask => {:id => 1, :description => 'how to create a model', :is_done => false, :task_id => 1}}
-      # puts response
-      # expect(response).to be_success
-      # subject.current_user.subtasks.should include(:subtask)
+      expect(response).to redirect_to(task_url(assigns(:task)))
     end
   end
 
   describe "POST update" do
-    before(:each) do
-      # User.stub(:find).returns(user)
-      @task = FactoryGirl.create(:task)
-      @subtask = FactoryGirl.create(:subtask)
-      @subtask.task_id = @task.id
-      session[:current_user] = @task.user_id
-      @current_user = User.find_by_id(session[:current_user]) if session[:current_user]
-    end
-
     it "should save a users subtask into current_task" do
       put :update, {:task_id => @task.id, :id => @subtask.id, :subtask => {:id => 1, :description => 'how to create a model', :is_done => false, :task_id => 1}}
-      # puts response
-      # expect(response).to be_success
-      # subject.current_user.subtasks.should include(:subtask)
+      expect(response).to redirect_to(task_url(assigns(:task)))
     end
   end
 
   describe "DELETE delete" do
-    before(:each) do
-      # User.stub(:find).returns(user)
-      @task = FactoryGirl.create(:task)
-      @subtask = FactoryGirl.create(:subtask)
-      @subtask.task_id = @task.id
-      session[:current_user] = @task.user_id
-      @current_user = User.find_by_id(session[:current_user]) if session[:current_user]
-    end
-
     it "should save a users subtask into current_task" do
       delete :destroy, {:task_id => @task.id, :id => @subtask.id}
+      expect(response).to redirect_to(task_url(assigns(:task)))
     end
   end
 end
