@@ -23,6 +23,7 @@ group :development, :test do
   gem 'rspec-rails', '~> 2.14.0'
   gem 'simplecov'
   gem "webrat", ">= 0.7.2"
+  gem 'railroady'
 end
 
 group :production do
