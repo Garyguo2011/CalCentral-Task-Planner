@@ -1,3 +1,10 @@
+
+
+<!-- start: Content -->
+      <div id="content" class="col-lg-10 col-sm-11">
+      
+   
+<!-- 
 <h1><%=@task.course%>:&nbsp;<%=@task.title%></h1>
 <br />
 <% if (notice) %>
@@ -56,4 +63,434 @@
 <% end %>
 </table>
 <br />
-<%= link_to 'Back to task list', tasks_path %><br>
+<%= link_to 'Back to task list', tasks_path %><br> -->
+
+      <div class="row">
+        <div class="col-lg-9">
+          <div class="box">
+            <div class="box-header">
+              <h2><i class="fa fa-font"></i><span class="break"></span><%=@task.course%> <%=@task.kind %></h2>
+            </div>
+            <div class="box-content">
+                <div class="page-header">
+                  <h1>
+                  <%=@task.title %>
+                  <!-- <small>Headings, paragraphs, lists, and other inline type elements</small> -->
+                  </h1>
+                </div>     
+                
+                <div class="row">
+                  <div class="col-lg-12 col-md-12 col-sm-12">
+                  <div class="box">
+                    <div class="box-header">
+                      <h2><i class="fa fa-align-justify"></i><span class="break">Statistics</span></h2>
+                      <div class="box-icon">
+                        <a href="table.html#" class="btn-setting"><i class="fa fa-wrench"></i></a>
+                        <a href="table.html#" class="btn-minimize"><i class="fa fa-chevron-up"></i></a>
+                        <a href="table.html#" class="btn-close"><i class="fa fa-times"></i></a>
+                      </div>
+                    </div>
+
+                    <div class="box-content">
+                        
+
+                        <h2>Time Usage</h2>
+
+                        <div class="progress progress-striped active">
+                          <div class="progress-bar"  role="progressbar" aria-valuenow="45" aria-valuemin="0" aria-valuemax="100" style="width: <%= @task.time_usage_percent%>">
+                            <span class="sr-only"><%= @task.time_usage_percent%> Used</span>
+                          </div>
+                        </div>
+
+                        
+                        <!-- Release Date -->
+                        <div class="col-lg-6 col-sm-6 col-xs-6 col-xxs-12">
+                          <div class="smallstat box">
+                            <i class="fa fa-money green"></i>
+                            <span class="title">Time Usage Percentage</span>
+                            <span class="value"><%= @task.time_usage_percent%></span>
+                          </div>
+                        </div>
+
+                        <!-- Due Date -->
+                        <div class="col-lg-6 col-sm-6 col-xs-6 col-xxs-12">
+                          <div class="smallstat box">
+                            <i class="fa fa-money green"></i>
+                            <span class="title">Time Usage (Days)</span>
+                            <span class="value"><%= @task.time_usage_in_day%></span>
+                          </div>
+                        </div>
+
+                        <h2>Important Date</h2>
+                        <!-- Release Date -->
+                        <div class="col-lg-6 col-sm-6 col-xs-6 col-xxs-12">
+                          <div class="smallstat box">
+                            <i class="fa fa-money green"></i>
+                            <span class="title">Release Date</span>
+                            <span class="value"><%=@task.release.strftime("%b %d") %></span>
+                          </div>
+                        </div>
+
+                        <!-- Due Date -->
+                        <div class="col-lg-6 col-sm-6 col-xs-6 col-xxs-12">
+                          <div class="smallstat box">
+                            <i class="fa fa-money green"></i>
+                            <span class="title">Due Date</span>
+                            <span class="value"><%=@task.due.strftime("%b %d") %></span>
+                          </div>
+                        </div>
+
+                        <h2>Remaining Time</h2>
+
+                        <div class="col-lg-12 col-sm-12 col-xs-12 col-xxs-12">
+                          <div class="smallstat box">
+                            <!-- <i class="fa fa-money green"></i> -->
+                            <span class="title">Remaining Time</span>
+                              <% if Time.now > @task.due%>
+                                <span class="value overdue"><%= @task.remain_time%></span>
+                              <% else %>
+                                <span class="value"><%= @task.remain_time%></span>
+                              <% end %>
+                          </div>
+                        </div>
+                        <div class="clearfix"></div>
+
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+
+
+
+            <div class="row">
+              <div class="col-lg-12 col-md-12 col-sm-12">
+              <div class="box">
+                <div class="box-header">
+                  <h2><i class="fa fa-align-justify"></i><span class="break">Subtasks</span></h2>
+                  <div class="box-icon">
+                    <a href="table.html#" class="btn-setting"><i class="fa fa-wrench"></i></a>
+                    <a href="table.html#" class="btn-minimize"><i class="fa fa-chevron-up"></i></a>
+                    <a href="table.html#" class="btn-close"><i class="fa fa-times"></i></a>
+                  </div>
+                </div>
+
+
+              <div class="box-content">
+                <table class="table table-striped table-bordered bootstrap-datatable datatable">
+                  <thead>
+                    <tr>
+                      <th class="center-text">Completed</th>
+                      <th>Description</th>
+                      <th class="center-text">Edit</th>
+                      <th class="center-text">Delete</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <% @task.subtasks.each do |subtask| %>
+                      <tr id="subtask_<%= subtask.id %>">
+                      <%= form_for([subtask.task, subtask]) do |f| %>
+                          <td><div class="center-text"><%= f.check_box :is_done %></div></td>
+                          <td><%= f.text_field :description %></td>
+                          <td><div class="center-text"><%= f.submit "Update" %></div></td>
+                      <% end %>
+                        <td><div class="center-text"><%= button_to 'Delete', [subtask.task, subtask], method: :delete %></div></td>
+                      </tr>
+                    <% end %>
+                    <%= form_for([@task, @subtask]) do |f| %>
+                      <tr id="subtask_new">
+                        <td class="center-text"><%= f.check_box :is_done %></td>
+                        <td><%= f.text_field :description, placeholder: 'Enter new subtask here' %></td>
+                        <td><div class="center-text"><%= f.submit "Create" %></div></td>
+                        <td class="center-text"></td>
+                      </tr>
+                    <% end %>
+                  </tbody>
+                </table>
+              </div>
+
+
+
+
+
+              </div>
+
+                <div class="row">
+                  <div class="col-lg-12">
+                    <ul id="task-edit-buttons">
+                      <li><%= button_to 'Back', tasks_path, :method => :get, class: 'task-button' %></li>
+                      <li><%= button_to 'Edit Task', edit_task_path(@task), :method => :get, class: 'task-button' %></li>
+                      <li><%= button_to 'Delete', task_path(@task), :method => :delete, class: 'task-button' %></li>
+                    </ul>
+                  </div>
+                </div>
+
+                <div class="row">
+                  <div class="col-lg-12">
+                  
+                  </div>
+                </div>
+
+
+            <!-- <div class="col-lg-12 col-md-12 col-sm-12">
+              <div class="box">
+                <div class="box-header">
+                  <h2><i class="fa fa-check"></i>Subtasks</h2>
+                  <div class="box-icon">
+                    <a href="widgets.html#" class="btn-setting"><i class="fa fa-wrench"></i></a>
+                    <a href="widgets.html#" class="btn-minimize"><i class="fa fa-chevron-up"></i></a>
+                    <a href="widgets.html#" class="btn-close"><i class="fa fa-times"></i></a>
+                  </div>
+                </div>
+                <div class="box-content">
+                  <div class="todo">
+                    <ul class="todo-list">
+                      <li>
+                        <span class="todo-actions">
+                          <a href="widgets.html#"><i class="fa fa-square-o"></i></a>
+                        </span>
+                        <span class="desc">Windows Phone 8 App</span> 
+                        <span class="label label-important">today</span>
+                      </li>
+
+
+
+
+
+                      <% @task.subtasks.each do |subtask| %>
+                        <li id="subtask_<%= subtask.id %>">
+                        <%= form_for([subtask.task, subtask]) do |f| %>
+                          <span class="todo-actions"><%= f.check_box :is_done %></span>
+                          <span class="desc"><%= f.text_field :description %></span>
+                          <span class="label"><%= f.submit "Update" %></span>
+                        <% end %>
+                          <span class="label"><%= button_to 'Delete', [subtask.task, subtask], method: :delete, class: 'subtask-button' %></span>
+                        </li>
+                      <% end %>
+
+
+
+
+
+
+
+                      <li>
+                        <span class="todo-actions">
+                          <a href="widgets.html#"><i class="fa fa-square-o"></i></a>
+                        </span>
+                        <span class="desc">New frontend layout</span>
+                        <span class="label label-important">today</span>
+                      </li>
+                      <li>
+                        <span class="todo-actions">
+                          <a href="widgets.html#"><i class="fa fa-square-o"></i></a>
+                        </span>
+                        <span class="desc">Hire developers</span>
+                        <span class="label label-warning">tommorow</span>
+                      </li>
+                      <li>
+                        <span class="todo-actions">
+                          <a href="widgets.html#"><i class="fa fa-square-o"></i></a>
+                        </span>
+                        <span class="desc">Windows Phone 8 App</span>
+                        <span class="label label-warning">tommorow</span>
+                      </li>
+                      <li>
+                        <span class="todo-actions">
+                          <a href="widgets.html#"><i class="fa fa-square-o"></i></a>
+                        </span>
+                        <span class="desc">New frontend layout</span>
+                        <span class="label label-success">this week</span>
+                      </li>
+                      <li>
+                        <span class="todo-actions">
+                          <a href="widgets.html#"><i class="fa fa-square-o"></i></a>
+                        </span>
+                        <span class="desc">Hire developers</span>
+                        <span class="label label-success">this week</span>
+                      </li>
+                      <li>
+                        <span class="todo-actions">
+                          <a href="widgets.html#"><i class="fa fa-square-o"></i></a>
+                        </span>
+                        <span class="desc">New frontend layout</span>
+                        <span class="label label-info">this month</span>
+                      </li>
+                      <li>
+                        <span class="todo-actions">
+                          <a href="widgets.html#"><i class="fa fa-square-o"></i></a>
+                        </span>
+                        <span class="desc">Hire developers</span>
+                        <span class="label label-info">this month</span>
+                      </li>
+ -->
+
+
+
+
+
+                    </ul>
+                  </div>  
+                </div>
+              </div>
+            </div>
+
+
+
+
+
+                
+                <!-- <div class="row">            
+                  <div class="col-lg-4">
+                  <h3>Sample text and paragraphs</h3>
+                  <p>
+                  Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur bibendum ornare dolor, quis ullamcorper ligula sodales at. Nulla tellus elit, varius non commodo eget, mattis vel eros. In sed ornare nulla. Donec consectetur, velit a pharetra ultricies, diam lorem lacinia risus, ac commodo orci erat eu massa. Sed sit amet nulla ipsum. Donec felis mauris, vulputate sed tempor at, aliquam a ligula. Pellentesque non pulvinar nisi.
+                  </p>
+                  <p>
+                  Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur bibendum ornare dolor, quis ullamcorper ligula sodales at. Nulla tellus elit, varius non commodo eget, mattis vel eros. In sed ornare nulla. Donec consectetur, velit a pharetra ultricies, diam lorem lacinia risus, ac commodo orci erat eu massa. Sed sit amet nulla ipsum. Donec felis mauris, vulputate sed tempor at, aliquam a ligula. Pellentesque non pulvinar nisi.
+                  </p>
+                  </div>
+                  <div class="col-lg-4">
+                  <h3>Example body text</h3>
+                  <p>Nullam quis risus eget urna mollis ornare vel eu leo. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Nullam id dolor id nibh ultricies vehicula ut id elit.</p>
+                  <p>Vivamus sagittis lacus vel augue laoreet rutrum faucibus dolor auctor. Duis mollis, est non commodo luctus, nisi erat porttitor ligula, eget lacinia odio sem nec elit. Donec sed odio dui.</p>
+                  </div>
+                  <div class="col-lg-4">
+                  <div class="well">
+                    <h1>h1. Heading 1</h1>
+                    <h2>h2. Heading 2</h2>
+                    <h3>h3. Heading 3</h3>
+                    <h4>h4. Heading 4</h4>
+                    <h5>h5. Heading 5</h5>
+                    <h6>h6. Heading 6</h6>
+                  </div>
+                  </div>
+                </div> --><!--/row -->                           
+
+        <!--         <div class="row">
+                  <div class="col-lg-12">
+                    <h3>Example blockquotes</h3>
+                    <div class="row">
+                    <div class="col-lg-6">
+                      <p>Default blockquotes are styled as such:</p>
+                      <blockquote>
+                      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer posuere erat a ante venenatis.</p>
+                      <small>Someone famous in <cite title="">Body of work</cite></small>
+                      </blockquote>
+                    </div>
+                    <div class="col-lg-6">
+                      <p>You can always float your blockquote to the right:</p>
+                      <blockquote class="pull-right">
+                      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer posuere erat a ante venenatis.</p>
+                      <small>Someone famous in <cite title="">Body of work</cite></small>
+                      </blockquote>
+                    </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="row">
+                  <div class="col-lg-6">
+                  <h3>More Sample Text</h3>
+                  <p>
+                  Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur bibendum ornare dolor, quis ullamcorper ligula sodales at. Nulla tellus elit, varius non commodo eget, mattis vel eros. In sed ornare nulla. Donec consectetur, velit a pharetra ultricies, diam lorem lacinia risus, ac commodo orci erat eu massa. Sed sit amet nulla ipsum. Donec felis mauris, vulputate sed tempor at, aliquam a ligula. Pellentesque non pulvinar nisi.
+                  </p>
+                  </div>
+                  <div class="col-lg-6">
+                  <h3>And Paragraphs</h3>
+                  <p>
+                  Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur bibendum ornare dolor, quis ullamcorper ligula sodales at. Nulla tellus elit, varius non commodo eget, mattis vel eros. In sed ornare nulla. Donec consectetur, velit a pharetra ultricies, diam lorem lacinia risus, ac commodo orci erat eu massa. Sed sit amet nulla ipsum. Donec felis mauris, vulputate sed tempor at, aliquam a ligula. Pellentesque non pulvinar nisi.
+                  </p>
+                  </div>
+                </div>
+                <div class="row">
+                  <div class="col-lg-12">
+                  <h2>Example use of Tooltips</h2>
+                  <p>Hover over the links below to see tooltips:</p>
+                  <div class="tooltip-demo well">
+                    <p class="muted" style="margin-bottom: 0;">Tight pants next level keffiyeh <a href="typography.html#" data-rel="tooltip" data-original-title="first tooltip">you probably</a> haven't heard of them. Photo booth beard raw denim letterpress vegan messenger bag stumptown. Farm-to-table seitan, mcsweeney's fixie sustainable quinoa 8-bit american appadata-rel <a href="typography.html#" data-rel="tooltip" data-original-title="Another tooltip">have a</a> terry richardson vinyl chambray. Beard stumptown, cardigans banh mi lomo thundercats. Tofu biodiesel williamsburg marfa, four loko mcsweeney's cleanse vegan chambray. A <a href="typography.html#" data-rel="tooltip" data-original-title="Another one here too">really ironic</a> artisan whatever keytar, scenester farm-to-table banksy Austin <a href="typography.html#" data-rel="tooltip" data-original-title="The last tip!">twitter handle</a> freegan cred raw denim single-origin coffee viral.
+                    </p>
+                  </div>                                  
+                  </div>
+                </div>   
+              </div>
+          </div>
+        </div> --><!--/col-->
+        
+        <!-- <div class="col-lg-3">
+          <div class="box">
+            <div class="box-header" data-original-title>
+              <h2><i class="fa fa-list"></i><span class="break"></span>Unordered List</h2>
+            </div>
+            <div class="box-content">
+              <ul>
+                <li>Lorem ipsum dolor sit amet</li>
+                <li>Consectetur adipiscing elit</li>
+                <li>Integer molestie lorem at massa</li>
+                <li>Facilisis in pretium nisl aliquet</li>
+                <li>Nulla volutpat aliquam velit
+                <ul>
+                  <li>Phasellus iaculis neque</li>
+                  <li>Purus sodales ultricies</li>
+                  <li>Vestibulum laoreet porttitor sem</li>
+                  <li>Ac tristique libero volutpat at</li>
+                </ul>
+                </li>
+                <li>Faucibus porta lacus fringilla vel</li>
+                <li>Aenean sit amet erat nunc</li>
+                <li>Eget porttitor lorem</li>
+              </ul>            
+            </div>
+          </div>
+        </div> --><!--/col-->
+        
+<!--         <div class="col-lg-3">
+          <div class="box">
+            <div class="box-header" data-original-title>
+              <h2><i class="fa fa-list"></i><span class="break"></span>Ordered List</h2>
+            </div>
+            <div class="box-content">
+              <ol>
+                <li>Lorem ipsum dolor sit amet</li>
+                <li>Consectetur adipiscing elit</li>
+                <li>Integer molestie lorem at massa</li>
+                <li>Facilisis in pretium nisl aliquet</li>
+                <li>Nulla volutpat aliquam velit</li>
+                <li>Faucibus porta lacus fringilla vel</li>
+                <li>Aenean sit amet erat nunc</li>
+                <li>Eget porttitor lorem</li>
+              </ol>           
+            </div>
+          </div>
+        </div> --><!--/col-->
+        
+<!--         <div class="col-lg-3">
+          <div class="box">
+            <div class="box-header">
+              <h2><i class="fa fa-list"></i>Description List</h2>
+            </div>
+            <div class="box-content">
+              <dl>
+                <dt>Description lists</dt>
+                <dd>A description list is perfect for defining terms.</dd>
+                <dt>Euismod</dt>
+                <dd>Vestibulum id ligula porta felis euismod semper eget lacinia odio sem nec elit.</dd>
+                <dd>Donec id elit non mi porta gravida at eget metus.</dd>
+                <dt>Malesuada porta</dt>
+                <dd>Etiam porta sem malesuada magna mollis euismod.</dd>
+              </dl>            
+            </div>
+          </div>
+        </div> --><!--/col-->
+        
+        
+      
+      </div><!--/row-->
+      
+    
+          
+      </div>
+      <!-- end: Content -->
+        
+        </div><!--/row-->   
+    
+  </div><!--/container-->

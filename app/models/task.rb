@@ -6,6 +6,7 @@ class MyValidator < ActiveModel::Validator
   end
 end
 class Task < ActiveRecord::Base
+  include ActionView::Helpers::DateHelper
   attr_accessible :due, :status, :title, :course, :kind, :release, :user_id
   belongs_to :user
   has_many :subtasks
@@ -37,4 +38,33 @@ class Task < ActiveRecord::Base
   def self.all_kinds
     ["Project", "Homework", "Paper", "Exam", "Other"]
   end
+
+  def remain_time
+    remain_time = distance_of_time_in_words(self.due, Time.now, include_seconds: true)
+    if self.due > Time.now
+      return remain_time + " left"
+    else
+      return remain_time + " passed"
+    end
+  end
+
+  def time_usage_percent
+    percent = (Time.now - self.release) / (self.due - self.release) * 100
+    return  "%.0f%" % (percent)
+    # if self.due > Time.now
+    #   percent = (Time.now - self.release) / (self.due - self.release) * 100
+    #   return percent.to_s + "%"
+    # else
+    #   percent = (Time.now - self.release) / (self.due - self.release) * 100
+    #   return percent.to_s + "%"
+    # end
+  end
+
+  def time_usage_in_day
+    day_used = (Time.now - self.release) / 1.day
+    total_day = (self.due - self.release) / 1.day
+    return "%.1f days / %.1f days" % [day_used, total_day]
+    # return ((Time.now - self.release) / 1.day).to_s + " days / " + ((self.due - self.release) / 1.day).to_s
+  end
+
 end
