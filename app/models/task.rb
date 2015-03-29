@@ -37,4 +37,15 @@ class Task < ActiveRecord::Base
   def self.all_kinds
     ["Project", "Homework", "Paper", "Exam", "Other"]
   end
+
+  def self.task_by_status
+    past_tasks = self.find_all_by_status("Past Due")
+    new_tasks = self.find_all_by_status("New")
+    ongoing_tasks = self.find_all_by_status("Started")
+    ret = []
+    ret.push(past_tasks)
+    ret.push(ongoing_tasks)
+    ret.push(new_tasks)
+    return ret
+  end
 end
