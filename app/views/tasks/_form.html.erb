@@ -18,7 +18,7 @@
   </div>
   <div class="field">
     <%= f.label :due %><br />
-    <!-- [Gary] datetime picker -->
+    <!-- [Jinge Gary]datetime picker -->
     <div class='input-group date' id='due_date'>
         <%= f.text_field :due, class: "form-control" %>
         <span class="input-group-addon">
@@ -30,7 +30,7 @@
             $('#due_date').datetimepicker({format: 'YYYY-MM-DD HH:mm Z'});
         });
     </script>
-    <!-- end [Gary] datetime picker -->
+    <!-- end [Jinge Gary] datetime picker -->
   </div>
   <div class="field">
     <%= f.label :status %><br />
@@ -58,7 +58,7 @@
   </div>
   <div class="field">
     <%= f.label :release %><br />
-    <!-- [Gary] datetime picker -->
+    <!-- [Jinge Gary]datetime picker -->
     <div class='input-group date' id='release_date'>
         <%= f.text_field :release, class: "form-control" %>
         <span class="input-group-addon">
@@ -70,7 +70,7 @@
             $('#release_date').datetimepicker({format: 'YYYY-MM-DD HH:mm Z'});
         });
     </script>
-    <!-- end [Gary] datetime picker -->
+    <!-- end [Jinge Gary] datetime picker -->
   </div>
   <div class="actions">
     <%= f.submit %>
