@@ -72,6 +72,14 @@
        <%= f.select :kind, options_for_select([[@task.kind, ""], "Project", "Homework", "Paper", "Exam", "Other"], @task.kind)%>
     <% end %>
   </div>
+  <div class="field">
+    <%= f.label :rate %><br />
+    <% if @task.rate == nil %>
+       <%= f.select :rate, options_for_select([["Select One", ""], 1, 2, 3, 4, 5])%>
+    <% else %>
+       <%= f.select :rate, options_for_select([[@task.rate, ""], 1, 2, 3, 4, 5], @task.rate)%>
+    <% end %>
+  </div>
   <div class="actions">
     <%= f.submit %>
   </div>

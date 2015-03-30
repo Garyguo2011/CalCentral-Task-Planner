@@ -37,6 +37,7 @@ h1, table{
     <th><%= link_to "Due Date", :sort => :due%></th>
     <th><%= link_to "Status", :sort => :status%></th>
     <th><%= link_to "Owner", :sort => :user_id%></th>
+    <th>Rate</th>
   </tr>
 
 <% @tasks.each do |task| %>
@@ -51,6 +52,7 @@ h1, table{
     <% else %>
       <td> NO USERS </td>
     <% end %>
+    <td><%= task.rate%></td>
   </tr>
 <% end %>
 
@@ -59,7 +61,7 @@ h1, table{
 <%= @temp = Array.new %>
 <%= @temp1 = Array.new %>
 <% @tasks.each do |task| %>
-<%= @temp << task.subtasks.size %>
+<%= @temp << task.rate %>
 <%= @temp1 << task.title.to_s %>
 <% end %>
 </div>
@@ -92,7 +94,7 @@ h1, table{
             strokeColor: "rgba(220,220,220,0.8)",
             highlightFill: "rgba(220,220,220,0.75)",
             highlightStroke: "rgba(220,220,220,1)",
-            data: [6.5, 5.9]
+            data: <%= @temp %>
         },
         {
             label: "My Second dataset",

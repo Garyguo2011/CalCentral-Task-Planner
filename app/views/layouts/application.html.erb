@@ -169,18 +169,31 @@
       <span class="cc-visuallyhidden">settings menu</span>
       </button>
       </div>
-    </div>  
+    </div> 
+
+    <div class="cc-left ng-scope" data-ng-include="&#39;widgets/gear_popover.html&#39;">
+      <div class="cc-popover-container cc-popover-gear ng-scope">
+      <button class="cc-header-icon cc-header-icon-font" data-ng-click="api.util.preventBubble($event);api.popover.toggle(&#39;cc-popover-menu&#39;)" data-ng-class="{true:&#39;cc-header-icon-selected&#39;}[api.popover.status(&#39;cc-popover-menu&#39;)]" title="Sign In/Out">
+      <% if current_user != nil %>
+        <i class="fa fa-user"></i>
+        <%= link_to current_user.full_name, edit_user_registration_path, class: "calcentral_header" %> |
+        <%= link_to '<i class="fa fa-sign-out"></i>'.html_safe, destroy_user_session_path,  method: :delete, class: "calcentral_header"%>
+      <% else %>
+        <%=link_to '<i class="fa fa-sign-in"></i>'.html_safe, new_user_session_path, class: "calcentral_header"%>
+      <% end %>
+
+      <span class="cc-visuallyhidden" data-ng-hide="api.popover.status(&#39;cc-popover-menu&#39;)">Show</span>
+      <span class="cc-visuallyhidden ng-hide" data-ng-show="api.popover.status(&#39;cc-popover-menu&#39;)">Hide</span>
+      <span class="cc-visuallyhidden">settings menu</span>
+      </button>
+      </div>
+    </div> 
 
 
     <!-- 03/11, name/signin/signout button -->
     <div class="cc-left ng-scope" data-ng-include="&#39;widgets/gear_popover.html&#39;">
       <div class="cc-popover-container cc-popover-gear ng-scope">
-      <% if current_user != nil %>
-        <%= link_to current_user.full_name, edit_user_registration_path %> |
-        <%= link_to 'Sign Out', destroy_user_session_path,  method: :delete %>
-      <% else %>
-        <%=link_to 'Sign In', new_user_session_path %>
-      <% end %> 
+
       </div>
     </div> 
   </nav>
