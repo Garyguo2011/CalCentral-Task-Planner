@@ -30,7 +30,7 @@ Scenario: General details of a task
   Then I should be on the homepage
   When I follow "PROJ1"
   Then I should be on the detail page for "PROJ1"
-  Then I should see the following "PROJ1", "CS188", "Project", "March 03, 2015", "March 17, 2015", "New"
+  Then I should see the following "PROJ1", "CS188", "Project", "Mar 03", "Mar 17"
   Then I should see "Bring Calculator" in Subtask
   Then I should not see "Checkout Website" in Subtask
 

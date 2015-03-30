@@ -1,4 +1,4 @@
-[Feature] Select from a small calendar to create/ update Task release/due date
+Feature: Select from a small calendar to create/ update Task release/due date
 As student in Berkeley [Jinge, Hao]
 So that i can select my task date from date form
 I want to directly select from a visual Calendar
@@ -18,7 +18,7 @@ Background: users and tasks have been added to database
   | HW2       | CS186  | Homework | 27/Feb/2015 23:59:00 -0800 | 2/Mar/2015 23:59:00 -0800  | Started  | 2       |
   | MIDTERM1  | CS164  | Exam     | 1/Mar/2015 12:00:00 -8000  | 1/Apr/2015 16:00:00 -0800  | Finished | 2       |
 
-scenario: show Calendar form 
+Scenario: show Calendar form 
 Given I am in the task page 
 When I press “Select Start Date” 
 Then I should see the “Calendar” 
@@ -29,7 +29,7 @@ And I select “03/23/2015”
 Then I should see “03/23/2015” as Due Date field 
 
 
-scenario: sad Calendar form path  
+Scenario: sad Calendar form path  
 Given I am in the task page
 Given the current date is “03/17/2015” 
 Then I should not see “03/16/2015”

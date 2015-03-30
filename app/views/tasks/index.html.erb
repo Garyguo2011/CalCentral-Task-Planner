@@ -44,11 +44,7 @@ h1, table{
     <td><%= link_to task.title, task_path(task) %></td>
     <td><%= task.course %></td>
     <td><%= task.kind %></td>
-    <% if task.due > Time.now %>
-      <td><%= distance_of_time_in_words(task.due, Time.now, include_seconds: true) + " left" %></td>
-    <% else %>
-      <td><%= distance_of_time_in_words(task.due, Time.now, include_seconds: true) + " passed" %></td>
-    <% end %>
+    <td><%= task.remain_time %></td>
     <td><%= task.status%></td>
     <% if task.user != nil%>
       <td><%= task.user.full_name%></td>
