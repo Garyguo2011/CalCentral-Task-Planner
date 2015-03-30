@@ -3,7 +3,7 @@ class MyValidator < ActiveModel::Validator
     unless record.due > record.release
       record.errors[:Due] << 'date must be after the Release date!'
     end
-    unless record.rate < 1 or record.rate > 1
+    unless record.rate >= 1 && record.rate <= 5
       record.errors[:rate] << 'Rate must between 1 to 5'
     end
   end

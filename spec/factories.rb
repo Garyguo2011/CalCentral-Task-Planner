@@ -23,6 +23,7 @@ FactoryGirl.define do
         due '6/Mar/2015 23:59:00 -0800'
         status 'New'
         user_id 1
+        rate 3
     end
 
     factory :subtask do

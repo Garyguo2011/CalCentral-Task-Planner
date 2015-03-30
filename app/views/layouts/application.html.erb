@@ -177,9 +177,9 @@
       <% if current_user != nil %>
         <i class="fa fa-user"></i>
         <%= link_to current_user.full_name, edit_user_registration_path, class: "calcentral_header" %> |
-        <%= link_to '<i class="fa fa-sign-out"></i>'.html_safe, destroy_user_session_path,  method: :delete, class: "calcentral_header"%>
+        <%= link_to '<i class="fa fa-sign-out"></i>'.html_safe, destroy_user_session_path,  method: :delete, class: "calcentral_header", id: "Sign Out"%>
       <% else %>
-        <%=link_to '<i class="fa fa-sign-in"></i>'.html_safe, new_user_session_path, class: "calcentral_header"%>
+        <%=link_to '<i class="fa fa-sign-in"></i>'.html_safe, new_user_session_path, class: "calcentral_header", id: "Sign In"%>
       <% end %>
 
       <span class="cc-visuallyhidden" data-ng-hide="api.popover.status(&#39;cc-popover-menu&#39;)">Show</span>
