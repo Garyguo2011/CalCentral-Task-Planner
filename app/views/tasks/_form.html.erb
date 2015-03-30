@@ -17,6 +17,22 @@
     <%= f.text_field :title %>
   </div>
   <div class="field">
+    <%= f.label :release %><br />
+    <!-- [Jinge Gary]datetime picker -->
+    <div class='input-group date' id='release_date'>
+        <%= f.text_field :release, class: "form-control" %>
+        <span class="input-group-addon">
+            <span class="glyphicon glyphicon-calendar"></span>
+        </span>
+    </div>
+    <script type="text/javascript">
+        $(function () {
+            $('#release_date').datetimepicker({format: 'YYYY-MM-DD HH:mm Z'});
+        });
+    </script>
+    <!-- end [Jinge Gary] datetime picker -->
+  </div>
+  <div class="field">
     <%= f.label :due %><br />
     <!-- [Jinge Gary]datetime picker -->
     <div class='input-group date' id='due_date'>
@@ -55,22 +71,6 @@
     <% else %>
        <%= f.select :kind, options_for_select([[@task.kind, ""], "Project", "Homework", "Paper", "Exam", "Other"], @task.kind)%>
     <% end %>
-  </div>
-  <div class="field">
-    <%= f.label :release %><br />
-    <!-- [Jinge Gary]datetime picker -->
-    <div class='input-group date' id='release_date'>
-        <%= f.text_field :release, class: "form-control" %>
-        <span class="input-group-addon">
-            <span class="glyphicon glyphicon-calendar"></span>
-        </span>
-    </div>
-    <script type="text/javascript">
-        $(function () {
-            $('#release_date').datetimepicker({format: 'YYYY-MM-DD HH:mm Z'});
-        });
-    </script>
-    <!-- end [Jinge Gary] datetime picker -->
   </div>
   <div class="actions">
     <%= f.submit %>
