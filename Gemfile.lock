@@ -40,6 +40,8 @@ GEM
       rack (>= 1.0.0)
       rack-test (>= 0.5.4)
       xpath (~> 2.0)
+    chart-js-rails (0.0.9)
+      railties (> 3.1)
     codeclimate-test-reporter (0.4.5)
       simplecov (>= 0.7.1, < 1.0.0)
     coffee-rails (3.2.2)
@@ -188,6 +190,7 @@ DEPENDENCIES
   bootstrap3-datetimepicker-rails (~> 4.7.14)
   cancan
   capybara
+  chart-js-rails
   codeclimate-test-reporter
   coffee-rails (~> 3.2.1)
   cucumber-rails
