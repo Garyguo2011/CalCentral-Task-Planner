@@ -88,6 +88,10 @@ class TasksController < ApplicationController
   # POST /tasks.json
   def create
     @task = current_user.tasks.new(params[:task])
+    puts params[:task][:release]
+    puts params[:task][:due]
+    # params[:task][:release] = params[:task][:release].to_datetime
+    # params[:task][:release] = params[:task][:release].to_datetime
 
     respond_to do |format|
       if @task.save

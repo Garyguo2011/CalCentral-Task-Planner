@@ -18,7 +18,19 @@
   </div>
   <div class="field">
     <%= f.label :due %><br />
-    <%= f.datetime_select :due, start_year: 1900, end_year: 2100 %>
+    <!-- [Gary] datetime picker -->
+    <div class='input-group date' id='due_date'>
+        <%= f.text_field :due, class: "form-control" %>
+        <span class="input-group-addon">
+            <span class="glyphicon glyphicon-calendar"></span>
+        </span>
+    </div>
+    <script type="text/javascript">
+        $(function () {
+            $('#due_date').datetimepicker({format: 'YYYY-MM-DD hh:mm a'});
+        });
+    </script>
+    <!-- end [Gary] datetime picker -->
   </div>
   <div class="field">
     <%= f.label :status %><br />
@@ -46,11 +58,22 @@
   </div>
   <div class="field">
     <%= f.label :release %><br />
-    <%= f.datetime_select :release, start_year: 1900, end_year: 2100 %>
+    <!-- [Gary] datetime picker -->
+    <div class='input-group date' id='release_date'>
+        <%= f.text_field :release, class: "form-control" %>
+        <span class="input-group-addon">
+            <span class="glyphicon glyphicon-calendar"></span>
+        </span>
+    </div>
+    <script type="text/javascript">
+        $(function () {
+            $('#release_date').datetimepicker({format: 'YYYY-MM-DD hh:mm a'});
+        });
+    </script>
+    <!-- end [Gary] datetime picker -->
   </div>
   <div class="actions">
     <%= f.submit %>
   </div>
 <% end %>
-
 </div>
