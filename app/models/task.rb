@@ -94,22 +94,30 @@ class Task < ActiveRecord::Base
     arr = Array.new
     all_tasks.each do |task|
       hash_task = Hash.new
-      hash_task["fillColor"] = "#" + (task.hash % (2 ** 24)).to_s(16)
-      hash_task["highlightFill"] = "#" + (task.hash % (2 ** 24)).to_s(16)
-      d = startDate
-      task_arr = Array.new
-      while d <= endDate
-        if task.wd_in_range(d, d+7.days)
-          task_arr << task.rate
-        else
-          task_arr << 0
-        end
-        d += 7.days
-      end
+      hash_task["fillColor"] = "#" + task.hash_to_hex_s
+      hash_task["highlightFill"] = "#" + task.hash_to_hex_s
+      task_arr = task.task_array(startDate, endDate)
       hash_task["data"] = task_arr
       arr << hash_task
     end
     return arr
+  end
+
+  def task_array(startDate, endDate)
+    task_arr = Array.new
+    d = startDate
+    while d <= endDate
+      if self.wd_in_range(d, d+7.days)
+        task_arr << self.rate
+      else
+        task_arr << 0
+      end
+      d += 7.days
+    end
+    return task_arr
+  end
+  def hash_to_hex_s
+    return (self.hash % (2 ** 24)).to_s(16)
   end
 
   def wd_in_range(startDate, endDate)
