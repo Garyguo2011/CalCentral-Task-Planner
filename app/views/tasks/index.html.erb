@@ -75,8 +75,9 @@ h1, table{
     <canvas id="canvas" width="450" height="600"></canvas>
   </div>
 </div>
+
 <script>
-  var data = <%=raw @tasks.wd_hash.to_json %>;
+  var data = <%=raw @taskData.to_json %>;
   window.onload = function(){
     var ctx = document.getElementById("canvas").getContext("2d");
     window.myBar = new Chart(ctx).StackedBar(data);
