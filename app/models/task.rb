@@ -71,4 +71,49 @@ class Task < ActiveRecord::Base
     # return ((Time.now - self.release) / 1.day).to_s + " days / " + ((self.due - self.release) / 1.day).to_s
   end
 
+  def self.wd_hash
+    n = 4 # to be modified
+    startDate = Date.today.at_beginning_of_week
+    endDate = startDate + (n * 7).days
+    hash = Hash.new
+    hash["labels"] = self.wd_labels(startDate - (n * 7).days, n*2)
+    hash["datasets"] = self.wd_tasks(startDate - (n * 7).days, endDate + (n * 7).days)
+    return hash
+  end
+  def self.wd_labels(startDate, n)
+    labels = Array.new
+    for i in 1..n
+      labels << startDate.strftime("%b%d").to_s + " - " + (startDate + 7.days).strftime("%b%d").to_s
+      startDate += 7.days
+    end
+    return labels
+  end
+
+  def self.wd_tasks(startDate, endDate)
+    all_tasks = self.all(:conditions => ["release <= (?) AND due >= (?)", endDate, startDate])
+    arr = Array.new
+    all_tasks.each do |task|
+      hash_task = Hash.new
+      hash_task["fillColor"] = "#" + (task.hash % (2 ** 24)).to_s(16)
+      hash_task["highlightFill"] = "#" + (task.hash % (2 ** 24)).to_s(16)
+      d = startDate
+      task_arr = Array.new
+      while d <= endDate
+        if task.wd_in_range(d, d+7.days)
+          task_arr << task.rate
+        else
+          task_arr << 0
+        end
+        d += 7.days
+      end
+      hash_task["data"] = task_arr
+      arr << hash_task
+    end
+    return arr
+  end
+
+  def wd_in_range(startDate, endDate)
+    return self.release <= endDate && self.due >= startDate
+  end
+
 end
