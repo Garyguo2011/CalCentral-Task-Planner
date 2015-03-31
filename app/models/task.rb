@@ -3,11 +3,14 @@ class MyValidator < ActiveModel::Validator
     unless record.due > record.release
       record.errors[:Due] << 'date must be after the Release date!'
     end
+    unless record.rate >= 1 && record.rate <= 5
+      record.errors[:rate] << 'Rate must between 1 to 5'
+    end
   end
 end
 class Task < ActiveRecord::Base
   include ActionView::Helpers::DateHelper
-  attr_accessible :due, :status, :title, :course, :kind, :release, :user_id
+  attr_accessible :due, :status, :title, :course, :kind, :release, :user_id, :rate
   belongs_to :user
   has_many :subtasks
   validates :title, :presence => true
@@ -15,6 +18,7 @@ class Task < ActiveRecord::Base
   validates :due, :presence => true
   validates :kind, :presence => true
   validates :course, :presence => true
+  validates :rate, :presence => true
   validates_with MyValidator
 
   def all_course

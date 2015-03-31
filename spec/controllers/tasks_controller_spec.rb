@@ -81,13 +81,13 @@ describe TasksController, :type => :controller do
 
 		it "should save a users task into current_user" do
 			task = subject.current_user.tasks.build(title: 'HW2')
-			post :create, :task => {:title => 'Quiz#2', :course => 'CS169', :kind => 'Exam', :release => '12/Mar/2015 23:59:00 -0800', :due => '19/Mar/2015 23:59:00 -0800', :status => 'New'}
+			post :create, :task => {:title => 'Quiz#2', :course => 'CS169', :kind => 'Exam', :release => '12/Mar/2015 23:59:00 -0800', :due => '19/Mar/2015 23:59:00 -0800', :status => 'New', :rate => 3}
 			subject.current_user.tasks.should include(task)
 		end
 
 		it "should stay in new page with incorrect attributes" do
 			task = subject.current_user.tasks.build(title: 'HW2')
-			post :create, :task => {:title => 'Quiz#2', :course => 'CS169', :kind => 'Exam', :release => '20/Mar/2015 23:59:00 -0800', :due => '19/Mar/2015 23:59:00 -0800', :status => 'New'}
+			post :create, :task => {:title => 'Quiz#2', :course => 'CS169', :kind => 'Exam', :release => '20/Mar/2015 23:59:00 -0800', :due => '19/Mar/2015 23:59:00 -0800', :status => 'New', :rate => 3}
 			subject.current_user.tasks.should include(task)
 		end
 	end
@@ -110,7 +110,7 @@ describe TasksController, :type => :controller do
 			assigns(:task).should eq(@task)
 		end
 		it "can't assigns the requested task as @task" do
-			task = Task.new(:title => "HW2", :course => "Computer Science 169", :status => "New", :kind => "Homework", :due => "2015-03-07 07:59:00", :release => "2015-03-03 07:59:00", :user_id => 2)
+			task = Task.new(:title => "HW2", :course => "Computer Science 169", :status => "New", :kind => "Homework", :due => "2015-03-07 07:59:00", :release => "2015-03-03 07:59:00", :user_id => 2, :rate => 3)
 			get :edit, {:id => task.user_id}
 			response.should_not be_success
 		end
