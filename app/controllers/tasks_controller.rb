@@ -5,6 +5,7 @@ class TasksController < ApplicationController
   # GET /tasks.json
   def index
     @tasks = Task.accessible_by(current_ability)
+
     if params[:sort] != nil
       sort_argument = params[:sort]
       session[:sort] = sort_argument
@@ -37,12 +38,14 @@ class TasksController < ApplicationController
     if filter_argument == nil and show_finished == nil
       @tasks = Task.where("status != ? AND user_id = ?", "Finished", current_user).order(sort_argument)
     elsif filter_argument != nil and show_finished != nil
-      @tasks = Task.where("user_id = ?", current_user).order(sort_argument).find_all_by_kind(filter_argument)
+      @tasks = @tasks.order(sort_argument).where("kind = ?", filter_argument)
     elsif filter_argument != nil
-      @tasks = Task.where("status != ? AND user_id = ?", "Finished", current_user).order(sort_argument).find_all_by_kind(filter_argument)
+      @tasks = Task.where("status != ? AND user_id = ?", "Finished", current_user).order(sort_argument).where("kind = ?", filter_argument)
     else
-      @tasks = Task.where("user_id = ?", current_user).order(sort_argument)
+      @tasks = @tasks.order(sort_argument)
     end
+
+    @taskData = @tasks.wd_hash
     
     respond_to do |format|
       format.html # index.html.erb

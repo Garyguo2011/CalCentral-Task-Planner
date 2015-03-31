@@ -57,14 +57,6 @@ h1, table{
 <% end %>
 
 </table>
-<div hidden>
-<%= @temp = Array.new %>
-<%= @temp1 = Array.new %>
-<% @tasks.each do |task| %>
-<%= @temp << task.rate %>
-<%= @temp1 << task.title.to_s %>
-<% end %>
-</div>
 <table align="center" border="1">
   <tr>
     <td><%= link_to 'Add new task', new_task_path %></td>
@@ -83,31 +75,9 @@ h1, table{
     <canvas id="canvas" width="450" height="600"></canvas>
   </div>
 </div>
+
 <script>
-  var temp = <%=raw @temp1 %>;
-  var data = {
-    labels: temp, 
-    datasets: [
-        {
-            label: "My First dataset",
-            fillColor: "rgba(220,220,220,0.5)",
-            strokeColor: "rgba(220,220,220,0.8)",
-            highlightFill: "rgba(220,220,220,0.75)",
-            highlightStroke: "rgba(220,220,220,1)",
-            data: <%= @temp %>
-        },
-        {
-            label: "My Second dataset",
-            fillColor: "rgba(151,87,205,0.2)",
-            strokeColor: "rgba(151,187,205,1)",
-            pointColor: "rgba(151,187,205,1)",
-            pointStrokeColor: "#fff",
-            pointHighlightFill: "#fff",
-            pointHighlightStroke: "rgba(151,187,205,1)",
-            data: <%= @temp %>
-        }
-    ]
-  }
+  var data = <%=raw @taskData.to_json %>;
   window.onload = function(){
     var ctx = document.getElementById("canvas").getContext("2d");
     window.myBar = new Chart(ctx).StackedBar(data);
