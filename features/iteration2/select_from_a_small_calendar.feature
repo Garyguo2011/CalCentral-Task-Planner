@@ -18,22 +18,28 @@ Background: users and tasks have been added to database
   | HW2       | CS186  | Homework | 27/Feb/2015 23:59:00 -0800 | 2/Mar/2015 23:59:00 -0800  | Started  |   4  | 2       |
   | MIDTERM1  | CS164  | Exam     | 1/Mar/2015 12:00:00 -8000  | 1/Apr/2015 16:00:00 -0800  | Finished |   5  | 2       |
 
+  And I am on the sign-in page
+  Given I sign in "zhangjinge588@gmail.com" with "12345678"                             
+  Given I am currently on the new_task page  
+
+
 Scenario: show Calendar form 
-Given I am on the add task page 
-When I press “Select Start Date” 
-Then I should see the “Calendar” 
-When I select “03/21/2015” 
-Then I should see “03/21/2015” as a Start Date field
-When I press “Select Due Date”
-And I select “03/23/2015”  
-Then I should see “03/23/2015” as Due Date field 
+                                
+When I fill in "task_release" with "2015-03-28 10:40: -07:00" 
+When I fill in "task_due" with "2015-03-29 20:25: -07:00"  
 
 
 Scenario: sad Calendar form path  
-Given I am in the task page
-Given the current date is “03/17/2015” 
-Then I should not see “03/16/2015”
-When I press “Select Start Date” 
-When I select “03/21/2015” 
-When I press “Select Due Date 
-Then I should not see “03/20/2015” 
+
+When I fill in "task_release" with "2015-03-29 10:40: -07:00" 
+When I fill in "task_due" with "2015-03-28 20:25: -07:00" 
+When I fill in "Title" with "CS169 HW"                        
+When I select "New" from "Status"                             
+When I select "Homework" from "Kind"                          
+When I select "Computer Science 169" from "Course"    
+When I select "3" from "Rate" 
+And I press "Create Task" 
+Then I should see "Due date must be after the Release date!"
+
+
+
