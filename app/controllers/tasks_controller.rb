@@ -39,12 +39,14 @@ class TasksController < ApplicationController
     if filter_argument == nil and show_finished == nil
       @tasks = Task.where("status != ? AND user_id = ?", "Finished", current_user).order(sort_argument)
     elsif filter_argument != nil and show_finished != nil
-      @tasks = Task.where("user_id = ?", current_user).order(sort_argument).find_all_by_kind(filter_argument)
+      @tasks = @tasks.order(sort_argument).where("kind = ?", filter_argument)
     elsif filter_argument != nil
-      @tasks = Task.where("status != ? AND user_id = ?", "Finished", current_user).order(sort_argument).find_all_by_kind(filter_argument)
+      @tasks = Task.where("status != ? AND user_id = ?", "Finished", current_user).order(sort_argument).where("kind = ?", filter_argument)
     else
-      @tasks = Task.where("user_id = ?", current_user).order(sort_argument)
+      @tasks = @tasks.order(sort_argument)
     end
+
+    @taskData = @tasks.work_distribution
     
     respond_to do |format|
       format.html # index.html.erb
@@ -91,7 +93,7 @@ class TasksController < ApplicationController
   # POST /tasks.json
   def create
     @task = current_user.tasks.new(params[:task])
-
+    
     respond_to do |format|
       if @task.save
         format.html { redirect_to @task, notice: 'Task was successfully created.' }

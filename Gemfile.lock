@@ -30,6 +30,8 @@ GEM
       multi_json (~> 1.0)
     arel (3.0.3)
     bcrypt (3.1.10)
+    bootstrap3-datetimepicker-rails (4.7.14)
+      momentjs-rails (>= 2.8.1)
     builder (3.0.4)
     cancan (1.6.10)
     capybara (2.4.4)
@@ -38,6 +40,8 @@ GEM
       rack (>= 1.0.0)
       rack-test (>= 0.5.4)
       xpath (~> 2.0)
+    chart-js-rails (0.0.9)
+      railties (> 3.1)
     codeclimate-test-reporter (0.4.5)
       simplecov (>= 0.7.1, < 1.0.0)
     coffee-rails (3.2.2)
@@ -91,6 +95,8 @@ GEM
       treetop (~> 1.4.8)
     mime-types (1.25.1)
     mini_portile (0.6.2)
+    momentjs-rails (2.9.0)
+      railties (>= 3.1)
     multi_json (1.11.0)
     multi_test (0.1.2)
     nokogiri (1.6.6.2)
@@ -181,8 +187,10 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
+  bootstrap3-datetimepicker-rails (~> 4.7.14)
   cancan
   capybara
+  chart-js-rails
   codeclimate-test-reporter
   coffee-rails (~> 3.2.1)
   cucumber-rails
@@ -191,6 +199,7 @@ DEPENDENCIES
   factory_girl
   factory_girl_rails
   jquery-rails
+  momentjs-rails (>= 2.9.0)
   pg
   railroady
   rails (= 3.2.19)

@@ -36,6 +36,7 @@ h1, table{
     <th><%= link_to "Due Date", :sort => :due%></th>
     <th><%= link_to "Status", :sort => :status%></th>
     <th><%= link_to "Owner", :sort => :user_id%></th>
+    <th>Rate</th>
   </tr>
 
 <% @tasks.each do |task| %>
@@ -43,17 +44,14 @@ h1, table{
     <td><%=task.title%></td>
     <td><%= task.course %></td>
     <td><%= task.kind %></td>
-    <% if task.due > Time.now %>
-      <td><%= distance_of_time_in_words(task.due, Time.now, include_seconds: true) + " left" %></td>
-    <% else %>
-      <td><%= distance_of_time_in_words(task.due, Time.now, include_seconds: true) + " passed" %></td>
-    <% end %>
+    <td><%= task.remain_time %></td>
     <td><%= task.status%></td>
     <% if task.user != nil%>
       <td><%= task.user.full_name%></td>
     <% else %>
       <td> NO USERS </td>
     <% end %>
+    <td><%= task.rate%></td>
   </tr>
 <% end %>
 
@@ -178,6 +176,19 @@ h1, table{
   </tr>
 </table>
 
+<script src="/vendor/assets/javascripts/Chart.js"></script>
 
+<div style="width:40%">
+  <div>
+    <canvas id="canvas" width="450" height="600"></canvas>
+  </div>
+</div>
 
+<script>
+  var data = <%=raw @taskData.to_json %>;
+  window.onload = function(){
+    var ctx = document.getElementById("canvas").getContext("2d");
+    window.myBar = new Chart(ctx).StackedBar(data);
+}
+</script>
 </body>

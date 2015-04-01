@@ -828,7 +828,7 @@ a#main-menu-toggle {
 input[placeholder],
 [placeholder],
 *[placeholder] {
-  color: white !important;
+  /*color: white !important;*/
 }
 input:-moz-placeholder,
 textarea:-moz-placeholder {

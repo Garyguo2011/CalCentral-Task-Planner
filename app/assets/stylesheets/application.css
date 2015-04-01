@@ -10,6 +10,8 @@
  *
  *= require_self
  *= require_tree .
+ *= require bootstrap
+ *= require bootstrap-datetimepicker
  */
 
 div#saas-content-body 
@@ -74,4 +76,18 @@ float: left;
 .user_input
 {
 	width: 40%
+}
+
+a.calcentral_header
+{
+	padding-top: 10px;
+	color: white;
+	font-size: 120%;
+}
+
+a.calcentral_header:visited
+{
+	padding-top: 10px;
+	color: white;
+	font-size: 120%;
 }

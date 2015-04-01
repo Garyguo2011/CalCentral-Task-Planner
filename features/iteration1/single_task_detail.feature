@@ -12,10 +12,10 @@ Background: tasks have been added to database
   | Xu         | He        | xu@ibearHost.com | 111111111 |
 
   Given the following tasks exist:
-  | title     | course | kind     | release                    | due                        | status   | user_id |
-  | HW1       | CS169  | Homework | 4/Mar/2015 23:59:00 -0800  | 6/Mar/2015 23:59:00 -0800  | New      | 1       |
-  | PROJ1     | CS188  | Project  | 3/Mar/2015 23:59:00 -0800  | 16/Mar/2015 23:59:00 -0800 | New      | 1       |
-  | XU-hw3    | CS188  | Quiz     | 3/Mar/2015 23:59:00 -0800  | 16/Mar/2015 23:59:00 -0800 | New      | 2       |
+  | title     | course | kind     | release                    | due                        | status   | rate | user_id |
+  | HW1       | CS169  | Homework | 4/Mar/2015 23:59:00 -0800  | 6/Mar/2015 23:59:00 -0800  | New      | 1    | 1       |
+  | PROJ1     | CS188  | Project  | 3/Mar/2015 23:59:00 -0800  | 16/Mar/2015 23:59:00 -0800 | New      | 2    | 1       |
+  | XU-hw3    | CS188  | Quiz     | 3/Mar/2015 23:59:00 -0800  | 16/Mar/2015 23:59:00 -0800 | New      | 3    | 2       |
 
   Given the following subtasks exist:
   | description      | is_done | task_id |
@@ -30,7 +30,7 @@ Scenario: General details of a task
   Then I should be on the homepage
   When I follow "PROJ1"
   Then I should be on the detail page for "PROJ1"
-  Then I should see the following "PROJ1", "CS188", "Project", "March 03, 2015", "March 17, 2015", "New"
+  Then I should see the following "PROJ1", "CS188", "Project", "Mar 03", "Mar 17"
   Then I should see "Bring Calculator" in Subtask
   Then I should not see "Checkout Website" in Subtask
 
