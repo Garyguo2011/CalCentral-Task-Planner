@@ -132,23 +132,36 @@ class Task < ActiveRecord::Base
   end
 
   def subtask_count () 
-    return (self.subtasks) ? self.subtasks.length : 0
+    if (self.subtasks) 
+      return self.subtasks.length
+    else 
+      return 0
+    end
   end
 
   def subtasks_complete () 
     if (self.subtasks) 
-      complete = self.subtasks.filter { |subtask| subtask.is_done == true }
-      return complete ? complete.length : 0
+      complete = self.subtasks.select { |subtask| subtask.is_done == true }
+      if (complete) 
+        return complete.length
+      else
+        return 0;
+      end
     else
       return 0 
     end
   end
 
-  def task_progress () 
+  def task_progress_percent () 
     if (subtask_count() > 0) 
-      return (subtasks_complete() / subtask_count())
+      percent = ((subtasks_complete() * 100) / subtask_count())
+      return  "%.0f%" % (percent)
     else
-      return 1
+      if (task.status == "Finished") 
+        return "100%"
+      else 
+        return "0%"
+      end
     end
   end
 
