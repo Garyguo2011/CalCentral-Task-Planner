@@ -28,7 +28,7 @@ h1, table{
   <% end %>
   <option value="tasks?filter=Show All">Show All</option>
 </select>
-<!-- <table id='tasks' align='center' width="80%">
+<table id='tasks' align='center' width="80%">
   <tr aligh='center'>
     <th><%= link_to "Task Title", :sort => :title%></th>
     <th><%= link_to "Course", :sort => :course%></th>
@@ -40,7 +40,7 @@ h1, table{
 
 <% @tasks.each do |task| %>
   <tr>
-    <td><%= link_to task.title, task_path(task) %></td>
+    <td><%=task.title%></td>
     <td><%= task.course %></td>
     <td><%= task.kind %></td>
     <% if task.due > Time.now %>
@@ -57,7 +57,7 @@ h1, table{
   </tr>
 <% end %>
 
-</table> -->
+</table>
 
 <!-- Start: Change style -->
       <table id='tasks' align='center' width="80%">
