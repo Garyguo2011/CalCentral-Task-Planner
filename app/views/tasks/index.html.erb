@@ -57,6 +57,18 @@ h1, table{
 
 </table>
 
+<table align="center" border="1">
+  <tr>
+    <td><%= link_to 'Add new task', new_task_path %></td>
+    <% if params[:show_finished] == nil %>
+      <td><%= link_to "Show finished tasks", :show_finished => :yes%></td>
+    <% else %>
+      <td><%= link_to "Hide finished tasks", :show_finished => nil%></td>
+    <% end %>
+
+  </tr>
+</table>
+
 <!-- Start: Change style -->
       <table id='tasks' align='center' width="80%">
       <div id="content" class="col-lg-10 col-sm-11">
@@ -72,16 +84,22 @@ h1, table{
               <% if task_list.length != 0 %>
                 <% if task_list[0].status == "Past due" %>
                   <% subs = "high" %>
-                <% elsif task_list[0].status == "New" %>
+                <% elsif task_list[0].status == "Started" %>
                   <% subs = "medium" %>
-                <% else %>
+                <% elsif task_list[0].status == "New" %>
                   <% subs = "low" %>
+                <% else %>
+                  <% if @show_finish == true %>
+                    <% subs = "xlow" %>
+                  <% else %>
+                    <% break %>
+                  <% end %>
                 <% end %>
                 <div class="priority <%= subs %>"><span><%= task_list[0].status %></span></div>
                 <% task_list.each do |task| %>
                   <div class="task <%= subs %>">
                     <div class="desc">
-                      <div class="title"><%= task.title %></div>
+                      <div class="title"><%= link_to task.title, task_path(task) %></div>
                       <div><%= task.course + "     " %><%= task.kind %></div>
                     </div>
                     <div class="time">
@@ -163,18 +181,6 @@ h1, table{
       </div>
     </table>
 <!-- End: Change style -->
-
-<table align="center" border="1">
-  <tr>
-    <td><%= link_to 'Add new task', new_task_path %></td>
-    <% if params[:show_finished] == nil %>
-      <td><%= link_to "Show finished tasks", :show_finished => :yes%></td>
-    <% else %>
-      <td><%= link_to "Hide finished tasks", :show_finished => nil%></td>
-    <% end %>
-
-  </tr>
-</table>
 
 <script src="/vendor/assets/javascripts/Chart.js"></script>
 
