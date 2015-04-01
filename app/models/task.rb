@@ -8,6 +8,7 @@ class MyValidator < ActiveModel::Validator
     end
   end
 end
+
 class Task < ActiveRecord::Base
   include ActionView::Helpers::DateHelper
   attr_accessible :due, :status, :title, :course, :kind, :release, :user_id, :rate
@@ -43,43 +44,59 @@ class Task < ActiveRecord::Base
     ["Project", "Homework", "Paper", "Exam", "Other"]
   end
 
+  def self.task_by_status
+    past_tasks = self.find_all_by_status("Past Due")
+    new_tasks = self.find_all_by_status("New")
+    ongoing_tasks = self.find_all_by_status("Started")
+    ret = []
+    ret.push(past_tasks)
+    ret.push(ongoing_tasks)
+    ret.push(new_tasks)
+    return ret
+  end
+
   def remain_time
-    remain_time = distance_of_time_in_words(self.due, Time.now, include_seconds: true)
-    if self.due > Time.now
-      return remain_time + " left"
+    if self.status != "Finished"
+      remain_time = distance_of_time_in_words(self.due, Time.now, include_seconds: true)
+      if self.due > Time.now
+        return remain_time + " left"
+      else
+        return remain_time + " passed"
+      end
     else
-      return remain_time + " passed"
+      return "Finished"
     end
   end
 
   def time_usage_percent
-    percent = (Time.now - self.release) / (self.due - self.release) * 100
-    return  "%.0f%" % (percent)
-    # if self.due > Time.now
-    #   percent = (Time.now - self.release) / (self.due - self.release) * 100
-    #   return percent.to_s + "%"
-    # else
-    #   percent = (Time.now - self.release) / (self.due - self.release) * 100
-    #   return percent.to_s + "%"
-    # end
+    if self.status != "Finished"
+      percent = (Time.now - self.release) / (self.due - self.release) * 100
+      return  "%.0f%" % (percent)
+    else
+      return "100%"
+    end
   end
 
   def time_usage_in_day
+    if self.status == "Finished"
+      return "Finished"
+    end
     day_used = (Time.now - self.release) / 1.day
     total_day = (self.due - self.release) / 1.day
     return "%.1f days / %.1f days" % [day_used, total_day]
     # return ((Time.now - self.release) / 1.day).to_s + " days / " + ((self.due - self.release) / 1.day).to_s
   end
 
-  def self.wd_hash
+  def self.work_distribution
     n = 4 # to be modified
     startDate = Date.today.at_beginning_of_week
     endDate = startDate + (n * 7).days
     hash = Hash.new
-    hash["labels"] = self.wd_labels(startDate - (n * 7).days, n*2)
-    hash["datasets"] = self.wd_tasks(startDate - (n * 7).days, endDate + (n * 7).days)
+    hash["labels"] = self.wd_labels(startDate, n)
+    hash["datasets"] = self.wd_tasks(startDate, endDate)
     return hash
   end
+
   def self.wd_labels(startDate, n)
     labels = Array.new
     for i in 1..n
@@ -116,6 +133,7 @@ class Task < ActiveRecord::Base
     end
     return task_arr
   end
+  
   def hash_to_hex_s
     return (self.hash % (2 ** 24)).to_s(16)
   end
