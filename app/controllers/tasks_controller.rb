@@ -45,7 +45,7 @@ class TasksController < ApplicationController
       @tasks = @tasks.order(sort_argument)
     end
 
-    @taskData = @tasks.wd_hash
+    @taskData = @tasks.work_distribution
     
     respond_to do |format|
       format.html # index.html.erb
