@@ -42,6 +42,24 @@
                           </div>
                         </div>
 
+                        <!-- Release Date -->
+                        <div class="col-lg-6 col-sm-6 col-xs-6 col-xxs-12">
+                          <div class="smallstat box">
+                            <i class="fa fa-money green"></i>
+                            <span class="title">Task Progress Percentage</span>
+                            <span class="value"><%= @task.task_progress_percent%></span>
+                          </div>
+                        </div>
+
+                        <!-- Due Date -->
+                        <div class="col-lg-6 col-sm-6 col-xs-6 col-xxs-12">
+                          <div class="smallstat box">
+                            <i class="fa fa-money green"></i>
+                            <span class="title">Task Progress (Subtasks)</span>
+                            <span class="value"><%= @task.task_progress_counts%></span>
+                          </div>
+                        </div>
+
                         <h2>Time Usage</h2>
 
                         <div class="progress progress-striped active">
@@ -51,7 +69,7 @@
                         </div>
 
                         
-                        <!-- Release Date -->
+                         <!-- Release Date -->
                         <div class="col-lg-6 col-sm-6 col-xs-6 col-xxs-12">
                           <div class="smallstat box">
                             <i class="fa fa-money green"></i>
