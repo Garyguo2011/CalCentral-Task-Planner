@@ -21,7 +21,6 @@ h1, table{
 
 
 <body>
-<h1>My Tasks</h1>
 <select id="MySelect" onchange="this.options[this.selectedIndex].value && (window.location = this.options[this.selectedIndex].value);">
   <option>Select Task Type</option>
   <%= Task.all_kinds.each do |task| %>
@@ -42,7 +41,7 @@ h1, table{
 
 <% @tasks.each do |task| %>
   <tr>
-    <td><%= link_to task.title, task_path(task) %></td>
+    <td><%=task.title%></td>
     <td><%= task.course %></td>
     <td><%= task.kind %></td>
     <td><%= task.remain_time %></td>
@@ -57,14 +56,114 @@ h1, table{
 <% end %>
 
 </table>
-<div hidden>
-<%= @temp = Array.new %>
-<%= @temp1 = Array.new %>
-<% @tasks.each do |task| %>
-<%= @temp << task.rate %>
-<%= @temp1 << task.title.to_s %>
-<% end %>
-</div>
+
+<!-- Start: Change style -->
+      <table id='tasks' align='center' width="80%">
+      <div id="content" class="col-lg-10 col-sm-11">
+      
+      
+      <div class="row">
+        
+        <div class="col-sm-7">
+          
+          <div class="task-list" id="white-area">
+            <h1>Tasks</h1>
+            <% @tasks_by_status.each do |task_list| %>
+              <% if task_list.length != 0 %>
+                <% if task_list[0].status == "Past due" %>
+                  <% subs = "high" %>
+                <% elsif task_list[0].status == "New" %>
+                  <% subs = "medium" %>
+                <% else %>
+                  <% subs = "low" %>
+                <% end %>
+                <div class="priority <%= subs %>"><span><%= task_list[0].status %></span></div>
+                <% task_list.each do |task| %>
+                  <div class="task <%= subs %>">
+                    <div class="desc">
+                      <div class="title"><%= link_to task.title, task_path(task) %></div>
+                      <div><%= task.course + "     " %><%= task.kind %></div>
+                    </div>
+                    <div class="time">
+                      <div class="date"><%= task.due.strftime("%b %d") %></div>
+                      <% if task.due > Time.now %>
+                        <div><%= distance_of_time_in_words(task.due, Time.now, include_seconds: true) + " left" %></div>
+                      <% else %>
+                        <div><%= distance_of_time_in_words(task.due, Time.now, include_seconds: true) + " passed" %></div>
+                      <% end %>
+                    </div>
+                  </div>
+                <% end %>
+              <% end %>
+            <% end %>
+
+            <div class="clearfix"></div>    
+
+          </div>    
+          
+        </div><!--/col-->
+        
+        <div class="col-sm-5">
+          
+          <div class="graph">
+
+            <h1>Timeline</h1>
+
+            <div class="timeline">
+
+              <% i = 0 %>
+              <% @tasks_by_time.each do |task| %>
+                <% if i % 2 == 0 %>
+                  <% div_name = "timeslot" %>
+                <% else %>
+                  <% div_name = "timeslot alt" %>
+                <% end %>
+                <div class="<%= div_name %>">
+                <div class="task">
+                    <span>
+                    <span class="type"><%= task.kind %></span>
+                    <span class="details">
+                      <%= task.course+"   " %><%= task.title %>
+                    </span>
+                    <span>
+                      remaining time
+                      <span class="remaining">
+                        <% if task.due > Time.now %>
+                          <%= distance_of_time_in_words(task.due, Time.now, include_seconds: true) + " left" %>
+                        <% else %>
+                          <%= distance_of_time_in_words(task.due, Time.now, include_seconds: true) + " passed" %>
+                        <% end %>
+                      </span> 
+                    </span> 
+                  </span>
+                  <div class="arrow"></div>
+                </div>              
+                <div class="icon">
+                  <i class="fa fa-map-marker"></i>
+                </div>
+                <div class="time">
+                  <%= task.due.strftime("%b %d") %>
+                </div>  
+
+                </div>
+
+              <div class="clearfix"></div>
+              <% i += 1 %>
+            <% end %>
+            </div>
+
+          </div>
+        
+        </div><!--/col--> 
+            
+      </div>
+      
+       
+          
+      </div>
+    </table>
+<!-- End: Change style -->
+
 <table align="center" border="1">
   <tr>
     <td><%= link_to 'Add new task', new_task_path %></td>
@@ -76,6 +175,7 @@ h1, table{
 
   </tr>
 </table>
+
 <script src="/vendor/assets/javascripts/Chart.js"></script>
 
 <div style="width:40%">
@@ -83,31 +183,9 @@ h1, table{
     <canvas id="canvas" width="450" height="600"></canvas>
   </div>
 </div>
+
 <script>
-  var temp = <%=raw @temp1 %>;
-  var data = {
-    labels: temp, 
-    datasets: [
-        {
-            label: "My First dataset",
-            fillColor: "rgba(220,220,220,0.5)",
-            strokeColor: "rgba(220,220,220,0.8)",
-            highlightFill: "rgba(220,220,220,0.75)",
-            highlightStroke: "rgba(220,220,220,1)",
-            data: <%= @temp %>
-        },
-        {
-            label: "My Second dataset",
-            fillColor: "rgba(151,87,205,0.2)",
-            strokeColor: "rgba(151,187,205,1)",
-            pointColor: "rgba(151,187,205,1)",
-            pointStrokeColor: "#fff",
-            pointHighlightFill: "#fff",
-            pointHighlightStroke: "rgba(151,187,205,1)",
-            data: <%= @temp %>
-        }
-    ]
-  }
+  var data = <%=raw @taskData.to_json %>;
   window.onload = function(){
     var ctx = document.getElementById("canvas").getContext("2d");
     window.myBar = new Chart(ctx).StackedBar(data);

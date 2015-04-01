@@ -5,6 +5,8 @@ class TasksController < ApplicationController
   # GET /tasks.json
   def index
     @tasks = Task.accessible_by(current_ability)
+    @tasks_by_status = Task.accessible_by(current_ability).task_by_status
+    @tasks_by_time = Task.accessible_by(current_ability).order(:due).find_all_by_status(["New", "Started", "Past Due"])
     if params[:sort] != nil
       sort_argument = params[:sort]
       session[:sort] = sort_argument
@@ -37,12 +39,14 @@ class TasksController < ApplicationController
     if filter_argument == nil and show_finished == nil
       @tasks = Task.where("status != ? AND user_id = ?", "Finished", current_user).order(sort_argument)
     elsif filter_argument != nil and show_finished != nil
-      @tasks = Task.where("user_id = ?", current_user).order(sort_argument).find_all_by_kind(filter_argument)
+      @tasks = @tasks.order(sort_argument).where("kind = ?", filter_argument)
     elsif filter_argument != nil
-      @tasks = Task.where("status != ? AND user_id = ?", "Finished", current_user).order(sort_argument).find_all_by_kind(filter_argument)
+      @tasks = Task.where("status != ? AND user_id = ?", "Finished", current_user).order(sort_argument).where("kind = ?", filter_argument)
     else
-      @tasks = Task.where("user_id = ?", current_user).order(sort_argument)
+      @tasks = @tasks.order(sort_argument)
     end
+
+    @taskData = @tasks.work_distribution
     
     respond_to do |format|
       format.html # index.html.erb
@@ -56,6 +60,7 @@ class TasksController < ApplicationController
     begin
       @task = Task.accessible_by(current_ability).find(params[:id])
       @subtask = Subtask.new({ :task => @task })
+
       respond_to do |format|
         format.html # show.html.erb
         format.json { render json: @task }
