@@ -110,16 +110,6 @@ Then /^(?:|I )should see "([^"]*)"$/ do |text|
   end
 end
 
-Then /^(?:|I )should see \/([^\/]*)\/$/ do |regexp|
-  regexp = Regexp.new(regexp)
-
-  if page.respond_to? :should
-    page.should have_xpath('//*', :text => regexp)
-  else
-    assert page.has_xpath?('//*', :text => regexp)
-  end
-end
-
 Then /^(?:|I )should not see "([^"]*)"$/ do |text|
   if page.respond_to? :should
     page.should have_no_content(text)
@@ -128,36 +118,39 @@ Then /^(?:|I )should not see "([^"]*)"$/ do |text|
   end
 end
 
-Then /^(?:|I )should not see \/([^\/]*)\/$/ do |regexp|
+Then /^(?:|I )should (not )?see \/([^\/]*)\/$/ do |isnot, regexp|
   regexp = Regexp.new(regexp)
-
-  if page.respond_to? :should
-    page.should have_no_xpath('//*', :text => regexp)
-  else
-    assert page.has_no_xpath?('//*', :text => regexp)
-  end
-end
-
-Then /^the "([^"]*)" field(?: within (.*))? should contain "([^"]*)"$/ do |field, parent, value|
-  with_scope(parent) do
-    field = find_field(field)
-    field_value = (field.tag_name == 'textarea') ? field.text : field.value
-    if field_value.respond_to? :should
-      field_value.should =~ /#{value}/
+  if isnot
+    if page.respond_to? :should
+      page.should have_no_xpath('//*', :text => regexp)
     else
-      assert_match(/#{value}/, field_value)
+      assert page.has_no_xpath?('//*', :text => regexp)
+    end
+  else
+    if page.respond_to? :should
+      page.should have_xpath('//*', :text => regexp)
+    else
+      assert page.has_xpath?('//*', :text => regexp)
     end
   end
 end
 
-Then /^the "([^"]*)" field(?: within (.*))? should not contain "([^"]*)"$/ do |field, parent, value|
+Then /^the "([^"]*)" field(?: within (.*))? should (not )?contain "([^"]*)"$/ do |field, parent, isnot, value|
   with_scope(parent) do
     field = find_field(field)
     field_value = (field.tag_name == 'textarea') ? field.text : field.value
-    if field_value.respond_to? :should_not
-      field_value.should_not =~ /#{value}/
+    if isnot
+      if field_value.respond_to? :should_not
+        field_value.should_not =~ /#{value}/
+      else
+        assert_no_match(/#{value}/, field_value)
+      end
     else
-      assert_no_match(/#{value}/, field_value)
+      if field_value.respond_to? :should
+        field_value.should =~ /#{value}/
+      else
+        assert_match(/#{value}/, field_value)
+      end
     end
   end
 end
