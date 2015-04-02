@@ -137,12 +137,17 @@ class TasksController < ApplicationController
   end
 
   def changestatus
-    puts "in chanage ......"
     @task = Task.find(params[:id])
-    print "ddddddddddddd"
-    print @task
-    @task.status = "Finished"
-    @task.save
+    new_status = ""
+    if @task.status == "New"
+      new_status = "Started"
+    elsif @task.status = "Sarted"
+      new_status = "Finished"
+    elsif @task.status = "Finished"
+      new_status = "New"
+    end
+
+    @task.update_attribute :status, new_status
     redirect_to "/tasks"
   end
 end

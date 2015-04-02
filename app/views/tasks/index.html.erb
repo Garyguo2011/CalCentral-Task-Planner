@@ -86,7 +86,7 @@ h1, table{
                     </div>
                       <div class="button_area">
 
-                      <%= link_to status_change, task_change_status_path(task.id, status_change_to: "finish"), {:style=>'color:#FFFFFF;', :class => "btn btn-large btn-primary"}%>     
+                      <%= link_to status_change, task_change_status_path(task.id), {:style=>'color:#FFFFFF;', :class => "btn btn-large btn-primary"}%>     
                       </div>
                     <div class="time">
                       <div class="date"><%= task.due.strftime("%b %d") %></div>
