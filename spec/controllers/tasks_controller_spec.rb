@@ -90,6 +90,11 @@ describe TasksController, :type => :controller do
 			post :create, :task => {:title => 'Quiz#2', :course => 'CS169', :kind => 'Exam', :release => '20/Mar/2015 23:59:00 -0800', :due => '19/Mar/2015 23:59:00 -0800', :status => 'New', :rate => 3}
 			subject.current_user.tasks.should include(task)
 		end
+		it "should stay in new page with invalid rate" do
+			task = subject.current_user.tasks.build(title: 'HW2')
+			post :create, :task => {:title => 'Quiz#2', :course => 'CS169', :kind => 'Exam', :release => '18/Mar/2015 23:59:00 -0800', :due => '19/Mar/2015 23:59:00 -0800', :status => 'New', :rate => 0}
+			subject.current_user.tasks.should include(task)
+		end
 	end
 
 	describe 'GET #new' do

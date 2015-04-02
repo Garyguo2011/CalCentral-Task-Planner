@@ -2,6 +2,17 @@ require 'spec_helper'
 require 'pp'
 
 describe Task do
+	before :all do
+    	@tasks =[
+      		{:title => 'Midterm1', :course => 'CS164', :kind => 'Exam', :release => '4/Mar/2015 23:59:00 -0800', :due => '6/Mar/2015 23:59:00 -0800', :status => 'New', :user_id => 1, :rate => 3},
+      		{:title => 'Homework5', :course => 'CS169', :kind => 'Homework', :release => '9/Mar/2015 23:59:00 -0800', :due => '16/Mar/2015 23:59:00 -0800', :status => 'New', :user_id => 1, :rate => 3},
+      		{:title => 'Project2', :course => 'CS164', :kind => 'Project', :release => '9/Mar/2015 23:59:00 -0800', :due => '31/Mar/2015 23:59:00 -0800', :status => 'Started', :user_id => 1, :rate => 3},
+      		{:title => 'Project3', :course => 'CS164', :kind => 'Project', :release => '9/Mar/2015 23:59:00 -0800', :due => '31/Mar/2015 23:59:00 -0800', :status => 'Finished', :user_id => 1, :rate => 3}
+    	]
+    	@tasks.each do |task|
+      		Task.create!(task)
+      	end
+   	end
 	before(:each) do
 		@task = FactoryGirl.create(:task)
 	end
@@ -115,13 +126,8 @@ describe Task do
 
 		describe "return the whole data set of graph" do
 			it "should generate datasets for work distriution" do
-				@task.stub(:hash).and_return(123456789101112131415)
-				@task.rate = 3
-				@task.release = "05/Jan/2015".to_date
-				@task.due = "05/Apr/2015".to_date
-        # pp Task.all
-				# Task.wd_tasks(@startDate, @endDate).should == []
-        # IN COMPLETE
+				expect(Task.wd_tasks(@startDate, @endDate)[0]["label"]).to eq("Project2")
+				expect(Task.wd_tasks(@startDate, @endDate)[1]["label"]).to eq("Project3")
 			end
 		end
 
