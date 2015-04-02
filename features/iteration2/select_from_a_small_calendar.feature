@@ -17,13 +17,30 @@ Background: users and tasks have been added to database
   | ESSAY1    | CS195  | Paper    | 9/Mar/2015 23:59:00 -0800  | 31/Mar/2015 23:59:00 -0800 | Started  |   3  | 1       |
   | HW2       | CS186  | Homework | 27/Feb/2015 23:59:00 -0800 | 2/Mar/2015 23:59:00 -0800  | Started  |   4  | 2       |
   | MIDTERM1  | CS164  | Exam     | 1/Mar/2015 12:00:00 -8000  | 1/Apr/2015 16:00:00 -0800  | Finished |   5  | 2       |
+
   And I am on the sign-in page
-  Given I sign in "zhangjinge588@gmail.com" with "12345678" 
-  
-Scenario: show Calendar form                            
-  Given I am currently on the new_task page                          
-  Then I click the icon "calendar_icon_release" with "release_date"
-  Then I should see calendar datetime picker
+  Given I sign in "zhangjinge588@gmail.com" with "12345678"                             
+  Given I am currently on the new_task page  
+
+
+Scenario: show Calendar form 
+  When I click the icon "calendar_icon_release" with "release_date"
+  Then I should see calendar datetime picker                               
+
+
+Scenario: sad Calendar form path  
+  When I fill in the following: 
+      |task_release| 2015-03-29 10:40: -07:00|
+      |task_due    | 2015-03-28 20:25: -07:00|
+      |Title       | CS169 HW |
+  When I select the following: 
+      |New                  | Status | 
+      |Homework             | Kind   |
+      |Computer Science 169 | Course |
+      |3                    | Rate   |
+  And I press "Create Task" 
+  Then I should see "Due date must be after the Release date!"
+
 
 Scenario: input invaild date time should not fill in time field (sad path) 
   Given I am currently on the new_task page
