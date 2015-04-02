@@ -179,6 +179,7 @@ h1, table{
 <div style="width:40%">
   <div>
     <canvas id="canvas" width="450" height="600"></canvas>
+    <div id="legendDiv"></div>
   </div>
 </div>
 
@@ -187,6 +188,7 @@ h1, table{
   window.onload = function(){
     var ctx = document.getElementById("canvas").getContext("2d");
     window.myBar = new Chart(ctx).StackedBar(data);
+    legend(document.getElementById('legendDiv'), data);
 }
 </script>
 </body>
