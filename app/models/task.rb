@@ -83,8 +83,7 @@ class Task < ActiveRecord::Base
     end
     day_used = (Time.now - self.release) / 1.day
     total_day = (self.due - self.release) / 1.day
-    return "%.1f days / %.1f days" % [day_used, total_day]
-    # return ((Time.now - self.release) / 1.day).to_s + " days / " + ((self.due - self.release) / 1.day).to_s
+    return "%.1f / %.1f" % [day_used, total_day]
   end
 
   def self.work_distribution

@@ -83,7 +83,7 @@ describe Task do
       @task.status = "New"
       # pp @task.remain_time
       # pp @task.time_usage_in_day
-      @task.time_usage_in_day.should eq("2.0 days / 4.0 days")
+      @task.time_usage_in_day.should eq("2.0 / 4.0")
     end
 
     it "should return finished when task finished" do
