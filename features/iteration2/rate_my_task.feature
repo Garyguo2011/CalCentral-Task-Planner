@@ -37,6 +37,7 @@ Scenario: Update task rate
   Then I would see "1" in my "Rate"
   Then I should see "3" with the scope of "task_rate"
   When I select "3" from "Rate"
+  And I select "New" from "Status"
   Then I press "Update Task"
   Then I should see "Task was successfully updated."
   Then I should see "3" with the scope of "task_rate"
