@@ -21,6 +21,7 @@ h1, table{
 
 
 <body>
+<button class="btn btn-large btn-primary">Large button</button>
 <select id="MySelect" onchange="this.options[this.selectedIndex].value && (window.location = this.options[this.selectedIndex].value);">
   <option>Select Task Type</option>
   <%= Task.all_kinds.each do |task| %>
