@@ -74,7 +74,7 @@
                           <div class="col-lg-6 col-sm-6 col-xs-6 col-xxs-12">
                             <div class="smallstat box">
                               <i class="fa fa-money green"></i>
-                              <span class="title">Task Progress Percentage</span>
+                              <span class="title">Tasks Progress Percentage</span>
                               <span class="value"><%= @task.subtasks.progress_percent%></span>
                             </div>
                           </div>
