@@ -138,6 +138,23 @@ class TasksController < ApplicationController
   def check_status
     Task.accessible_by(current_ability).check_past_due
   end 
+
+  def changestatus
+    @task = Task.find(params[:id])
+    new_status = ""
+    if @task.status == "New"
+      new_status = "Started"
+    elsif @task.status = "Sarted"
+      new_status = "Finished"
+    elsif @task.status = "Finished"
+      new_status = "New"
+    elsif @task.status = "Past due"
+      new_status = "Finished"
+    end
+
+    @task.update_attribute :status, new_status
+    redirect_to "/tasks"
+  end
 end
 
 

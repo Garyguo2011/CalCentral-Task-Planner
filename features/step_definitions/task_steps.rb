@@ -174,7 +174,6 @@ end
 Then /I should see "(.*)" before "(.*)" with the scope of "(.*)"$/ do |e1, e2, legend_id|
   #  ensure that that e1 occurs before e2.
   #  page.body is the entire content of the page as a string.
-  within{"#{legend_id}"}
   elem = page.html
   assert(elem.index(e1) < elem.index(e2), "incorrect order, #{e1} should be before #{e2}")
 end 
