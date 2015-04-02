@@ -17,10 +17,24 @@ Background: users and tasks have been added to database
   | ESSAY1    | CS195  | Paper    | 9/Mar/2015 23:59:00 -0800  | 31/Mar/2015 23:59:00 -0800 | Started  |   3  | 1       |
   | HW2       | CS186  | Homework | 27/Feb/2015 23:59:00 -0800 | 2/Mar/2015 23:59:00 -0800  | Started  |   4  | 2       |
   | MIDTERM1  | CS164  | Exam     | 1/Mar/2015 12:00:00 -8000  | 1/Apr/2015 16:00:00 -0800  | Finished |   5  | 2       |
-  
-Scenario: show Calendar form
   And I am on the sign-in page
-  Given I sign in "zhangjinge588@gmail.com" with "12345678"                             
+  Given I sign in "zhangjinge588@gmail.com" with "12345678" 
+  
+Scenario: show Calendar form                            
   Given I am currently on the new_task page                          
   Then I click the icon "calendar_icon_release" with "release_date"
   Then I should see calendar datetime picker
+
+Scenario: input invaild date time should not fill in time field (sad path) 
+  Given I am currently on the new_task page
+  When I fill in "task_release" with "abc"
+  Then I should not see "abc" with the scope of "task_release"
+  When I fill in "task_release" with "2015-13-29 10:40: -07:00"
+  Then I should not see "2015-13-29 10:40: -07:00" with the scope of "task_release"
+  
+Scenario: Input value time will covert to PST time zone
+  Given I am currently on the new_task page
+  When I fill in "task_release" with "2015-01-29 10:40: -07:00"
+  Then I fill in "task_title" with "proj2"
+  Then I should see "2015-01-29 09:40: -08:00" with the scope of "task_release"
+
