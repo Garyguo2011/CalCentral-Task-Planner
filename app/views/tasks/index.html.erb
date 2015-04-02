@@ -95,7 +95,7 @@ h1, table{
                     <% break %>
                   <% end %>
                 <% end %>
-                <div class="priority <%= subs %>"><span><%= task_list[0].status %></span></div>
+                <div class="priority <%= subs %>" id = "<%= subs %>"><span><%= task_list[0].status %></span></div>
                 <% task_list.each do |task| %>
                   <div class="task <%= subs %>">
                     <div class="desc">
