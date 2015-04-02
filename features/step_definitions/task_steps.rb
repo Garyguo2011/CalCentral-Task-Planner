@@ -14,6 +14,9 @@ Given /the following (.*) exist/ do |which, table|
   end
 end
 
+
+
+
 Given /I sign in "(.*)" with "(.*)"/ do |email, password|
   fill_in("Email", :with => email)
   fill_in("user_password", :with => password)
@@ -151,21 +154,22 @@ When /^I (change|add) description for "(.*?)" to "(.*?)"$/ do |action, subtask_t
   end
 end
 
+
 Then /^I click the icon "(.*?)" with "(.*?)"$/ do |icon_id, class_id|
   find("##{icon_id}").click
-end
+end 
 
 Then /^I should see calendar datetime picker$/ do
   index = page.body.index("bootstrap-datetimepicker-widget")
   assert(index != -1)
 end
 
-Then /^I should (not )?see "(.*)" with the scope of "(.*)"$/ do |is_not, task_title, legend_id|
-  within("##{legend_id}") do
+Then /^I should (not )?see "(.*)" with the scope of "(.*)"$/ do |is_not, content, css_id|
+  within("##{css_id}") do
     if is_not == "not"
-      assert(page.body.index(task_title) == -1)
+      assert(page.body.index(content) == -1)
     else
-      assert(page.body.index(task_title) != -1)
+      assert(page.body.index(content) != -1)
     end
   end
 end

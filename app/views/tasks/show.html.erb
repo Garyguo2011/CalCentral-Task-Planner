@@ -26,7 +26,7 @@
                       <h2><i class="fa fa-align-justify"></i><span class="break">Statistics</span></h2>
                       <div class="box-icon">
                         <a href="table.html#" class="btn-setting"><i class="fa fa-wrench"></i></a>
-                        <a href="table.html#" class="btn-minimize"><i class="fa fa-chevron-up"></i></a>
+                        <a href="table.html#" class="btn-minimize"id='hf'><i class="fa fa-chevron-up"></i></a>
                         <a href="table.html#" class="btn-close"><i class="fa fa-times"></i></a>
                       </div>
                     </div>
@@ -114,7 +114,7 @@
 
                         <h2>Remaining Time</h2>
 
-                        <div class="col-lg-12 col-sm-12 col-xs-12 col-xxs-12">
+                        <div class="col-lg-6 col-sm-6 col-xs-6 col-xxs-12">
                           <div class="smallstat box">
                             <!-- <i class="fa fa-money green"></i> -->
                             <span class="title">Remaining Time</span>
@@ -125,6 +125,15 @@
                               <% end %>
                           </div>
                         </div>
+
+                        <div class="col-lg-6 col-sm-6 col-xs-6 col-xxs-12">
+                          <div class="smallstat box" id="task_rate">
+                            <!-- <i class="fa fa-money green"></i> -->
+                            <span class="title">Rate</span>
+                            <span class="value"><%= @task.rate%></span>
+                          </div>
+                        </div>
+
                         <div class="clearfix"></div>
 
                       </div>

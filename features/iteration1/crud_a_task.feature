@@ -47,15 +47,13 @@ Scenario: add task (sad path)
   When I follow "Add new task"
   Then I should currently on the new_task page
   When I fill in "Title" with "CS169 HW"
-  When I fill in "task_due" with "2015-03-29 20:25: -07:00"
-  When I select "New" from "Status"
-  When I select "Homework" from "Kind"
+  When I fill in "task_due" with "2015-03-30 20:25: -07:00"
   When I select "Computer Science 169" from "Course"
   When I fill in "task_release" with "2015-03-29 20:25: -07:00"
   When I select "3" from "Rate"
   And I press "Create Task"
-  Then I should see "Due date must be after the Release date!"
-
+  Then I should see "errors prohibited this task from being saved"
+  
 Scenario: Read/Edit task
   Given I am currently on the sign-in page
   When I fill in "Email" with "zhangjinge588@gmail.com"
