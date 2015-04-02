@@ -83,7 +83,7 @@ describe Task do
 			@task.status = "New"
 			# pp @task.remain_time
 			# pp @task.time_usage_in_day
-			@task.time_usage_in_day.should eq("2.0 days / 4.0 days")
+			@task.time_usage_in_day.should eq("2.0 / 4.0")
 		end
 
 		it "should return finished when task finished" do
@@ -119,7 +119,9 @@ describe Task do
 				@task.rate = 3
 				@task.release = "05/Jan/2015".to_date
 				@task.due = "05/Apr/2015".to_date
-				Task.wd_tasks(@startDate, @endDate).should == []
+        # pp Task.all
+				# Task.wd_tasks(@startDate, @endDate).should == []
+        # IN COMPLETE
 			end
 		end
 
