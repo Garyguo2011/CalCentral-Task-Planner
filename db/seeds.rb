@@ -25,6 +25,14 @@ tasks =[
 {:title => 'Garyguo-midterm3', :course => 'CS164', :kind => 'Exam', :release => '4/Mar/2015 23:59:00 -0800', :due => '6/Mar/2015 23:59:00 -0800', :status => 'New', :user_id => 3, :rate => 3}
 ]
 
+subtasks = [
+{:description => 'subtask1-1project', :is_done => false, :task_id => 1},
+{:description => 'subtask2-1project', :is_done => false, :task_id => 1},
+{:description => 'subtask3-1project', :is_done => true, :task_id => 1},
+{:description => 'subtask4-1project', :is_done => true, :task_id => 1},
+{:description => 'subtask1-2project', :is_done => true, :task_id => 2}
+]
+
 
 tasks.each do |task|
 	Task.create!(task)
@@ -32,4 +40,8 @@ end
 
 users.each do |user|
 	User.create!(user)	
+end
+
+subtasks.each do |subtask|
+	Subtask.create!(subtask)
 end
