@@ -154,6 +154,13 @@ When /^I (change|add) description for "(.*?)" to "(.*?)"$/ do |action, subtask_t
   end
 end
 
+Then /^I click the icon "(.*?)"$/ do |icon_id| 
+    find("##{icon_id}").click
+end 
+
+Then /^I should call javascript with id "(.*?)"$/ do |id|
+  page.execute_script("$('##{id}')")
+end
 
 
 # Then /^the done checkbox for "(.*)" should be checked$/ do |subtask_title|
