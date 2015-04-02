@@ -154,8 +154,14 @@ When /^I (change|add) description for "(.*?)" to "(.*?)"$/ do |action, subtask_t
   end
 end
 
+Then /^I click the icon "(.*?)" with "(.*?)"$/ do |icon_id, class_id|
+  find("##{icon_id}").click
+end
 
-
+Then /^I should see calendar datetime picker$/ do
+  index = page.body.index("bootstrap-datetimepicker-widget")
+  assert(index != -1)
+end
 # Then /^the done checkbox for "(.*)" should be checked$/ do |subtask_title|
 #   subtask = Subtask.find_by_description(subtask_title)
 #   css_class = "#subtask_#{subtask.id}"

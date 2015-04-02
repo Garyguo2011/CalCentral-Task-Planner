@@ -35,43 +35,9 @@
 
   <!--<base href="/">--><base href=".">
 
-  <script async="" src="./CalCentral_files/analytics.js"></script><script async="" src="./CalCentral_files/analytics.js"></script><script>
-    /**
-     * Expose the CalCentral config to the JS code
-     * Includes
-     *   csrf tokens
-     *   uid
-     *   google analytics id
-     *   app version
-     *   hostname
-     */
-    (function() {
-      'use strict';
-
-      // Create a new Ajax request
-      var request = new XMLHttpRequest();
-
-      // Callback when the Ajax request is loaded
-      var loaded = function() {
-        // Only set the calcentralConfig variable when the request was succesful
-        if (request.readyState === 4 && request.status === 200) {
-          window.calcentralConfig = JSON.parse(this.responseText);
-        }
-      };
-
-      // Add the onload listner
-      request.onload = loaded;
-      // The false option will make sure the request happens synchronously.
-      request.open('GET', '/api/config', false);
-      // Send the XHR request
-      request.send();
-    })();
-  </script>
-
   <%= stylesheet_link_tag 'application'%>
   <link ref="stylesheet" type="text/css" href="/assets/stylesheets/cc-application.css" />
   <%= javascript_include_tag 'application'%>
-  <script type="textjavascript" src="/assets/javascripts/cc-application.js"></script>
 </head>
 
 <body data-ng-class="{&#39;cc-page-splash&#39;:(controllerName===&#39;SplashController&#39;),&#39;cc-offcanvas-show&#39;:(offCanvasMenu.show)}" data-ng-show="api.user.events.isLoaded" data-cc-iosfix-directive="" class="">
