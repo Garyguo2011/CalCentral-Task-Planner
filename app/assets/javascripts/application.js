@@ -16,3 +16,4 @@
 //= require Chart
 //= require moment
 //= require bootstrap-datetimepicker
+//= require legend

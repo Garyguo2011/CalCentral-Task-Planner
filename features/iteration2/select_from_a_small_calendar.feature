@@ -24,25 +24,34 @@ Background: users and tasks have been added to database
 
 
 Scenario: show Calendar form 
-When I click the icon "calendar_icon_release" with "release_date"
-Then I should see calendar datetime picker                               
+  When I click the icon "calendar_icon_release" with "release_date"
+  Then I should see calendar datetime picker                               
 
 
 Scenario: sad Calendar form path  
-
-When I fill in the following: 
+  When I fill in the following: 
       |task_release| 2015-03-29 10:40: -07:00|
       |task_due    | 2015-03-28 20:25: -07:00|
       |Title       | CS169 HW |
-
-When I select the following: 
+  When I select the following: 
       |New                  | Status | 
       |Homework             | Kind   |
       |Computer Science 169 | Course |
       |3                    | Rate   |
+  And I press "Create Task" 
+  Then I should see "Due date must be after the Release date!"
 
-And I press "Create Task" 
-Then I should see "Due date must be after the Release date!"
 
-
+Scenario: input invaild date time should not fill in time field (sad path) 
+  Given I am currently on the new_task page
+  When I fill in "task_release" with "abc"
+  Then I should not see "abc" with the scope of "task_release"
+  When I fill in "task_release" with "2015-13-29 10:40: -07:00"
+  Then I should not see "2015-13-29 10:40: -07:00" with the scope of "task_release"
+  
+Scenario: Input value time will covert to PST time zone
+  Given I am currently on the new_task page
+  When I fill in "task_release" with "2015-01-29 10:40: -07:00"
+  Then I fill in "task_title" with "proj2"
+  Then I should see "2015-01-29 09:40: -08:00" with the scope of "task_release"
 

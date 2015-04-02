@@ -83,8 +83,7 @@ class Task < ActiveRecord::Base
     end
     day_used = (Time.now - self.release) / 1.day
     total_day = (self.due - self.release) / 1.day
-    return "%.1f days / %.1f days" % [day_used, total_day]
-    # return ((Time.now - self.release) / 1.day).to_s + " days / " + ((self.due - self.release) / 1.day).to_s
+    return "%.1f / %.1f" % [day_used, total_day]
   end
 
   def self.work_distribution
@@ -111,6 +110,7 @@ class Task < ActiveRecord::Base
     arr = Array.new
     all_tasks.each do |task|
       hash_task = Hash.new
+      hash_task["label"] = "#{task.title}"
       hash_task["fillColor"] = "#" + task.hash_to_hex_s
       hash_task["highlightFill"] = "#" + task.hash_to_hex_s
       task_arr = task.task_array(startDate, endDate)
