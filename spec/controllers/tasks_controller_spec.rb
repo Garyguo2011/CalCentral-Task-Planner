@@ -153,11 +153,10 @@ describe TasksController, :type => :controller do
 		# Dev - Xinran Guo
 		describe "with invalid params" do
 			it "can't update" do
-				@task.stub(:update_attributes).and_return(false)
+				mock_task ||= mock_model("Task", :update_attributes => false).as_null_object
+				Task.stub(:find) { mock_task }
 				put :update, {:id => @task.user_id}
-				# expect(response).to render_template("edit")
-				# Cannot work
-				response.should_not be_success
+				expect(response).to render_template("edit")
 			end
 		end
 	end
