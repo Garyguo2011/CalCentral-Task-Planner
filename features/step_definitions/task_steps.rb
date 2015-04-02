@@ -157,6 +157,7 @@ end
 
 Then /^I click the icon "(.*?)" with "(.*?)"$/ do |icon_id, class_id|
   find("##{icon_id}").click
+end 
 
 Then /^I should see calendar datetime picker$/ do
   index = page.body.index("bootstrap-datetimepicker-widget")
