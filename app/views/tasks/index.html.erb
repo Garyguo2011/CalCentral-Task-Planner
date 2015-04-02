@@ -71,19 +71,23 @@ h1, table{
             <% @tasks_by_status.each do |task_list| %>
               <% if task_list.length != 0 %>
                 <% if task_list[0].status == "Past due" %>
-                  <% subs = "high" %>
+                  <% subs = "high"; status_change = "Finished"%>
                 <% elsif task_list[0].status == "New" %>
-                  <% subs = "medium" %>
+                  <% subs = "medium"; status_change = "Start" %>
                 <% else %>
-                  <% subs = "low" %>
+                  <% subs = "low"; status_change = "Finish" %>
                 <% end %>
                 <div class="priority <%= subs %>"><span><%= task_list[0].status %></span></div>
                 <% task_list.each do |task| %>
                   <div class="task <%= subs %>">
                     <div class="desc">
                       <div class="title"><%= task.title %></div>
-                      <div><%= task.course + "     " %><%= task.kind %></div>
+                      <div><%= task.course + " " %><%= task.kind %></div>
                     </div>
+                      <div class="button_area">
+
+                      <%= link_to status_change, task_change_status_path(task.id, status_change_to: "finish"), {:style=>'color:#FFFFFF;', :class => "btn btn-large btn-primary"}%>     
+                      </div>
                     <div class="time">
                       <div class="date"><%= task.due.strftime("%b %d") %></div>
                       <% if task.due > Time.now %>
@@ -110,7 +114,6 @@ h1, table{
             <h1>Timeline</h1>
 
             <div class="timeline">
-
               <% i = 0 %>
               <% @tasks_by_time.each do |task| %>
                 <% if i % 2 == 0 %>
@@ -123,7 +126,7 @@ h1, table{
                     <span>
                     <span class="type"><%= task.kind %></span>
                     <span class="details">
-                      <%= task.course+"   " %><%= task.title %>
+                      <%= task.course+" " %><%= task.title %>
                     </span>
                     <span>
                       remaining time
@@ -137,7 +140,7 @@ h1, table{
                     </span> 
                   </span>
                   <div class="arrow"></div>
-                </div>              
+                </div>   
                 <div class="icon">
                   <i class="fa fa-map-marker"></i>
                 </div>

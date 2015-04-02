@@ -7,9 +7,10 @@ CalcentralTaskPlanner::Application.routes.draw do
 
   root to: 'tasks#index'
 
+  get 'tasks/:id/status', to: 'tasks#changestatus', :as => "task_change_status"
+
   # The priority is based upon order of creation:
   # first created -> highest priority.
-
   # Sample of regular route:
   #   match 'products/:id' => 'catalog#view'
   # Keep in mind you can assign values other than :controller and :action

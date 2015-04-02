@@ -46,6 +46,9 @@ class TasksController < ApplicationController
       @tasks = @tasks.order(sort_argument)
     end
 
+    print "hhhhhhhhhhhhhhh"
+    print params
+
     @taskData = @tasks.work_distribution
     
     respond_to do |format|
@@ -131,5 +134,15 @@ class TasksController < ApplicationController
       format.html { redirect_to tasks_url }
       format.json { head :no_content }
     end
+  end
+
+  def changestatus
+    puts "in chanage ......"
+    @task = Task.find(params[:id])
+    print "ddddddddddddd"
+    print @task
+    @task.status = "Finished"
+    @task.save
+    redirect_to "/tasks"
   end
 end
