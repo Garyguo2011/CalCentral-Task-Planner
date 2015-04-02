@@ -119,7 +119,7 @@ describe Task do
 				@task.rate = 3
 				@task.release = "05/Jan/2015".to_date
 				@task.due = "05/Apr/2015".to_date
-				pp Task.wd_tasks(@startDate, @endDate)
+				Task.wd_tasks(@startDate, @endDate).should == []
 			end
 		end
 
