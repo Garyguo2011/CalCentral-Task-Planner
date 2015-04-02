@@ -44,17 +44,6 @@ class Task < ActiveRecord::Base
     ["Project", "Homework", "Paper", "Exam", "Other"]
   end
 
-  def self.task_by_status
-    past_tasks = self.find_all_by_status("Past Due")
-    new_tasks = self.find_all_by_status("New")
-    ongoing_tasks = self.find_all_by_status("Started")
-    ret = []
-    ret.push(past_tasks)
-    ret.push(ongoing_tasks)
-    ret.push(new_tasks)
-    return ret
-  end
-
   def remain_time
     if self.status != "Finished"
       remain_time = distance_of_time_in_words(self.due, Time.now, include_seconds: true)
@@ -83,7 +72,8 @@ class Task < ActiveRecord::Base
     end
     day_used = (Time.now - self.release) / 1.day
     total_day = (self.due - self.release) / 1.day
-    return "%.1f / %.1f" % [day_used, total_day]
+    return "%.1f days / %.1f days" % [day_used, total_day]
+    # return ((Time.now - self.release) / 1.day).to_s + " days / " + ((self.due - self.release) / 1.day).to_s
   end
 
   def self.work_distribution
@@ -110,7 +100,6 @@ class Task < ActiveRecord::Base
     arr = Array.new
     all_tasks.each do |task|
       hash_task = Hash.new
-      hash_task["label"] = "#{task.title}"
       hash_task["fillColor"] = "#" + task.hash_to_hex_s
       hash_task["highlightFill"] = "#" + task.hash_to_hex_s
       task_arr = task.task_array(startDate, endDate)
@@ -165,7 +154,7 @@ class Task < ActiveRecord::Base
 
   def task_progress_counts () 
     if (subtask_count > 0)
-      return subtasks_complete.to_s + " Complete / " + subtask_count.to_s + " Total"
+      return subtasks_complete.to_s + " Complete /" + subtask_count.to_s + " Total"
     end
     return "No Subtasks"
   end
