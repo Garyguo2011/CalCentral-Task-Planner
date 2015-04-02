@@ -27,6 +27,7 @@ group :development, :test do
   gem 'simplecov'
   gem "webrat", ">= 0.7.2"
   gem 'railroady'
+  gem 'database_cleaner'
 end
 
 group :production do
