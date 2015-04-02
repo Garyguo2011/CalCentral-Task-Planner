@@ -14,6 +14,9 @@ Given /the following (.*) exist/ do |which, table|
   end
 end
 
+
+
+
 Given /I sign in "(.*)" with "(.*)"/ do |email, password|
   fill_in("Email", :with => email)
   fill_in("user_password", :with => password)

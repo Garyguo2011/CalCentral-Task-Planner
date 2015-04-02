@@ -23,11 +23,12 @@ Background: users and tasks have been added to database
  
 Scenario: Sign up
   When I follow "Sign up"
-  When I fill in "First name" with "Jinge"
-  When I fill in "Last name" with "Zhang"
-  When I fill in "Email" with "jingezhang@berkeley.edu"
-  When I fill in "Password" with "12345678"
-  When I fill in "Password confirmation" with "12345678"
+  When I fill in the following: 
+      |First name| Jinge |
+      |Last name | Zhang |
+      |Email     | jingezhang@berkeley.edu |
+      |Password  | 12345678|
+      |Password confirmation| 12345678|
   And I press "Sign up"
   Then I should see "Jinge Zhang"
 
@@ -40,8 +41,10 @@ Scenario: User only view its own task, with finished tasks filtered out initally
   When I sign in "zhangjinge0110@126.com" with "12345678"
   Then I should see the following "Rod Zhang","HW2"
   Then I should not see the following "ESSAY1","HW1","PROJ1","MIDTERM1"
+
   When I follow "Show finished tasks"
   Then I should see the following "HW2", "MIDTERM1"
+
   When I follow "Hide finished tasks"
   Then I should see "HW2"
   Then I should not see "MIDTERM1" 
