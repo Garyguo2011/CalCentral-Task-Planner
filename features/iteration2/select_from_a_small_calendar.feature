@@ -24,4 +24,3 @@ Scenario: show Calendar form
   Given I am currently on the new_task page                          
   Then I click the icon "calendar_icon_release" with "release_date"
   Then I should see calendar datetime picker
-  Then I should call javascript with id "calendar_js"
