@@ -21,7 +21,6 @@ gem 'bootstrap3-datetimepicker-rails', '~> 4.7.14'
 
 group :development, :test do
   gem 'sqlite3'
-  gem 'database_cleaner'
   gem 'cucumber-rails', :require => false
   gem 'rspec-rails', '~> 2.14.0'
   gem 'simplecov'
