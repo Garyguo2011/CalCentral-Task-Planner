@@ -18,53 +18,39 @@ Background: users and tasks have been added to database
   | ESSAY1    | CS195  | Paper    | 9/Mar/2015 23:59:00 -0800  | 31/Mar/2015 23:59:00 -0800 | Started  | 1     | 1       |
   | HW2       | CS186  | Homework | 27/Feb/2015 23:59:00 -0800 | 2/Mar/2015 23:59:00 -0800  | Started  | 2     | 2       |
   | MIDTERM1  | CS164  | Exam     | 1/Mar/2015 12:00:00 -8000  | 1/Apr/2015 16:00:00 -0800  | Finished | 2     | 2       |
-  
+
+  Given I am currently on the sign-in page
  
 Scenario: Sign up
-  Given I am currently on the sign-in page
   When I follow "Sign up"
-  When I fill in "First name" with "Jinge"
-  When I fill in "Last name" with "Zhang"
-  When I fill in "Email" with "jingezhang@berkeley.edu"
-  When I fill in "Password" with "12345678"
-  When I fill in "Password confirmation" with "12345678"
+  When I fill in the following: 
+      |First name| Jinge |
+      |Last name | Zhang |
+      |Email     | jingezhang@berkeley.edu |
+      |Password  | 12345678|
+      |Password confirmation| 12345678|
   And I press "Sign up"
   Then I should see "Jinge Zhang"
 
 Scenario:  Sign in
-  Given I am currently on the sign-in page
-  When I fill in "Email" with "zhangjinge588@gmail.com"
-  When I fill in "user_password" with "12345678"
-  When I press "Log in"
-  Then I should see "Jinge Zhang"
-  Then I should see "ESSAY1"
-  Then I should see "HW1"
-  Then I should see "PROJ1" 
-  Then I should not see "HW2"
-  Then I should not see "MIDTERM1"
+  When I sign in "zhangjinge588@gmail.com" with "12345678"
+  Then I should see the following "Jinge Zhang", "ESSAY1", "HW1", "PROJ1"
+  Then I should not see the following "HW2", "MIDTERM1"
 
 Scenario: User only view its own task, with finished tasks filtered out initally
-  Given I am currently on the sign-in page
-  When I fill in "Email" with "zhangjinge0110@126.com"
-  When I fill in "user_password" with "12345678"
-  When I press "Log in"
-  Then I should see "Rod Zhang"
-  Then I should not see "ESSAY1"
-  Then I should not see "HW1"
-  Then I should not see "PROJ1" 
-  Then I should see "HW2"
-  Then I should not see "MIDTERM1"
+  When I sign in "zhangjinge0110@126.com" with "12345678"
+  Then I should see the following "Rod Zhang","HW2"
+  Then I should not see the following "ESSAY1","HW1","PROJ1","MIDTERM1"
+
   When I follow "Show finished tasks"
-  Then I should see "HW2"
-  Then I should see "MIDTERM1"
+  Then I should see the following "HW2", "MIDTERM1"
+
   When I follow "Hide finished tasks"
   Then I should see "HW2"
   Then I should not see "MIDTERM1" 
+
 Scenario: Sign out
-  Given I am currently on the sign-in page
-  When I fill in "Email" with "zhangjinge588@gmail.com"
-  When I fill in "user_password" with "12345678"
-  When I press "Log in"
+  When I sign in "zhangjinge588@gmail.com" with "12345678"
   Then I should see "Jinge Zhang"
   When I follow "Sign Out"
   Then I should currently on the sign-in page 

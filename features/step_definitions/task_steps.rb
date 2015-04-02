@@ -14,6 +14,9 @@ Given /the following (.*) exist/ do |which, table|
   end
 end
 
+
+
+
 Given /I sign in "(.*)" with "(.*)"/ do |email, password|
   fill_in("Email", :with => email)
   fill_in("user_password", :with => password)
@@ -151,9 +154,10 @@ When /^I (change|add) description for "(.*?)" to "(.*?)"$/ do |action, subtask_t
   end
 end
 
+
 Then /^I click the icon "(.*?)" with "(.*?)"$/ do |icon_id, class_id|
   find("##{icon_id}").click
-end
+end 
 
 Then /^I should see calendar datetime picker$/ do
   index = page.body.index("bootstrap-datetimepicker-widget")

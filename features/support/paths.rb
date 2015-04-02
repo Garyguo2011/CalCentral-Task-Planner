@@ -19,6 +19,7 @@ module NavigationHelpers
     when /^new_task$/ then '/users/tasks/new'
     when /^Project filter page/ then '/tasks?filter=Project'
     when /^Show All page/ then 'tasks?filter=Show%20All'
+    when /^add new task/ then '/tasks/new'
 
     when /^the detail page for "([^"]*)"$/i
      task_path(Task.find_by_title($1))

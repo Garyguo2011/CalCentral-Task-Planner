@@ -78,12 +78,20 @@ end
 #
 When /^(?:|I )fill in the following:$/ do |fields|
   fields.rows_hash.each do |name, value|
-    When %{I fill in "#{name}" with "#{value}"}
+    #When %{I fill in "#{name}" with "#{value}"}
+    fill_in(name, :with => value)
   end
 end
 
 When /^(?:|I )select "([^"]*)" from "([^"]*)"$/ do |value, field|
   select(value, :from => field)
+end
+
+When /^(?:|I )select the following:$/ do |fields|
+  fields.rows_hash.each do |name, value|
+    #When %{I select "#{name}" from "#{value}"}
+    select(name, :from => value)
+  end
 end
 
 When /^(?:|I )check "([^"]*)"$/ do |field|
