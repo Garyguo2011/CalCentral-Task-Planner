@@ -160,12 +160,12 @@ Then /^I should see calendar datetime picker$/ do
   assert(index != -1)
 end
 
-Then /^I should (not )?see "(.*)" with the scope of "(.*)"$/ do |is_not, task_title, legend_id|
-  within("##{legend_id}") do
+Then /^I should (not )?see "(.*)" with the scope of "(.*)"$/ do |is_not, content, css_id|
+  within("##{css_id}") do
     if is_not == "not"
-      assert(page.body.index(task_title) == -1)
+      assert(page.body.index(content) == -1)
     else
-      assert(page.body.index(task_title) != -1)
+      assert(page.body.index(content) != -1)
     end
   end
 end
