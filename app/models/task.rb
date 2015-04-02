@@ -44,6 +44,17 @@ class Task < ActiveRecord::Base
     ["Project", "Homework", "Paper", "Exam", "Other"]
   end
 
+  def self.task_by_status
+    past_tasks = self.find_all_by_status("Past Due")
+    new_tasks = self.find_all_by_status("New")
+    ongoing_tasks = self.find_all_by_status("Started")
+    ret = []
+    ret.push(past_tasks)
+    ret.push(ongoing_tasks)
+    ret.push(new_tasks)
+    return ret
+  end
+
   def remain_time
     if self.status != "Finished"
       remain_time = distance_of_time_in_words(self.due, Time.now, include_seconds: true)

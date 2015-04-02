@@ -1,10 +1,3 @@
-
-module WithinHelpers
-  def with_scope(locator)
-    locator ? within(*selector_for(locator)) { yield } : yield
-  end
-end
-
 # Add a declarative step here for populating the DB with tasks.
 
 Given /the following (.*) exist/ do |which, table|
