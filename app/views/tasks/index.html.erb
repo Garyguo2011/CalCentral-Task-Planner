@@ -85,9 +85,9 @@ h1, table{
                 <% if task_list[0].status == "Past due" %>
                   <% subs = "high"; status_change = "Finished" %>
                 <% elsif task_list[0].status == "Started" %>
-                  <% subs = "medium"; status_change = "Start" %>
+                  <% subs = "medium"; status_change = "Finish" %>
                 <% elsif task_list[0].status == "New" %>
-                  <% subs = "low"; status_change = "Finish" %>
+                  <% subs = "low"; status_change = "Start" %>
                 <% else %>
                   <% if @show_finish == true; status_change = "Reopen" %>
                     <% subs = "xlow" %>
@@ -131,7 +131,7 @@ h1, table{
 
             <h1>Timeline</h1>
 
-            <div class="timeline">
+            <div class="timeline" id="Timeline">
               <% i = 0 %>
               <% @tasks_by_time.each do |task| %>
                 <% if i % 2 == 0 %>

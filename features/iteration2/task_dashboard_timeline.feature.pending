@@ -22,9 +22,9 @@ Background: users and tasks have been added to database
   And I sign in "123454321@hotmail.com" with "123454321"
 
 Scenario: see a timeline with a sorted list of tasks
-  When I am on homepage
-  Then I should not see "MIDTERM1" within "Timeline" section
-  Then I should see "HW2" before "PROJ1" within "Timeline" section
+  When I am on the tasks page
+  Then I should not see "MIDTERM1" with the scope of "Timeline"
+  Then I can see "HW2" before "PROJ1" with the scope of "Timeline"
   And I should see "ESSAY1" before "HW1" within "Timeline" section
   When I follow "Show all tasks"
   Then I should not see "MIDTERM1" within "Timeline" section

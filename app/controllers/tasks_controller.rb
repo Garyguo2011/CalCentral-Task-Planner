@@ -144,11 +144,11 @@ class TasksController < ApplicationController
     new_status = ""
     if @task.status == "New"
       new_status = "Started"
-    elsif @task.status = "Sarted"
+    elsif @task.status == "Started"
       new_status = "Finished"
-    elsif @task.status = "Finished"
-      new_status = "New"
-    elsif @task.status = "Past due"
+    elsif @task.status == "Finished"
+      new_status = "Started"
+    elsif @task.status == "Past due"
       new_status = "Finished"
     end
 

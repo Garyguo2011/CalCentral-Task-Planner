@@ -37,7 +37,7 @@ Then /I should not see the following tasks:(.*)/ do |task_list|
   end
 end
 
-Then /I should see "(.*)" before "(.*)"/ do |e1, e2|
+Then /I should see "(.*)" before "(.*)"$/ do |e1, e2|
   #  ensure that that e1 occurs before e2.
   #  page.body is the entire content of the page as a string.
   elem = page.html
@@ -171,11 +171,13 @@ Then /^I should (not )?see "(.*)" with the scope of "(.*)"$/ do |is_not, task_ti
 end
 
 
-Then /I should see "(.*)" before "(.*)" with the scope of "(.*)"$/ do |e1, e2, legend_id|
+Then /I can see "(.*)" before "(.*)" with the scope of "(.*)"$/ do |e1, e2, legend_id|
   #  ensure that that e1 occurs before e2.
   #  page.body is the entire content of the page as a string.
-  elem = page.html
-  assert(elem.index(e1) < elem.index(e2), "incorrect order, #{e1} should be before #{e2}")
+  within("##{legend_id}") do
+    elem = page.html
+    assert(elem.index(e1) < elem.index(e2), "incorrect order, #{e1} should be before #{e2}")
+  end
 end 
 
 # Then /^the done checkbox for "(.*)" should be checked$/ do |subtask_title|
