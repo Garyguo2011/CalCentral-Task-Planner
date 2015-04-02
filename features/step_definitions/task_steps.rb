@@ -47,12 +47,9 @@ end
 Then /I should see all the tasks/ do
   # Make sure that all the tasks in the app are visible in the table
   tasks = Task.find(:all)
-  if tasks.size == 5
-    tasks.each do |task|
-      assert(page.body =~ /#{task[:title]}/m, "#{task[:title]} not appear in the list")
-    end
-  else
-    return false
+  assert tasks.size == 5
+  tasks.each do |task|
+    assert(page.body =~ /#{task[:title]}/m, "#{task[:title]} not appear in the list")
   end
 end
 
