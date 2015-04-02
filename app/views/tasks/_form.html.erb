@@ -21,11 +21,11 @@
     <!-- [Jinge Gary]datetime picker -->
     <div class='input-group date' id='release_date'>
         <%= f.text_field :release, class: "form-control" %>
-        <span class="input-group-addon">
+        <span class="input-group-addon" id="calendar_icon_release">
             <span class="glyphicon glyphicon-calendar"></span>
         </span>
     </div>
-    <script type="text/javascript">
+    <script type="text/javascript" id='calendar_js'>
         $(function () {
             $('#release_date').datetimepicker({format: 'YYYY-MM-DD HH:mm Z'});
         });

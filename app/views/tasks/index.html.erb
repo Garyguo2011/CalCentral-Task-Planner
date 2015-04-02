@@ -183,19 +183,21 @@ h1, table{
 <!-- End: Change style -->
 
 
-<script src="/vendor/assets/javascripts/Chart.js"></script>
-
 <div style="width:40%">
   <div>
     <canvas id="canvas" width="450" height="600"></canvas>
+    <div id="legendDiv"></div>
   </div>
 </div>
 
+<div id="work_distribution_chart">
 <script>
   var data = <%=raw @taskData.to_json %>;
   window.onload = function(){
     var ctx = document.getElementById("canvas").getContext("2d");
     window.myBar = new Chart(ctx).StackedBar(data);
+    legend(document.getElementById('legendDiv'), data);
 }
 </script>
+</div>
 </body>

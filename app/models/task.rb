@@ -123,6 +123,7 @@ class Task < ActiveRecord::Base
     arr = Array.new
     all_tasks.each do |task|
       hash_task = Hash.new
+      hash_task["label"] = "#{task.title}"
       hash_task["fillColor"] = "#" + task.hash_to_hex_s
       hash_task["highlightFill"] = "#" + task.hash_to_hex_s
       task_arr = task.task_array(startDate, endDate)
