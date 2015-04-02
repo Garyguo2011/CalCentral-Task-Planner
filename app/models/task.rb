@@ -45,14 +45,26 @@ class Task < ActiveRecord::Base
   end
 
   def self.task_by_status
-    past_tasks = self.find_all_by_status("Past Due")
+    past_tasks = self.find_all_by_status("Past due")
     new_tasks = self.find_all_by_status("New")
     ongoing_tasks = self.find_all_by_status("Started")
+    finished_tasks = self.find_all_by_status("Finished")
     ret = []
     ret.push(past_tasks)
     ret.push(ongoing_tasks)
     ret.push(new_tasks)
+    ret.push(finished_tasks)
     return ret
+  end
+
+  def self.check_past_due
+    current_tasks = self.find_all_by_status(["New", "Started"])
+    current_tasks.each do |task|
+      if Time.now > task.due
+        task.status = "Past due"
+        task.save!
+      end
+    end
   end
 
   def remain_time

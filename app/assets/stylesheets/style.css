@@ -10,7 +10,7 @@
 * You can find our other themes on: http://bootstrapmaster.com
 */
 
-/*
+/*@import "jquery-ui-1.10.3.custom.css";
 @import "jquery-ui-1.10.3.custom.css";
 @import "fullcalendar.css";
 @import "chosen.css";
@@ -28,8 +28,7 @@
 @import "social.css";
 @import "dropzone.css";
 @import "xcharts.min.css";
-@import "jquery.easy-pie-chart.css";
-*/
+@import "jquery.easy-pie-chart.css";*/
 @import url(http://fonts.googleapis.com/css?family=Lato:300);
 @import url(http://fonts.googleapis.com/css?family=Lato:400);
 @import url(http://fonts.googleapis.com/css?family=Kaushan+Script);
@@ -87,7 +86,7 @@ h6 {
   min-height: 100%;
   padding: 20px 20px;
   position: relative;
-  background: #f5f5f5;
+  background: #FFFFFF;
 }
 #content.full {
   width: 100% !important;
@@ -4419,6 +4418,17 @@ ul.messagesList li span.date {
   display: inline-block;
   font-size: 12px;
 }
+.priority.xlow {
+  background: #E0E0E0;
+  margin-bottom: 1px;
+}
+.priority.xlow span {
+  background: #757575;
+  padding: 2px 10px;
+  color: white;
+  display: inline-block;
+  font-size: 12px;
+}
 .task {
   border-bottom: 1px solid #f9f9f9;
   margin-bottom: 1px;
@@ -4426,17 +4436,28 @@ ul.messagesList li span.date {
 }
 .task .desc {
   display: inline-block;
-  width: 75%;
+  width: 25%;
   padding: 10px 10px;
   font-size: 12px;
 }
+
+.task .button_area {
+  display: inline-block;
+  width: 20%;
+  padding: 0px 0px;
+  vertical-align: middle;
+  padding-bottom: 20px;
+}
+
+
+
 .task .desc .title {
   font-size: 18px;
   margin-bottom: 5px;
 }
 .task .time {
   display: inline-block;
-  width: 18%;
+  width: 25%;
   padding: 10px 10px 10px 0px;
   font-size: 12px;
   text-align: right;
@@ -4460,11 +4481,15 @@ ul.messagesList li span.date {
 .task.low {
   border-left: 2px solid #78cd51;
 }
+.task.xlow{
+  border-left: 2px solid #757575;
+}
 .timeline {
-  width: auto;
+  width: 100%;
   height: 100%;
   margin: 20px auto;
   position: relative;
+  background-color: #F0F0F0;
 }
 .timeline:before {
   position: absolute;
@@ -4478,6 +4503,7 @@ ul.messagesList li span.date {
 .timeslot {
   display: inline-block;
   position: relative;
+  padding: 55px 1px;
   width: 100%;
   margin: 5px 0px;
 }
@@ -4488,6 +4514,7 @@ ul.messagesList li span.date {
   display: block;
   height: auto;
   border: none;
+  top: 1px;
   -webkit-box-sizing: content-box;
   -moz-box-sizing: content-box;
   box-sizing: content-box;
@@ -4520,7 +4547,7 @@ ul.messagesList li span.date {
   right: 0px;
   height: 20px;
   width: 20px;
-  background: url(../img/timeline-left-arrow.png) no-repeat;
+  background: url(/assets/image/timeline-left-arrow.png) no-repeat;
 }
 .timeslot .icon {
   position: absolute;
@@ -4539,6 +4566,7 @@ ul.messagesList li span.date {
   text-align: center;
   text-shadow: none;
   z-index: 2;
+  top: 1px;
   -webkit-box-sizing: content-box;
   -moz-box-sizing: content-box;
   box-sizing: content-box;
@@ -4559,6 +4587,7 @@ ul.messagesList li span.date {
   left: auto;
   right: -20px;
   padding-left: 18px;
+  top: 1px;
   -webkit-box-sizing: content-box;
   -moz-box-sizing: content-box;
   box-sizing: content-box;
@@ -4569,7 +4598,7 @@ ul.messagesList li span.date {
   left: 0px;
   height: 20px;
   width: 20px;
-  background: url(../img/timeline-right-arrow.png) no-repeat;
+  background: url(/assets/image/timeline-right-arrow.png) no-repeat;
 }
 .timeslot.alt .time {
   top: 1px;
@@ -4954,7 +4983,7 @@ ul.messagesList li span.date {
   }
   .graph {
     position: relative;
-    margin: 0px !important;
+    margin: 10px !important;
   }
   .task {
     border-bottom: 1px solid #f9f9f9;

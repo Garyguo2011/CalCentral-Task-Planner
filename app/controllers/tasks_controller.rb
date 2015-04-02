@@ -1,12 +1,12 @@
 class TasksController < ApplicationController
   #load_and_authorize_resource
-
+  before_filter :check_status
   # GET /tasks
   # GET /tasks.json
   def index
     @tasks = Task.accessible_by(current_ability)
     @tasks_by_status = Task.accessible_by(current_ability).task_by_status
-    @tasks_by_time = Task.accessible_by(current_ability).order(:due).find_all_by_status(["New", "Started", "Past Due"])
+    @tasks_by_time = Task.accessible_by(current_ability).order(:due).find_all_by_status(["New", "Started", "Past due"])
     if params[:sort] != nil
       sort_argument = params[:sort]
       session[:sort] = sort_argument
@@ -35,15 +35,17 @@ class TasksController < ApplicationController
     else
       show_finished = nil
     end
-
+    @show_finish = false
     if filter_argument == nil and show_finished == nil
       @tasks = Task.where("status != ? AND user_id = ?", "Finished", current_user).order(sort_argument)
     elsif filter_argument != nil and show_finished != nil
       @tasks = @tasks.order(sort_argument).where("kind = ?", filter_argument)
+      @show_finish = true
     elsif filter_argument != nil
       @tasks = Task.where("status != ? AND user_id = ?", "Finished", current_user).order(sort_argument).where("kind = ?", filter_argument)
     else
       @tasks = @tasks.order(sort_argument)
+      @show_finish = true
     end
 
     @taskData = @tasks.work_distribution
@@ -132,4 +134,28 @@ class TasksController < ApplicationController
       format.json { head :no_content }
     end
   end
+
+  def check_status
+    Task.accessible_by(current_ability).check_past_due
+  end 
+
+  def changestatus
+    @task = Task.find(params[:id])
+    new_status = ""
+    if @task.status == "New"
+      new_status = "Started"
+    elsif @task.status == "Started"
+      new_status = "Finished"
+    elsif @task.status == "Finished"
+      new_status = "Started"
+    elsif @task.status == "Past due"
+      new_status = "Finished"
+    end
+
+    @task.update_attribute :status, new_status
+    redirect_to "/tasks"
+  end
 end
+
+
+
