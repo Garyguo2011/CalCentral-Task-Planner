@@ -28,9 +28,7 @@ When I click the icon "calendar_icon_release" with "release_date"
 Then I should see calendar datetime picker                               
 
 
-
 Scenario: sad Calendar form path  
-
 When I fill in "task_release" with "2015-03-29 10:40: -07:00" 
 When I fill in "task_due" with "2015-03-28 20:25: -07:00" 
 When I fill in "Title" with "CS169 HW"                        
