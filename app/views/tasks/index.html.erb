@@ -183,6 +183,7 @@ h1, table{
   </div>
 </div>
 
+<div id="work_distribution_chart">
 <script>
   var data = <%=raw @taskData.to_json %>;
   window.onload = function(){
@@ -191,4 +192,5 @@ h1, table{
     legend(document.getElementById('legendDiv'), data);
 }
 </script>
+</div>
 </body>

@@ -162,6 +162,16 @@ Then /^I should see calendar datetime picker$/ do
   index = page.body.index("bootstrap-datetimepicker-widget")
   assert(index != -1)
 end
+
+Then /^I should (not )?see "(.*)" with the scope of "(.*)"$/ do |is_not, task_title, legend_id|
+  within("##{legend_id}") do
+    if is_not == "not"
+      assert(page.body.index(task_title) == -1)
+    else
+      assert(page.body.index(task_title) != -1)
+    end
+  end
+end
 # Then /^the done checkbox for "(.*)" should be checked$/ do |subtask_title|
 #   subtask = Subtask.find_by_description(subtask_title)
 #   css_class = "#subtask_#{subtask.id}"
