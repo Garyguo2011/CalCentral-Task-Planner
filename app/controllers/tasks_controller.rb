@@ -61,12 +61,6 @@ class TasksController < ApplicationController
       @task = Task.accessible_by(current_ability).find(params[:id])
       @subtask = Subtask.new({ :task => @task })
 
-      if @task.subtasks == nil
-        @hasSubtask = false
-      else
-        @hasSubtask = true
-      end
-
       respond_to do |format|
         format.html # show.html.erb
         format.json { render json: @task }

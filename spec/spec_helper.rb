@@ -11,7 +11,6 @@ require 'rspec/autorun'
 require 'capybara/rspec'
 require 'devise'
 require 'support/login_helper'
-require 'yaml'
 require 'database_cleaner'
 
 
