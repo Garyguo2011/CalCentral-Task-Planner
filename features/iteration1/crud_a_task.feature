@@ -68,6 +68,7 @@ Scenario: Read/Edit task
   Then I should see "Editing task"
   Then I would see "HW1" in my "Title"
   When I fill in "Title" with "CS169 HW1"
+  And I select "New" from "Status"
   Then I press "Update Task"
   Then I should see "Task was successfully updated."
   When I press "Back List"

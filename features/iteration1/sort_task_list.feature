@@ -43,4 +43,4 @@ Scenario: sort tasks in ascending order of types
 
 Scenario: sort tasks in ascending order of statuses
   When I follow "Status"
-  Then I should see "ESSAY1" before "PROJ1" 
+  Then I should see "PROJ1" before "ESSAY1" 

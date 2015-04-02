@@ -41,7 +41,7 @@ h1, table{
 
 <% @tasks.each do |task| %>
   <tr>
-    <td><%= link_to task.title, task_path(task) %></td>
+    <td><%= task.title %></td>
     <td><%= task.course %></td>
     <td><%= task.kind %></td>
     <td><%= task.remain_time %></td>
