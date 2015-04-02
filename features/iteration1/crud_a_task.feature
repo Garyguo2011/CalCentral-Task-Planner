@@ -18,48 +18,37 @@ Background: users and tasks have been added to database
   | ESSAY1    | CS195  | Paper    | 9/Mar/2015 23:59:00 -0800  | 31/Mar/2015 23:59:00 -0800 | Started  | 1     | 1       |
   | HW2       | CS186  | Homework | 27/Feb/2015 23:59:00 -0800 | 2/Mar/2015 23:59:00 -0800  | Started  | 2     | 2       |
   | MIDTERM1  | CS164  | Exam     | 1/Mar/2015 12:00:00 -8000  | 1/Apr/2015 16:00:00 -0800  | Finished | 2     | 2       |
-  
+
+  Given I am currently on the sign-in page
+  When I sign in "zhangjinge588@gmail.com" with "12345678"
 
 Scenario: add task with CS169 HW, 3/15/2015
-  Given I am currently on the sign-in page
-  When I fill in "Email" with "zhangjinge588@gmail.com"
-  When I fill in "user_password" with "12345678"
-  When I press "Log in"
-  Then I should see "Jinge Zhang"
   When I follow "Add new task"
-  Then I should currently on the new_task page
-  When I fill in "Title" with "CS169 HW"
-  When I fill in "task_release" with "2015-03-29 10:40: -07:00"
-  When I fill in "task_due" with "2015-03-29 20:25: -07:00"
-  When I select "New" from "Status"
-  When I select "Homework" from "Kind"
-  When I select "Computer Science 169" from "Course"
-  When I select "3" from "Rate"
+  When I fill in the following: 
+      |Title       | CS169 HW |
+      |task_release| 2015-03-29 10:40: -07:00|
+      |task_due    | 2015-03-29 20:25: -07:00| 
+  When I select the following: 
+      |New                  | Status | 
+      |Homework             | Kind   |
+      |Computer Science 169 | Course |
+      |3                    | Rate   |
   And I press "Create Task"
   Then I should see "Task was successfully created."
 
 Scenario: add task (sad path)
-  Given I am currently on the sign-in page
-  When I fill in "Email" with "zhangjinge588@gmail.com"
-  When I fill in "user_password" with "12345678"
-  When I press "Log in"
-  Then I should see "Jinge Zhang"
   When I follow "Add new task"
-  Then I should currently on the new_task page
-  When I fill in "Title" with "CS169 HW"
-  When I fill in "task_due" with "2015-03-30 20:25: -07:00"
-  When I select "Computer Science 169" from "Course"
-  When I fill in "task_release" with "2015-03-29 20:25: -07:00"
-  When I select "3" from "Rate"
+  When I fill in the following: 
+      |Title       | CS169 HW |
+      |task_release| 2015-03-29 10:40: -07:00|
+      |task_due    | 2015-03-29 20:25: -07:00| 
+  When I select the following: 
+      |3                    | Rate   |
+      |Computer Science 169 | Course |
   And I press "Create Task"
   Then I should see "errors prohibited this task from being saved"
   
 Scenario: Read/Edit task
-  Given I am currently on the sign-in page
-  When I fill in "Email" with "zhangjinge588@gmail.com"
-  When I fill in "user_password" with "12345678"
-  When I press "Log in"
-  Then I should see "HW1"
   When I follow "HW1"
   Then I should see "HW1"
   When I press "Edit Task"
@@ -72,13 +61,8 @@ Scenario: Read/Edit task
   Then I should see "CS169 HW1"
 
 Scenario: Read/Delete task
-  Given I am currently on the sign-in page
-  When I fill in "Email" with "zhangjinge588@gmail.com"
-  When I fill in "user_password" with "12345678"
-  When I press "Log in"
-  Then I should see "HW1"
   When I follow "HW1"
-  Then I should see "HW1"
   When I press "Delete"
   Then I should currently on the home page
   Then I should not see "HW1"
+
