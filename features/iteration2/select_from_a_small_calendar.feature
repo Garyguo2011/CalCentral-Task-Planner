@@ -29,13 +29,18 @@ Then I should see calendar datetime picker
 
 
 Scenario: sad Calendar form path  
-When I fill in "task_release" with "2015-03-29 10:40: -07:00" 
-When I fill in "task_due" with "2015-03-28 20:25: -07:00" 
-When I fill in "Title" with "CS169 HW"                        
-When I select "New" from "Status"                             
-When I select "Homework" from "Kind"                          
-When I select "Computer Science 169" from "Course"    
-When I select "3" from "Rate" 
+
+When I fill in the following: 
+      |task_release| 2015-03-29 10:40: -07:00|
+      |task_due    | 2015-03-28 20:25: -07:00|
+      |Title       | CS169 HW |
+
+When I select the following: 
+      |New                  | Status | 
+      |Homework             | Kind   |
+      |Computer Science 169 | Course |
+      |3                    | Rate   |
+
 And I press "Create Task" 
 Then I should see "Due date must be after the Release date!"
 
