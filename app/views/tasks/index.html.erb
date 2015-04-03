@@ -70,7 +70,7 @@ h1, table{
 </table>
 
 <!-- Start: Change style -->
-      <table id='tasks' align='center' width="80%">
+      <table id='tasks' width="80%">
       <div id="content" class="col-lg-10 col-sm-11">
       
       
@@ -83,7 +83,7 @@ h1, table{
             <% @tasks_by_status.each do |task_list| %>
               <% if task_list.length != 0 %>
                 <% if task_list[0].status == "Past due" %>
-                  <% subs = "high"; status_change = "Finished" %>
+                  <% subs = "high"; status_change = "Finish" %>
                 <% elsif task_list[0].status == "Started" %>
                   <% subs = "medium"; status_change = "Finish" %>
                 <% elsif task_list[0].status == "New" %>
@@ -97,12 +97,12 @@ h1, table{
                 <% end %>
                 <div class="priority <%= subs %>" id = "<%= subs %>"><span><%= task_list[0].status %></span></div>
                 <% task_list.each do |task| %>
-                  <div class="task <%= subs %>">
+                  <div class="task <%= subs %>" id = "<%=task.course%>_<%=task.title%>">
                     <div class="desc">
                       <div class="title"><%= link_to task.title, task_path(task) %></div>
                       <div><%= task.course + "     " %><%= task.kind %></div>
                     </div>
-                      <div class="button_area">
+                      <div class="button_area" id="status_button_<%=task.id%>">
 
                       <%= link_to status_change, task_change_status_path(task.id), {:style=>'color:#FFFFFF;', :class => "btn btn-large btn-primary"}%>     
                       </div>
@@ -139,7 +139,7 @@ h1, table{
                 <% else %>
                   <% div_name = "timeslot alt" %>
                 <% end %>
-                <div class="<%= div_name %>">
+                <div class="<%= div_name %>" id="<%=task.course%>_<%=task.title%>_timeslot">
                 <div class="task">
                     <span>
                     <span class="type"><%= task.kind %></span>

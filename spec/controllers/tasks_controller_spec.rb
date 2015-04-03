@@ -4,6 +4,7 @@ require 'capybara/rspec'
 
 describe TasksController, :type => :controller do
 	before(:each) do
+		Time.stub(:now).and_return("5/Jan/2015 22:00:00 -0800".to_datetime)
 		login_user
 	end
 
@@ -167,4 +168,43 @@ describe TasksController, :type => :controller do
 			expect{ delete :destroy, id: @task}.to change(Task, :count).by(-1)
 		end
 	end
+
+
+	describe 'change status' do
+		it "change New status" do
+			@task = FactoryGirl.create(:task, id: 10, status: "New")
+			put :changestatus, :id => 10
+			@task.reload
+			expect(@task.status).to eq('Started')
+		end
+
+		it "change Started status" do
+			@task = FactoryGirl.create(:task, id: 10, status: "Started")
+			put :changestatus, :id => 10
+			@task.reload
+			#expect{ get :tasks, :id: 10, :format: 'status'}.to change(@task, :status).from('Started').to('Finished')
+			expect(@task.status).to eq('Finished')
+		end
+
+		it "change Finished status" do
+			@task = FactoryGirl.create(:task, id: 10, status: "Finished")
+			put :changestatus, :id => 10
+			@task.reload
+			#expect{ get :tasks, :id: 10, :format: 'status'}.to change(@task, :status).from('Started').to('Finished')
+			expect(@task.status).to eq('Started')
+		end
+
+		it "change Past due status" do
+			@task = FactoryGirl.create(:task, id: 10, status: "Past due")
+			put :changestatus, :id => 10
+			@task.reload
+			#expect{ get :tasks, :id: 10, :format: 'status'}.to change(@task, :status).from('Started').to('Finished')
+			expect(@task.status).to eq('Finished')
+		end
+
+	end
+
+
+
+
 end
