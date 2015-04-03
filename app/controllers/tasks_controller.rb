@@ -142,17 +142,18 @@ class TasksController < ApplicationController
   def changestatus
     @task = Task.find(params[:id])
     new_status = ""
-    if @task.status == "New"
+    case @task.status
+    when "New"
       @start_at = Time.now
       new_status = "Started"
-    elsif @task.status == "Started"
+    when "Started"
       @finish_at = Time.now
       new_status = "Finished"
-    elsif @task.status == "Finished"
+    when "Finished"
       @start_at = Time.now
       @finish_at = nil
       new_status = "Started"
-    elsif @task.status == "Past due"
+    when "Past due"
       @finish_at = Time.now
       new_status = "Finished"
     end
