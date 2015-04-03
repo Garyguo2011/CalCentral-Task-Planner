@@ -121,6 +121,7 @@ GEM
       activesupport (= 3.2.19)
       bundler (~> 1.0)
       railties (= 3.2.19)
+    rails_serve_static_assets (0.0.4)
     railties (3.2.19)
       actionpack (= 3.2.19)
       activesupport (= 3.2.19)
@@ -206,6 +207,7 @@ DEPENDENCIES
   pg
   railroady
   rails (= 3.2.19)
+  rails_serve_static_assets
   rake
   rspec-rails (~> 2.14.0)
   sass-rails (~> 3.2.3)
