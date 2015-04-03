@@ -5,7 +5,7 @@ class Subtask < ActiveRecord::Base
   validates :task, :presence => true
 
   def self.complete () 
-    return self.where("is_done == ?", true).count
+    return self.where("is_done = ?", true).count
   end
 
   def self.progress_in_words () 
