@@ -24,6 +24,7 @@ Background: tasks have been added to database
   | Bring Pencil     | false   | 2       |
 
   And I am on the sign-in page
+  Given it is currently Apr,1 2015
 
 Scenario: General details of a task
   Given I sign in "xinran@gmail.com" with "111111111"

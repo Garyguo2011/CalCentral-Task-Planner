@@ -20,6 +20,7 @@ Background: users and tasks have been added to database
   And I am on the sign-in page
   And I sign in "123454321@hotmail.com" with "123454321"
   And it is currently Mar,31 2015
+  Given it is currently Apr,1 2015
 
 Scenario: all the unifinished past due tasks should automatically change status
   Given it is currently Mar,14 2015

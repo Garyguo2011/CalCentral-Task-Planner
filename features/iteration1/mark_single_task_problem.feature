@@ -27,6 +27,7 @@ Background: tasks have been added to database
   And I am on the sign-in page
   Given I sign in "xinran@gmail.com" with "111111111"
   Given I am on the detail page for "PROJ1"
+  Given it is currently Apr,1 2015
 
 Scenario: Delete a task
   Then I should see "Google Answer" in Subtask

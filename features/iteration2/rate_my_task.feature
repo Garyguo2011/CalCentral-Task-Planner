@@ -17,6 +17,7 @@ Background: users and tasks have been added to database
   And I am on the sign-in page
   Given I sign in "xinran@gmail.com" with "111111111"
   Then I should be on the homepage
+  Given it is currently Apr,1 2015
 
 Scenario: add task with rate 1-5 (happy path)
   When I follow "Add new task"

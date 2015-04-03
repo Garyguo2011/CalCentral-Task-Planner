@@ -21,6 +21,7 @@ Background: users and tasks have been added to database
   And I am on the sign-in page
   Given I sign in "zhangjinge588@gmail.com" with "12345678"                             
   Given I am currently on the new_task page  
+  Given it is currently Apr,1 2015
 
 
 Scenario: show Calendar form 

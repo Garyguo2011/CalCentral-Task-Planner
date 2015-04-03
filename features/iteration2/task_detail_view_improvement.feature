@@ -29,6 +29,7 @@ Feature: Task Detail View Improvement
 
     Given I am on the sign-in page
     And I sign in "xinran@gmail.com" with "111111111"
+    Given it is currently Apr,1 2015
 
   Scenario: Check a given task's progress
     Given I am on the detail page for "Task 1"
