@@ -174,6 +174,13 @@ Then /^I should (not )?see "(.*)" with the scope of "(.*)"$/ do |is_not, content
   end
 end
 
+When /^I click "(.*)" of "(.*)" section$/ do |status, task|
+  task_id = Task.find_by_title(task).id
+  within("#status_button_#{task_id}") do
+    click_on(status)
+  end
+end
+
 
 Then /I can see "(.*)" which in "(.*)" before "(.*)" which in "(.*)" with the scope of "(.*)"$/ do |e1, css_id1, e2, css_id2, legend_id|
   #  ensure that that e1 occurs before e2.
