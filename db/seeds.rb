@@ -12,10 +12,11 @@ users = [
 ]
 
 tasks =[
-{:title => 'Midterm1', :course => 'CS164', :kind => 'Exam', :release => '4/Mar/2015 23:59:00 -0800', :due => '6/Mar/2015 23:59:00 -0800', :status => 'New', :user_id => 1, :rate => 3},
-{:title => 'Homework5', :course => 'CS169', :kind => 'Homework', :release => '9/Mar/2015 23:59:00 -0800', :due => '16/Mar/2015 23:59:00 -0800', :status => 'New', :user_id => 1, :rate => 3},
-{:title => 'Project2', :course => 'CS164', :kind => 'Project', :release => '9/Mar/2015 23:59:00 -0800', :due => '31/Mar/2015 23:59:00 -0800', :status => 'Started', :user_id => 1, :rate => 3},
-{:title => 'Vatamin#5', :course => 'CS186', :kind => 'Homework', :release => '27/Feb/2015 23:59:00 -0800', :due => '2/Mar/2015 23:59:00 -0800', :status => 'Complete', :user_id => 1, :rate => 3},
+{:title => 'Midterm1', :course => 'CS164', :kind => 'Exam', :release => '4/Apr/2015 23:59:00 -0800', :due => '6/Apr/2015 23:59:00 -0800', :status => 'New', :user_id => 1, :rate => 3},
+{:title => 'Homework5', :course => 'CS169', :kind => 'Homework', :release => '9/Apr/2015 23:59:00 -0800', :due => '16/Apr/2015 23:59:00 -0800', :status => 'New', :user_id => 1, :rate => 3},
+{:title => 'Project2', :course => 'CS164', :kind => 'Project', :release => '9/Apr/2015 23:59:00 -0800', :due => '31/Apr/2015 23:59:00 -0800', :status => 'Started', :user_id => 1, :rate => 3},
+{:title => 'Vatamin#5', :course => 'CS186', :kind => 'Homework', :release => '27/Mar/2015 23:59:00 -0800', :due => '2/Apr/2015 23:59:00 -0800', :status => 'Finished', :user_id => 1, :rate => 3},
+{:title => 'Quiz7', :course => 'CS186', :kind => 'Exam', :release => '29/Mar/2015 23:59:00 -0800', :due => '17/Apr/2015 23:59:00 -0800', :status => 'New', :user_id => 1, :rate => 3},
 {:title => 'Jinge_quiz#2', :course => 'CS169', :kind => 'Exam', :release => '12/Mar/2015 23:59:00 -0800', :due => '19/Mar/2015 23:59:00 -0800', :status => 'New', :user_id => 2, :rate => 3},
 {:title => 'Jinge_quiz#3', :course => 'CS169', :kind => 'Exam', :release => '12/Mar/2015 23:59:00 -0800', :due => '19/Mar/2015 23:59:00 -0800', :status => 'New', :user_id => 2, :rate => 3},
 {:title => 'Jinge_quiz#4', :course => 'CS169', :kind => 'Exam', :release => '12/Mar/2015 23:59:00 -0800', :due => '19/Mar/2015 23:59:00 -0800', :status => 'New', :user_id => 2, :rate => 3},
