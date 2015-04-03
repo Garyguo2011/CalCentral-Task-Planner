@@ -6,6 +6,8 @@ Feature: Show details of One Task
 
 Background: tasks have been added to database
 
+  Given it is currently Apr,1 2015
+  
   Given the following users exist:
   | first_name | last_name | email            | password  | 
   | Xinran     | Guo       | xinran@gmail.com | 111111111 |
@@ -24,7 +26,6 @@ Background: tasks have been added to database
   | Bring Pencil     | false   | 2       |
 
   And I am on the sign-in page
-  Given it is currently Apr,1 2015
 
 Scenario: General details of a task
   Given I sign in "xinran@gmail.com" with "111111111"

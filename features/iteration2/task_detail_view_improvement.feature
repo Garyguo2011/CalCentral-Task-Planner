@@ -3,7 +3,10 @@ Feature: Task Detail View Improvement
   So that I can see the ramaining unfinished subtasks
   I want to see the a progress bar of my subtasks' completeness
 
-  Background: 
+  Background:
+
+    Given it is currently Apr,1 2015
+
     Given the following users exist:
     | first_name | last_name | email            | password  | 
     | Xinran     | Guo       | xinran@gmail.com | 111111111 |
@@ -29,7 +32,6 @@ Feature: Task Detail View Improvement
 
     Given I am on the sign-in page
     And I sign in "xinran@gmail.com" with "111111111"
-    Given it is currently Apr,1 2015
 
   Scenario: Check a given task's progress
     Given I am on the detail page for "Task 1"

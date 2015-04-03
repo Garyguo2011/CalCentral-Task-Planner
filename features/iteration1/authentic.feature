@@ -5,6 +5,8 @@ Feature: Only Owner can see his/her Task
   I want to view my own task 
 
 Background: users and tasks have been added to database
+
+  Given it is currently Apr,1 2015
   
   Given the following users exist:
   | first_name | last_name | email                   | password  | 
@@ -20,7 +22,6 @@ Background: users and tasks have been added to database
   | MIDTERM1  | CS164  | Exam     | 1/Mar/2015 12:00:00 -8000  | 1/Apr/2015 16:00:00 -0800  | Finished | 2     | 2       |
 
   Given I am currently on the sign-in page
-  Given it is currently Apr,1 2015
  
 Scenario: Sign up
   When I follow "Sign up"

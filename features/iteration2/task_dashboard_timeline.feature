@@ -6,6 +6,8 @@ Feature: display list of tasks filtered by different criteria
 
 Background: users and tasks have been added to database
   
+  Given it is currently Apr,1 2015
+  
   Given the following users exist:
   | first_name | last_name | email                 | password  | 
   | Xu         | He        | 123454321@hotmail.com | 123454321 |
@@ -20,8 +22,7 @@ Background: users and tasks have been added to database
 
   And I am on the sign-in page
   And I sign in "123454321@hotmail.com" with "123454321"
-  Given it is currently Apr,1 2015
-
+  
 Scenario: see a timeline with a sorted list of tasks
   When I am on the tasks page
   Then I should not see "MIDTERM1" with the scope of "Timeline"

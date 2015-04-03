@@ -5,6 +5,8 @@ I want to directly select from a visual Calendar
 
 Background: users and tasks have been added to database
   
+  Given it is currently Apr,1 2015
+  
   Given the following users exist:
   | first_name | last_name | email                   | password  | 
   | Jinge      | Zhang     | zhangjinge588@gmail.com | 12345678  |
@@ -21,9 +23,7 @@ Background: users and tasks have been added to database
   And I am on the sign-in page
   Given I sign in "zhangjinge588@gmail.com" with "12345678"                             
   Given I am currently on the new_task page  
-  Given it is currently Apr,1 2015
-
-
+  
 Scenario: show Calendar form 
   When I click the icon "calendar_icon_release" with "release_date"
   Then I should see calendar datetime picker                               

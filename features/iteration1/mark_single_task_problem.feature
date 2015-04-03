@@ -6,6 +6,8 @@ Feature: Mark a Subtask Open/Resolved
 
 Background: tasks have been added to database
 
+  Given it is currently Apr,1 2015
+
   Given the following users exist:
   | first_name | last_name | email            | password  | 
   | Xinran     | Guo       | xinran@gmail.com | 111111111 |
@@ -27,7 +29,6 @@ Background: tasks have been added to database
   And I am on the sign-in page
   Given I sign in "xinran@gmail.com" with "111111111"
   Given I am on the detail page for "PROJ1"
-  Given it is currently Apr,1 2015
 
 Scenario: Delete a task
   Then I should see "Google Answer" in Subtask
