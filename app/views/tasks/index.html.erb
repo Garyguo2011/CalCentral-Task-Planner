@@ -83,7 +83,7 @@ h1, table{
             <% @tasks_by_status.each do |task_list| %>
               <% if task_list.length != 0 %>
                 <% if task_list[0].status == "Past due" %>
-                  <% subs = "high"; status_change = "Finished" %>
+                  <% subs = "high"; status_change = "Finish" %>
                 <% elsif task_list[0].status == "Started" %>
                   <% subs = "medium"; status_change = "Finish" %>
                 <% elsif task_list[0].status == "New" %>
@@ -139,7 +139,7 @@ h1, table{
                 <% else %>
                   <% div_name = "timeslot alt" %>
                 <% end %>
-                <div class="<%= div_name %>">
+                <div class="<%= div_name %>" id="<%=task.course%>_<%=task.title%>_timeslot">
                 <div class="task">
                     <span>
                     <span class="type"><%= task.kind %></span>

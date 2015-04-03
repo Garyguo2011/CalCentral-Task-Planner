@@ -175,12 +175,21 @@ Then /^I should (not )?see "(.*)" with the scope of "(.*)"$/ do |is_not, content
 end
 
 
-Then /I can see "(.*)" before "(.*)" with the scope of "(.*)"$/ do |e1, e2, legend_id|
+Then /I can see "(.*)" which in "(.*)" before "(.*)" which in "(.*)" with the scope of "(.*)"$/ do |e1, css_id1, e2, css_id2, legend_id|
   #  ensure that that e1 occurs before e2.
   #  page.body is the entire content of the page as a string.
   within("##{legend_id}") do
     elem = page.html
-    assert(elem.index(e1) < elem.index(e2), "incorrect order, #{e1} should be before #{e2}")
+    # puts(elem.index(e1))
+    # puts(elem.index(e2))
+    # puts(elem.index("Timeline"))
+    within("##{css_id1}") do
+      @elem1 = elem.index(e1)
+    end
+    within("##{css_id2}") do
+      @elem2 = elem.index(e2)
+    end
+    assert(@elem1 < @elem2, "incorrect order, #{e1} should be before #{e2}")
   end
 end 
 
