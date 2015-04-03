@@ -83,19 +83,19 @@ h1, table{
             <% @tasks_by_status.each do |task_list| %>
               <% if task_list.length != 0 %>
                 <% if task_list[0].status == "Past due" %>
-                  <% subs = "high"; status_change = "Finish" %>
+                  <% subs = "high"; status_change = "Finish"; id = "Past_due" %>
                 <% elsif task_list[0].status == "Started" %>
-                  <% subs = "medium"; status_change = "Finish" %>
-                <% elsif task_list[0].status == "New" %>
-                  <% subs = "low"; status_change = "Start" %>
+                  <% subs = "medium"; status_change = "Finish"; id = "Started" %>
+                <% elsif task_list[0].status == "New"; %>
+                  <% subs = "low"; status_change = "Start"; id = "New" %>
                 <% else %>
                   <% if @show_finish == true; status_change = "Reopen" %>
-                    <% subs = "xlow" %>
+                    <% subs = "xlow"; id = "Finished" %>
                   <% else %>
                     <% break %>
                   <% end %>
                 <% end %>
-                <div class="priority <%= subs %>" id = "<%= subs %>"><span><%= task_list[0].status %></span></div>
+                <div class="priority <%= subs %>" id = "<%= id %>"><span><%= task_list[0].status %></span></div>
                 <% task_list.each do |task| %>
                   <div class="task <%= subs %>" id = "<%=task.course%>_<%=task.title%>">
                     <div class="desc">

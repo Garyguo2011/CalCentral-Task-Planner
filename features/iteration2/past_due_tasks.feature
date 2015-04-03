@@ -25,7 +25,7 @@ Background: users and tasks have been added to database
 Scenario: all the unifinished past due tasks should automatically change status
   Given it is currently Mar,14 2015
   Then I should see the following HW1,PROJ1,MIDTERM1
-  And I should see "HW1" with the scope of "low"
+  And I should see "HW1" with the scope of "New"
   Given it is currently Mar,31 2015
-  Then I should see "HW1" with the scope of "high"
+  Then I should see "HW1" with the scope of "Past_due"
   And I should see "PROJ1" before "HW1"

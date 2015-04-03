@@ -34,7 +34,7 @@ Scenario: see a timeline with a sorted list of tasks
 Scenario: see a table with a list of tasks grouped by status
   Given it is currently Mar,15 2015
   When I am on the tasks page
-  Then I should see "HW1" with the scope of "low"
-  And I should see "PROJ1" with the scope of "low"
-  And I should see "ESSAY1" with the scope of "high"
-  And I should see "HW2" with the scope of "medium"
+  Then I should see "HW1" with the scope of "New"
+  And I should see "PROJ1" with the scope of "New"
+  And I should see "ESSAY1" with the scope of "Past_due"
+  And I should see "HW2" with the scope of "Started"
