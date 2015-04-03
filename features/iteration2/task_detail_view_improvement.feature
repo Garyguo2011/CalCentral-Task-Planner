@@ -13,7 +13,8 @@ Feature: Task Detail View Improvement
     | title    | course | kind     | release                    | due                        | status   | rate | user_id |
     | Task 1   | CS169  | Homework | 4/Mar/2015 23:59:00 -0800  | 6/Mar/2015 23:59:00 -0800  | New      | 1    | 1       |
     | Task 2   | CS188  | Project  | 3/Mar/2015 23:59:00 -0800  | 16/Mar/2015 23:59:00 -0800 | New      | 2    | 1       |
-    | Task 3   | CS188  | Quiz     | 3/Mar/2015 23:59:00 -0800  | 16/Mar/2015 23:59:00 -0800 | New      | 3    | 1       |
+    | Task 3   | CS188  | Exam     | 3/Mar/2015 23:59:00 -0800  | 16/Mar/2015 23:59:00 -0800 | New      | 3    | 1       |
+    | Task 4   | CS188  | Exam     | 3/Mar/2015 23:59:00 -0800  | 16/Mar/2015 23:59:00 -0800 | Finished | 3    | 1       |
 
 
     Given the following subtasks exist:
@@ -24,6 +25,7 @@ Feature: Task Detail View Improvement
     | Subtask 4        | true      | 2       |
     | Subtask 5        | false     | 1       |
     | Subtask 6        | true      | 1       |
+    | Subtask 7        | false     | 4       |
 
     Given I am on the sign-in page
     And I sign in "xinran@gmail.com" with "111111111"
@@ -78,5 +80,16 @@ Feature: Task Detail View Improvement
     Then I should be on the detail page for "Task 1"
     And I should see "Task Progress Percentage"
     And I should see "0% Complete"
+
+  Scenario: Progress should show 100% if a tasks have been finished
+    Given I am on the detail page for "Task 4"
+    Then I should see "Task Progress Percentage"
+    And I should see "100% Complete"
+    When I press "Edit Task"
+    When I select "New" from "Status"
+    Then I press "Update Task"
+    Then I should see "Task was successfully updated."
+    Then I should see "0% Complete"
+
 
 
