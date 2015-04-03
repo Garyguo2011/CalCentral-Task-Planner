@@ -7,35 +7,16 @@ class TasksController < ApplicationController
     @tasks = Task.accessible_by(current_ability)
     @tasks_by_status = Task.accessible_by(current_ability).task_by_status
     @tasks_by_time = Task.accessible_by(current_ability).order(:due).find_all_by_status(["New", "Started", "Past due"])
-    if params[:sort] != nil
-      sort_argument = params[:sort]
-      session[:sort] = sort_argument
-    elsif session[:sort] != nil
-      sort_argument = session[:sort]
-    else
-      sort_argument = :status
-      session[:sort] = sort_argument
-    end
-    #@tasks = Task.where("status != ?", "Finished").order(sort_argument).find_all_by_user_id(current_user)
-    if params[:filter] != nil and params[:filter] != "Show All"
-      filter_argument = params[:filter]
-      session[:filter] = filter_argument
-    elsif params[:filter] == nil
-      if session[:filter] == nil
-        filter_argument = nil
-      else
-        filter_argument = session[:filter]
-      end
-    else
-      filter_argument = nil
-      session[:filter] = filter_argument
-    end
-    if params[:show_finished] != nil
-      show_finished = "Finished"
-    else
-      show_finished = nil
-    end
+
+
+    sort_argument = sort_argument_helper   
+    filter_argument = filter_argument_helper
+
+
+    show_finished = (params[:show_finished] == nil)? nil: "Finished"
+    
     @show_finish = false
+
     if filter_argument == nil and show_finished == nil
       @tasks = Task.where("status != ? AND user_id = ?", "Finished", current_user).order(sort_argument)
     elsif filter_argument != nil and show_finished != nil
@@ -56,6 +37,35 @@ class TasksController < ApplicationController
     end
   end
 
+  def sort_argument_helper
+    if params[:sort] != nil
+      sort_argument = params[:sort]
+      session[:sort] = sort_argument
+    elsif session[:sort] != nil
+      sort_argument = session[:sort]
+    else
+      sort_argument = :status
+      session[:sort] = sort_argument
+    end
+    return sort_argument
+  end
+
+  def filter_argument_helper
+    if params[:filter] != nil and params[:filter] != "Show All"
+      filter_argument = params[:filter]
+      session[:filter] = filter_argument
+    elsif params[:filter] == nil
+      if session[:filter] == nil
+        filter_argument = nil
+      else
+        filter_argument = session[:filter]
+      end
+    else
+      filter_argument = nil
+      session[:filter] = filter_argument
+    end
+    return filter_argument
+  end
   # GET /tasks/1
   # GET /tasks/1.json
   def show
@@ -162,6 +172,5 @@ class TasksController < ApplicationController
     redirect_to "/tasks"
   end
 end
-
 
 
