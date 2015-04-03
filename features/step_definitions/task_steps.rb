@@ -170,6 +170,13 @@ Then /^I should (not )?see "(.*)" with the scope of "(.*)"$/ do |is_not, task_ti
   end
 end
 
+When /^I click "(.*)" of "(.*)" section$/ do |status, task|
+  task_id = Task.find_by_title(task).id
+  within("#status_button_#{task_id}") do
+    click_on(status)
+  end
+end
+
 
 Then /I should see "(.*)" before "(.*)" with the scope of "(.*)"$/ do |e1, e2, legend_id|
   #  ensure that that e1 occurs before e2.

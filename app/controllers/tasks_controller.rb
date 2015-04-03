@@ -143,12 +143,17 @@ class TasksController < ApplicationController
     @task = Task.find(params[:id])
     new_status = ""
     if @task.status == "New"
+      @start_at = Time.now
       new_status = "Started"
-    elsif @task.status = "Sarted"
+    elsif @task.status == "Started"
+      @finish_at = Time.now
       new_status = "Finished"
-    elsif @task.status = "Finished"
-      new_status = "New"
-    elsif @task.status = "Past due"
+    elsif @task.status == "Finished"
+      @start_at = Time.now
+      @finish_at = nil
+      new_status = "Started"
+    elsif @task.status == "Past due"
+      @finish_at = Time.now
       new_status = "Finished"
     end
 
