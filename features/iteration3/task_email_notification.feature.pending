@@ -1,0 +1,32 @@
+Feature: Task Email Notification
+
+  As student in Berkeley
+  In order not to forget to do a task when i didn’t check CalCentral
+  I want to an Email notification that summary my current tasks due in this week.
+
+Background: users and tasks have been added to database
+  
+  Given it is currently Apr,6 2015
+
+  Given the following users exist:
+  | first_name | last_name | email                   | password  | 
+  | Xinran     | Guo       | xinran@gmail.com        | 111111111 |
+
+  Given the following tasks exist:
+  | title     | course | kind     | release                    | due                        | status   | rate  | user_id |
+  | Typo-blog | CS169  | Homework | 3/Apr/2015 23:59:00 -0800  | 8/Apr/2015 23:59:00 -0800  | New      | 1     | 1       |
+  | Homework6 | CS164  | Homework | 4/Apr/2015 23:59:00 -0800  | 9/Apr/2015 23:59:00 -0800  | Past Due | 5     | 1       |
+  | Proj3     | CS186  | Project  | 1/Apr/2015 23:59:00 -0800  | 10/Apr/2015 23:59:00 -0800 | Started  | 3     | 1       |
+  | Quiz9     | CS164  | Exam     | 1/Apr/2015 23:59:00 -0800  | 20/Apr/2015 23:59:00 -0800 | New      | 5     | 1       |
+  | Essay2    | CS164  | Paper    | 1/Apr/2015 23:59:00 -0800  | 20/Apr/2015 23:59:00 -0800 | Finished | 5     | 1       |
+  
+  And I am on the sign-in page
+  Given I sign in "xinran@gmail.com" with "111111111"
+  Then I should be on the homepage
+  
+Scenario: Should receive email that show task due this week
+  Given it is currently Apr,5 2015
+  Then I should see "Email Notification have been sent!" in "Notificaiton Status"
+  Then I should receive email contains "Typo-blog", "Homework6", "Proj3"
+
+Scenario: [TO BE CONTINUE] we need to check more testing document for test emails.

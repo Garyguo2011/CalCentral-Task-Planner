@@ -31,7 +31,8 @@ Scenario: Red (Danger) alert message for >90% time usage
   And I should see "75% Time Usage"
   Then I should see "Danger" alert message "Hurry up! Typo-blog is due in one day"
 
-Scenario: Red (Danger) alert message for past due task  
+Scenario: Red (Danger) alert message for past due task
+  Given it is currently Apr,5 2015
   Then I go to homepage
   When I follow "Homework6"
   And I should see "past due"
