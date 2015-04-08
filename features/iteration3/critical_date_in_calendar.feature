@@ -1,8 +1,8 @@
-Feature: display list of tasks filtered by different criteria
- 
+Feature: Show Due Date in Calendar
+
   As student in Berkeley
-  So that I can keep track of my status of my task
-  I want to change task status in dashboard (change new task to be ongoing task)
+  In order to keep remind the due time of each task
+  We create a Calendar in the homepage and put due date of each task in a Calendar
 
 Background: users and tasks have been added to database
   
