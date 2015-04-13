@@ -7,4 +7,13 @@ class ApplicationController < ActionController::Base
    # rescue_from CanCan::AccessDenied do |e|
    #   redirect_to new_user_session_path, alert: e.message
    # end
+
+  # def after_sign_in_path_for(resource)
+    
+  # end
+
+  # def after_sign_out_path_for(resource_or_scope)
+    
+  # end
+
 end

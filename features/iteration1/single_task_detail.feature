@@ -30,6 +30,7 @@ Background: tasks have been added to database
 Scenario: General details of a task
   Given I sign in "xinran@gmail.com" with "111111111"
   Then I should be on the homepage
+  Given I am currently on the tasks page
   When I follow "PROJ1"
   Then I should be on the detail page for "PROJ1"
   Then I should see the following "PROJ1", "CS188", "Project", "Mar 03", "Mar 17"
@@ -38,10 +39,13 @@ Scenario: General details of a task
 
 Scenario: Users can not visit the other users task detail page
   When I sign in "xu@ibearHost.com" with "111111111"
+  Given I am currently on the tasks page
   When I go to the detail page for "PROJ1"
   Then I should be on the homepage
+  Given I am currently on the tasks page
   When I go to the edit page for "PROJ1"
   Then I should be on the homepage
+  Given I am currently on the tasks page
   Then I should see "XU-hw3"
   Then I should not see "PROJ1"
 
