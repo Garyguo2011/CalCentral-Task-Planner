@@ -171,6 +171,15 @@ class TasksController < ApplicationController
     @task.update_attribute :status, new_status
     redirect_to "/tasks"
   end
+
+  def calendar
+  
+  end
+
+  def dashboard
+
+  end
+
 end
 
 

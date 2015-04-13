@@ -5,9 +5,12 @@ CalcentralTaskPlanner::Application.routes.draw do
     resources :subtasks
   end
 
-  root to: 'tasks#index'
+  root to: 'tasks#dashboard'
 
   match 'tasks/:id/status', to: 'tasks#changestatus', :as => "task_change_status"
+
+  get 'calendar', to:'tasks#calendar', :as => "calendar"
+  get 'dashboard', to:'tasks#dashboard', :as => "dashboard"
 
   # The priority is based upon order of creation:
   # first created -> highest priority.

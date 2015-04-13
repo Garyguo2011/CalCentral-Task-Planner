@@ -22,6 +22,7 @@ Background: users and tasks have been added to database
 
   And I am on the sign-in page
   And I sign in "123454321@hotmail.com" with "123454321"
+  Given I am currently on the tasks page
 
 Scenario: sort tasks in ascending order of due dates
   When I follow "Due Date"
