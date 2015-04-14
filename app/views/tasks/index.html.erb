@@ -18,7 +18,7 @@
                 <% elsif task_list[0].status == "New"; %>
                   <% subs = "xlow"; status_change = "Start"; id = "New" %>
                 <% else %>
-                  <% if @show_finish == true; status_change = "Reopen"; id = "Finished" %>
+                  <% if @show_finish == true; status_change = "Reopen" %>
                     <% subs = "low"; id = "Finished" %>
                   <% else %>
                     <% break %>
