@@ -16,10 +16,10 @@
                 <% elsif task_list[0].status == "Started" %>
                   <% subs = "medium"; status_change = "Finish"; id = "Started" %>
                 <% elsif task_list[0].status == "New"; %>
-                  <% subs = "low"; status_change = "Start"; id = "New" %>
+                  <% subs = "xlow"; status_change = "Start"; id = "New" %>
                 <% else %>
-                  <% if @show_finish == true; status_change = "Reopen" %>
-                    <% subs = "xlow"; id = "Finished" %>
+                  <% if @show_finish == true; status_change = "Reopen"; id = "Finished" %>
+                    <% subs = "low"; id = "Finished" %>
                   <% else %>
                     <% break %>
                   <% end %>
