@@ -4,7 +4,7 @@
   <div class="col-lg-12">
     <div class="box">
         <div class="box-header">
-          <h2><i class="fa fa-align-justify"></i><span class="break"></span>Striped Table</h2>
+          <h2><i class="fa fa-align-justify"></i><span class="break"></span>All Tasks</h2>
           <div class="box-icon" id="icons">
             <a href="table.html#" class="btn-setting"><i class="fa fa-wrench"></i></a>
             <a href="table.html#" class="btn-minimize"><i class="fa fa-chevron-up"></i></a>
@@ -17,9 +17,9 @@
             <div class="box-content">
                 <option>Select Task Type</option>
                 <%= Task.all_kinds.each do |task| %>
-                  <%=options_for_select([["#{task}", "/tasks?filter=#{task}"]])%>
+                  <%=options_for_select([["#{task}", "/status?filter=#{task}"]])%>
                 <% end %>
-                <option value="tasks?filter=Show All">Show All</option>
+                <option value="/status?filter=Show All">Show All</option>
             </div>
           </select>
           <div style="float:right;" class="btn btn-mini">
@@ -34,12 +34,12 @@
         <table class="table">
             <thead>
               <tr>
-                <th><%= link_to "Task Title", :sort => :title%></th>
-                <th><%= link_to "Course", :sort => :course%></th>
-                <th><%= link_to "Type", :sort => :kind%></th>
-                <th><%= link_to "Due Date", :sort => :due%></th>
-                <th><%= link_to "Status", :sort => :status%></th>
-                <th><%= link_to "Owner", :sort => :user_id%></th>
+                <th><%= link_to "Task Title", :sort => :title%>   <i class="fa fa-sort"></i></th>
+                <th><%= link_to "Course", :sort => :course%>   <i class="fa fa-sort"></i></th>
+                <th><%= link_to "Type", :sort => :kind%>   <i class="fa fa-sort"></i></th>
+                <th><%= link_to "Due Date", :sort => :due%>   <i class="fa fa-sort"></i></th>
+                <th><%= link_to "Status", :sort => :status%>   <i class="fa fa-sort"></i></th>
+                <th><%= link_to "Owner", :sort => :user_id%>   <i class="fa fa-sort"></i></th>
                 <th>Rate</th>
               </tr>
             </thead>
@@ -47,17 +47,21 @@
             <tbody>
               <% @tasks.each do |task| %>
                 <tr>
-                  <td><%= task.title %></td>
+                  <td><%= link_to task.title, task_path(task) %></td>
                   <td><%= task.course %></td>
                   <td><%= task.kind %></td>
                   <td><%= task.remain_time %></td>
-                  <td><span class="label label-important"><%= task.status%></span></td>
+                  <td><span class="label <%= task.label%>"><%= task.status%></span></td>
                   <% if task.user != nil%>
                     <td><%= task.user.full_name%></td>
                   <% else %>
                     <td> NO USERS </td>
                   <% end %>
-                  <td><%= task.rate%></td>
+                  <td>
+                      <% for i in 1..task.rate %>
+                        <span><i class="fa fa-star"></i></span>
+                      <% end %>
+                  </td>
                 </tr>
               <% end %>
             </tbody>
