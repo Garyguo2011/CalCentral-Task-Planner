@@ -1,24 +1,24 @@
     <!-- Task Table -->
 
-      <div class="row">
-        <div class="col-lg-12">
-          <div class="box">
-            <div class="box-header">
-              <h2><i class="fa fa-align-justify"></i><span class="break"></span>Striped Table</h2>
-                <div class="box-icon" id="icons">
-                  <a href="table.html#" class="btn-setting"><i class="fa fa-wrench"></i></a>
-                  <a href="table.html#" class="btn-minimize"><i class="fa fa-chevron-up"></i></a>
-                  <a href="table.html#" class="btn-close"><i class="fa fa-times"></i></a>
-                </div>
-            </div>
-            <select id="MySelect" onchange="this.options[this.selectedIndex].value && (window.location = this.options[this.selectedIndex].value);" style="left: 100px; width: 120px;">
-            <div class="box-content">
-                  <option>Select Task Type</option>
-                  <%= Task.all_kinds.each do |task| %>
-                  <%=options_for_select([["#{task}", "/tasks?filter=#{task}"]])%>
-                  <% end %>
-                <option value="tasks?filter=Show All">Show All</option>
-              </select>
+<div class="row">
+  <div class="col-lg-12">
+    <div class="box">
+        <div class="box-header">
+          <h2><i class="fa fa-align-justify"></i><span class="break"></span>Striped Table</h2>
+          <div class="box-icon" id="icons">
+            <a href="table.html#" class="btn-setting"><i class="fa fa-wrench"></i></a>
+            <a href="table.html#" class="btn-minimize"><i class="fa fa-chevron-up"></i></a>
+            <a href="table.html#" class="btn-close"><i class="fa fa-times"></i></a>
+          </div>
+        </div>
+        <select id="MySelect" onchange="this.options[this.selectedIndex].value && (window.location = this.options[this.selectedIndex].value);" style="left: 100px; width: 120px;"></select>
+          <div class="box-content">
+              <option>Select Task Type</option>
+              <%= Task.all_kinds.each do |task| %>
+                <%=options_for_select([["#{task}", "/tasks?filter=#{task}"]])%>
+              <% end %>
+              <option value="tasks?filter=Show All">Show All</option>
+              
               <table class="table">
                   <thead>
                     <tr>
@@ -50,147 +50,122 @@
                     <% end %>
                   </tbody>
                </table>       
-            </div>
           </div>
+    </div>
+  </div>
+</div>
+
+<table align="center" border="1">
+  <tr>
+    <% if params[:show_finished] == nil %>
+      <td><%= link_to "Show finished tasks", :show_finished => :yes%></td>
+    <% else %>
+      <td><%= link_to "Hide finished tasks", :show_finished => nil%></td>
+    <% end %>
+  </tr>
+</table>
+
+<div class="row">       
+  <div class="col-lg-4 col-md-4" id = "to-do-list">
+    <div class="box">
+      <div class="box-header">
+        <h2><i class="fa fa-check"></i>Tasks This Week</h2>
+        <div class="box-icon">
+          <a href="index.html#" class="btn-setting"><i class="fa fa-wrench"></i></a>
+          <a href="index.html#" class="btn-minimize"><i class="fa fa-chevron-up"></i></a>
+          <a href="index.html#" class="btn-close"><i class="fa fa-times"></i></a>
         </div>
       </div>
-
-      <table align="center" border="1">
-        <tr>
-          <% if params[:show_finished] == nil %>
-            <td><%= link_to "Show finished tasks", :show_finished => :yes%></td>
-          <% else %>
-            <td><%= link_to "Hide finished tasks", :show_finished => nil%></td>
-          <% end %>
-        </tr>
-      </table>
-
-    <div class="row">       
-        <div class="col-lg-4 col-md-4">
+      <div class="box-content">
+        <div class="todo">
+          <ul class="todo-list">
+            <li>
+              <span class="todo-actions">
+                <a href="index.html#"><i class="fa fa-square-o"></i></a>
+              </span>
+              <span class="desc">Windows Phone 8 App</span> 
+              <span class="label label-important">today</span>          
+            </li>
+            <li>
+              <span class="todo-actions">
+                <a href="index.html#"><i class="fa fa-square-o"></i></a>
+              </span>
+              <span class="desc">New frontend layout</span>
+              <span class="label label-important">today</span>
+            </li>
+            <li>
+              <span class="todo-actions">
+                <a href="index.html#"><i class="fa fa-square-o"></i></a>
+              </span>
+              <span class="desc">Hire developers</span>
+              <span class="label label-warning">tommorow</span>
+            </li>
+            <li>
+              <span class="todo-actions">
+                <a href="index.html#"><i class="fa fa-square-o"></i></a>
+              </span>
+              <span class="desc">Windows Phone 8 App</span>
+              <span class="label label-warning">tommorow</span>
+            </li>
+            <li>
+              <span class="todo-actions">
+                <a href="index.html#"><i class="fa fa-square-o"></i></a>
+              </span>
+              <span class="desc">New frontend layout</span>
+              <span class="label label-success">this week</span>
+            </li>
+            <li>
+              <span class="todo-actions">
+                <a href="index.html#"><i class="fa fa-square-o"></i></a>
+              </span>
+              <span class="desc">Hire developers</span>
+              <span class="label label-success">this week</span>
+            </li>
+            <li>
+              <span class="todo-actions">
+                <a href="index.html#"><i class="fa fa-square-o"></i></a>
+              </span>
+              <span class="desc">New frontend layout</span>
+              <span class="label label-info">this month</span>
+            </li>
+            <li>
+              <span class="todo-actions">
+                <a href="index.html#"><i class="fa fa-square-o"></i></a>
+              </span>
+              <span class="desc">Hire developers</span>
+              <span class="label label-info">this month</span>
+            </li>
+          </ul>
+        </div>  
+      </div>
+    </div>
           
-          <div class="box">
-            <div class="box-header">
-              <h2><i class="fa fa-check"></i>Tasks This Week</h2>
-              <div class="box-icon">
-                <a href="index.html#" class="btn-setting"><i class="fa fa-wrench"></i></a>
-                <a href="index.html#" class="btn-minimize"><i class="fa fa-chevron-up"></i></a>
-                <a href="index.html#" class="btn-close"><i class="fa fa-times"></i></a>
-              </div>
-            </div>
-            <div class="box-content">
-              <div class="todo">
-                <ul class="todo-list">
-                  <li>
-                    <span class="todo-actions">
-                      <a href="index.html#"><i class="fa fa-square-o"></i></a>
-                    </span>
-                    <span class="desc">Windows Phone 8 App</span> 
-                    <span class="label label-important">today</span>          
-                  </li>
-                  <li>
-                    <span class="todo-actions">
-                      <a href="index.html#"><i class="fa fa-square-o"></i></a>
-                    </span>
-                    <span class="desc">New frontend layout</span>
-                    <span class="label label-important">today</span>
-                  </li>
-                  <li>
-                    <span class="todo-actions">
-                      <a href="index.html#"><i class="fa fa-square-o"></i></a>
-                    </span>
-                    <span class="desc">Hire developers</span>
-                    <span class="label label-warning">tommorow</span>
-                  </li>
-                  <li>
-                    <span class="todo-actions">
-                      <a href="index.html#"><i class="fa fa-square-o"></i></a>
-                    </span>
-                    <span class="desc">Windows Phone 8 App</span>
-                    <span class="label label-warning">tommorow</span>
-                  </li>
-                  <li>
-                    <span class="todo-actions">
-                      <a href="index.html#"><i class="fa fa-square-o"></i></a>
-                    </span>
-                    <span class="desc">New frontend layout</span>
-                    <span class="label label-success">this week</span>
-                  </li>
-                  <li>
-                    <span class="todo-actions">
-                      <a href="index.html#"><i class="fa fa-square-o"></i></a>
-                    </span>
-                    <span class="desc">Hire developers</span>
-                    <span class="label label-success">this week</span>
-                  </li>
-                  <li>
-                    <span class="todo-actions">
-                      <a href="index.html#"><i class="fa fa-square-o"></i></a>
-                    </span>
-                    <span class="desc">New frontend layout</span>
-                    <span class="label label-info">this month</span>
-                  </li>
-                  <li>
-                    <span class="todo-actions">
-                      <a href="index.html#"><i class="fa fa-square-o"></i></a>
-                    </span>
-                    <span class="desc">Hire developers</span>
-                    <span class="label label-info">this month</span>
-                  </li>
-                </ul>
-              </div>  
-            </div>
-          </div>
-          
-        </div><!--/col-->
+  </div><!--/col-->
 
-        <div class="col-lg-8 col-md-8">
-          <div class="box">
-            <div class="box-header">
-              <h2>Work Load Distribution</h2>
-            </div>
+  <div class="col-lg-8 col-md-8" id = "work_distribution_chart">
+    <div class="box">
+      <div class="box-header">
+        <h2>Work Load Distribution</h2>
+      </div>
+      <div>
+        <canvas id="canvas" width="450" height="300"></canvas>
+        <div id="legendDiv"></div>
+      </div>
+    </div>
 
-            <div style="width:40%">
-              <div>
-                  <canvas id="canvas" width="450" height="600"></canvas>
-                  <div id="legendDiv"></div>
-                </div>
-            </div>
-
-            <div id="work_distribution_chart">
-              <script>
-                var data = <%=raw @taskData.to_json %>;
-                window.onload = function(){
-                  var ctx = document.getElementById("canvas").getContext("2d");
-                  window.myBar = new Chart(ctx).StackedBar(data);
-                  legend(document.getElementById('legendDiv'), data);
-                }
-              </script>
-            </div>
-
-            <div class="box-content" style="height:304px" >
-
-
-              <div style="width:40%">
-                <div>
-                    <canvas id="canvas" width="450" height="600"></canvas>
-                    <div id="legendDiv"></div>
-                  </div>
-              </div>
-
-              <div id="work_distribution_chart" class="col-lg-12" style="height:290px">
-                <script>
-                  var data = <%=raw @taskData.to_json %>;
-                  window.onload = function(){
-                    var ctx = document.getElementById("canvas").getContext("2d");
-                    window.myBar = new Chart(ctx).StackedBar(data);
-                    legend(document.getElementById('legendDiv'), data);
-                  }
-                </script>
-              </div>
-
-              <!-- <div id="stats-chart2"  class="col-lg-12" style="height:290px" ></div> -->
-            </div>
-          </div>  
-        </div><!--/col-->
+  </div><!--/col-->
     
-      </div><!--/row-->
+</div><!--/row--> 
+
+<script>
+  var data = <%=raw @taskData.to_json %>;
+  window.onload = function(){
+    var ctx = document.getElementById("canvas").getContext("2d");
+    window.myBar = new Chart(ctx).StackedBar(data);
+    legend(document.getElementById('legendDiv'), data);
+  }
+</script>
+<script>
+  var temp = Math.max($('#to-do-list').height(), $('#work_distribution_chart').height());
+  $('#to-do-list').height(temp);
+</script>
