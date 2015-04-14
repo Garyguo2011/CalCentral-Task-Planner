@@ -201,6 +201,10 @@
       <%=link_to '<i class="fa fa-th-large"></i>My Calendar'.html_safe, calendar_path, id: "My Calendar"%>
     </li>
 
+    <li data-ng-class="{true:&#39;active&#39;}[controllerName==&#39;CampusController&#39;]">
+      <%=link_to '<i class="fa fa-th-large"></i>My Status'.html_safe, status_path, id: "My Status"%>
+    </li>
+
 <!--
     roy incomplete
     <li data-ng-class="{true:&#39;active&#39;}[controllerName==&#39;CampusCOntroleer&#39;]">
@@ -209,7 +213,11 @@
   </ul>
   <div class="cc-updated-feeds ng-scope" data-ng-controller="UpdatedFeedsController" data-ng-show="controllerName === &#39;DashboardController&#39;">
     <div data-ng-show="hasUpdates" class="">
-      New data is available. <button class="cc-button" data-ng-click="refreshFeeds()">Load</button>
+
+      <!-- <button class="cc-button"> Load </button> -->
+
+      <%=link_to 'New Task', new_task_path, class: "cc-button", id: "Add new task"%>
+
     </div>
   </div>
 </div>

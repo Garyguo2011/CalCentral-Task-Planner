@@ -180,6 +180,11 @@ class TasksController < ApplicationController
 
   end
 
+  def status
+    @tasks = Task.accessible_by(current_ability)
+    @taskData = @tasks.work_distribution
+  end
+
 end
 
 
