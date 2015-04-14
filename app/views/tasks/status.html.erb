@@ -11,46 +11,47 @@
             <a href="table.html#" class="btn-close"><i class="fa fa-times"></i></a>
           </div>
         </div>
-        <select id="MySelect" onchange="this.options[this.selectedIndex].value && (window.location = this.options[this.selectedIndex].value);" style="left: 100px; width: 120px;"></select>
+        <select id="MySelect" onchange="this.options[this.selectedIndex].value && (window.location = this.options[this.selectedIndex].value);" style="left: 100px; width: 120px;">lala
           <div class="box-content">
               <option>Select Task Type</option>
               <%= Task.all_kinds.each do |task| %>
                 <%=options_for_select([["#{task}", "/tasks?filter=#{task}"]])%>
               <% end %>
               <option value="tasks?filter=Show All">Show All</option>
-              
-              <table class="table">
-                  <thead>
-                    <tr>
-                      <th><%= link_to "Task Title", :sort => :title%></th>
-                      <th><%= link_to "Course", :sort => :course%></th>
-                      <th><%= link_to "Type", :sort => :kind%></th>
-                      <th><%= link_to "Due Date", :sort => :due%></th>
-                      <th><%= link_to "Status", :sort => :status%></th>
-                      <th><%= link_to "Owner", :sort => :user_id%></th>
-                      <th>Rate</th>
-                    </tr>
-                  </thead>
-
-                  <tbody>
-                    <% @tasks.each do |task| %>
-                      <tr>
-                        <td><%= task.title %></td>
-                        <td><%= task.course %></td>
-                        <td><%= task.kind %></td>
-                        <td><%= task.remain_time %></td>
-                        <td><span class="label label-important"><%= task.status%></span></td>
-                        <% if task.user != nil%>
-                          <td><%= task.user.full_name%></td>
-                        <% else %>
-                          <td> NO USERS </td>
-                        <% end %>
-                        <td><%= task.rate%></td>
-                      </tr>
-                    <% end %>
-                  </tbody>
-               </table>       
           </div>
+        </select>
+              
+        <table class="table">
+            <thead>
+              <tr>
+                <th><%= link_to "Task Title", :sort => :title%></th>
+                <th><%= link_to "Course", :sort => :course%></th>
+                <th><%= link_to "Type", :sort => :kind%></th>
+                <th><%= link_to "Due Date", :sort => :due%></th>
+                <th><%= link_to "Status", :sort => :status%></th>
+                <th><%= link_to "Owner", :sort => :user_id%></th>
+                <th>Rate</th>
+              </tr>
+            </thead>
+
+            <tbody>
+              <% @tasks.each do |task| %>
+                <tr>
+                  <td><%= task.title %></td>
+                  <td><%= task.course %></td>
+                  <td><%= task.kind %></td>
+                  <td><%= task.remain_time %></td>
+                  <td><span class="label label-important"><%= task.status%></span></td>
+                  <% if task.user != nil%>
+                    <td><%= task.user.full_name%></td>
+                  <% else %>
+                    <td> NO USERS </td>
+                  <% end %>
+                  <td><%= task.rate%></td>
+                </tr>
+              <% end %>
+            </tbody>
+         </table> 
     </div>
   </div>
 </div>
