@@ -21,57 +21,82 @@ h1, table{
 
 
 <body>
-<select id="MySelect" onchange="this.options[this.selectedIndex].value && (window.location = this.options[this.selectedIndex].value);">
-  <option>Select Task Type</option>
-  <%= Task.all_kinds.each do |task| %>
-  <%=options_for_select([["#{task}", "/tasks?filter=#{task}"]])%>
-  <% end %>
-  <option value="tasks?filter=Show All">Show All</option>
-</select>
-<table id='tasks' align='center' width="80%">
-  <tr aligh='center'>
-    <th><%= link_to "Task Title", :sort => :title%></th>
-    <th><%= link_to "Course", :sort => :course%></th>
-    <th><%= link_to "Type", :sort => :kind%></th>
-    <th><%= link_to "Due Date", :sort => :due%></th>
-    <th><%= link_to "Status", :sort => :status%></th>
-    <th><%= link_to "Owner", :sort => :user_id%></th>
-    <th>Rate</th>
-  </tr>
 
-<% @tasks.each do |task| %>
-  <tr>
-    <td><%= task.title %></td>
-    <td><%= task.course %></td>
-    <td><%= task.kind %></td>
-    <td><%= task.remain_time %></td>
-    <td><%= task.status%></td>
-    <% if task.user != nil%>
-      <td><%= task.user.full_name%></td>
-    <% else %>
-      <td> NO USERS </td>
-    <% end %>
-    <td><%= task.rate%></td>
-  </tr>
-<% end %>
 
-</table>
+
+<!-- Task Table -->
+
+      <div class="row">
+        <div class="col-lg-12">
+          <div class="box">
+            <div class="box-header">
+              <h2><i class="fa fa-align-justify"></i><span class="break"></span>Striped Table</h2>
+              <div class="box-icon">
+                <a href="table.html#" class="btn-setting"><i class="fa fa-wrench"></i></a>
+                <a href="table.html#" class="btn-minimize"><i class="fa fa-chevron-up"></i></a>
+                <a href="table.html#" class="btn-close"><i class="fa fa-times"></i></a>
+              </div>
+            </div>
+            <div class="box-content">
+                <select id="MySelect" onchange="this.options[this.selectedIndex].value && (window.location = this.options[this.selectedIndex].value);">
+                  <option>Select Task Type</option>
+                  <%= Task.all_kinds.each do |task| %>
+                  <%=options_for_select([["#{task}", "/tasks?filter=#{task}"]])%>
+                  <% end %>
+                <option value="tasks?filter=Show All">Show All</option>
+              </select>
+              <table class="table">
+                  <thead>
+                    <tr>
+                      <th><%= link_to "Task Title", :sort => :title%></th>
+                      <th><%= link_to "Course", :sort => :course%></th>
+                      <th><%= link_to "Type", :sort => :kind%></th>
+                      <th><%= link_to "Due Date", :sort => :due%></th>
+                      <th><%= link_to "Status", :sort => :status%></th>
+                      <th><%= link_to "Owner", :sort => :user_id%></th>
+                      <th>Rate</th>
+                    </tr>
+                  </thead>
+
+                  <tbody>
+                    <% @tasks.each do |task| %>
+                      <tr>
+                        <td><%= task.title %></td>
+                        <td><%= task.course %></td>
+                        <td><%= task.kind %></td>
+                        <td><%= task.remain_time %></td>
+                        <td><span class="label label-important"><%= task.status%></span></td>
+                        <% if task.user != nil%>
+                          <td><%= task.user.full_name%></td>
+                        <% else %>
+                          <td> NO USERS </td>
+                        <% end %>
+                        <td><%= task.rate%></td>
+                      </tr>
+                    <% end %>
+                  </tbody>
+               </table>       
+            </div>
+          </div>
+        </div>
+      </div>
+
+
+
 
 <table align="center" border="1">
   <tr>
-    <td><%= link_to 'Add new task', new_task_path %></td>
     <% if params[:show_finished] == nil %>
       <td><%= link_to "Show finished tasks", :show_finished => :yes%></td>
     <% else %>
       <td><%= link_to "Hide finished tasks", :show_finished => nil%></td>
     <% end %>
-
   </tr>
 </table>
 
 <!-- Start: Change style -->
-      <table id='tasks' width="80%">
-      <div id="content" class="col-lg-10 col-sm-11">
+      <!-- <table id='tasks' width="80%"> -->
+      <!-- <div id="content" class="col-lg-10 col-sm-11"> -->
       
       
       <div class="row">
@@ -181,26 +206,58 @@ h1, table{
       
        
           
-      </div>
-    </table>
+      <!-- </div> -->
+    <!-- </table> -->
 <!-- End: Change style -->
 
 
-<div style="width:40%">
-  <div>
-    <canvas id="canvas" width="450" height="600"></canvas>
-    <div id="legendDiv"></div>
-  </div>
-</div>
+ 
 
-<div id="work_distribution_chart">
-<script>
-  var data = <%=raw @taskData.to_json %>;
-  window.onload = function(){
-    var ctx = document.getElementById("canvas").getContext("2d");
-    window.myBar = new Chart(ctx).StackedBar(data);
-    legend(document.getElementById('legendDiv'), data);
-}
-</script>
-</div>
+<!-- 
+<table id='tasks' align='center' width="80%">
+  <tr aligh='center'>
+    <th><%= link_to "Task Title", :sort => :title%></th>
+    <th><%= link_to "Course", :sort => :course%></th>
+    <th><%= link_to "Type", :sort => :kind%></th>
+    <th><%= link_to "Due Date", :sort => :due%></th>
+    <th><%= link_to "Status", :sort => :status%></th>
+    <th><%= link_to "Owner", :sort => :user_id%></th>
+    <th>Rate</th>
+  </tr>
+
+<% @tasks.each do |task| %>
+  <tr>
+    <td><%= task.title %></td>
+    <td><%= task.course %></td>
+    <td><%= task.kind %></td>
+    <td><%= task.remain_time %></td>
+    <td><%= task.status%></td>
+    <% if task.user != nil%>
+      <td><%= task.user.full_name%></td>
+    <% else %>
+      <td> NO USERS </td>
+    <% end %>
+    <td><%= task.rate%></td>
+  </tr>
+<% end %>
+</table>
+ -->
+
+  <div style="width:40%">
+    <div>
+      <canvas id="canvas" width="450" height="600"></canvas>
+      <div id="legendDiv"></div>
+    </div>
+  </div>
+
+  <div id="work_distribution_chart">
+    <script>
+      var data = <%=raw @taskData.to_json %>;
+      window.onload = function(){
+        var ctx = document.getElementById("canvas").getContext("2d");
+        window.myBar = new Chart(ctx).StackedBar(data);
+        legend(document.getElementById('legendDiv'), data);
+      }
+    </script>
+  </div>
 </body>

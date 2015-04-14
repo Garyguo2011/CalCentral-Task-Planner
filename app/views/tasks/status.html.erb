@@ -1,0 +1,129 @@
+    <div class="row">       
+        <div class="col-lg-4 col-md-4">
+          
+          <div class="box">
+            <div class="box-header">
+              <h2><i class="fa fa-check"></i>Tasks This Week</h2>
+              <div class="box-icon">
+                <a href="index.html#" class="btn-setting"><i class="fa fa-wrench"></i></a>
+                <a href="index.html#" class="btn-minimize"><i class="fa fa-chevron-up"></i></a>
+                <a href="index.html#" class="btn-close"><i class="fa fa-times"></i></a>
+              </div>
+            </div>
+            <div class="box-content">
+              <div class="todo">
+                <ul class="todo-list">
+                  <li>
+                    <span class="todo-actions">
+                      <a href="index.html#"><i class="fa fa-square-o"></i></a>
+                    </span>
+                    <span class="desc">Windows Phone 8 App</span> 
+                    <span class="label label-important">today</span>          
+                  </li>
+                  <li>
+                    <span class="todo-actions">
+                      <a href="index.html#"><i class="fa fa-square-o"></i></a>
+                    </span>
+                    <span class="desc">New frontend layout</span>
+                    <span class="label label-important">today</span>
+                  </li>
+                  <li>
+                    <span class="todo-actions">
+                      <a href="index.html#"><i class="fa fa-square-o"></i></a>
+                    </span>
+                    <span class="desc">Hire developers</span>
+                    <span class="label label-warning">tommorow</span>
+                  </li>
+                  <li>
+                    <span class="todo-actions">
+                      <a href="index.html#"><i class="fa fa-square-o"></i></a>
+                    </span>
+                    <span class="desc">Windows Phone 8 App</span>
+                    <span class="label label-warning">tommorow</span>
+                  </li>
+                  <li>
+                    <span class="todo-actions">
+                      <a href="index.html#"><i class="fa fa-square-o"></i></a>
+                    </span>
+                    <span class="desc">New frontend layout</span>
+                    <span class="label label-success">this week</span>
+                  </li>
+                  <li>
+                    <span class="todo-actions">
+                      <a href="index.html#"><i class="fa fa-square-o"></i></a>
+                    </span>
+                    <span class="desc">Hire developers</span>
+                    <span class="label label-success">this week</span>
+                  </li>
+                  <li>
+                    <span class="todo-actions">
+                      <a href="index.html#"><i class="fa fa-square-o"></i></a>
+                    </span>
+                    <span class="desc">New frontend layout</span>
+                    <span class="label label-info">this month</span>
+                  </li>
+                  <li>
+                    <span class="todo-actions">
+                      <a href="index.html#"><i class="fa fa-square-o"></i></a>
+                    </span>
+                    <span class="desc">Hire developers</span>
+                    <span class="label label-info">this month</span>
+                  </li>
+                </ul>
+              </div>  
+            </div>
+          </div>
+          
+        </div><!--/col-->
+
+        <div class="col-lg-8 col-md-8">
+          <div class="box">
+            <div class="box-header">
+              <h2>Work Load Distribution</h2>
+            </div>
+
+            <div style="width:40%">
+              <div>
+                  <canvas id="canvas" width="450" height="600"></canvas>
+                  <div id="legendDiv"></div>
+                </div>
+            </div>
+
+            <div id="work_distribution_chart">
+              <script>
+                var data = <%=raw @taskData.to_json %>;
+                window.onload = function(){
+                  var ctx = document.getElementById("canvas").getContext("2d");
+                  window.myBar = new Chart(ctx).StackedBar(data);
+                  legend(document.getElementById('legendDiv'), data);
+                }
+              </script>
+            </div>
+
+            <div class="box-content" style="height:304px" >
+
+
+              <div style="width:40%">
+                <div>
+                    <canvas id="canvas" width="450" height="600"></canvas>
+                    <div id="legendDiv"></div>
+                  </div>
+              </div>
+
+              <div id="work_distribution_chart" class="col-lg-12" style="height:290px">
+                <script>
+                  var data = <%=raw @taskData.to_json %>;
+                  window.onload = function(){
+                    var ctx = document.getElementById("canvas").getContext("2d");
+                    window.myBar = new Chart(ctx).StackedBar(data);
+                    legend(document.getElementById('legendDiv'), data);
+                  }
+                </script>
+              </div>
+
+              <!-- <div id="stats-chart2"  class="col-lg-12" style="height:290px" ></div> -->
+            </div>
+          </div>  
+        </div><!--/col-->
+    
+      </div><!--/row-->
