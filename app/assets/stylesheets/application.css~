@@ -62,7 +62,7 @@ input.task-button,
 input.subtask-button
 {
 display: block;
-background-color: #2b5e7f;
+background-color: #002e5b;
 color: #fff;
 text-decoration: none;
 border-style: none;

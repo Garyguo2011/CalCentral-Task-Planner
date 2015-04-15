@@ -156,7 +156,7 @@ h6 {
   opacity: .8;
   filter: alpha(opacity=80);
   -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=80)";
-  border-left: 1px solid #2b5e7f;
+  border-left: 1px solid #36a9e1;
   text-decoration: none;
 }
 .box .box-header .box-icon i:hover {
@@ -1429,10 +1429,10 @@ footer a {
   overflow: hidden;
 }
 .smallstat .boxchart-overlay.blue {
-  background: #2b5e7f;
+  background: #36a9e1;
 }
 .smallstat .boxchart-overlay.lightBlue {
-  background: #5e899e;
+  background: #67c2ef;
 }
 .smallstat .boxchart-overlay.green {
   background: #bdea74;
