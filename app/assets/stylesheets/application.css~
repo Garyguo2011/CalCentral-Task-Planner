@@ -14,6 +14,32 @@
  *= require bootstrap-datetimepicker
  */
 
+#task-nav 
+{
+  display: block;
+  width: 100%;
+}
+
+#task-nav a 
+{
+  float: left;
+  display: block;
+  background-color: #2b5e7f;
+  color: #fff;
+  font-size: 125%;
+  width: 50%;
+  text-align: center;
+  height: 24px;
+  line-height: 14px;
+  padding-top: 5px;
+  padding-bottom: 5px;
+}
+
+.cc-gray-bg
+{
+  background-color: #ebebeb;
+}
+
 .cc-blue-bg 
 {
   background-color: #2b5e7f;
@@ -33,7 +59,8 @@
 
 div#saas-content-body 
 {
-padding: 10px;
+  background-color: #f6f6f6;
+  padding-top: 15px;
 }
 
 .center-text 
@@ -62,7 +89,7 @@ input.task-button,
 input.subtask-button
 {
 display: block;
-background-color: #002e5b;
+background-color: #2b5e7f;
 color: #fff;
 text-decoration: none;
 border-style: none;
@@ -98,13 +125,13 @@ float: left;
 a.calcentral_header
 {
 	padding-top: 10px;
+        padding-bottom: 10px;
 	color: white;
 	font-size: 120%;
 }
 
 a.calcentral_header:visited
 {
-	padding-top: 10px;
 	color: white;
 	font-size: 120%;
 }

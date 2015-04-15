@@ -25,9 +25,9 @@
                     <div class="box-header">
                       <h2><i class="fa fa-align-justify fa-bar-chart-o"></i><span class="break">Statistics</span></h2>
                       <div class="box-icon">
-                        <a href="table.html#" class="btn-setting"><i class="fa fa-wrench cc-blue-bg"></i></a>
-                        <a href="table.html#" class="btn-minimize"id='hf'><i class="fa fa-chevron-up cc-blue-bg"></i></a>
-                        <a href="table.html#" class="btn-close"><i class="fa fa-times cc-blue-bg"></i></a>
+                        <a href="table.html#" class="btn-setting"><i class="fa fa-wrench"></i></a>
+                        <a href="table.html#" class="btn-minimize"id='hf'><i class="fa fa-chevron-up"></i></a>
+                        <a href="table.html#" class="btn-close"><i class="fa fa-times"></i></a>
                       </div>
                     </div>
 
@@ -190,7 +190,7 @@
                 <div class="row">
                   <div class="col-lg-12">
                     <ul id="task-edit-buttons">
-                      <li><%= button_to 'Back List', tasks_path, :method => :get, class: 'task-button' %></li>
+                      <li><%= button_to 'Back to List', tasks_path, :method => :get, class: 'task-button' %></li>
                       <li><%= button_to 'Edit Task', edit_task_path(@task), :method => :get, class: 'task-button' %></li>
                       <li><%= button_to 'Delete', task_path(@task), :method => :delete, class: 'task-button' %></li>
                     </ul>

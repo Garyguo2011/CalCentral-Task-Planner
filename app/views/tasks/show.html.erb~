@@ -25,9 +25,9 @@
                     <div class="box-header">
                       <h2><i class="fa fa-align-justify fa-bar-chart-o"></i><span class="break">Statistics</span></h2>
                       <div class="box-icon">
-                        <a href="table.html#" class="btn-setting"><i class="fa fa-wrench cc-blue-bg"></i></a>
-                        <a href="table.html#" class="btn-minimize"id='hf'><i class="fa fa-chevron-up cc-blue-bg"></i></a>
-                        <a href="table.html#" class="btn-close"><i class="fa fa-times cc-blue-bg"></i></a>
+                        <a href="table.html#" class="btn-setting"><i class="fa fa-wrench"></i></a>
+                        <a href="table.html#" class="btn-minimize"id='hf'><i class="fa fa-chevron-up"></i></a>
+                        <a href="table.html#" class="btn-close"><i class="fa fa-times"></i></a>
                       </div>
                     </div>
 
@@ -55,7 +55,7 @@
                         <!-- Due Date -->
                         <div class="col-lg-6 col-sm-6 col-xs-6 col-xxs-12">
                           <div class="smallstat box">
-                            <i class="fa fa-info cc-blue-bg"></i>
+                            <i class="fa fa-trophy cc-blue-bg"></i>
                             <span class="title">Time Usage (Days)</span>
                               <span class="value"><%= @task.time_usage_in_day%> Days</span>
                           </div>
@@ -73,7 +73,7 @@
                           <!-- Progress percent -->
                           <div class="col-lg-6 col-sm-6 col-xs-6 col-xxs-12">
                             <div class="smallstat box">
-                              <i class="fa cc-blue-bg fa-info"></i>
+                              <i class="fa cc-blue-bg fa-trophy"></i>
                               <span class="title">Task Progress Percentage</span>
                               <span class="value"><%= @task.subtasks.progress_percent%></span>
                             </div>
@@ -82,7 +82,7 @@
                           <!-- Progress subtask in word -->
                           <div class="col-lg-6 col-sm-6 col-xs-6 col-xxs-12">
                             <div class="smallstat box">
-                              <i class="fa fa-info cc-blue-bg"></i>
+                              <i class="fa fa-trophy cc-blue-bg"></i>
                               <span class="title">Subtasks Complete</span>
                               <span class="value"><%= @task.subtasks.progress_in_words%> Subtasks</span>
                             </div>
@@ -97,7 +97,7 @@
                         <!-- Release Date -->
                         <div class="col-lg-6 col-sm-6 col-xs-6 col-xxs-12">
                           <div class="smallstat box">
-                            <i class="fa fa-info cc-blue-bg"></i>
+                            <i class="fa fa-calendar cc-blue-bg"></i>
                             <span class="title">Release Date</span>
                             <span class="value"><%=@task.release.strftime("%b %d") %></span>
                           </div>
@@ -106,7 +106,7 @@
                         <!-- Due Date -->
                         <div class="col-lg-6 col-sm-6 col-xs-6 col-xxs-12">
                           <div class="smallstat box">
-                            <i class="fa fa-info cc-blue-bg"></i>
+                            <i class="fa fa-calendar cc-blue-bg"></i>
                             <span class="title">Due Date</span>
                             <span class="value"><%=@task.due.strftime("%b %d") %></span>
                           </div>
