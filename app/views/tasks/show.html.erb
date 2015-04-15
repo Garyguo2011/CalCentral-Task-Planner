@@ -8,7 +8,7 @@
         <div class="col-lg-12">
           <div class="box">
             <div class="box-header">
-              <h2><i class="fa fa-font"></i><span class="break"></span><%=@task.course%> <%=@task.kind %></h2>
+              <h2><i class="fa fa-book"></i><span class="break"></span><%=@task.course%> <%=@task.kind %></h2>
             </div>
             <div class="box-content">
                 <div class="page-header">
@@ -23,7 +23,7 @@
                   <div class="col-lg-12 col-md-12 col-sm-12">
                   <div class="box">
                     <div class="box-header">
-                      <h2><i class="fa fa-align-justify"></i><span class="break">Statistics</span></h2>
+                      <h2><i class="fa fa-align-justify fa-bar-chart-o"></i><span class="break">Statistics</span></h2>
                       <div class="box-icon">
                         <a href="table.html#" class="btn-setting"><i class="fa fa-wrench"></i></a>
                         <a href="table.html#" class="btn-minimize"id='hf'><i class="fa fa-chevron-up"></i></a>
@@ -46,7 +46,7 @@
                         <!-- Release Date -->
                         <div class="col-lg-6 col-sm-6 col-xs-6 col-xxs-12">
                           <div class="smallstat box">
-                            <i class="fa fa-money green"></i>
+                            <i class="fa fa-trophy cc-blue-bg"></i>
                             <span class="title">Time Usage Percentage</span>
                             <span class="value"><%= @task.time_usage_percent%></span>
                           </div>
@@ -55,7 +55,7 @@
                         <!-- Due Date -->
                         <div class="col-lg-6 col-sm-6 col-xs-6 col-xxs-12">
                           <div class="smallstat box">
-                            <i class="fa fa-money green"></i>
+                            <i class="fa fa-trophy cc-blue-bg"></i>
                             <span class="title">Time Usage (Days)</span>
                               <span class="value"><%= @task.time_usage_in_day%> Days</span>
                           </div>
@@ -73,7 +73,7 @@
                           <!-- Progress percent -->
                           <div class="col-lg-6 col-sm-6 col-xs-6 col-xxs-12">
                             <div class="smallstat box">
-                              <i class="fa fa-money green"></i>
+                              <i class="fa cc-blue-bg fa-trophy"></i>
                               <span class="title">Task Progress Percentage</span>
                               <span class="value"><%= @task.subtasks.progress_percent%></span>
                             </div>
@@ -82,8 +82,8 @@
                           <!-- Progress subtask in word -->
                           <div class="col-lg-6 col-sm-6 col-xs-6 col-xxs-12">
                             <div class="smallstat box">
-                              <i class="fa fa-money green"></i>
-                              <span class="title">Subtask Complete</span>
+                              <i class="fa fa-trophy cc-blue-bg"></i>
+                              <span class="title">Subtasks Complete</span>
                               <span class="value"><%= @task.subtasks.progress_in_words%> Subtasks</span>
                             </div>
                           </div>
@@ -97,7 +97,7 @@
                         <!-- Release Date -->
                         <div class="col-lg-6 col-sm-6 col-xs-6 col-xxs-12">
                           <div class="smallstat box">
-                            <i class="fa fa-money green"></i>
+                            <i class="fa fa-calendar cc-blue-bg"></i>
                             <span class="title">Release Date</span>
                             <span class="value"><%=@task.release.strftime("%b %d") %></span>
                           </div>
@@ -106,7 +106,7 @@
                         <!-- Due Date -->
                         <div class="col-lg-6 col-sm-6 col-xs-6 col-xxs-12">
                           <div class="smallstat box">
-                            <i class="fa fa-money green"></i>
+                            <i class="fa fa-calendar cc-blue-bg"></i>
                             <span class="title">Due Date</span>
                             <span class="value"><%=@task.due.strftime("%b %d") %></span>
                           </div>
@@ -116,7 +116,7 @@
 
                         <div class="col-lg-6 col-sm-6 col-xs-6 col-xxs-12">
                           <div class="smallstat box">
-                            <!-- <i class="fa fa-money green"></i> -->
+                            <!-- <i class="fa fa-info cc-blue-bg"></i> -->
                             <span class="title">Remaining Time</span>
                               <% if Time.now > @task.due%>
                                 <span class="value overdue"><%= @task.remain_time%></span>
@@ -128,7 +128,7 @@
 
                         <div class="col-lg-6 col-sm-6 col-xs-6 col-xxs-12">
                           <div class="smallstat box" id="task_rate">
-                            <!-- <i class="fa fa-money green"></i> -->
+                            <!-- <i class="fa fa-info cc-blue-bg"></i> -->
                             <span class="title">Rate</span>
                             <span class="value"><%= @task.rate%></span>
                           </div>
@@ -145,7 +145,7 @@
               <div class="col-lg-12 col-md-12 col-sm-12">
               <div class="box">
                 <div class="box-header">
-                  <h2><i class="fa fa-align-justify"></i><span class="break">Subtasks</span></h2>
+                  <h2><i class="fa fa-align-justify fa-pencil"></i><span class="break">Subtasks</span></h2>
                   <div class="box-icon">
                     <a href="table.html#" class="btn-setting"><i class="fa fa-wrench"></i></a>
                     <a href="table.html#" class="btn-minimize"><i class="fa fa-chevron-up"></i></a>
@@ -190,7 +190,7 @@
                 <div class="row">
                   <div class="col-lg-12">
                     <ul id="task-edit-buttons">
-                      <li><%= button_to 'Back List', tasks_path, :method => :get, class: 'task-button' %></li>
+                      <li><%= button_to 'Back to List', tasks_path, :method => :get, class: 'task-button' %></li>
                       <li><%= button_to 'Edit Task', edit_task_path(@task), :method => :get, class: 'task-button' %></li>
                       <li><%= button_to 'Delete', task_path(@task), :method => :delete, class: 'task-button' %></li>
                     </ul>
