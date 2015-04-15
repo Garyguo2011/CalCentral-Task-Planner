@@ -1,9 +1,59 @@
+<head>
+<style type='text/css'>
+
+h1 {
+  font-weight: normal;
+  letter-spacing: -1px;
+  color: #34495E;
+}
+h1, table{
+  text-align: center
+}
+
+#MySelect{
+  margin-left: 10%;
+  margin-bottom: 10px;
+  width: 120px
+}
+</style>
+
+</head>
+
+
+<body>
+<div class="cc-offcanvas-right">
+  <div id="cc-main-content" role="main" class="row cc-container-main">
+    <div class="cc-clearfix-container">
+      <div class="medium-5 columns medium-push-3 cc-page-dashboard-column-b">
+        <div class="cc-widget-title">
+          <h2><span>To Do</span><span style="background:none; float: right; text-align: right;"><%= button_to 'Add new task', new_task_path %></span></h2>
+        </div>
+        <br />
+        <div id="task-nav">
+          <a>Task List</a><a>Timeline</a>
+        </div>
+      </div>
+      <div class="medium-4 columns medium-push-3 cc-page-dashboard-column-c cc-column-last">
+        <div class="cc-widget-title">
+          <h2><span>Recent Activity</span></h2>
+        </div>
+      </div>
+      <div class="medium-3 columns medium-pull-9 cc-page-dashboard-column-a">
+        <div class="cc-widget-title">
+          <h2><span>Wednesday</span>&nbsp;<span class="cc-widget-title-sub">Apr 15</span></h2>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
 <!-- Start: Change style -->
-      <!-- <table id='tasks' width="80%"> -->
-      <!-- <div id="content" class="col-lg-10 col-sm-11"> -->
+      <table id='tasks' width="80%">
+      <div id="content" class="col-lg-10 col-sm-11">
       
       
-      <div class="row" style="margin-top:20px;">
+      <div class="row">
         
         <div class="col-sm-7">
           
@@ -16,10 +66,10 @@
                 <% elsif task_list[0].status == "Started" %>
                   <% subs = "medium"; status_change = "Finish"; id = "Started" %>
                 <% elsif task_list[0].status == "New"; %>
-                  <% subs = "xlow"; status_change = "Start"; id = "New" %>
+                  <% subs = "low"; status_change = "Start"; id = "New" %>
                 <% else %>
                   <% if @show_finish == true; status_change = "Reopen" %>
-                    <% subs = "low"; id = "Finished" %>
+                    <% subs = "xlow"; id = "Finished" %>
                   <% else %>
                     <% break %>
                   <% end %>
@@ -47,16 +97,6 @@
                 <% end %>
               <% end %>
             <% end %>
-
-            <table align="center" border="1">
-              <tr>
-                <% if params[:show_finished] == nil %>
-                  <td><%= link_to "Show finished tasks", :show_finished => :yes%></td>
-                <% else %>
-                  <td><%= link_to "Hide finished tasks", :show_finished => nil%></td>
-                <% end %>
-              </tr>
-            </table>
 
             <div class="clearfix"></div>    
 
@@ -120,58 +160,27 @@
       
        
           
-      <!-- </div> -->
-    <!-- </table> -->
+      </div>
+    </table>
 <!-- End: Change style -->
 
 
- 
-
-<!-- 
-<table id='tasks' align='center' width="80%">
-  <tr aligh='center'>
-    <th><%= link_to "Task Title", :sort => :title%></th>
-    <th><%= link_to "Course", :sort => :course%></th>
-    <th><%= link_to "Type", :sort => :kind%></th>
-    <th><%= link_to "Due Date", :sort => :due%></th>
-    <th><%= link_to "Status", :sort => :status%></th>
-    <th><%= link_to "Owner", :sort => :user_id%></th>
-    <th>Rate</th>
-  </tr>
-
-<% @tasks.each do |task| %>
-  <tr>
-    <td><%= task.title %></td>
-    <td><%= task.course %></td>
-    <td><%= task.kind %></td>
-    <td><%= task.remain_time %></td>
-    <td><%= task.status%></td>
-    <% if task.user != nil%>
-      <td><%= task.user.full_name%></td>
-    <% else %>
-      <td> NO USERS </td>
-    <% end %>
-    <td><%= task.rate%></td>
-  </tr>
-<% end %>
-</table>
- -->
-
-  <div style="width:40%">
-    <div>
-      <canvas id="canvas" width="450" height="600"></canvas>
-      <div id="legendDiv"></div>
-    </div>
+<div style="width:40%">
+  <div>
+    <canvas id="canvas" width="450" height="600"></canvas>
+    <div id="legendDiv"></div>
   </div>
+</div>
 
-  <div id="work_distribution_chart">
-    <script>
-      var data = <%=raw @taskData.to_json %>;
-      window.onload = function(){
-        var ctx = document.getElementById("canvas").getContext("2d");
-        window.myBar = new Chart(ctx).StackedBar(data);
-        legend(document.getElementById('legendDiv'), data);
-      }
-    </script>
-  </div>
+<div id="work_distribution_chart">
+<script>
+  var data = <%=raw @taskData.to_json %>;
+  window.onload = function(){
+    var ctx = document.getElementById("canvas").getContext("2d");
+    window.myBar = new Chart(ctx).StackedBar(data);
+    legend(document.getElementById('legendDiv'), data);
+}
+</script>
+</div>
 </body>
+

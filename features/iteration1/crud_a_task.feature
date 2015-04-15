@@ -27,6 +27,7 @@ Scenario: add task with CS169 HW, 3/15/2015
   When I fill in "user_password" with "12345678"
   When I press "Log in"
   Then I should see "Jinge Zhang"
+  Given I am currently on the tasks page
   When I follow "Add new task"
   Then I should currently on the new_task page
   When I fill in "Title" with "CS169 HW"
@@ -45,6 +46,7 @@ Scenario: add task (sad path)
   When I fill in "user_password" with "12345678"
   When I press "Log in"
   Then I should see "Jinge Zhang"
+  Given I am currently on the tasks page
   When I follow "Add new task"
   Then I should currently on the new_task page
   When I fill in "Title" with "CS169 HW"
@@ -60,6 +62,7 @@ Scenario: Read/Edit task
   When I fill in "Email" with "zhangjinge588@gmail.com"
   When I fill in "user_password" with "12345678"
   When I press "Log in"
+  Given I am currently on the tasks page
   Then I should see "HW1"
   When I follow "HW1"
   Then I should see "HW1"
@@ -78,6 +81,7 @@ Scenario: Read/Delete task
   When I fill in "Email" with "zhangjinge588@gmail.com"
   When I fill in "user_password" with "12345678"
   When I press "Log in"
+  Given I am currently on the tasks page
   Then I should see "HW1"
   When I follow "HW1"
   Then I should see "HW1"

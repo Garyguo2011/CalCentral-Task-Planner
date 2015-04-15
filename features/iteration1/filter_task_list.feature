@@ -24,6 +24,7 @@ Background: users and tasks have been added to database
   And I sign in "123454321@hotmail.com" with "123454321"
 
 Scenario: originally hide the finished tasks
+  Given I am currently on the tasks page
   Then I should not see "MIDTERM1"
   When I follow "Show finished tasks"
   Then I should see all the tasks
