@@ -73,7 +73,7 @@ Scenario: Read/Edit task
   And I select "New" from "Status"
   Then I press "Update Task"
   Then I should see "Task was successfully updated."
-  When I press "Back List"
+  When I press "Back to List"
   Then I should see "CS169 HW1"
 
 Scenario: Read/Delete task

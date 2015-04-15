@@ -115,7 +115,7 @@ h6 {
   overflow: hidden;
 }
 .box .box-header {
-  background: #36a9e1;
+  background: #ebebeb;
   color: white;
   font-size: 16px;
   overflow: hidden;
@@ -125,12 +125,13 @@ h6 {
 }
 .box .box-header h2 {
   float: left;
+  color: black;
   padding: 10px 0px;
   margin: 0px 0px 0px 20px;
 }
 .box .box-header h2 i {
-  background: #1e8fc6;
-  color: white;
+  background: #ebebeb;
+  color: black;
   padding: 10px 0px;
   width: 36px;
   display: inline-block;
@@ -138,12 +139,12 @@ h6 {
   margin: -10px 20px -10px -20px;
 }
 .box .box-header .box-icon {
-  background: #1e8fc6;
+  background: #ebebeb;
   float: right;
 }
 .box .box-header .box-icon i {
   display: inline-block;
-  color: white;
+  color: black;
   text-align: center;
   width: 36px;
   padding: 10px 0px;
@@ -155,7 +156,7 @@ h6 {
   opacity: .8;
   filter: alpha(opacity=80);
   -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=80)";
-  border-left: 1px solid #36a9e1;
+  border-left: 1px solid #ebebeb;
   text-decoration: none;
 }
 .box .box-header .box-icon i:hover {
@@ -180,10 +181,10 @@ h6 {
 /* Main Colors
 =================================================================== */
 .blue {
-  color: #36a9e1;
+  color: #2b5e7f;
 }
 .lightBlue {
-  color: #67c2ef;
+  color: #5e899e;
 }
 .green {
   color: #bdea74;
@@ -210,13 +211,13 @@ h6 {
   color: white;
 }
 .grey {
-  color: #c7cbd5;
+  color: #ebebeb;
 }
 .backgroundColor.blue {
-  background: #36a9e1;
+  background: #285e7f;
 }
 .backgroundColor.lightBlue {
-  background: #67c2ef;
+  background: #5e899e;
 }
 .backgroundColor.green {
   background: #bdea74;
@@ -243,7 +244,7 @@ h6 {
   background: white;
 }
 .backgroundColor.grey {
-  background: #c7cbd5;
+  background: #ebebeb;
 }
 .backgroundColorTitle.blue .title {
   background: #36a9e1;
@@ -1428,10 +1429,10 @@ footer a {
   overflow: hidden;
 }
 .smallstat .boxchart-overlay.blue {
-  background: #36a9e1;
+  background: #2b5e7f;
 }
 .smallstat .boxchart-overlay.lightBlue {
-  background: #67c2ef;
+  background: #5e899e;
 }
 .smallstat .boxchart-overlay.green {
   background: #bdea74;
