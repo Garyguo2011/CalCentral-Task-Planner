@@ -8,7 +8,7 @@
         <div class="col-lg-9">
           <div class="box">
             <div class="box-header">
-              <h2><i class="fa fa-font"></i><span class="break"></span><%=@task.course%> <%=@task.kind %></h2>
+              <h2><i class="fa fa-book"></i><span class="break"></span><%=@task.course%> <%=@task.kind %></h2>
             </div>
             <div class="box-content">
                 <div class="page-header">
@@ -23,7 +23,7 @@
                   <div class="col-lg-12 col-md-12 col-sm-12">
                   <div class="box">
                     <div class="box-header">
-                      <h2><i class="fa fa-align-justify"></i><span class="break">Statistics</span></h2>
+                      <h2><i class="fa fa-align-justify fa-bar-chart-o"></i><span class="break">Statistics</span></h2>
                       <div class="box-icon">
                         <a href="table.html#" class="btn-setting"><i class="fa fa-wrench cc-blue-bg"></i></a>
                         <a href="table.html#" class="btn-minimize"id='hf'><i class="fa fa-chevron-up cc-blue-bg"></i></a>
@@ -46,7 +46,7 @@
                         <!-- Release Date -->
                         <div class="col-lg-6 col-sm-6 col-xs-6 col-xxs-12">
                           <div class="smallstat box">
-                            <i class="fa fa-info cc-blue-bg"></i>
+                            <i class="fa fa-trophy cc-blue-bg"></i>
                             <span class="title">Time Usage Percentage</span>
                             <span class="value"><%= @task.time_usage_percent%></span>
                           </div>
@@ -145,7 +145,7 @@
               <div class="col-lg-12 col-md-12 col-sm-12">
               <div class="box">
                 <div class="box-header">
-                  <h2><i class="fa fa-align-justify"></i><span class="break">Subtasks</span></h2>
+                  <h2><i class="fa fa-align-justify fa-pencil"></i><span class="break">Subtasks</span></h2>
                   <div class="box-icon">
                     <a href="table.html#" class="btn-setting"><i class="fa fa-wrench"></i></a>
                     <a href="table.html#" class="btn-minimize"><i class="fa fa-chevron-up"></i></a>
