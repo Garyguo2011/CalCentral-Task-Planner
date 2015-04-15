@@ -8,31 +8,11 @@ class TasksController < ApplicationController
     @tasks_by_status = Task.accessible_by(current_ability).task_by_status
     @tasks_by_time = Task.accessible_by(current_ability).order(:due).find_all_by_status(["New", "Started", "Past due"])
 
-
-    sort_argument = sort_argument_helper   
-    filter_argument = filter_argument_helper
-
-
     show_finished = (params[:show_finished] == nil)? nil: "Finished"
-    
-    @show_finish = false
-
-    if filter_argument == nil and show_finished == nil
-      @tasks = Task.where("status != ? AND user_id = ?", "Finished", current_user).order(sort_argument)
-    elsif filter_argument != nil and show_finished != nil
-      @tasks = @tasks.order(sort_argument).where("kind = ?", filter_argument)
-      @show_finish = true
-    elsif filter_argument != nil
-      @tasks = Task.where("status != ? AND user_id = ?", "Finished", current_user).order(sort_argument).where("kind = ?", filter_argument)
-    else
-      @tasks = @tasks.order(sort_argument)
-      @show_finish = true
-    end
-
-    @taskData = @tasks.work_distribution
+    @show_finish = (show_finished == nil)? false: true
     
     respond_to do |format|
-      format.html # index.html.erb
+      format.html 
       format.json { render json: @tasks }
     end
   end
@@ -171,6 +151,39 @@ class TasksController < ApplicationController
     @task.update_attribute :status, new_status
     redirect_to "/tasks"
   end
+
+  def calendar
+  
+  end
+
+  def dashboard
+
+  end
+
+  def status
+    @tasks = Task.accessible_by(current_ability)
+    @taskData = @tasks.work_distribution
+
+    sort_argument = sort_argument_helper   
+    filter_argument = filter_argument_helper
+
+    show_finished = (params[:show_finished] == nil)? nil: "Finished"
+    @show_finish = false
+
+    if filter_argument == nil and show_finished == nil
+      @tasks = Task.where("status != ? AND user_id = ?", "Finished", current_user).order(sort_argument)
+    elsif filter_argument != nil and show_finished != nil
+      @tasks = @tasks.order(sort_argument).where("kind = ?", filter_argument)
+      @show_finish = true
+    elsif filter_argument != nil
+      @tasks = Task.where("status != ? AND user_id = ?", "Finished", current_user).order(sort_argument).where("kind = ?", filter_argument)
+    else
+      @tasks = @tasks.order(sort_argument)
+      @show_finish = true
+    end
+
+  end
+
 end
 
 

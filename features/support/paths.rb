@@ -20,6 +20,8 @@ module NavigationHelpers
     when /^Project filter page/ then '/tasks?filter=Project'
     when /^Show All page/ then 'tasks?filter=Show%20All'
     when /^add new task/ then '/tasks/new'
+    when /^the status page/ then '/status'
+    when /^the calendar page/ then '/calendar'
 
     when /^the detail page for "([^"]*)"$/i
      task_path(Task.find_by_title($1))

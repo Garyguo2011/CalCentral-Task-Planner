@@ -1,8 +1,8 @@
-Feature: display list of tasks filtered by different criteria
+Feature: CalCentral Dashboard Integration
  
   As staff of CalCentral
-  In order to make the task planner a part of the whole CalCentral dashboard
-  We want to integrate new components (Task List and Task Timeline) to current existing widgets
+  In order to make task planner as a part of whole CalCentral dashboard
+  We want to integrate Task list and timeline as two small tabs to dashboard TODO widget
 
 Background: users and tasks have been added to database
   

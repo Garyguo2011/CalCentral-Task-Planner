@@ -36,11 +36,13 @@ Scenario: Sign up
 
 Scenario:  Sign in
   When I sign in "zhangjinge588@gmail.com" with "12345678"
+  Given I am currently on the tasks page
   Then I should see the following "Jinge Zhang", "ESSAY1", "HW1", "PROJ1"
   Then I should not see the following "HW2", "MIDTERM1"
 
 Scenario: User only view its own task, with finished tasks filtered out initally
   When I sign in "zhangjinge0110@126.com" with "12345678"
+  Given I am currently on the tasks page
   Then I should see the following "Rod Zhang","HW2"
   Then I should not see the following "ESSAY1","HW1","PROJ1","MIDTERM1"
 
