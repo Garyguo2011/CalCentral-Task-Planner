@@ -6,32 +6,33 @@
         <div class="box-header">
           <h2><i class="fa fa-align-justify"></i><span class="break"></span>All Tasks</h2>
           <div class="box-icon" id="icons">
-            <a href="table.html#" class="btn-setting"><i class="fa fa-wrench"></i></a>
-            <a href="table.html#" class="btn-minimize"><i class="fa fa-chevron-up"></i></a>
-            <a href="table.html#" class="btn-close"><i class="fa fa-times"></i></a>
+            <a href="status.html#" class="btn-setting"><i class="fa fa-wrench"></i></a>
+            <a data-target="#task_table" class="btn-minimize" data-toggle="collapse" aria-expanded="false"><i class="fa fa-chevron-up"></i></a>
+            <a href="status.html#" class="btn-close"><i class="fa fa-times"></i></a>
           </div>
         </div>
-        <div>
 
-          <select id="MySelect" onchange="this.options[this.selectedIndex].value && (window.location = this.options[this.selectedIndex].value);" style="left: 100px; width: 140px;" class="btn btn-large btn-primary">
-            <div class="box-content">
-                <option>Select Task Type</option>
-                <%= Task.all_kinds.each do |task| %>
-                  <%=options_for_select([["#{task}", "/status?filter=#{task}"]])%>
-                <% end %>
-                <option value="/status?filter=Show All">Show All</option>
+        
+        <div id="task_table">
+          <div>
+            <select id="MySelect" onchange="this.options[this.selectedIndex].value && (window.location = this.options[this.selectedIndex].value);" style="left: 100px; width: 140px;" class="btn btn-large btn-primary">
+              <div class="box-content">
+                  <option>Select Task Type</option>
+                  <%= Task.all_kinds.each do |task| %>
+                    <%=options_for_select([["#{task}", "/status?filter=#{task}"]])%>
+                  <% end %>
+                  <option value="/status?filter=Show All">Show All</option>
+              </div>
+            </select>
+            <div style="float:right;" class="btn btn-mini">
+              <% if params[:show_finished] == nil %>
+                <td><%= link_to "Show finished tasks", :show_finished => :yes%></td>
+              <% else %>
+                <td><%= link_to "Hide finished tasks", :show_finished => nil%></td>
+              <% end %>
             </div>
-          </select>
-          <div style="float:right;" class="btn btn-mini">
-            <% if params[:show_finished] == nil %>
-              <td><%= link_to "Show finished tasks", :show_finished => :yes%></td>
-            <% else %>
-              <td><%= link_to "Hide finished tasks", :show_finished => nil%></td>
-            <% end %>
           </div>
-        </div>
-              
-        <table class="table">
+          <table class="table">
             <thead>
               <tr>
                 <th><%= link_to "Task Title", :sort => :title%>   <i class="fa fa-sort"></i></th>
@@ -65,7 +66,8 @@
                 </tr>
               <% end %>
             </tbody>
-         </table> 
+          </table> 
+        </div>
     </div>
   </div>
 </div>
@@ -78,9 +80,9 @@
       <div class="box-header">
         <h2><i class="fa fa-check"></i>Tasks This Week</h2>
         <div class="box-icon">
-          <a href="index.html#" class="btn-setting"><i class="fa fa-wrench"></i></a>
-          <a href="index.html#" class="btn-minimize"><i class="fa fa-chevron-up"></i></a>
-          <a href="index.html#" class="btn-close"><i class="fa fa-times"></i></a>
+          <a href="status.html#" class="btn-setting"><i class="fa fa-wrench"></i></a>
+          <a data-target="#todo-list" class="btn-minimize" data-toggle="collapse" aria-expanded="false"><i class="fa fa-chevron-up"></i></a>
+          <a href="status.html#" class="btn-close"><i class="fa fa-times"></i></a>
         </div>
       </div>
       <div class="box-content">
@@ -164,6 +166,7 @@
     
 </div><!--/row--> 
 
+<script src="app/assets/javascripts/bootstrap.js"></script>
 <script>
   var data = <%=raw @taskData.to_json %>;
   window.onload = function(){
@@ -175,4 +178,5 @@
 <script>
   var temp = Math.max($('#to-do-list').height(), $('#work_distribution_chart').height());
   $('#to-do-list').height(temp);
+  $('#work_distribution_chart').height(temp);
 </script>
