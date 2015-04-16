@@ -4,7 +4,6 @@ require 'capybara/rspec'
 
 describe TasksController, :type => :controller do
   before(:each) do
-    Time.stub(:now).and_return("5/Jan/2015 22:00:00 -0800".to_datetime)
     login_user
   end
 
@@ -171,6 +170,9 @@ describe TasksController, :type => :controller do
 
 
   describe 'change status' do
+    before (:each) do
+      Time.stub(:now).and_return("5/Jan/2015 22:00:00 -0800".to_datetime)
+    end
     it "change New status" do
       @task = FactoryGirl.create(:task, id: 10, status: "New")
       put :changestatus, :id => 10
