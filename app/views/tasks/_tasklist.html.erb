@@ -1,6 +1,8 @@
 <!-- Start: Change style -->
-  <div class="task-list" id="white-area">
-    <h1>Tasks</h1>
+  <div class="tasklist-view">
+
+    <h1 id="view-label">Tasks</h1>
+
     <% @tasks_by_status.each do |task_list| %>
       <% if task_list.length != 0 %>
         <% if task_list[0].status == "Past due" %>

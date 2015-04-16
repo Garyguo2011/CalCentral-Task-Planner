@@ -36,7 +36,7 @@
   <div class="ng-scope" data-ng-controller="TaskAdderController">
     <div class="cc-widget-title">
       <h2 class="cc-left">To&nbsp;Do</h2>
-      <button type="button" class="cc-button cc-right cc-widget-title-button" onclick="window.location.assign('tasks/new');">
+      <button type="button" class="cc-button cc-right cc-widget-title-button" onclick="window.location.assign('/tasks/new');">
         <i class="fa fa-plus cc-button-plus-icon"></i>
         <span>New Task</span>
       </button>
@@ -109,9 +109,9 @@
         <div class="medium-10 medium-centered columns">
           <ul class="cc-button-group cc-even-2" role="tablist">
             <!-- ngRepeat: taskMode in taskModes --><li class="ng-scope">
-              <button class="cc-button ng-binding cc-button-selected" aria-selected="true" role="tab">Task List</button>
+              <button class="cc-button ng-binding <%=(@view == 'tasklist') ? 'cc-button-selected' : ''%>" onclick="window.location.assign('/dashboard/?view=tasklist');" role="tab">Task List</button>
             </li><!-- end ngRepeat: taskMode in taskModes --><li class="ng-scope">
-              <button class="cc-button ng-binding" aria-selected="false" role="tab">Timeline</button>
+              <button class="cc-button ng-binding <%=(@view == 'timeline') ? 'cc-button-selected' : ''%>" onclick="window.location.assign('/dashboard/?view=timeline');" role="tab">Timeline</button>
             </li><!-- end ngRepeat: taskMode in taskModes -->
           </ul>
         </div>
@@ -120,12 +120,12 @@
       <!-- ngSwitchWhen: scheduled --><div class="ng-scope" role="tabpanel" aria-live="polite">
         <!-- ngInclude:  --><div class="ng-scope"><div class="cc-widget-tasks-no-items ng-scope" data-ng-show="counts.current === 0 &amp;&amp; api.user.profile.hasGoogleAccessToken">
   <h3 class="cc-widget-tasks-section-label"><span class="cc-capitalize ng-binding"></span></h3>
-  <div class="ng-hide" data-ng-show="counts.opposite !== 0">
-    <p class="cc-widget-tasks-no-items-first">You currently have <strong>0</strong> <span class="ng-binding" data-ng-bind="tasksMode"></span> tasks or assignments and <strong class="ng-binding" data-ng-bind="counts.opposite">0</strong> <span class="ng-binding" data-ng-bind="tasksModeOpposite">unscheduled</span> tasks and assignments.</p>
-    <p>To <strong>see your <span class="ng-binding" data-ng-bind="tasksModeOpposite">unscheduled</span> tasks and assignments</strong>, click the <em class="cc-capitalize ng-binding" data-ng-bind="tasksModeOpposite">unscheduled</em> tab.</p>
-  </div>
-  <div class="" data-ng-show="counts.opposite === 0">
-    <p class="cc-widget-tasks-no-items-first">You have no <span class="ng-binding" data-ng-bind="tasksMode"></span> tasks and assignments.</p>
+  <div class="">
+  <% if (@view == 'tasklist') %>
+    <%= render 'tasklist' %>
+  <% else %>
+    <%= render 'timeline' %>
+  <% end %>
   </div>
   <p>To <strong>create a task</strong>, click the <em>New Task</em> button.</p>
 </div>

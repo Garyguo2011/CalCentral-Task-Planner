@@ -4390,6 +4390,12 @@ ul.messagesList li span.date {
   margin-bottom: -30px;
   height: 100%;
 }
+.tasklist-view,
+.timeline-view {
+  display: block;
+  background: white;
+  padding: 20px;
+}
 .graph {
   height: 100%;
 }
