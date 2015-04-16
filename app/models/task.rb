@@ -154,4 +154,9 @@ class Task < ActiveRecord::Base
     return self.release <= endDate && self.due >= startDate
   end
 
+  def label
+    labels = { "New" => "label-default", "Started" => "label-warning", "Past due"=> "label-important", "Finished" => "label-success" }
+    return labels[self.status]
+  end
+
 end

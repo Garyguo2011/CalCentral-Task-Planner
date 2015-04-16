@@ -17,3 +17,5 @@
 //= require moment
 //= require bootstrap-datetimepicker
 //= require legend
+//= require calendar
+//= require fullcalendar
