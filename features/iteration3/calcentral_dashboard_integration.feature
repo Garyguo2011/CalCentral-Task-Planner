@@ -6,7 +6,7 @@ Feature: CalCentral Dashboard Integration
 
 Background: users and tasks have been added to database
   
-  Given it is currently Apr,1 2015
+  Given it is currently Mar,1 2015
   
   Given the following users exist:
   | first_name | last_name | email                 | password  | 
@@ -24,24 +24,23 @@ Background: users and tasks have been added to database
   And I sign in "123454321@hotmail.com" with "123454321"
   
 Scenario: view a task timeline using the CalCentral dashboard
-  Given I am on the tasks page
-  Then I should see "CalCentral"
+  Given I am on the dashboard page
+  Then I should see "My Classes"
   And I should see "To Do"
 
-  When I follow "Task Timeline"
+  When I press "Timeline"
   And I should see "To Do"
-  And I should not see "Tasks"
-  And I should see "Timeline"
-  And I should see "ESSAY1" with the scope of "Timeline"
+  And I should not see "Task List" with the scope of "view-label"
+  And I should see "Timeline" with the scope of "view-label"
 
 Scenario: view a task list using the CalCentral dashboard
-  Given I am on the tasks page
-  Then I should see "CalCentral"
+  Given I am on the dashboard page
+  Then I should see "My Classes"
   And I should see "To Do"
 
-  When I follow "Task List"
+  When I press "Task List"
   And I should see "To Do"
   And I should see "Tasks"
-  And I should not see "Timeline"
-  And I should see "ESSAY1" with the scope of "task_title"
+  And I should see "Task List" with the scope of "view-label"
+  And I should not see "Timeline" with the scope of "view-label"
   

@@ -14,27 +14,6 @@
  *= require bootstrap-datetimepicker
  */
 
-#task-nav 
-{
-  display: block;
-  width: 100%;
-}
-
-#task-nav a 
-{
-  float: left;
-  display: block;
-  background-color: #2b5e7f;
-  color: #fff;
-  font-size: 125%;
-  width: 50%;
-  text-align: center;
-  height: 24px;
-  line-height: 14px;
-  padding-top: 5px;
-  padding-bottom: 5px;
-}
-
 .cc-grey-bg
 {
   background-color: #ebebeb;

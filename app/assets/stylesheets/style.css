@@ -45,7 +45,7 @@
   padding: 0px !important;
 }
 body {
-  /*background: #383e4b;*/
+  background: #f6f6f6;
   color: #383e4b;
   border: none;
   font-family: 'Lato', sans-serif;
@@ -53,9 +53,12 @@ body {
   margin: 0;
   padding: 0;
 }
+
+/*
 a {
   color: #383e4b;
 }
+*/
 h1 {
   font-size: 32px;
   line-height: 32px;
@@ -1012,6 +1015,7 @@ body.modal-open,
 }
 /* Footer
 =================================================================== */
+  /*
 footer {
   background: #383e4b;
   color: white;
@@ -1019,10 +1023,13 @@ footer {
   margin: 0 !important;
   font-size: 12px;
 }
+
 footer a {
   color: white;
   font-weight: bold;
 }
+  */
+
 /* Main Chart
 =================================================================== */
 .main-chart {
@@ -4382,6 +4389,12 @@ ul.messagesList li span.date {
   margin-left: -30px;
   margin-bottom: -30px;
   height: 100%;
+}
+.tasklist-view,
+.timeline-view {
+  display: block;
+  background: white;
+  padding: 20px;
 }
 .graph {
   height: 100%;

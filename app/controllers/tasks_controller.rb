@@ -3,18 +3,22 @@ class TasksController < ApplicationController
   before_filter :check_status
   # GET /tasks
   # GET /tasks.json
-  def index
+  def index_or_dashboard 
     @tasks = Task.accessible_by(current_ability)
     @tasks_by_status = Task.accessible_by(current_ability).task_by_status
     @tasks_by_time = Task.accessible_by(current_ability).order(:due).find_all_by_status(["New", "Started", "Past due"])
 
     show_finished = (params[:show_finished] == nil)? nil: "Finished"
     @show_finish = (show_finished == nil)? false: true
-    
+
     respond_to do |format|
       format.html 
       format.json { render json: @tasks }
     end
+  end
+
+  def index
+    index_or_dashboard
   end
 
   def sort_argument_helper
@@ -158,7 +162,11 @@ class TasksController < ApplicationController
   end
 
   def dashboard
-
+    @view = params[:view];
+    if (!@view) 
+      @view = 'tasklist';
+    end
+    index_or_dashboard
   end
 
   def status

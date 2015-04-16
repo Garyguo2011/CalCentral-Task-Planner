@@ -1,206 +1,48 @@
-<head>
-<style type='text/css'>
-
-h1 {
-  font-weight: normal;
-  letter-spacing: -1px;
-  color: #34495E;
-}
-h1, table{
-  text-align: center
-}
-
-#MySelect{
-  margin-left: 10%;
-  margin-bottom: 10px;
-  width: 120px
-}
-</style>
-
-</head>
-
-
-<body>
-<select id="MySelect" onchange="this.options[this.selectedIndex].value && (window.location = this.options[this.selectedIndex].value);">
-  <option>Select Task Type</option>
-  <%= Task.all_kinds.each do |task| %>
-  <%=options_for_select([["#{task}", "/tasks?filter=#{task}"]])%>
-  <% end %>
-  <option value="tasks?filter=Show All">Show All</option>
-</select>
-<table id='tasks' align='center' width="80%">
-  <tr aligh='center'>
-    <th><%= link_to "Task Title", :sort => :title%></th>
-    <th><%= link_to "Course", :sort => :course%></th>
-    <th><%= link_to "Type", :sort => :kind%></th>
-    <th><%= link_to "Due Date", :sort => :due%></th>
-    <th><%= link_to "Status", :sort => :status%></th>
-    <th><%= link_to "Owner", :sort => :user_id%></th>
-    <th>Rate</th>
-  </tr>
-
-<% @tasks.each do |task| %>
-  <tr>
-    <td><%= task.title %></td>
-    <td><%= task.course %></td>
-    <td><%= task.kind %></td>
-    <td><%= task.remain_time %></td>
-    <td><%= task.status%></td>
-    <% if task.user != nil%>
-      <td><%= task.user.full_name%></td>
-    <% else %>
-      <td> NO USERS </td>
-    <% end %>
-    <td><%= task.rate%></td>
-  </tr>
-<% end %>
-
-</table>
-
-<table align="center" border="1">
-  <tr>
-    <td><%= link_to 'Add new task', new_task_path %></td>
-    <% if params[:show_finished] == nil %>
-      <td><%= link_to "Show finished tasks", :show_finished => :yes%></td>
-    <% else %>
-      <td><%= link_to "Hide finished tasks", :show_finished => nil%></td>
-    <% end %>
-
-  </tr>
-</table>
-
 <!-- Start: Change style -->
-      <table id='tasks' width="80%">
-      <div id="content" class="col-lg-10 col-sm-11">
-      
-      
-      <div class="row">
-        
-        <div class="col-sm-7">
-          
-          <div class="task-list" id="white-area">
-            <h1>Tasks</h1>
-            <% @tasks_by_status.each do |task_list| %>
-              <% if task_list.length != 0 %>
-                <% if task_list[0].status == "Past due" %>
-                  <% subs = "high"; status_change = "Finish"; id = "Past_due" %>
-                <% elsif task_list[0].status == "Started" %>
-                  <% subs = "medium"; status_change = "Finish"; id = "Started" %>
-                <% elsif task_list[0].status == "New"; %>
-                  <% subs = "low"; status_change = "Start"; id = "New" %>
-                <% else %>
-                  <% if @show_finish == true; status_change = "Reopen" %>
-                    <% subs = "xlow"; id = "Finished" %>
-                  <% else %>
-                    <% break %>
-                  <% end %>
-                <% end %>
-                <div class="priority <%= subs %>" id = "<%= id %>"><span><%= task_list[0].status %></span></div>
-                <% task_list.each do |task| %>
-                  <div class="task <%= subs %>" id = "<%=task.course%>_<%=task.title%>">
-                    <div class="desc">
-                      <div class="title"><%= link_to task.title, task_path(task) %></div>
-                      <div><%= task.course + "     " %><%= task.kind %></div>
-                    </div>
-                      <div class="button_area" id="status_button_<%=task.id%>">
+  <div class="tasklist-view">
 
-                      <%= link_to status_change, task_change_status_path(task.id), {:style=>'color:#FFFFFF;', :class => "btn btn-large btn-primary"}%>     
-                      </div>
-                    <div class="time">
-                      <div class="date"><%= task.due.strftime("%b %d") %></div>
-                      <% if task.due > Time.now %>
-                        <div><%= distance_of_time_in_words(task.due, Time.now, include_seconds: true) + " left" %></div>
-                      <% else %>
-                        <div><%= distance_of_time_in_words(task.due, Time.now, include_seconds: true) + " passed" %></div>
-                      <% end %>
-                    </div>
-                  </div>
-                <% end %>
-              <% end %>
-            <% end %>
+    <h1 id="view-label">Tasks</h1>
 
-            <div class="clearfix"></div>    
-
-          </div>    
-          
-        </div><!--/col-->
-        
-        <div class="col-sm-5">
-          
-          <div class="graph">
-
-            <h1>Timeline</h1>
-
-            <div class="timeline" id="Timeline">
-              <% i = 0 %>
-              <% @tasks_by_time.each do |task| %>
-                <% if i % 2 == 0 %>
-                  <% div_name = "timeslot" %>
-                <% else %>
-                  <% div_name = "timeslot alt" %>
-                <% end %>
-                <div class="<%= div_name %>" id="<%=task.course%>_<%=task.title%>_timeslot">
-                <div class="task">
-                    <span>
-                    <span class="type"><%= task.kind %></span>
-                    <span class="details">
-                      <%= task.course+" " %><%= task.title %>
-                    </span>
-                    <span>
-                      remaining time
-                      <span class="remaining">
-                        <% if task.due > Time.now %>
-                          <%= distance_of_time_in_words(task.due, Time.now, include_seconds: true) + " left" %>
-                        <% else %>
-                          <%= distance_of_time_in_words(task.due, Time.now, include_seconds: true) + " passed" %>
-                        <% end %>
-                      </span> 
-                    </span> 
-                  </span>
-                  <div class="arrow"></div>
-                </div>   
-                <div class="icon">
-                  <i class="fa fa-map-marker"></i>
-                </div>
-                <div class="time">
-                  <%= task.due.strftime("%b %d") %>
-                </div>  
-
-                </div>
-
-              <div class="clearfix"></div>
-              <% i += 1 %>
-            <% end %>
+    <% @tasks_by_status.each do |task_list| %>
+      <% if task_list.length != 0 %>
+        <% if task_list[0].status == "Past due" %>
+          <% subs = "high"; status_change = "Finish"; id = "Past_due" %>
+        <% elsif task_list[0].status == "Started" %>
+          <% subs = "medium"; status_change = "Finish"; id = "Started" %>
+        <% elsif task_list[0].status == "New"; %>
+          <% subs = "low"; status_change = "Start"; id = "New" %>
+        <% else %>
+          <% if @show_finish == true; status_change = "Reopen" %>
+            <% subs = "xlow"; id = "Finished" %>
+          <% else %>
+            <% break %>
+          <% end %>
+        <% end %>
+        <div class="priority <%= subs %>" id = "<%= id %>"><span><%= task_list[0].status %></span></div>
+        <% task_list.each do |task| %>
+          <div class="task <%= subs %>" id = "<%=task.course%>_<%=task.title%>">
+            <div class="desc">
+              <div class="title"><%= link_to task.title, task_path(task) %></div>
+              <div><%= task.course + "     " %><%= task.kind %></div>
             </div>
+              <div class="button_area" id="status_button_<%=task.id%>">
 
+              <%= link_to status_change, task_change_status_path(task.id), {:style=>'color:#FFFFFF;', :class => "btn btn-large btn-primary"}%>     
+              </div>
+            <div class="time">
+              <div class="date"><%= task.due.strftime("%b %d") %></div>
+              <% if task.due > Time.now %>
+                <div><%= distance_of_time_in_words(task.due, Time.now, include_seconds: true) + " left" %></div>
+              <% else %>
+                <div><%= distance_of_time_in_words(task.due, Time.now, include_seconds: true) + " passed" %></div>
+              <% end %>
+            </div>
           </div>
-        
-        </div><!--/col--> 
-            
-      </div>
-      
-       
-          
-      </div>
-    </table>
-<!-- End: Change style -->
+        <% end %>
+      <% end %>
+    <% end %>
 
+    <div class="clearfix"></div>    
 
-<div style="width:40%">
-  <div>
-    <canvas id="canvas" width="450" height="600"></canvas>
-    <div id="legendDiv"></div>
-  </div>
-</div>
+  </div>    
 
-<div id="work_distribution_chart">
-<script>
-  var data = <%=raw @taskData.to_json %>;
-  window.onload = function(){
-    var ctx = document.getElementById("canvas").getContext("2d");
-    window.myBar = new Chart(ctx).StackedBar(data);
-    legend(document.getElementById('legendDiv'), data);
-}
-</script>
-</div>
-</body>
