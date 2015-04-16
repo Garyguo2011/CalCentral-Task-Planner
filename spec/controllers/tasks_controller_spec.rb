@@ -204,4 +204,55 @@ describe TasksController, :type => :controller do
       expect(@task.status).to eq('Finished')
     end
   end
+
+  describe "GET status" do
+    it "renders the status template" do
+      get :status
+      response.should be_success
+      expect(response).to render_template("status")
+    end
+    it "can sort based on title" do
+      get :status, :sort => 'title'
+      response.should be_success
+      expect(response).to render_template("status")
+    end
+
+    it "can filter based on type" do
+      get :status, :filter => 'Project'
+      response.should be_success
+      expect(response).to render_template("status")
+    end
+
+    it "can show all finished tasks" do
+      get :status, :show_finished => 'Finished'
+      response.should be_success
+      expect(response).to render_template("status")
+    end
+
+    it "can show all finished tasks and filter by Project" do
+      get :status, :show_finished => 'Finished', :filter => 'Project'
+      response.should be_success
+      expect(response).to render_template("status")
+    end
+
+    it "renders the status template" do
+      session[:sort] = 'title'  
+      get :status
+      response.should be_success
+      expect(response).to render_template("status")
+    end
+
+    it "renders the status template" do
+      session[:filter] = 'Project'  
+      get :status
+      response.should be_success
+      expect(response).to render_template("status")
+    end
+
+    it "renders the status template" do
+      get :status, :filter => 'Show All'
+      response.should be_success
+      expect(response).to render_template("status")
+    end
+  end
 end
