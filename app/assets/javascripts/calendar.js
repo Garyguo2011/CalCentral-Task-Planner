@@ -23,8 +23,6 @@ $(document).ready(function(){
 	var d = date.getDate();
 	var m = date.getMonth();
 	var y = date.getFullYear();
-
-	const due_work_color = "#296080"
 	/* 
 		get all tasks from view, important: complicated array type, so can't convert to js array automatically 
 	   	it's converted to a long string
@@ -42,11 +40,6 @@ $(document).ready(function(){
 		tasks_array_json.push(task);
 	}
 
-	// console.log(all_tasks_string_array);
-	// for(task in all_tasks){
-	// 	console.log(task);
-	// }
-		
 	$('#calendar').fullCalendar({
 		header: {
 			left: 'title',
@@ -55,7 +48,6 @@ $(document).ready(function(){
 		editable: true,
 		droppable: true, // this allows things to be dropped onto the calendar !!!
 		drop: function(date, allDay) { // this function is called when something is dropped
-			console.log("dropping..." + allDay);
 			// retrieve the dropped element's stored Event Object
 			var originalEventObject = $(this).data('eventObject');
 			
@@ -78,12 +70,17 @@ $(document).ready(function(){
 			
 		},
 		/* add tasks to event to be dropped on calendar */
-		eventScource: [{
-			events: tasks_array_json,
-			color:  'yellow'
+		/* background color modified in assets/fullcalendar.print.css */
+		events: tasks_array_json,
+		editable: true,
+	 	eventDrop: function(event, delta, revertFunc) {
+    		var xml = new XMLHttpRequest();
+			xml.open("GET", "calendar/?task=" + escape(event.title) + "&new_date=" + escape(event.start), true);
+			xml.send();
 		}
-		]
 
+		
 	});
+
 	
 });

@@ -200,6 +200,10 @@ Then /I can see "(.*)" which in "(.*)" before "(.*)" which in "(.*)" with the sc
   end
 end 
 
+Then /^I move "(.*)" task to "(.*)"$/ do |task, date|
+  require 'cgi'
+  visit '/calendar?task=' + CGI.escape(task) + '&' + 'new_date=' + CGI.escape(date) 
+end
 # Then /^the done checkbox for "(.*)" should be checked$/ do |subtask_title|
 #   subtask = Subtask.find_by_description(subtask_title)
 #   css_class = "#subtask_#{subtask.id}"
