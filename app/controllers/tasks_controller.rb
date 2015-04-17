@@ -176,7 +176,6 @@ class TasksController < ApplicationController
 
   def status
     @tasks = Task.accessible_by(current_ability)
-    @taskData = @tasks.work_distribution
 
     sort_argument = sort_argument_helper   
     filter_argument = filter_argument_helper
@@ -195,6 +194,8 @@ class TasksController < ApplicationController
       @tasks = @tasks.order(sort_argument)
       @show_finish = true
     end
+
+    @taskData = @tasks.work_distribution
 
   end
 
