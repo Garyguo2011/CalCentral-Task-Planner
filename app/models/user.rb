@@ -26,7 +26,7 @@ class User < ActiveRecord::Base
   def self.test_mail
     @user = User.all
     @user.each do |u|
-      UserMailer.task_confirmation(u).deliver
+      UserMailer.task_notification(u).deliver
     end
     return "success"
   end

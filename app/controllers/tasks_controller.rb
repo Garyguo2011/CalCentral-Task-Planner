@@ -92,7 +92,7 @@ class TasksController < ApplicationController
     
     respond_to do |format|
       if @task.save
-        UserMailer.task_confirmation(current_user).deliver
+        UserMailer.task_create_confirmation(current_user).deliver
         format.html { redirect_to @task, notice: 'Task was successfully created.' }
         format.json { render json: @task, status: :created, location: @task }
       else
@@ -109,6 +109,7 @@ class TasksController < ApplicationController
 
     respond_to do |format|
       if @task.update_attributes(params[:task])
+        UserMailer.task_update_confirmation(current_user).deliver
         format.html { redirect_to @task, notice: 'Task was successfully updated.' }
         format.json { head :no_content }
       else
