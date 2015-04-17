@@ -11,6 +11,9 @@
               <h2><i class="fa fa-book"></i><span class="break"></span><%=@task.course%> <%=@task.kind %></h2>
             </div>
             <div class="box-content">
+                <div class="alert <%= @task.alert[:type] %>">
+                  <strong><%= @task.alert[:message]%></strong>
+                </div>
                 <div class="page-header">
 
                   <h1>

@@ -22,6 +22,19 @@ class Task < ActiveRecord::Base
   validates :rate, :presence => true
   validates_with MyValidator
 
+
+  # @@alert_message_library = {
+  #   1.0 => "have passed DUE DATE! Please FINISH ASAP!",
+  #   0.9 => "have used 90% of time, it ",
+    
+
+
+  #   "New" => {0.3, 0.5, 0.7},
+  #   "Started" => {},
+  #   "Finished" => {},
+  #   "Past due" => {}
+  # }
+
   def all_course
     arr = Array.new
     f = File.open("data.csv", "r")
@@ -67,9 +80,13 @@ class Task < ActiveRecord::Base
     end
   end
 
+  def remain_time_words
+    return distance_of_time_in_words(self.due, Time.now, include_seconds: true)
+  end
+
   def remain_time
     if self.status != "Finished"
-      remain_time = distance_of_time_in_words(self.due, Time.now, include_seconds: true)
+      remain_time = self.remain_time_words
       if self.due > Time.now
         return remain_time + " left"
       else
@@ -80,21 +97,34 @@ class Task < ActiveRecord::Base
     end
   end
 
-  def time_usage_percent
-    if self.status != "Finished"
-      percent = (Time.now - self.release) / (self.due - self.release) * 100
-      return  "%.0f%" % (percent)
-    else
-      return "100%"
+  def time_usage
+    if self.release > Time.now
+      return 0
     end
+    time_usage_float = (Time.now - self.release) / (self.due - self.release)
+    if time_usage_float > 1 || self.status == "Finished"
+      return 1
+    end
+    return time_usage_float
+  end
+
+  def time_usage_percent
+    return "%.0f%" % (self.time_usage * 100)
   end
 
   def time_usage_in_day
     if self.status == "Finished"
       return "Finished"
     end
-    day_used = (Time.now - self.release) / 1.day
     total_day = (self.due - self.release) / 1.day
+    case self.time_usage
+    when 0
+      day_used = 0
+    when 1
+      day_used = total_day
+    else
+      day_used = (Time.now - self.release) / 1.day
+    end
     return "%.1f / %.1f" % [day_used, total_day]
   end
 
@@ -159,4 +189,60 @@ class Task < ActiveRecord::Base
     return labels[self.status]
   end
 
+  def alert
+    if self.status == "Finished"
+      return {
+        :type => "alert-success",
+        :message => "Nice work, you have completed task."
+      }
+    end
+    
+    usage = self.time_usage 
+    if usage == 1
+      return {
+        :type => "alert-danger",
+        :message => "Code Red! #{self.title} have passed Due. Please finish ASAP!!!"
+      }
+    end
+
+    if usage >= 0.9
+      return {
+        :type => "alert-danger",
+        :message => "Hurry up! #{self.title} have used #{self.time_usage_percent} of Time, is due #{self.remain_time_words}"
+      }
+    end
+    
+    if usage >= 0.7
+      return {
+        :type => "alert-danger",
+        :message => "Hurry up! #{self.title} is due #{self.remain_time_words}"
+      }
+    end
+    
+    if usage >= 0.5
+      if self.status == "New"
+        return {
+          :type => "alert-warning",
+          :message => "Head up! You have pass half of time, but you haven't started!"
+        }
+      else
+        return {
+          :type => "alert-warning",
+          :message => "Hurry up! #{self.title} is due #{self.remain_time_words}"
+        }
+      end
+    end
+
+    if self.status == "New"
+      return {
+        :type => "alert-info",
+        :message => "New Task have been release. Please consider to start to work on it"
+      }
+    else
+      return {
+        :type => "alert-info",
+        :message => "Keep it up! You are early bird!"
+      }
+    end
+  end
 end
