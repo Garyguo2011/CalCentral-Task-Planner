@@ -158,7 +158,7 @@ class TasksController < ApplicationController
   end
 
   def calendar
-  
+    @all_tasks_array_of_hash = Task.all_tasks_in_array_of_hash(current_ability)
   end
 
   def dashboard

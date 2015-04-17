@@ -1,5 +1,5 @@
 $(document).ready(function(){
-	
+
 	$('#external-events div.external-event').each(function() {
 
 		// it doesn't need to have a start or end
@@ -23,6 +23,29 @@ $(document).ready(function(){
 	var d = date.getDate();
 	var m = date.getMonth();
 	var y = date.getFullYear();
+
+	const due_work_color = "#296080"
+	/* 
+		get all tasks from view, important: complicated array type, so can't convert to js array automatically 
+	   	it's converted to a long string
+	 */
+	var all_tasks_string_array = $('#all_tasks').val().split('{');
+	var tasks_array_json = new Array();
+
+	for(var i = 1; i < all_tasks_string_array.length; i++){
+		task_string = all_tasks_string_array[i];
+		var task = {
+			/* string process to extract info from the long string */
+			title:  task_string.substring(9, task_string.indexOf(",") - 1),
+			start:  task_string.slice(task_string.indexOf("start") + 8, -3)
+		};
+		tasks_array_json.push(task);
+	}
+
+	// console.log(all_tasks_string_array);
+	// for(task in all_tasks){
+	// 	console.log(task);
+	// }
 		
 	$('#calendar').fullCalendar({
 		header: {
@@ -32,7 +55,7 @@ $(document).ready(function(){
 		editable: true,
 		droppable: true, // this allows things to be dropped onto the calendar !!!
 		drop: function(date, allDay) { // this function is called when something is dropped
-		
+			console.log("dropping..." + allDay);
 			// retrieve the dropped element's stored Event Object
 			var originalEventObject = $(this).data('eventObject');
 			
@@ -53,7 +76,14 @@ $(document).ready(function(){
 				$(this).remove();
 			}
 			
+		},
+		/* add tasks to event to be dropped on calendar */
+		eventScource: [{
+			events: tasks_array_json,
+			color:  'yellow'
 		}
+		]
+
 	});
 	
 });

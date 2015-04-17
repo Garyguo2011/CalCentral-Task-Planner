@@ -159,4 +159,18 @@ class Task < ActiveRecord::Base
     return labels[self.status]
   end
 
+  #all tasks in array of hash format
+  def self.all_tasks_in_array_of_hash(current_ability)
+    tasks = self.accessible_by(current_ability).all
+    tasks_array = []
+
+    tasks.each do |task|
+      title = task.course + " " + task.title
+      end_time = task.due
+      tasks_array.push({'title' => title, 'start' => end_time})
+    end
+
+    return tasks_array
+  end
+
 end
