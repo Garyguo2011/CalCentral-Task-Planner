@@ -1,8 +1,6 @@
 <!-- start: Content -->
       <!-- <div id="content" class="col-lg-10 col-sm-11"> -->
-        <% if (notice) %>
-          <p id="notice"><%=notice%></p>
-        <% end %>
+
 
       <div class="row">
         <div class="col-lg-12">
@@ -12,8 +10,12 @@
             </div>
             <div class="box-content">
                 <div class="alert <%= @task.alert[:type] %>">
+                  <button type="button" class="close" data-dismiss="alert">x</button>
                   <strong><%= @task.alert[:message]%></strong>
                 </div>
+                <% if (notice) %>
+                  <p id="notice"><%=notice%></p>
+                <% end %>
                 <div class="page-header">
 
                   <h1>
