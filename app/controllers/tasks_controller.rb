@@ -50,6 +50,27 @@ class TasksController < ApplicationController
     end
     return filter_argument
   end
+
+
+  def prefill_subtasks_helper
+    if params[:needPrefill] == 'yes'
+      @type = @task.kind
+      if @type == 'Homework'
+        @numProb = params[:numProb]
+      end
+      old_subtasks = @task.subtasks.find_all_by_task_id(@task.id)
+      old_subtasks.each do |os|
+        os.destroy
+      end
+      subtasks = Subtask.prefill(@type, @numProb)
+      subtasks.each do |subtask|
+        @task.subtasks.create!({:description => subtask, :is_done => false, :task_id => @task.id})
+      end
+    end
+  end
+
+
+
   # GET /tasks/1
   # GET /tasks/1.json
   def show
@@ -92,6 +113,7 @@ class TasksController < ApplicationController
     
     respond_to do |format|
       if @task.save
+        prefill_subtasks_helper
         UserMailer.task_create_confirmation(current_user).deliver
         format.html { redirect_to @task, notice: 'Task was successfully created.' }
         format.json { render json: @task, status: :created, location: @task }
@@ -109,6 +131,7 @@ class TasksController < ApplicationController
 
     respond_to do |format|
       if @task.update_attributes(params[:task])
+        prefill_subtasks_helper
         UserMailer.task_update_confirmation(current_user).deliver
         format.html { redirect_to @task, notice: 'Task was successfully updated.' }
         format.json { head :no_content }

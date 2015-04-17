@@ -200,6 +200,10 @@ Then /I can see "(.*)" which in "(.*)" before "(.*)" which in "(.*)" with the sc
   end
 end 
 
+When /I invoke prefill options$/ do
+  page.execute_script("$('#task_kind').change();") 
+end 
+
 Then /^I move "(.*)" task to "(.*)"$/ do |task, date|
   require 'cgi'
   visit '/calendar?task=' + CGI.escape(task) + '&' + 'new_date=' + CGI.escape(date) 
