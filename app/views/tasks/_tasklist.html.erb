@@ -1,7 +1,5 @@
 <!-- Start: Change style -->
-  <div class="tasklist-view">
-
-    <h1 id="view-label">Tasks</h1>
+  <div class="tasklist-view" id="tasklist_view">
 
     <% @tasks_by_status.each do |task_list| %>
       <% if task_list.length != 0 %>
@@ -18,11 +16,11 @@
             <% break %>
           <% end %>
         <% end %>
-        <div class="priority <%= subs %>" id = "<%= id %>"><span><%= task_list[0].status %></span></div>
+        <div class="priority <%= subs %>" id="<%= id %>"><span><%= task_list[0].status %></span></div>
         <% task_list.each do |task| %>
-          <div class="task <%= subs %>" id = "<%=task.course%>_<%=task.title%>">
+          <div class="task <%= subs %>" id="<%=task.course%>_<%=task.title%>">
             <div class="desc">
-              <div class="title"><%= link_to task.title, task_path(task) %></div>
+              <div id="<%=task.course%>_<%=task.title%>_listitem" class="title"><%= link_to task.title, task_path(task) %></div>
               <div><%= task.course + "     " %><%= task.kind %></div>
             </div>
               <div class="button_area" id="status_button_<%=task.id%>">

@@ -4585,6 +4585,7 @@ ul.messagesList li span.date {
   -moz-box-sizing: content-box;
   box-sizing: content-box;
 }
+
 .timeslot .time {
   background: #e4e6eb;
   position: absolute;
