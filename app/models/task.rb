@@ -162,6 +162,7 @@ class Task < ActiveRecord::Base
     end
     return task_arr
   end
+
   
   def hash_to_hex_s
     return (self.hash % (2 ** 24)).to_s(16)
@@ -232,4 +233,25 @@ class Task < ActiveRecord::Base
       }
     end
   end
+
+  def self.generate_message
+    @temp_tasks = self.all(:conditions => ["status != (?) AND status != (?) AND due <= (?)", "Past due", "Finished", Time.now+7.days])
+    @message = "Summary of your tasks: \n"
+    i = 1
+    @temp_tasks.each do |t|
+      @message << "Task No.#{i}\n"
+      @message << t.generate_message_for_each_task
+      i += 1
+    end
+    return @message
+  end
+
+  def generate_message_for_each_task
+    @m = "Task Title: #{self.title}\n"
+    @m << "Course: #{self.course}\n"
+    @m << "Kind: #{self.kind}\n"
+    @m << "Due Time: #{self.due}\n"
+    @m << "Remainning time: #{self.remain_time}\n\n"
+  end
+
 end

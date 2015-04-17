@@ -25,10 +25,10 @@ Background: users and tasks have been added to database
   Given I am on the tasks page
   
 Scenario: Red (Danger) alert message for >90% time usage
-  Given it is currently Apr,5 2015
+  Given time is frozen at 5/Apr/2015 20:59:00 -0800
   When I follow "Typo-blog"
   Then I should be on the detail page for "Typo-blog"
-  Then I should see "Hurry up! Typo-blog have used 92% of Time, is due about 14 hours"
+  Then I should see "Hurry up! Typo-blog have used 98% of Time, is due about 4 hours"
 
 Scenario: Red (Danger) alert message for past due task
   Given it is currently Apr,5 2015
