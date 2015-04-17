@@ -23,6 +23,10 @@ Background: users and tasks have been added to database
   And I am on the sign-in page
   And I sign in "123454321@hotmail.com" with "123454321"
 
-Scenario: change task in calendar
+Scenario: Task Due date are shown in Calendar
   When I am on the calendar page
-  When I move "CS169 HW1" task to "5/Mar/2015 23:59:00 -0800"
+  Then I should see "CS169 HW1" in calendar
+  Then I should see "CS169 PROJ1" in calendar
+  Then I should see "CS195 ESSAY1" in calendar
+  Then I should see "CS186 HW2" in calendar
+  Then I should see "CS164 MIDTERM1" in calendar
