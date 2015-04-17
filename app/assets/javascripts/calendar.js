@@ -27,6 +27,10 @@ $(document).ready(function(){
 		get all tasks from view, important: complicated array type, so can't convert to js array automatically 
 	   	it's converted to a long string
 	 */
+	if ($('#all_tasks').val() == undefined) {
+		return ;
+	}
+
 	var all_tasks_string_array = $('#all_tasks').val().split('{');
 	var tasks_array_json = new Array();
 
