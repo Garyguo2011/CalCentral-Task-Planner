@@ -25,14 +25,14 @@ Scenario: Create a project should have plan, design, code and test subtasks
   And I select "Project" from "Kind"
   And I select "3" from "Rate"
   And I select "New" from "Status"
-  And I invoke prefill options
   And I select "Yes" from "Need Prefill?"
   And I press "Create Task"
-  Then I should be on detailed page for "Project 1"
-  And I should see "plan" with scope of "subtasks"
-  And I should see  "design" with scope of "subtasks"
-  And I should see "code" with scope of "subtasks"
-  And I should see "test" with scope of "subtasks"
+  Then I should be on the detail page for "Project 1"
+  Then I should see "Finish plan" in Subtask
+  And I should see "Finish design" in Subtask
+  And I should see "Finish code" in Subtask
+  And I should see "Finish unit test" in Subtask
+  And I should see "Finish integration test" in Subtask
 
 Scenario: Create a paper should have brain storm, draft, revision subtasks
 	When I follow "Add new task"
@@ -42,13 +42,15 @@ Scenario: Create a paper should have brain storm, draft, revision subtasks
   When I select "Computer Science 195" from "Course"
   When I fill in "task_release" with "2015-03-02 20:25: -07:00"
   When I select "3" from "Rate"
-  When I select "New" from "status"
-  And I select "Paper" from "kind"
+  When I select "New" from "Status"
+  And I select "Paper" from "Kind"
+  And I select "Yes" from "Need Prefill?"
   And I press "Create Task"
-  Then I should be on detailed page for "Essay 1"
-  And I should see "brain storm" with scope of "subtasks"
-  And I should see  "draft" with scope of "subtasks"
-  And I should see "revision" with scope of "subtasks"
+  Then I should be on the detail page for "Essay 1"
+  And I should see "Finish brain storm" in Subtask
+  And I should see "Finish draft" in Subtask
+  And I should see "Finish revision" in Subtask
+  And I should see "Finish peer review" in Subtask
 
 
 Scenario: Create an exam should have review notes, review homework, practice exam subtasks
@@ -59,15 +61,32 @@ Scenario: Create an exam should have review notes, review homework, practice exa
   When I select "Computer Science 169" from "Course"
   When I fill in "task_release" with "2015-03-20 20:25: -07:00"
   When I select "3" from "Rate"
-  When I select "New" from "status"
-  And I select "Exam" from "kind"
+  When I select "New" from "Status"
+  And I select "Exam" from "Kind"
+  And I select "Yes" from "Need Prefill?"
   And I press "Create Task"
-  Then I should be on detailed page for "Project 1"
-  And I should see "review notes" with scope of "subtasks"
-  And I should see  "review homework" with scope of "subtasks"
-  And I should see "practice exam" with scope of "subtasks"
+  Then I should be on the detail page for "Midterm 1"
+  And I should see "Finish note review" in Subtask
+  And I should see "Finish homework review" in Subtask    
+  And I should see "Finish practice exam" in Subtask
 
 
+Scenario: Create an other assignment should give trivial subtask
+  When I follow "Add new task"
+  Then I should currently on the new_task page
+  When I fill in "Title" with "??"
+  When I fill in "task_due" with "2015-04-20 20:25: -07:00"
+  When I select "Computer Science 169" from "Course"
+  When I fill in "task_release" with "2015-03-20 20:25: -07:00"
+  When I select "3" from "Rate"
+  When I select "New" from "Status"
+  And I select "Other" from "Kind"
+  And I select "Yes" from "Need Prefill?"
+  And I press "Create Task"
+  Then I should be on the detail page for "??"    
+  And I should see "trivial" in Subtask  
+
+@javascript
 Scenario: Create a homework should ask me number of questions to set subtasks
 	When I follow "Add new task"
   Then I should currently on the new_task page
@@ -77,12 +96,15 @@ Scenario: Create a homework should ask me number of questions to set subtasks
   When I select "Computer Science 169" from "Course"
   When I fill in "task_release" with "2015-03-20 20:25: -07:00"
   When I select "3" from "Rate"
-  When I select "New" from "status"
-  And I select "HW" from "kind"
-  Then I should see "Please specify the number of questions in this homework"
-  When I select "2" from "questions"
+  When I select "New" from "Status"
+  And I select "Homework" from "Kind"
+  And I select "Yes" from "Need Prefill?"
+  And I invoke prefill options
+  Then I should see "Number of Problems"
+  When I select "3" from "numProblems"
   And I press "Create Task"
-  Then I should be on detailed page for "Project 1"
-  And I should see "Question 1" with scope of "subtasks"
-  And I should see  "Question 2" with scope of "subtasks"
+  Then I should be on the detail page for "HW1"
+  And I should see "Finish problem #1" in Subtask 
+  And I should see "Finish problem #2" in Subtask 
+  And I should see "Finish problem #3" in Subtask 
 

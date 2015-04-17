@@ -90,11 +90,42 @@ describe TasksController, :type => :controller do
       post :create, :task => {:title => 'Quiz#2', :course => 'CS169', :kind => 'Exam', :release => '20/Mar/2015 23:59:00 -0800', :due => '19/Mar/2015 23:59:00 -0800', :status => 'New', :rate => 3}
       subject.current_user.tasks.should include(task)
     end
+
     it "should stay in new page with invalid rate" do
       task = subject.current_user.tasks.build(title: 'HW2')
       post :create, :task => {:title => 'Quiz#2', :course => 'CS169', :kind => 'Exam', :release => '18/Mar/2015 23:59:00 -0800', :due => '19/Mar/2015 23:59:00 -0800', :status => 'New', :rate => 0}
       subject.current_user.tasks.should include(task)
     end
+
+    it "should get subtasks for a project prefilled" do
+      task = subject .current_user.tasks.build(title: 'Project2')
+      post :create, :task => {:title => 'Project2', :course => 'CS169', :kind => 'Project', :release => '18/Mar/2015 23:59:00 -0800', :due => '19/Mar/2015 23:59:00 -0800', :status => 'New', :rate => 1}, :needPrefill => 'yes'
+      subject.current_user.tasks.should include(task)
+    end
+
+    it "should get subtasks for a paper prefilled" do
+      task = subject .current_user.tasks.build(title: 'Essay1')
+      post :create, :task => {:title => 'Essay1', :course => 'CS195', :kind => 'Paper', :release => '18/Mar/2015 23:59:00 -0800', :due => '19/Mar/2015 23:59:00 -0800', :status => 'New', :rate => 1}, :needPrefill => 'yes'
+      subject.current_user.tasks.should include(task)
+    end
+
+    it "should get subtasks for an exam prefilled" do
+      task = subject .current_user.tasks.build(title: 'Midterm1')
+      post :create, :task => {:title => 'Midtern1', :course => 'CS169', :kind => 'Exam', :release => '18/Mar/2015 23:59:00 -0800', :due => '19/Mar/2015 23:59:00 -0800', :status => 'New', :rate => 1}, :needPrefill => 'yes'
+      subject.current_user.tasks.should include(task)
+    end
+
+    it "should get subtasks for a homework prefilled" do
+      task = subject .current_user.tasks.build(title: 'HW1')
+      post :create, :task => {:title => 'HW1', :course => 'CS169', :kind => 'Homework', :release => '18/Mar/2015 23:59:00 -0800', :due => '19/Mar/2015 23:59:00 -0800', :status => 'New', :rate => 1}, :needPrefill => 'yes', :numProb => '4'
+      subject.current_user.tasks.should include(task)
+    end
+
+    it "should create some trivial subtasks for other assignment" do
+      task = subject .current_user.tasks.build(title: '??')
+      post :create, :task => {:title => '??', :course => 'CS169', :kind => 'Other', :release => '18/Mar/2015 23:59:00 -0800', :due => '19/Mar/2015 23:59:00 -0800', :status => 'New', :rate => 1}, :needPrefill => 'yes'
+      subject.current_user.tasks.should include(task)
+    end    
   end
 
   describe 'GET #new' do
@@ -130,8 +161,10 @@ describe TasksController, :type => :controller do
     end
     describe "with valid params" do
       it "updates the requested task" do
+        @task.subtasks.create!(:description => 'trivial', :is_done => false, :task_id => @task.id)
         @task.title = 'HW4'
-        put :update, {:id => @task.user_id}
+        @task.kind = 'Paper'
+        put :update, {:id => @task.user_id, :task=> {:title => "HW2", :course => "Computer Science 169", :status => "New", :kind => "Paper", :due => "2015-03-07 07:59:00", :release => "2015-03-03 07:59:00", :user_id => 2, :rate => 3}, :needPrefill => 'yes'}
       end
 
       it "assigns the requested task as @task" do
