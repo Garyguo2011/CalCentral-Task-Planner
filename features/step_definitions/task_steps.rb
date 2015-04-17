@@ -200,6 +200,10 @@ Then /I can see "(.*)" which in "(.*)" before "(.*)" which in "(.*)" with the sc
   end
 end 
 
+When /I invoke prefill options$/ do
+  page.execute_script("$('#task_kind').change();") 
+end 
+
 # Then /^the done checkbox for "(.*)" should be checked$/ do |subtask_title|
 #   subtask = Subtask.find_by_description(subtask_title)
 #   css_class = "#subtask_#{subtask.id}"

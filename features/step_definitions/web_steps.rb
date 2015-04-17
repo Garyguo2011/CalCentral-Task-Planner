@@ -84,6 +84,7 @@ When /^(?:|I )fill in the following:$/ do |fields|
 end
 
 When /^(?:|I )select "([^"]*)" from "([^"]*)"$/ do |value, field|
+  # puts(page.html)
   select(value, :from => field)
 end
 
