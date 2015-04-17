@@ -5,6 +5,7 @@ FactoryGirl.define do
         password "12345678"
         first_name "Xinran"
         last_name "Guo"
+        email_notifications "hourly"
     end
     
     factory :admin do
