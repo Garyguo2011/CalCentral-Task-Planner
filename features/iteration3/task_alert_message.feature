@@ -14,54 +14,47 @@ Background: users and tasks have been added to database
 
   Given the following tasks exist:
   | title     | course | kind     | release                    | due                        | status   | rate  | user_id |
-  | Typo-blog | CS169  | Homework | 3/Apr/2015 23:59:00 -0800  | 6/Apr/2015 23:59:00 -0800  | New      | 1     | 1       |
-  | Homework6 | CS164  | Homework | 4/Apr/2015 23:59:00 -0800  | 3/Apr/2015 23:59:00 -0800  | Past Due | 5     | 1       |
+  | Typo-blog | CS169  | Homework | 29/Mar/2015 23:59:00 -0800 | 6/Apr/2015 00:59:00 -0800  | New      | 1     | 1       |
+  | Homework6 | CS164  | Homework | 1/Apr/2015 23:59:00 -0800  | 4/Apr/2015 23:59:00 -0800  | New      | 5     | 1       |
   | Proj3     | CS186  | Project  | 1/Apr/2015 23:59:00 -0800  | 20/Apr/2015 23:59:00 -0800 | Started  | 3     | 1       |
   | Quiz9     | CS164  | Exam     | 1/Apr/2015 23:59:00 -0800  | 20/Apr/2015 23:59:00 -0800 | New      | 5     | 1       |
   | Essay2    | CS164  | Paper    | 1/Apr/2015 23:59:00 -0800  | 20/Apr/2015 23:59:00 -0800 | Finished | 5     | 1       |
   
   And I am on the sign-in page
   Given I sign in "xinran@gmail.com" with "111111111"
-  Then I should be on the homepage
+  Given I am on the tasks page
   
 Scenario: Red (Danger) alert message for >90% time usage
   Given it is currently Apr,5 2015
   When I follow "Typo-blog"
   Then I should be on the detail page for "Typo-blog"
-  And I should see "75% Time Usage"
-  Then I should see "Danger" alert message "Hurry up! Typo-blog is due in one day"
+  Then I should see "Hurry up! Typo-blog have used 92% of Time, is due about 14 hours"
 
 Scenario: Red (Danger) alert message for past due task
   Given it is currently Apr,5 2015
-  Then I go to homepage
   When I follow "Homework6"
-  And I should see "past due"
-  Then I should see "Danger" alert message "Code Red! If you didn't complete Homework6, Finish it NOW!!"
+  Then I should be on the detail page for "Homework6"
+  Then I should see "Code Red! Homework6 have passed Due. Please finish ASAP!!!"
 
-Scenario: Yellow (Warning) alert message for >60% time usage task
-  Given it is currently Apr,13 2015
+Scenario: Yellow (Warning) alert message for >70% time usage task
+  Given it is currently Apr,15 2015
   When I follow "Proj3"
   Then I should be on the detail page for "Proj3"
-  And I should see "60% Time Usage"
-  Then I should see "Warning" alert message "Keep eys on it! Time is burning now."
+  Then I should see "Hurry up! Proj3 is due 6 days"
 
-Scenario: Yellow (Warning) alert message for >40% time usage unstart task
-  Given it is currently Apr,8 2015
-  Then I go to homepage
+Scenario: Yellow (Warning) alert message for >50% time usage unstart task
+  Given it is currently Apr,14 2015
   When I follow "Quiz9"
-  And I should see "40% Time Usage"
-  Then I should see "Warning" alert message "Keep eys on it! Time is burning now. You haven't start yet!"
+  Then I should be on the detail page for "Quiz9"
+  Then I should see "Head up! You have pass half of time, but you haven't started!"
 
 Scenario: Green (Health) alert message for 30% time usage start task
   Given it is currently Apr,8 2015
-  Then I go to homepage
-  When I follow "Quiz9"
-  And I should see "20% Time Usage"
-  Then I should see "Started" in "Status"
-  Then I should see "Health" alert message "Keep it up! you have good start!"
+  When I follow "Proj3"
+  Then I should be on the detail page for "Proj3"
+  Then I should see "Keep it up! You are early bird!"
 
 Scenario: Green (Health) alert message for finish task
   Given it is currently Apr,2 2015
-  Then I go to homepage
-  When I follow "Essay2"
-  Then I should see "Health" alert message "Well Done! You've completed this task"
+  Given I am on the detail page for "Essay2"
+  Then I should see "Nice work, you have completed task."

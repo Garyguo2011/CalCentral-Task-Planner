@@ -22,19 +22,6 @@ class Task < ActiveRecord::Base
   validates :rate, :presence => true
   validates_with MyValidator
 
-
-  # @@alert_message_library = {
-  #   1.0 => "have passed DUE DATE! Please FINISH ASAP!",
-  #   0.9 => "have used 90% of time, it ",
-    
-
-
-  #   "New" => {0.3, 0.5, 0.7},
-  #   "Started" => {},
-  #   "Finished" => {},
-  #   "Past due" => {}
-  # }
-
   def all_course
     arr = Array.new
     f = File.open("data.csv", "r")
