@@ -177,6 +177,27 @@ class Task < ActiveRecord::Base
     return labels[self.status]
   end
 
+
+  #all tasks in array of hash format
+  def self.all_tasks_in_array_of_hash(current_ability)
+    tasks = self.accessible_by(current_ability).all
+    tasks_array = []
+
+    tasks.each do |task|
+      title = task.course + " " + task.title
+      end_time = task.due
+      tasks_array.push({'title' => title, 'start' => end_time})
+    end
+
+    return tasks_array
+  end
+
+  #find task by course + title
+  def self.find_task_by_course_title(target_course, target_title)
+    tasks = self.where(course: target_course).find_by_title(target_title)
+    return tasks
+  end
+
   def alert
     if self.status == "Finished"
       return {

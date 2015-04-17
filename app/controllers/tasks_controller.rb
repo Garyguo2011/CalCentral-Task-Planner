@@ -158,7 +158,12 @@ class TasksController < ApplicationController
   end
 
   def calendar
-  
+    @all_tasks_array_of_hash = Task.all_tasks_in_array_of_hash(current_ability)
+    if(params[:task] != nil)
+      course, title = params[:task].split(" ")
+      task_to_change = Task.find_task_by_course_title(course, title)
+      task_to_change.update_attribute(:due, params[:new_date])
+    end
   end
 
   def dashboard
