@@ -41,6 +41,7 @@
 </head>
 
 <body data-ng-class="{&#39;cc-page-splash&#39;:(controllerName===&#39;SplashController&#39;),&#39;cc-offcanvas-show&#39;:(offCanvasMenu.show)}" data-ng-show="api.user.events.isLoaded" data-cc-iosfix-directive="" class="">
+<div id="page-body">
 
 <!-- inject:body:html -->
 <!-- ngInclude: 'accessibility.html' -->
@@ -227,5 +228,6 @@
   <%= yield %>
   </div>
 <!-- endinject -->
+</div>
 </body>
 </html>
