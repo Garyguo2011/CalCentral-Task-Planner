@@ -36,11 +36,6 @@
   width: 48px;
 }
 
-#dashboard-body 
-{
-  max-width: 1200px;
-}
-
 div#saas-content-body 
 {
   background-color: #f6f6f6;
