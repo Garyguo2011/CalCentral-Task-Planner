@@ -2,6 +2,8 @@ class UserMailer < ActionMailer::Base
   default from: "notification@ibearhost.com"
 
   def task_confirmation(user)
-  	mail(:to => user.email, :subject => "You registered")
+  	@message = user.tasks.generate_message
+  	mail(:to => user.email, :subject => "Summary of your unfinished Tasks")
+  	return @message
   end
 end
