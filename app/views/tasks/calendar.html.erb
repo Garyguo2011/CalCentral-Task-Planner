@@ -25,6 +25,8 @@
 									</div>
 								</div>
 								<div class="col-lg-9">
+									<%=hidden_field_tag :all_tasks, @all_tasks_array_of_hash.to_json%>
+									<%= @x %>
 									<div id="calendar" class="col-lg-12"></div>	
 								</div>	
 							</div>
@@ -35,16 +37,4 @@
 
 		
 					
-			</div>
-			<!-- end: Content -->
-				
-				</div><!--/row-->		
-		
-	<!-- </div> -->
-	<!--/container-->
-
 	
-	<!-- inline scripts related to this page -->
-	
-	
-	<!-- end: JavaScript-->

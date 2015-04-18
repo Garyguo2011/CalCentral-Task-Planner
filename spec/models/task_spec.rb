@@ -195,4 +195,65 @@ describe Task do
       expect(@task.save).to be_false
     end
   end
+
+  describe "task alert message" do
+    before :each do
+      @task.release = "1/Apr/2015 22:00:00 -0800".to_time
+      @task.due = "10/Apr/2015 22:00:00 -0800".to_time
+      @task.status = "Started"
+    end
+
+    it "should show nice when task finish" do
+      @task.status = "Finished"
+      Time.stub(:now).and_return("9/Apr/2015 22:00:00 -0800".to_time)
+      @task.alert[:message].should eq("Nice work, you have completed task.")
+      @task.alert[:type].should eq("alert-success")
+    end
+
+    it "should alert when task has pass due" do
+      Time.stub(:now).and_return("11/Apr/2015 22:00:00 -0800".to_time)
+      @task.alert[:message].should eq("Code Red! Midterm1 have passed Due. Please finish ASAP!!!")
+      @task.alert[:type].should eq("alert-danger")
+    end
+
+    it "should alert hurry up when task 90% usage" do
+      Time.stub(:now).and_return("10/Apr/2015 09:00:00 -0800".to_time)
+      @task.alert[:message].should eq("Hurry up! Midterm1 have used 94% of Time, is due about 13 hours")
+      @task.alert[:type].should eq("alert-danger")
+    end
+
+    it "should aler hurry up and remain_time when 70% usage" do
+      Time.stub(:now).and_return("8/Apr/2015 22:00:00 -0800".to_time)
+      @task.alert[:message].should eq("Hurry up! Midterm1 is due 2 days")
+      @task.alert[:type].should eq("alert-danger")
+    end
+    
+    it "should alert when usage > 0.5 but still new" do
+      @task.status = "New"
+      Time.stub(:now).and_return("6/Apr/2015 22:00:00 -0800".to_time)
+      @task.alert[:message].should eq("Head up! You have pass half of time, but you haven't started!")
+      @task.alert[:type].should eq("alert-warning")
+    end
+
+    it "should alert when usage > 0.5 but already started" do
+      Time.stub(:now).and_return("6/Apr/2015 22:00:00 -0800".to_time)
+      @task.alert[:message].should eq("Hurry up! Midterm1 is due 4 days")
+      @task.alert[:type].should eq("alert-warning")
+    end
+
+    it "should alert when usage < 0.5 when new task have release" do
+      @task.status = "New"
+      Time.stub(:now).and_return("3/Apr/2015 22:00:00 -0800".to_time)
+      @task.alert[:message].should eq("New Task have been release. Please consider to start to work on it")
+      @task.alert[:type].should eq("alert-info")
+    end
+
+    it "should alert Keept it up, when usage < 0.5, user have start task" do
+      Time.stub(:now).and_return("3/Apr/2015 22:00:00 -0800".to_time)
+      @task.alert[:message].should eq("Keep it up! You are early bird!")
+      @task.alert[:type].should eq("alert-info")
+    end
+
+  end
+
 end

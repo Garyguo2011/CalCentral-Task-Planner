@@ -1,4 +1,4 @@
-feature: Pre fill some subtasks
+Feature: Pre fill some subtasks
 As student in Berkeley
 So that I don't have to input too much information when create a task
 I want to have some subtask prefilled base on task type
@@ -22,9 +22,11 @@ Scenario: Create a project should have plan, design, code and test subtasks
   When I fill in "task_due" with "2015-04-30 20:25: -07:00"
   When I select "Computer Science 169" from "Course"
   When I fill in "task_release" with "2015-03-29 20:25: -07:00"
-  When I select "3" from "Rate"
-  When I select "New" from "status"
-  And I select "Project" from "kind"
+  And I select "Project" from "Kind"
+  And I select "3" from "Rate"
+  And I select "New" from "Status"
+  And I invoke prefill options
+  And I select "Yes" from "Need Prefill?"
   And I press "Create Task"
   Then I should be on detailed page for "Project 1"
   And I should see "plan" with scope of "subtasks"
@@ -43,7 +45,7 @@ Scenario: Create a paper should have brain storm, draft, revision subtasks
   When I select "New" from "status"
   And I select "Paper" from "kind"
   And I press "Create Task"
-  Then I should be on detailed page for "Project 1"
+  Then I should be on detailed page for "Essay 1"
   And I should see "brain storm" with scope of "subtasks"
   And I should see  "draft" with scope of "subtasks"
   And I should see "revision" with scope of "subtasks"

@@ -19,3 +19,5 @@
 //= require legend
 //= require calendar
 //= require fullcalendar
+//= require bootstrap
+//= require core
