@@ -190,10 +190,10 @@ class Task < ActiveRecord::Base
   end
 
   #find task by course + title
-  def self.find_task_by_course_title(target_course, target_title)
-    tasks = self.where(course: target_course).find_by_title(target_title)
-    return tasks
-  end
+  # def self.find_task_by_course_title(target_course, target_title)
+  #   tasks = self.where(course: target_course).find_by_title(target_title)
+  #   return tasks
+  # end
 
   def alert
     if self.status == "Finished"
