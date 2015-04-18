@@ -1,9 +1,7 @@
 <!-- Start: Change style -->
-  <div class="graph timeline-view">
+  <div id="timeline_view" class="graph timeline-view">
 
-    <h1 id="view-label">Timeline</h1>
-
-    <div class="timeline" id="Timeline">
+    <div class="timeline">
       <% i = 0 %>
       <% @tasks_by_time.each do |task| %>
         <% if i % 2 == 0 %>
@@ -11,36 +9,34 @@
         <% else %>
           <% div_name = "timeslot alt" %>
         <% end %>
-        <div class="<%= div_name %>" id="<%=task.course%>_<%=task.title%>_timeslot">
+        <div class="<%= div_name %>" id="<%=task.course%>_<%=task.title%>">
         <div class="task">
             <span>
-            <span class="type"><%= task.kind %></span>
-            <span class="details">
-              <%= task.course+" " %><%= task.title %>
-            </span>
-            <span>
-              remaining time
-              <span class="remaining">
+              <span class="type"><%= task.course %></span><span class="type"><%= task.kind %></span>
+              <span id="<%=task.course%>_<%=task.title%>_timeslot" class="details"><%= link_to task.title, task_path(task) %></span>
+              <span>
+                remaining time
+                <span class="remaining">
                 <% if task.due > Time.now %>
                   <%= distance_of_time_in_words(task.due, Time.now, include_seconds: true) + " left" %>
                 <% else %>
                   <%= distance_of_time_in_words(task.due, Time.now, include_seconds: true) + " passed" %>
                 <% end %>
+                </span> 
               </span> 
-            </span> 
-          </span>
-          <div class="arrow"></div>
-        </div>   
-        <div class="icon">
-          <i class="fa fa-map-marker"></i>
-        </div>
-        <div class="time">
-          <%= task.due.strftime("%b %d") %>
-        </div>  
+            </span>
+            <div class="arrow"></div>
+          </div>   
+          <div class="icon">
+            <i class="fa fa-map-marker"></i>
+          </div>
+          <div class="time">
+            <%= task.due.strftime("%b %d") %>
+          </div>  
 
         </div>
 
-      <div class="clearfix"></div>
+        <div class="clearfix"></div>
       <% i += 1 %>
     <% end %>
     </div>

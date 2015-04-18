@@ -36,6 +36,12 @@
   width: 48px;
 }
 
+#page-body 
+{
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
 div#saas-content-body 
 {
   background-color: #f6f6f6;

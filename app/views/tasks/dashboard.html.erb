@@ -1,5 +1,4 @@
-<body class="">
-
+<div id="dashboard-body" class="container">
 <!-- ngInclude: 'accessibility.html' --><div class="ng-scope" data-ng-include="'accessibility.html'"><div class="cc-accessibility-links ng-scope">
   <a style="display: block;" href="" data-cc-scroll-to-directive="#cc-main-content">Skip to content</a>
   <a style="display: none;" href="" data-cc-scroll-to-directive="#cc-local-navigation">Skip to local navigation</a>
@@ -35,7 +34,7 @@
   <!-- ngInclude: 'widgets/tasks.html' --><div class="ng-scope" data-ng-include="'widgets/tasks.html'"><div class="cc-widget cc-widget-tasks ng-scope" data-ng-controller="TasksController">
   <div class="ng-scope" data-ng-controller="TaskAdderController">
     <div class="cc-widget-title">
-      <h2 class="cc-left">To&nbsp;Do</h2>
+      <h2 class="cc-left">Task&nbsp;Planner</h2>
       <button type="button" class="cc-button cc-right cc-widget-title-button" onclick="window.location.assign('/tasks/new');">
         <i class="fa fa-plus cc-button-plus-icon"></i>
         <span>New Task</span>
@@ -109,17 +108,16 @@
         <div class="medium-10 medium-centered columns">
           <ul class="cc-button-group cc-even-2" role="tablist">
             <!-- ngRepeat: taskMode in taskModes --><li class="ng-scope">
-              <button class="cc-button ng-binding <%=(@view == 'tasklist') ? 'cc-button-selected' : ''%>" onclick="window.location.assign('/dashboard/?view=tasklist');" role="tab">Task List</button>
+              <button id="tasklist_btn" type="button" class="cc-button <%=(@view == 'tasklist') ? 'cc-button-selected' : ''%>" onclick="window.location.assign('/dashboard/?view=tasklist'); return true;" role="tab">Task List</button>
             </li><!-- end ngRepeat: taskMode in taskModes --><li class="ng-scope">
-              <button class="cc-button ng-binding <%=(@view == 'timeline') ? 'cc-button-selected' : ''%>" onclick="window.location.assign('/dashboard/?view=timeline');" role="tab">Timeline</button>
+              <button id="timeline_btn" type="button" class="cc-button <%=(@view == 'timeline') ? 'cc-button-selected' : ''%>" onclick="window.location.assign('/dashboard/?view=timeline'); return true;" role="tab">Timeline</button>
             </li><!-- end ngRepeat: taskMode in taskModes -->
           </ul>
         </div>
       </div>
 
       <!-- ngSwitchWhen: scheduled --><div class="ng-scope" role="tabpanel" aria-live="polite">
-        <!-- ngInclude:  --><div class="ng-scope"><div class="cc-widget-tasks-no-items ng-scope" data-ng-show="counts.current === 0 &amp;&amp; api.user.profile.hasGoogleAccessToken">
-  <h3 class="cc-widget-tasks-section-label"><span class="cc-capitalize ng-binding"></span></h3>
+        <!-- ngInclude:  --><div class="ng-scope"><div class="cc-widget-tasks-no-items ng-scope">
   <div class="">
   <% if (@view == 'tasklist') %>
     <%= render 'tasklist' %>

@@ -10,15 +10,14 @@ class TasksController < ApplicationController
 
     show_finished = (params[:show_finished] == nil)? nil: "Finished"
     @show_finish = (show_finished == nil)? false: true
-
-    respond_to do |format|
-      format.html 
-      format.json { render json: @tasks }
-    end
   end
 
   def index
     index_or_dashboard
+    respond_to do |format|
+      format.html 
+      format.json { render json: @tasks }
+    end
   end
 
   def sort_argument_helper
@@ -194,7 +193,7 @@ class TasksController < ApplicationController
   def dashboard
     @view = params[:view];
     if (!@view) 
-      @view = 'tasklist';
+      @view = 'tasklist'
     end
     index_or_dashboard
   end

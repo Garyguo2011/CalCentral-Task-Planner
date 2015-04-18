@@ -18,7 +18,27 @@ Given /print this page/ do
   puts page.body
 end
 
+Then(/^I should receive a notification email$/) do
+  # puts ActionMailer::Base.deliveries.first
+  # pending # express the regexp above with the code you wish you had
+  # email = ActionMailer::Base.deliveries.first
+  # email.from.should == "admin@example.com"
+  # email.to.should == @user.email
+  # email.body.should include("some key word or something....")
+  # puts ActionMailer::Base.deliveries.first
+  User.first.email_config
+  User.test_mail
+end
+
 Then /^(?:|I )should (not )?see "([^"]*)" in calendar$/ do |is_not, text|
+  if is_not == "not "
+    page.body.should_not include(text)
+  else
+    page.body.should include(text)
+  end
+end
+
+Then /^(?:|I )should (not )?see "([^"]*)" in page$/ do |is_not, text|
   if is_not == "not "
     page.body.should_not include(text)
   else
@@ -175,7 +195,12 @@ Then /^I should see calendar datetime picker$/ do
 end
 
 Then /^I should (not )?see "(.*)" with the scope of "(.*)"$/ do |is_not, content, css_id|
-  within("##{css_id}") do
+  # puts page.find("##{css_id}")
+  # puts page.find("##{css_id}").text
+  # puts page.find("##{css_id}").to_s
+  within("##{css_id}") do |element|
+    # puts element
+    # puts ">>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>"
     if is_not == "not"
       assert(page.body.index(content) == -1)
     else
