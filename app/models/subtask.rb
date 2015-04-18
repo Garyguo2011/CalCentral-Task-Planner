@@ -35,11 +35,9 @@ class Subtask < ActiveRecord::Base
     when 'Exam'
       return ['Finish note review', 'Finish homework review', 'Finish practice exam']
     when 'Homework'
-      ret = []
-      i = 1
+      ret = [] ; i = 1
       while i <= numProb.to_i
-        ret.append("Finish problem ##{i}")
-        i += 1
+        ret.append("Finish problem ##{i}") ; i += 1
       end
       return ret
     else

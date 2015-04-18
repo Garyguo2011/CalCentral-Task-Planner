@@ -8,6 +8,7 @@ gem 'rails', '3.2.19'
 
 gem 'rake'
 gem "codeclimate-test-reporter", group: :test, require: nil
+gem "capybara-webkit" 
 
 # gem 'sqlite3'
 gem 'devise'
