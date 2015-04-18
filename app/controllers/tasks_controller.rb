@@ -147,7 +147,7 @@ class TasksController < ApplicationController
   def destroy
     @task = Task.find(params[:id])
     @task.destroy
-
+    UserMailer.task_notification(current_user).deliver
     respond_to do |format|
       format.html { redirect_to tasks_url }
       format.json { head :no_content }
