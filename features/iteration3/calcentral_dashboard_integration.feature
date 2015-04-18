@@ -22,22 +22,17 @@ Background: users and tasks have been added to database
 
   And I am on the sign-in page
   And I sign in "123454321@hotmail.com" with "123454321"
-  
-Scenario: view a task timeline using the CalCentral dashboard
   Given I am on the dashboard page
   Then I should see "My Classes"
   And I should see "Task Planner"
-
+  
+Scenario: view a task timeline using the CalCentral dashboard
   When I press "Timeline"
   Then I should be on the dashboard page
   And I should see "Task Planner"
-  And I should see "HW2" with the scope of "timeline_view"
+  And I should see "HW2"
 
 Scenario: view a task list using the CalCentral dashboard
-  Given I am on the dashboard page
-  Then I should see "My Classes"
-  And I should see "Task Planner"
-
   When I press "Task List"
   Then I should be on the dashboard page
   And I should see "Task Planner"
