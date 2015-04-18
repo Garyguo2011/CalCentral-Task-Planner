@@ -114,7 +114,7 @@ class TasksController < ApplicationController
     respond_to do |format|
       if @task.save
         prefill_subtasks_helper
-        UserMailer.task_confirmation(current_user).deliver
+        UserMailer.task_create_confirmation(current_user).deliver
         format.html { redirect_to @task, notice: 'Task was successfully created.' }
         format.json { render json: @task, status: :created, location: @task }
       else
@@ -132,6 +132,7 @@ class TasksController < ApplicationController
     respond_to do |format|
       if @task.update_attributes(params[:task])
         prefill_subtasks_helper
+        UserMailer.task_update_confirmation(current_user).deliver
         format.html { redirect_to @task, notice: 'Task was successfully updated.' }
         format.json { head :no_content }
       else
@@ -181,7 +182,8 @@ class TasksController < ApplicationController
   end
 
   def calendar
-    @all_tasks_array_of_hash = Task.all_tasks_in_array_of_hash(current_ability)
+    @tasks = Task.accessible_by(current_ability)
+    @all_tasks_array_of_hash = @tasks.all_tasks_in_array_of_hash
     # if(params[:task] != nil)
     #   course, title = params[:task].split(" ")
     #   task_to_change = Task.find_task_by_course_title(course, title)
@@ -199,7 +201,6 @@ class TasksController < ApplicationController
 
   def status
     @tasks = Task.accessible_by(current_ability)
-    @taskData = @tasks.work_distribution
 
     sort_argument = sort_argument_helper   
     filter_argument = filter_argument_helper
@@ -218,6 +219,8 @@ class TasksController < ApplicationController
       @tasks = @tasks.order(sort_argument)
       @show_finish = true
     end
+
+    @taskData = @tasks.work_distribution
 
   end
 

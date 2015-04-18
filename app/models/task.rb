@@ -179,16 +179,13 @@ class Task < ActiveRecord::Base
 
 
   #all tasks in array of hash format
-  def self.all_tasks_in_array_of_hash(current_ability)
-    tasks = self.accessible_by(current_ability).all
+  def self.all_tasks_in_array_of_hash
     tasks_array = []
-
-    tasks.each do |task|
+    self.all.each do |task|
       title = task.course + " " + task.title
       end_time = task.due
       tasks_array.push({'title' => title, 'start' => end_time})
     end
-
     return tasks_array
   end
 
