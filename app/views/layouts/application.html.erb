@@ -143,7 +143,7 @@
       <button class="cc-header-icon cc-header-icon-font" data-ng-click="api.util.preventBubble($event);api.popover.toggle(&#39;cc-popover-menu&#39;)" data-ng-class="{true:&#39;cc-header-icon-selected&#39;}[api.popover.status(&#39;cc-popover-menu&#39;)]" title="Sign In/Out">
       <% if current_user != nil %>
         <i class="fa fa-user"></i>
-        <%= link_to current_user.full_name, edit_user_registration_path, class: "calcentral_header" %> |
+        <%= link_to current_user.full_name, edit_user_registration_path, class: "calcentral_header", id: "Edit Profile" %> |
         <%= link_to '<i class="fa fa-sign-out"></i>'.html_safe, destroy_user_session_path,  method: :delete, class: "calcentral_header", id: "Sign Out"%>
       <% else %>
         <%=link_to '<i class="fa fa-sign-in"></i>'.html_safe, new_user_session_path, class: "calcentral_header", id: "Sign In"%>

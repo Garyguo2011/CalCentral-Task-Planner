@@ -18,7 +18,27 @@ Given /print this page/ do
   puts page.body
 end
 
+Then(/^I should receive a notification email$/) do
+  # puts ActionMailer::Base.deliveries.first
+  # pending # express the regexp above with the code you wish you had
+  # email = ActionMailer::Base.deliveries.first
+  # email.from.should == "admin@example.com"
+  # email.to.should == @user.email
+  # email.body.should include("some key word or something....")
+  # puts ActionMailer::Base.deliveries.first
+  User.first.email_config
+  User.test_mail
+end
+
 Then /^(?:|I )should (not )?see "([^"]*)" in calendar$/ do |is_not, text|
+  if is_not == "not "
+    page.body.should_not include(text)
+  else
+    page.body.should include(text)
+  end
+end
+
+Then /^(?:|I )should (not )?see "([^"]*)" in page$/ do |is_not, text|
   if is_not == "not "
     page.body.should_not include(text)
   else
