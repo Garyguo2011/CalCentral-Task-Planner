@@ -102,6 +102,7 @@ Then /I should (not )?see the following (.*) in form field/ do |is_not, content|
 end
 
 Then /^I should (not )?see "(.*?)" in Subtask$/ do |is_not, content|
+  # puts(page.html)
   subtask_position = page.body.index("Subtasks")
   content_position = page.body.index(content) ? page.body.index(content) : -1
   if is_not
@@ -210,7 +211,10 @@ Then /I can see "(.*)" which in "(.*)" before "(.*)" which in "(.*)" with the sc
 end 
 
 When /I invoke prefill options$/ do
-  page.execute_script("$('#task_kind').change();") 
+  # page.execute_script %Q{ $('##{field}').trigger('keydown') }
+  # page.execute_script("$('#task_kind').change();")
+  # page.execute_script %Q{ $('#task_kind').val() = 'Homework' }
+  page.execute_script("$('#task').val('Homework')")
 end 
 
 Then /^I move "(.*)" task to "(.*)"$/ do |task, date|
