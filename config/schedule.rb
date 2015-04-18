@@ -19,8 +19,8 @@
 
 # Learn more: http://github.com/javan/whenever
 
-set :environment, "development"
-every :day do
+set :environment, "production"
+every :hour do
 	runner "User.test_mail"
 end
 

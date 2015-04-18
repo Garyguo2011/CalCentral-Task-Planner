@@ -27,18 +27,18 @@ describe UserMailer do
  		it "shoud send notification" do
  			mail = UserMailer.task_notification(User.first)
  			mail.to.should == [User.first.email]
- 			mail.from.should == ["notification@ibearhost.com"]
+ 			mail.from.should == ["notification2015taskplanner@gmail.com"]
  		end
 
  		it "should send email confirmation for create" do
  			mail = UserMailer.task_create_confirmation(User.first)
  			mail.to.should == [User.first.email]
- 			mail.from.should == ["notification@ibearhost.com"]
+ 			mail.from.should == ["notification2015taskplanner@gmail.com"]
  		end
  		it "should send email confirmation for update" do
  			mail = UserMailer.task_update_confirmation(User.first)
  			mail.to.should == [User.first.email]
- 			mail.from.should == ["notification@ibearhost.com"]
+ 			mail.from.should == ["notification2015taskplanner@gmail.com"]
  		end
 
  	end
