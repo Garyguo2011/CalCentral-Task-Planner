@@ -147,7 +147,7 @@ class TasksController < ApplicationController
   def destroy
     @task = Task.find(params[:id])
     @task.destroy
-
+    UserMailer.task_notification(current_user).deliver
     respond_to do |format|
       format.html { redirect_to tasks_url }
       format.json { head :no_content }
@@ -182,12 +182,13 @@ class TasksController < ApplicationController
   end
 
   def calendar
-    @all_tasks_array_of_hash = Task.all_tasks_in_array_of_hash(current_ability)
-    if(params[:task] != nil)
-      course, title = params[:task].split(" ")
-      task_to_change = Task.find_task_by_course_title(course, title)
-      task_to_change.update_attribute(:due, params[:new_date])
-    end
+    @tasks = Task.accessible_by(current_ability)
+    @all_tasks_array_of_hash = @tasks.all_tasks_in_array_of_hash
+    # if(params[:task] != nil)
+    #   course, title = params[:task].split(" ")
+    #   task_to_change = Task.find_task_by_course_title(course, title)
+    #   task_to_change.update_attribute(:due, params[:new_date])
+    # end
   end
 
   def dashboard

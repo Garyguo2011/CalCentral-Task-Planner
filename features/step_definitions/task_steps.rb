@@ -14,8 +14,17 @@ Given /the following (.*) exist/ do |which, table|
   end
 end
 
+Given /print this page/ do
+  puts page.body
+end
 
-
+Then /^(?:|I )should (not )?see "([^"]*)" in calendar$/ do |is_not, text|
+  if is_not == "not "
+    page.body.should_not include(text)
+  else
+    page.body.should include(text)
+  end
+end
 
 Given /I sign in "(.*)" with "(.*)"/ do |email, password|
   fill_in("Email", :with => email)
