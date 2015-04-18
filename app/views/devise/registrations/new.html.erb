@@ -27,6 +27,11 @@
     <%= f.password_field :password_confirmation, autocomplete: "off" %>
   </div>
 
+  <div class="field">
+    <%= f.label :email_notifications %>
+    <%= f.select :email_notifications, ["hourly", "daily"] %>
+  </div>
+
   <div class="actions">
     <%= f.submit "Sign up" %>
   </div>

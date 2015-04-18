@@ -49,7 +49,6 @@ Scenario: add task (sad path)
   Given I am currently on the tasks page
   When I follow "Add new task"
   Then I should currently on the new_task page
-  When I fill in "Title" with "CS169 HW"
   When I fill in "task_due" with "2015-03-30 20:25: -07:00"
   When I select "Computer Science 169" from "Course"
   When I fill in "task_release" with "2015-03-29 20:25: -07:00"

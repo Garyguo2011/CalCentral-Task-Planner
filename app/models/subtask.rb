@@ -25,4 +25,25 @@ class Subtask < ActiveRecord::Base
       return "0%"
     end
   end
+
+  def self.prefill (type, numProb)
+    case type
+    when 'Project'
+      return ['Finish plan', 'Finish design', 'Finish code', 'Finish unit test', 'Finish integration test']
+    when 'Paper'
+      return ['Finish brain storm', 'Finish draft', 'Finish revision', 'Finish peer review']
+    when 'Exam'
+      return ['Finish note review', 'Finish homework review', 'Finish practice exam']
+    when 'Homework'
+      ret = [] ; i = 1
+      while i <= numProb.to_i
+        ret.append("Finish problem ##{i}") ; i += 1
+      end
+      return ret
+    else
+      return ['trivial']
+    end
+
+  end
+
 end

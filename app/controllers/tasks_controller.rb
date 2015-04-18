@@ -49,6 +49,27 @@ class TasksController < ApplicationController
     end
     return filter_argument
   end
+
+
+  def prefill_subtasks_helper
+    if params[:needPrefill] == 'yes'
+      @type = @task.kind
+      if @type == 'Homework'
+        @numProb = params[:numProb]
+      end
+      old_subtasks = @task.subtasks.find_all_by_task_id(@task.id)
+      old_subtasks.each do |os|
+        os.destroy
+      end
+      subtasks = Subtask.prefill(@type, @numProb)
+      subtasks.each do |subtask|
+        @task.subtasks.create!({:description => subtask, :is_done => false, :task_id => @task.id})
+      end
+    end
+  end
+
+
+
   # GET /tasks/1
   # GET /tasks/1.json
   def show
@@ -91,7 +112,8 @@ class TasksController < ApplicationController
     
     respond_to do |format|
       if @task.save
-        UserMailer.task_confirmation(current_user).deliver
+        prefill_subtasks_helper
+        UserMailer.task_create_confirmation(current_user).deliver
         format.html { redirect_to @task, notice: 'Task was successfully created.' }
         format.json { render json: @task, status: :created, location: @task }
       else
@@ -108,6 +130,8 @@ class TasksController < ApplicationController
 
     respond_to do |format|
       if @task.update_attributes(params[:task])
+        prefill_subtasks_helper
+        UserMailer.task_update_confirmation(current_user).deliver
         format.html { redirect_to @task, notice: 'Task was successfully updated.' }
         format.json { head :no_content }
       else
@@ -157,7 +181,12 @@ class TasksController < ApplicationController
   end
 
   def calendar
-  
+    @all_tasks_array_of_hash = Task.all_tasks_in_array_of_hash(current_ability)
+    if(params[:task] != nil)
+      course, title = params[:task].split(" ")
+      task_to_change = Task.find_task_by_course_title(course, title)
+      task_to_change.update_attribute(:due, params[:new_date])
+    end
   end
 
   def dashboard
@@ -170,7 +199,6 @@ class TasksController < ApplicationController
 
   def status
     @tasks = Task.accessible_by(current_ability)
-    @taskData = @tasks.work_distribution
 
     sort_argument = sort_argument_helper   
     filter_argument = filter_argument_helper
@@ -189,6 +217,8 @@ class TasksController < ApplicationController
       @tasks = @tasks.order(sort_argument)
       @show_finish = true
     end
+
+    @taskData = @tasks.work_distribution
 
   end
 

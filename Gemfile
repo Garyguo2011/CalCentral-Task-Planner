@@ -8,6 +8,7 @@ gem 'rails', '3.2.19'
 
 gem 'rake'
 gem "codeclimate-test-reporter", group: :test, require: nil
+gem "capybara-webkit" 
 
 # gem 'sqlite3'
 gem 'devise'
@@ -52,6 +53,7 @@ gem 'chart-js-rails'
 gem 'chronic'
 gem 'timecop'
 gem "mail", "2.5.4"
+gem 'whenever', :require => false
 
 # To use ActiveModel has_secure_password
 # gem 'bcrypt-ruby', '~> 3.0.0'

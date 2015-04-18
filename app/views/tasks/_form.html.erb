@@ -50,11 +50,7 @@
   </div>
   <div class="field">
     <%= f.label :status %><br />
-    <% if @task.status == nil %>
-      <%= f.select :status, options_for_select([["Select One", ""], "New", "Started", "Finished"])%>
-    <% else %>
-      <%= f.select :status, options_for_select([[@task.status, ""], "New", "Started", "Finished"], @task.status)%>
-    <% end %>
+    <%= f.select :status, options_for_select(["New", "Started", "Finished"])%>
   </div>
   <div class="field">
     <%= f.label :course %><br />
@@ -72,6 +68,22 @@
        <%= f.select :kind, options_for_select([[@task.kind, ""], "Project", "Homework", "Paper", "Exam", "Other"], @task.kind)%>
     <% end %>
   </div>
+  <div class='field'>
+    <label for='choosePrefill'>Need Prefill?</label>
+    <select id='choosePrefill' name='needPrefill'>
+      <option value='no'>No</option>
+      <option value='yes'>Yes</option>
+    </select>
+  </div>
+  <div class="field"></div>
+  <script>
+    $("#task_kind").change(function(){
+      $(this).parent().next().next().empty();
+      if ($( "#task_kind" ).val() == "Homework"){
+        $(this).parent().next().next().append("<label for='HWProblems'>Number of problems in your homework</label><input id='HWProblems' name='numProb' size='30' type='text'>");
+      }
+    });
+  </script>
   <div class="field">
     <%= f.label :rate %><br />
     <% if @task.rate == nil %>
