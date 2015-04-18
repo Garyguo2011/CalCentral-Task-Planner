@@ -85,26 +85,3 @@ Scenario: Create an other assignment should give trivial subtask
   And I press "Create Task"
   Then I should be on the detail page for "??"    
   And I should see "trivial" in Subtask  
-
-@javascript
-Scenario: Create a homework should ask me number of questions to set subtasks
-	When I follow "Add new task"
-  Then I should currently on the new_task page
-  And I should not see "Please specify the number of questions in this homework"
-  When I fill in "Title" with "HW1"
-  When I fill in "task_due" with "2015-04-20 20:25: -07:00"
-  When I select "Computer Science 169" from "Course"
-  When I fill in "task_release" with "2015-03-20 20:25: -07:00"
-  When I select "3" from "Rate"
-  When I select "New" from "Status"
-  And I select "Homework" from "Kind"
-  And I select "Yes" from "Need Prefill?"
-  And I invoke prefill options
-  Then I should see "Number of Problems"
-  When I select "3" from "numProblems"
-  And I press "Create Task"
-  Then I should be on the detail page for "HW1"
-  And I should see "Finish problem #1" in Subtask 
-  And I should see "Finish problem #2" in Subtask 
-  And I should see "Finish problem #3" in Subtask 
-
