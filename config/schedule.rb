@@ -20,7 +20,7 @@
 # Learn more: http://github.com/javan/whenever
 
 set :environment, "development"
-every :day do
+every :hour do
 	runner "User.test_mail"
 end
 

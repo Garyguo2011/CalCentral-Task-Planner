@@ -36,15 +36,16 @@ CalcentralTaskPlanner::Application.configure do
   config.assets.debug = true
   config.action_mailer.default_url_options = { host: 'localhost', port: 3000 }
 
-  config.action_mailer.delivery_method = :sendmail
+  config.action_mailer.delivery_method = :smtp
   config.action_mailer.smtp_settings = {
-    address: "mail.ibearhost.com",
-    port: 465,
-    domain: ENV["ibearhost.com"],
-    authentication: 'plain',
-    :enable_starttls_auto => true,
-    user_name: ENV["notification@ibearhost.com"],
-    password: ENV["gobear2014"]
+    address: "smtp.gmail.com",
+    port: 587,
+    domain: "mail.google.com",
+    enable_starttls_auto: true,
+    authentication: :plain,
+    openssl_verify_mode: 'none',
+    user_name: "notification2015taskplanner@gmail.com",
+    password: "gobear2014",
   }
 
 
