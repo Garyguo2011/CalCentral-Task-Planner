@@ -255,4 +255,27 @@ describe TasksController, :type => :controller do
       expect(response).to render_template("status")
     end
   end
+
+  describe "get calendar" do
+    it "should route to calendar page" do
+      get :calendar
+      response.should be_success
+      expect(response).to render_template("calendar")
+    end
+  end
+
+  describe "get dashboard" do
+    it "should route to dashboard page" do
+      get :dashboard
+      response.should be_success
+      expect(response).to render_template("dashboard")
+    end
+
+    it "should route to dashboard page when there is no view params" do
+      get :dashboard, :view => 'another_view'
+      response.should be_success
+      expect(response).to render_template("dashboard")
+    end
+  end
+
 end
