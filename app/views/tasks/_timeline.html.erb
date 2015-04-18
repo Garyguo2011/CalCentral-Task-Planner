@@ -12,7 +12,7 @@
         <div class="<%= div_name %>" id="<%=task.course%>_<%=task.title%>">
         <div class="task">
             <span>
-              <span class="type"><%= task.kind %></span>
+              <span class="type"><%= task.course %></span><span class="type"><%= task.kind %></span>
               <span id="<%=task.course%>_<%=task.title%>_timeslot" class="details"><%= link_to task.title, task_path(task) %></span>
               <span>
                 remaining time
