@@ -25,23 +25,23 @@ Background: users and tasks have been added to database
 
   Scenario: Go to the page for workload distribution chart
   	Given I am on the home page
-  	When I click "show workload distribution"
-  	Then I should be on the workload distribution page
-  	Then I should see "HW1", "PROJ1", "ESSAY1"
-  	And I should not see "HW2", "MIDTERM1"
+    When I follow "My Status"
+  	Then I should be on the status page
+    Then I should see "PROJ1" with the scope of "work_distribution_chart"
+    Then I should not see "HW1" with the scope of "work_distribution_chart"
 
   Scenario: Update a task would update the workload distribution chart
   	Given I am on the home page
   	When I follow "Add new task"
   	Then I should currently on the new_task page
-  	When I fill in "Title" with "CS169 HW"
+  	When I fill in "Title" with "CS169 HW7"
   	When I fill in "task_release" with "2015-03-29 10:40: -07:00"
-  	When I fill in "task_due" with "2015-03-29 20:25: -07:00"
+  	When I fill in "task_due" with "2015-04-06 20:25: -07:00"
   	When I select "New" from "Status"
   	When I select "Homework" from "Kind"
   	When I select "Computer Science 169" from "Course"
   	When I select "3" from "Rate"
   	And I press "Create Task"
   	Then I should see "Task was successfully created."
-  	When I click "show workload distribution"
-  	Then I should see "CS169 HW"
+  	When I follow "My Status"
+  	Then I should see "CS169 HW7" with the scope of "work_distribution_chart"

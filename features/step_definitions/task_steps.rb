@@ -175,7 +175,12 @@ Then /^I should see calendar datetime picker$/ do
 end
 
 Then /^I should (not )?see "(.*)" with the scope of "(.*)"$/ do |is_not, content, css_id|
-  within("##{css_id}") do
+  # puts page.find("##{css_id}")
+  # puts page.find("##{css_id}").text
+  # puts page.find("##{css_id}").to_s
+  within("##{css_id}") do |element|
+    # puts element
+    # puts ">>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>"
     if is_not == "not"
       assert(page.body.index(content) == -1)
     else
