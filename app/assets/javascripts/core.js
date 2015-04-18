@@ -345,10 +345,10 @@ jQuery(document).ready(function($){
 
 		/* ---------- ToDo List Active Sortable List ---------- */
 
-		$(function() {
-		    $(".todo-list").sortable();
-		    $(".todo-list").disableSelection();
-		});
+		// $(function() {
+		//     $(".todo-list").sortable();
+		//     $(".todo-list").disableSelection();
+		// });
 	}
 
 });

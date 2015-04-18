@@ -104,6 +104,29 @@ describe Task do
       @task.status = "Finished"
       @task.time_usage_in_day.should eq("Finished")
     end
+
+    it "should return day_used == 0 when time usgage is 0" do
+      Time.stub(:now).and_return("3/Apr/2015 22:00:00 -0800".to_time)
+      @task.release = "6/Apr/2015 22:00:00 -0800".to_time
+      @task.due = "9/Apr/2015 22:00:00 -0800".to_time
+      @task.time_usage_in_day.should eq("0.0 / 3.0")
+    end
+
+    it "should return day_used == total day when time usgage is 1" do
+      Time.stub(:now).and_return("10/Apr/2015 22:00:00 -0800".to_time)
+      @task.release = "6/Apr/2015 22:00:00 -0800".to_time
+      @task.due = "9/Apr/2015 22:00:00 -0800".to_time
+      @task.time_usage_in_day.should eq("3.0 / 3.0")
+    end    
+
+  end
+
+  describe "time usage" do
+    it "should reutrn 0 when release > time now" do
+      Time.stub(:now).and_return("3/Apr/2015 22:00:00 -0800".to_time)
+      @task.release = "6/Apr/2015 22:00:00 -0800".to_time
+      @task.time_usage.should eq(0)
+    end
   end
 
   describe "Work load Distribution" do
@@ -253,7 +276,18 @@ describe Task do
       @task.alert[:message].should eq("Keep it up! You are early bird!")
       @task.alert[:type].should eq("alert-info")
     end
-
   end
 
+  describe "label" do
+    it "should proper color label" do
+      @task.status = "New"
+      @task.label.should eq("label-default")
+    end
+  end
+
+  describe "all_tasks_in_array_of_hash" do
+    it "should return all task as array or hash" do
+      Task.all_tasks_in_array_of_hash
+    end
+  end
 end
