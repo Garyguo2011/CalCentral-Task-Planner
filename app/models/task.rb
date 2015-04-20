@@ -1,9 +1,9 @@
 class MyValidator < ActiveModel::Validator
   def validate(record)
-    unless record.due > record.release
+    unless record.due != nil && record.release != nil && record.due > record.release
       record.errors[:Due] << 'date must be after the Release date!'
     end
-    unless record.rate >= 1 && record.rate <= 5
+    unless record.rate != nil && record.rate >= 1 && record.rate <= 5
       record.errors[:rate] << 'Rate must between 1 to 5'
     end
   end
