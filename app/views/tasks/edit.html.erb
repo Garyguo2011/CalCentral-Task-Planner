@@ -1,5 +1,19 @@
-<h1>Editing task</h1>
-
-<%= render 'form' %>
-<%= link_to 'Show', @task %> |
-<%= link_to 'Back', tasks_path %>
+<div class="row">
+  <!-- <div class="col-lg-1"></div> -->
+        <div class="col-lg-12">
+          <div class="box">
+            <div class="box-header">
+              <h2><i class="fa fa-edit"></i>Editing task</h2>
+              <div class="box-icon">
+                <a href="form-elements.html#" class="btn-minimize"><i class="fa fa-chevron-up"></i></a>
+                <a href="form-elements.html#" class="btn-close"><i class="fa fa-times"></i></a>
+              </div>
+            </div>
+            <div class="box-content">
+              <%= render 'form' %>
+              <%= link_to 'Show', @task %> | <%= link_to 'Back', tasks_path %>
+            </div>
+          </div>
+        </div><!--/col-->
+  <!-- <div class="col-lg-1"></div> -->
+</div><!--/row-->

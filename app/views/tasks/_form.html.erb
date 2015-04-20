@@ -1,4 +1,4 @@
-<div class="user_input">
+
 <%= form_for(@task) do |f| %>
   <% if @task.errors.any? %>
     <div id="error_explanation">
@@ -12,88 +12,144 @@
     </div>
   <% end %>
 
-  <div class="field">
-    <%= f.label :title %><br />
-    <%= f.text_field :title %>
-  </div>
-  <div class="field">
-    <%= f.label :release %><br />
-    <!-- [Jinge Gary]datetime picker -->
-    <div class='input-group date' id='release_date'>
-        <%= f.text_field :release, class: "form-control" %>
-        <span class="input-group-addon" id="calendar_icon_release">
-            <span class="glyphicon glyphicon-calendar"></span>
-        </span>
+  <div class="row">
+    <div class="field">
+      <div class="col-lg-1">
+        <%= f.label :title %>
+      </div>
+      <div class="col-lg-6">
+      <%= f.text_field :title, class: "form-control" %>
+      </div>
     </div>
-    <script type="text/javascript" id='calendar_js'>
-        $(function () {
-            $('#release_date').datetimepicker({format: 'YYYY-MM-DD HH:mm Z'});
-        });
-    </script>
-    <!-- end [Jinge Gary] datetime picker -->
   </div>
-  <div class="field">
-    <%= f.label :due %><br />
-    <!-- [Jinge Gary]datetime picker -->
-    <div class='input-group date' id='due_date'>
-        <%= f.text_field :due, class: "form-control" %>
-        <span class="input-group-addon">
-            <span class="glyphicon glyphicon-calendar" id='calendar_icon_due'></span>
-        </span>
+
+  <div class="row">
+    <div class="field">
+      <div class="col-lg-1">
+        <%= f.label :release %>
+      </div>
+      <!-- [Jinge Gary]datetime picker -->
+      <div class="col-lg-6">
+        <div class='input-group date' id='release_date'>
+            <%= f.text_field :release, class: "form-control" %>
+            <span class="input-group-addon" id="calendar_icon_release">
+                <span class="glyphicon glyphicon-calendar"></span>
+            </span>
+        </div>
+      </div>
+      <script type="text/javascript" id='calendar_js'>
+          $(function () {
+              $('#release_date').datetimepicker({format: 'YYYY-MM-DD HH:mm Z'});
+          });
+      </script>
+      <!-- end [Jinge Gary] datetime picker -->
     </div>
-    <script type="text/javascript">
-        $(function () {
-            $('#due_date').datetimepicker({format: 'YYYY-MM-DD HH:mm Z'});
-        });
-    </script>
-    <!-- end [Jinge Gary] datetime picker -->
   </div>
+
+  <div class="row">
+    <div class="field">
+      <div class="col-lg-1">
+        <%= f.label :due %>
+      </div>
+      <!-- [Jinge Gary]datetime picker -->
+      <div class="col-lg-6">
+      <div class='input-group date' id='due_date'>
+          <%= f.text_field :due, class: "form-control" %>
+          <span class="input-group-addon">
+              <span class="glyphicon glyphicon-calendar" id='calendar_icon_due'></span>
+          </span>
+      </div>
+      </div>
+      <script type="text/javascript">
+          $(function () {
+              $('#due_date').datetimepicker({format: 'YYYY-MM-DD HH:mm Z'});
+          });
+      </script>
+      <!-- end [Jinge Gary] datetime picker -->
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="field">
+      <div class="col-lg-1">
+        <%= f.label :status %>
+      </div>
+      <div class="col-lg-2">
+        <%= f.select :status, options_for_select(["New", "Started", "Finished"])%>
+      </div>
+    </div>
+  </div>
+
+<div class="row">
   <div class="field">
-    <%= f.label :status %><br />
-    <%= f.select :status, options_for_select(["New", "Started", "Finished"])%>
+    <div class="col-lg-1">
+      <%= f.label :course %>
+    </div>
+    <div class="col-lg-4">
+      <% if @task.course == nil %>
+        <%= f.select(:course, @task.all_course)%>
+      <% else %>
+        <%= f.select(:course, @task.all_course)%>
+      <% end %>
+    </div>
   </div>
+</div>
+
+<div class="row">
   <div class="field">
-    <%= f.label :course %><br />
-    <% if @task.course == nil %>
-      <%= f.select(:course, @task.all_course)%>
-    <% else %>
-      <%= f.select(:course, @task.all_course)%>
-    <% end %>
+    <div class="col-lg-1">
+      <%= f.label :rate %>
+    </div>
+    <div class="col-lg-4">
+      <% if @task.rate == nil %>
+         <%= f.select :rate, options_for_select([["Select One", ""], 1, 2, 3, 4, 5])%>
+      <% else %>
+         <%= f.select :rate, options_for_select([[@task.rate, ""], 1, 2, 3, 4, 5], @task.rate)%>
+      <% end %>
+    </div>
   </div>
+</div>
+
+<div class="row">
   <div class="field">
-    <%= f.label :kind %><br />
-    <% if @task.kind == nil %>
-       <%= f.select :kind, options_for_select([["Select One", ""], "Project", "Homework", "Paper", "Exam", "Other"])%>
-    <% else %>
-       <%= f.select :kind, options_for_select([[@task.kind, ""], "Project", "Homework", "Paper", "Exam", "Other"], @task.kind)%>
-    <% end %>
+    <div class="col-lg-1">
+      <%= f.label :kind %>
+    </div>
+    <div class="col-lg-4">
+      <% if @task.kind == nil %>
+         <%= f.select :kind, options_for_select([["Select One", ""], "Project", "Homework", "Paper", "Exam", "Other"])%>
+      <% else %>
+         <%= f.select :kind, options_for_select([[@task.kind, ""], "Project", "Homework", "Paper", "Exam", "Other"], @task.kind)%>
+      <% end %>
+    </div>
   </div>
+</div>
+
+<div class="row">
   <div class='field'>
-    <label for='choosePrefill'>Need Prefill?</label>
-    <select id='choosePrefill' name='needPrefill'>
-      <option value='no'>No</option>
-      <option value='yes'>Yes</option>
-    </select>
+    <div class="col-lg-1">
+      <label for='choosePrefill'>Prefill?</label>
+    </div>
+    <div class="col-lg-4">
+      <select id='choosePrefill' name='needPrefill'>
+        <option value='no'>No</option>
+        <option value='yes'>Yes</option>
+      </select>
+    </div>
   </div>
-  <div class="field"></div>
+</div>
+
+<div class="row"></div>
   <script>
     $("#task_kind").change(function(){
-      $(this).parent().next().next().empty();
+      $(this).parent().parent().parent().next().next().empty();
       if ($( "#task_kind" ).val() == "Homework"){
-        $(this).parent().next().next().append("<label for='HWProblems'>Number of problems in your homework</label><input id='HWProblems' name='numProb' size='30' type='text'>");
+        $(this).parent().parent().parent().next().next().append("<div class='field'><div class='col-lg-2'><label for='HWProblems'>Number of Problems?</label></div><div class='col-lg-5'><input id='HWProblems' name='numProb' size='30' type='text'></div></div>");
       }
     });
   </script>
-  <div class="field">
-    <%= f.label :rate %><br />
-    <% if @task.rate == nil %>
-       <%= f.select :rate, options_for_select([["Select One", ""], 1, 2, 3, 4, 5])%>
-    <% else %>
-       <%= f.select :rate, options_for_select([[@task.rate, ""], 1, 2, 3, 4, 5], @task.rate)%>
-    <% end %>
-  </div>
-  <div class="actions">
-    <%= f.submit %>
-  </div>
-<% end %>
+
+<div class="actions">
+  <%= f.submit %>
 </div>
+<% end %>
