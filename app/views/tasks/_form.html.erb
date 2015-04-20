@@ -12,24 +12,27 @@
     </div>
   <% end %>
 
+
   <div class="row">
     <div class="field">
       <div class="col-lg-1">
-        <%= f.label :title %>
+        <%= f.label :title %><br/>
       </div>
-      <div class="col-lg-6">
+      <div class="col-lg-3">
       <%= f.text_field :title, class: "form-control" %>
       </div>
     </div>
   </div>
 
+
+
   <div class="row">
     <div class="field">
       <div class="col-lg-1">
-        <%= f.label :release %>
+        <%= f.label :release %><br/>
       </div>
       <!-- [Jinge Gary]datetime picker -->
-      <div class="col-lg-6">
+      <div class="col-lg-3">
         <div class='input-group date' id='release_date'>
             <%= f.text_field :release, class: "form-control" %>
             <span class="input-group-addon" id="calendar_icon_release">
@@ -46,13 +49,15 @@
     </div>
   </div>
 
+
+
   <div class="row">
     <div class="field">
       <div class="col-lg-1">
-        <%= f.label :due %>
+        <%= f.label :due %><br/>
       </div>
       <!-- [Jinge Gary]datetime picker -->
-      <div class="col-lg-6">
+      <div class="col-lg-3">
       <div class='input-group date' id='due_date'>
           <%= f.text_field :due, class: "form-control" %>
           <span class="input-group-addon">
@@ -69,23 +74,27 @@
     </div>
   </div>
 
+
+
   <div class="row">
     <div class="field">
       <div class="col-lg-1">
-        <%= f.label :status %>
+        <%= f.label :status %><br/>
       </div>
-      <div class="col-lg-2">
+      <div class="col-lg-1">
         <%= f.select :status, options_for_select(["New", "Started", "Finished"])%>
       </div>
     </div>
   </div>
 
+
+
 <div class="row">
   <div class="field">
     <div class="col-lg-1">
-      <%= f.label :course %>
+      <%= f.label :course %><br/>
     </div>
-    <div class="col-lg-4">
+    <div class="col-lg-2">
       <% if @task.course == nil %>
         <%= f.select(:course, @task.all_course)%>
       <% else %>
@@ -95,12 +104,14 @@
   </div>
 </div>
 
+
+
 <div class="row">
   <div class="field">
     <div class="col-lg-1">
-      <%= f.label :rate %>
+      <%= f.label :rate %><br/>
     </div>
-    <div class="col-lg-4">
+    <div class="col-lg-1">
       <% if @task.rate == nil %>
          <%= f.select :rate, options_for_select([["Select One", ""], 1, 2, 3, 4, 5])%>
       <% else %>
@@ -110,12 +121,13 @@
   </div>
 </div>
 
+
 <div class="row">
   <div class="field">
     <div class="col-lg-1">
-      <%= f.label :kind %>
+      <%= f.label :kind %><br/>
     </div>
-    <div class="col-lg-4">
+    <div class="col-lg-1">
       <% if @task.kind == nil %>
          <%= f.select :kind, options_for_select([["Select One", ""], "Project", "Homework", "Paper", "Exam", "Other"])%>
       <% else %>
@@ -125,12 +137,14 @@
   </div>
 </div>
 
+
+
 <div class="row">
   <div class='field'>
     <div class="col-lg-1">
-      <label for='choosePrefill'>Prefill?</label>
+      <label for='choosePrefill'>Prefill?</label><br/>
     </div>
-    <div class="col-lg-4">
+    <div class="col-lg-1">
       <select id='choosePrefill' name='needPrefill'>
         <option value='no'>No</option>
         <option value='yes'>Yes</option>
@@ -138,6 +152,8 @@
     </div>
   </div>
 </div>
+
+
 
 <div class="row"></div>
   <script>
