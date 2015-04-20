@@ -16,7 +16,7 @@
   <div class="row">
     <div class="field">
       <div class="col-lg-1">
-        <%= f.label :title %><br/>
+        <%= f.label :title %>
       </div>
       <div class="col-lg-3">
       <%= f.text_field :title, class: "form-control" %>
@@ -29,7 +29,7 @@
   <div class="row">
     <div class="field">
       <div class="col-lg-1">
-        <%= f.label :release %><br/>
+        <%= f.label :release %>
       </div>
       <!-- [Jinge Gary]datetime picker -->
       <div class="col-lg-3">
@@ -54,7 +54,7 @@
   <div class="row">
     <div class="field">
       <div class="col-lg-1">
-        <%= f.label :due %><br/>
+        <%= f.label :due %>
       </div>
       <!-- [Jinge Gary]datetime picker -->
       <div class="col-lg-3">
@@ -79,7 +79,7 @@
   <div class="row">
     <div class="field">
       <div class="col-lg-1">
-        <%= f.label :status %><br/>
+        <%= f.label :status %>
       </div>
       <div class="col-lg-1">
         <%= f.select :status, options_for_select(["New", "Started", "Finished"])%>
@@ -92,7 +92,7 @@
 <div class="row">
   <div class="field">
     <div class="col-lg-1">
-      <%= f.label :course %><br/>
+      <%= f.label :course %>
     </div>
     <div class="col-lg-2">
       <% if @task.course == nil %>
@@ -109,7 +109,7 @@
 <div class="row">
   <div class="field">
     <div class="col-lg-1">
-      <%= f.label :rate %><br/>
+      <%= f.label :rate %>
     </div>
     <div class="col-lg-1">
       <% if @task.rate == nil %>
@@ -125,7 +125,7 @@
 <div class="row">
   <div class="field">
     <div class="col-lg-1">
-      <%= f.label :kind %><br/>
+      <%= f.label :kind %>
     </div>
     <div class="col-lg-1">
       <% if @task.kind == nil %>
@@ -142,7 +142,7 @@
 <div class="row">
   <div class='field'>
     <div class="col-lg-1">
-      <label for='choosePrefill'>Prefill?</label><br/>
+      <label for='choosePrefill'>Prefill?</label>
     </div>
     <div class="col-lg-1">
       <select id='choosePrefill' name='needPrefill'>
