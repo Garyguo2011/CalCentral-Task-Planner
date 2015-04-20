@@ -25,7 +25,7 @@ Scenario: Create a project should have plan, design, code and test subtasks
   And I select "Project" from "Kind"
   And I select "3" from "Rate"
   And I select "New" from "Status"
-  And I select "Yes" from "Need Prefill?"
+  And I select "Yes" from "Prefill?"
   And I press "Create Task"
   Then I should be on the detail page for "Project 1"
   Then I should see "Finish plan" in Subtask
@@ -44,7 +44,7 @@ Scenario: Create a paper should have brain storm, draft, revision subtasks
   When I select "3" from "Rate"
   When I select "New" from "Status"
   And I select "Paper" from "Kind"
-  And I select "Yes" from "Need Prefill?"
+  And I select "Yes" from "Prefill?"
   And I press "Create Task"
   Then I should be on the detail page for "Essay 1"
   And I should see "Finish brain storm" in Subtask
@@ -63,7 +63,7 @@ Scenario: Create an exam should have review notes, review homework, practice exa
   When I select "3" from "Rate"
   When I select "New" from "Status"
   And I select "Exam" from "Kind"
-  And I select "Yes" from "Need Prefill?"
+  And I select "Yes" from "Prefill?"
   And I press "Create Task"
   Then I should be on the detail page for "Midterm 1"
   And I should see "Finish note review" in Subtask
@@ -81,7 +81,7 @@ Scenario: Create an other assignment should give trivial subtask
   When I select "3" from "Rate"
   When I select "New" from "Status"
   And I select "Other" from "Kind"
-  And I select "Yes" from "Need Prefill?"
+  And I select "Yes" from "Prefill?"
   And I press "Create Task"
   Then I should be on the detail page for "??"    
   And I should see "trivial" in Subtask  
