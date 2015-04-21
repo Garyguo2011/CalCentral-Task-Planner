@@ -96,9 +96,9 @@
     </div>
     <div class="col-lg-2">
       <% if @task.course == nil %>
-        <%= f.select(:course, @task.all_course)%>
+        <%= f.select(:course, Task.all_course)%>
       <% else %>
-        <%= f.select(:course, @task.all_course)%>
+        <%= f.select(:course, Task.all_course)%>
       <% end %>
     </div>
   </div>

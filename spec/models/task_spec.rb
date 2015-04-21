@@ -39,7 +39,7 @@ describe Task do
             temp = t.split("\"")
             a << temp[0]
         end
-        a.should eq(@task.all_course)
+        a.should eq(Task.all_course)
     end
   end
 

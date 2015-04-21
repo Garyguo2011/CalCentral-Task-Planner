@@ -34,6 +34,13 @@
                 <td><%= link_to "Hide finished tasks", :show_finished => nil%></td>
               <% end %>
             </div>
+            <div>
+              <%= form_tag status_auto_path, :method => :get do %>
+              <%= check_box_tag "Auto_generate" %>
+              Auto-generate
+              <%= submit_tag "submit" %>
+              <% end -%>
+            </div>
           </div>
           <table class="table">
             <thead>

@@ -147,7 +147,9 @@ class TasksController < ApplicationController
     @task = Task.find(params[:id])
     title = @task.title
     @task.destroy
-    UserMailer.task_notification(current_user).deliver
+    if !@task[:auto]
+      UserMailer.task_notification(current_user).deliver
+    end
     respond_to do |format|
       format.html { redirect_to status_path, notice: "#{title} was successfully deleted." }
       format.json { head :no_content }
@@ -204,6 +206,19 @@ class TasksController < ApplicationController
   end
 
   def status
+    @auto_tasks = auto
+    if !params[:Auto_generate].nil?
+      @auto_tasks.each do |t|
+        Task.create!(t)
+      end
+    else
+      current_user.tasks.each do |t|
+        if t[:auto]
+          Task.delete(t)
+        end
+      end
+    end
+
     @tasks = Task.accessible_by(current_ability)
 
     sort_argument = sort_argument_helper   
@@ -226,6 +241,21 @@ class TasksController < ApplicationController
 
     @taskData = @tasks.work_distribution
 
+    respond_to do |format|       
+      format.html { render 'status.html.erb'}
+      format.json { render json: @tasks }
+    end
+
+  end
+
+  def auto
+    @auto_tasks = Task.generate_auto(3) # Should be a param later on
+
+    @auto_tasks.each do |t|
+      t[:user_id] = current_user.id
+      # Task.create!(t)
+    end
+    return @auto_tasks
   end
 
 end
