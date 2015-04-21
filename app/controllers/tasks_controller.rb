@@ -236,27 +236,17 @@ class TasksController < ApplicationController
   end
 
   def generate_task
-    @auto_tasks = auto
+    @auto_tasks = Task.generate_auto(3) # Should be a param later on
     @auto_tasks.each do |t|
+      t[:user_id] = current_user.id
       Task.create!(t)
     end
     redirect_to status_path
   end
 
   def delete_generate_task
-    current_user.tasks.each do |t|
-      Task.delete(t) if t[:auto]
-    end
+    current_user.tasks.where(:auto => true).delete_all
     redirect_to status_path
-  end
-
-  def auto
-    @auto_tasks = Task.generate_auto(3) # Should be a param later on
-    @auto_tasks.each do |t|
-      t[:user_id] = current_user.id
-      # Task.create!(t)
-    end
-    return @auto_tasks
   end
 
 end
