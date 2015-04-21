@@ -21,9 +21,9 @@
                   <h1>
                   <%=@task.title %>
                   <!-- <small>Headings, paragraphs, lists, and other inline type elements</small> -->
+                  <%= link_to @task.change_status_button.html_safe, task_change_status_path(:id => @task.id, :redirect_url => task_path(@task)), {:style=>'color:#FFFFFF;', :class => "btn btn-large btn-primary"}%>
                   </h1>
-                </div>     
-                
+                </div>
                 <div class="row">
                   <div class="col-lg-12 col-md-12 col-sm-12">
                   <div class="box">
