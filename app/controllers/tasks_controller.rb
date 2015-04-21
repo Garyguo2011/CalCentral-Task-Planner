@@ -5,8 +5,8 @@ class TasksController < ApplicationController
   # GET /tasks.json
   def index_or_dashboard 
     @tasks = Task.accessible_by(current_ability)
-    @tasks_by_status = Task.accessible_by(current_ability).task_by_status
-    @tasks_by_time = Task.accessible_by(current_ability).order(:due).find_all_by_status(["New", "Started", "Past due"])
+    @tasks_by_status = @tasks.task_by_status
+    @tasks_by_time = @tasks.order(:due).find_all_by_status(["New", "Started", "Past due"])
 
     show_finished = (params[:show_finished] == nil)? nil: "Finished"
     @show_finish = (show_finished == nil)? false: true
@@ -211,7 +211,8 @@ class TasksController < ApplicationController
       @auto_tasks.each do |t|
         Task.create!(t)
       end
-    else
+    end
+    if !params[:Delete_all_auto_generate].nil?
       current_user.tasks.each do |t|
         if t[:auto]
           Task.delete(t)

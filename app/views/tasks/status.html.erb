@@ -37,7 +37,9 @@
             <div>
               <%= form_tag status_auto_path, :method => :get do %>
               <%= check_box_tag "Auto_generate" %>
-              Auto-generate
+              Auto generate tasks
+              <%= check_box_tag "Delete_all_auto_generate" %>
+              Delete all auto generated tasks
               <%= submit_tag "submit" %>
               <% end -%>
             </div>

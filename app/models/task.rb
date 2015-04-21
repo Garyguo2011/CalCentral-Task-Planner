@@ -311,7 +311,7 @@ class Task < ActiveRecord::Base
 
   def self.generate_tasks(kind, n, course)
     @days_between_tasks = (120/(n+1)).floor
-    release_dateTime = DateTime.now + Random.new.rand(1..5).days # Don't know where to start our tasks plan
+    release_dateTime = DateTime.now + Random.new.rand(7..13).days # Don't know where to start our tasks plan
     if kind == 'Exam'
       release_dateTime += 3.weeks
     end
@@ -326,7 +326,7 @@ class Task < ActiveRecord::Base
 
   def self.generate_task(kind, release_dateTime, i, course)
     @task = Hash.new
-    @task[:status] = 'new'
+    @task[:status] = 'New'
     @task[:release] = release_dateTime
     @task[:due] = release_dateTime + self.days_between_release_and_due(kind)
     @task[:rate] = Random.new.rand(1..5)
