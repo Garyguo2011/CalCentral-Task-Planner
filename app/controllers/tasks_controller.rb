@@ -170,19 +170,23 @@ class TasksController < ApplicationController
     case @task.status
     when "New"
       new_status = "Started"
+      message = "You have started #{@task.title}"
     when "Started"
       new_status = "Finished"
+      message = "You have finished #{@task.title}"
     when "Finished"
       new_status = "Started"
+      message = "You have reopen #{@task.title}"
     when "Past due"
       new_status = "Finished"
+      message = "You have finished #{@task.title}"
     end
 
     @task.update_attribute :status, new_status
     if params[:redirect_url] != nil
-      redirect_to params[:redirect_url]
+      redirect_to params[:redirect_url], notice: message
     else
-      redirect_to "/tasks"
+      redirect_to "/tasks", notice: message
     end
   end
 
