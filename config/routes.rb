@@ -12,8 +12,11 @@ CalcentralTaskPlanner::Application.routes.draw do
   get 'calendar', to:'tasks#calendar', :as => "calendar"
   get 'dashboard', to:'tasks#dashboard', :as => "dashboard"
   get 'status', to:'tasks#status', :as => "status"
-  get 'status', to:'tasks#auto', :as => "status_auto"
   get 'tasks/:id/delete', to: 'tasks#delete', :as => "delete"
+
+  get 'generate_task', to:'tasks#generate_task', :as => 'generate_task'
+  get 'delete_generate_task', to:'tasks#delete_generate_task', :as => "delete_generate_task"
+
 
   # The priority is based upon order of creation:
   # first created -> highest priority.

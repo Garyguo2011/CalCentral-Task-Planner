@@ -27,6 +27,7 @@
                   <option value="/status?filter=Show All">Show All</option>
               </div>
             </select>
+
             <div style="float:right;" class="btn btn-mini">
               <% if params[:show_finished] == nil %>
                 <td><%= link_to "Show finished tasks", :show_finished => :yes%></td>
@@ -34,15 +35,13 @@
                 <td><%= link_to "Hide finished tasks", :show_finished => nil%></td>
               <% end %>
             </div>
-            <div>
-              <%= form_tag status_auto_path, :method => :get do %>
-              <%= check_box_tag "Auto_generate" %>
-              Auto generate tasks
-              <%= check_box_tag "Delete_all_auto_generate" %>
-              Delete all auto generated tasks
-              <%= submit_tag "submit" %>
-              <% end -%>
+            <div style="float:right;" class="btn btn-mini">
+              <%= link_to 'Delete Generate Task', delete_generate_task_path%>
             </div>
+            <div style="float:right;" class="btn btn-mini">
+              <%= link_to 'Generate Task', generate_task_path %>
+            </div>
+
           </div>
           <table class="table">
             <thead>

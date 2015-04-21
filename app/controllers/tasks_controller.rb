@@ -206,20 +206,6 @@ class TasksController < ApplicationController
   end
 
   def status
-    @auto_tasks = auto
-    if !params[:Auto_generate].nil?
-      @auto_tasks.each do |t|
-        Task.create!(t)
-      end
-    end
-    if !params[:Delete_all_auto_generate].nil?
-      current_user.tasks.each do |t|
-        if t[:auto]
-          Task.delete(t)
-        end
-      end
-    end
-
     @tasks = Task.accessible_by(current_ability)
 
     sort_argument = sort_argument_helper   
@@ -249,9 +235,23 @@ class TasksController < ApplicationController
 
   end
 
+  def generate_task
+    @auto_tasks = auto
+    @auto_tasks.each do |t|
+      Task.create!(t)
+    end
+    redirect_to status_path
+  end
+
+  def delete_generate_task
+    current_user.tasks.each do |t|
+      Task.delete(t) if t[:auto]
+    end
+    redirect_to status_path
+  end
+
   def auto
     @auto_tasks = Task.generate_auto(3) # Should be a param later on
-
     @auto_tasks.each do |t|
       t[:user_id] = current_user.id
       # Task.create!(t)
