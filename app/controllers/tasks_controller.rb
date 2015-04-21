@@ -246,7 +246,9 @@ class TasksController < ApplicationController
   def delete_generate_task
     @tasks = current_user.tasks
     @tasks.where(:auto => true).delete_all
-    redirect_to status_path
+    respond_to do |format|       
+      format.html { render 'status.html.erb'}
+    end
   end
 
 end
