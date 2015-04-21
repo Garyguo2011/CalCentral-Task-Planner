@@ -1,40 +1,90 @@
-<h2>Sign up</h2>
+<div class="row">
+  <!-- <div class="col-lg-1"></div> -->
+        <div class="col-lg-12">
+          <div class="box">
+            <div class="box-header">
+              <h2><i class="fa fa-edit"></i>Sign up</h2>
+            </div>
+            <div class="box-content">
 
 <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
   <%= devise_error_messages! %>
-
-  <div><%= f.label :first_name%><br/>
-      <%= f.text_field :first_name%></div>
-
-  <div><%= f.label :last_name%><br/>
-    <%= f.text_field :last_name%></div>
-
-  <div class="field">
-    <%= f.label :email %><br />
-    <%= f.email_field :email, autofocus: true %>
+  
+  <div class="row">
+    <div class="field">
+      <div class="col-lg-2">
+        <%= f.label :first_name%>
+      </div>
+      <div class="col-lg-3">
+        <%= f.text_field :first_name%>
+      </div>
+    </div>
   </div>
 
-  <div class="field">
-    <%= f.label :password %>
-    <% if @validatable %>
-    <em>(<%= @minimum_password_length %> characters minimum)</em>
-    <% end %><br />
-    <%= f.password_field :password, autocomplete: "off" %>
+  <div class="row">
+    <div class="field">
+      <div class="col-lg-2">
+        <%= f.label :last_name%>
+      </div>
+      <div class="col-lg-3">
+        <%= f.text_field :last_name%>      
+      </div>
+    </div>
   </div>
 
-  <div class="field">
-    <%= f.label :password_confirmation %><br />
-    <%= f.password_field :password_confirmation, autocomplete: "off" %>
+  <div class="row">
+    <div class="field">
+      <div class="col-lg-2">
+        <%= f.label :email %>
+      </div>
+      <div class="col-lg-3">
+        <%= f.email_field :email, autofocus: true %>
+      </div>
+    </div>
   </div>
 
-  <div class="field">
-    <%= f.label :email_notifications %>
-    <%= f.select :email_notifications, ["hourly", "daily", "never"] %>
+  <div class="row">
+    <div class="field">
+      <div class="col-lg-2">
+        <%= f.label :password %>
+      </div>
+      <div class="col-lg-3">
+        <% if @validatable %>
+        <em>(<%= @minimum_password_length %> characters minimum)</em>
+        <% end %><br />
+        <%= f.password_field :password, autocomplete: "off" %>
+      </div>
+    </div>
   </div>
 
-  <div class="actions">
-    <%= f.submit "Sign up" %>
+  <div class="row">
+    <div class="field">
+      <div class="col-lg-2">
+        <%= f.label :password_confirmation %>
+      </div>
+      <div class="col-lg-3">
+        <%= f.password_field :password_confirmation, autocomplete: "off" %>
+      </div>
+    </div>
   </div>
+
+  <div class="row">
+    <div class="field">
+      <div class="col-lg-2">
+        <%= f.label :email_notifications %>
+      </div>
+      <div class="col-lg-1">
+        <%= f.select :email_notifications, ["hourly", "daily", "never"] %>
+      </div>
+    </div>
+  </div>
+
+    <div class="actions">
+      <%= f.submit "Sign up" %> | <%= render "devise/shared/links" %>
+    </div>
 <% end %>
 
-<%= render "devise/shared/links" %>
+      </div>
+    </div>
+  </div>
+</div>
