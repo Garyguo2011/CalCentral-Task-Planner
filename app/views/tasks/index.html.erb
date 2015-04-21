@@ -33,7 +33,7 @@
                     </div>
                       <div class="button_area" id="status_button_<%=task.id%>">
 
-                      <%= link_to status_change, task_change_status_path(task.id), {:style=>'color:#FFFFFF;', :class => "btn btn-large btn-primary"}%>     
+                      <%= link_to status_change, task_change_status_path(:id => task.id, :redirect_url => tasks_path), {:style=>'color:#FFFFFF;', :class => "btn btn-large btn-primary"}%>
                       </div>
                     <div class="time">
                       <div class="date"><%= task.due.strftime("%b %d") %></div>
@@ -124,38 +124,6 @@
     <!-- </table> -->
 <!-- End: Change style -->
 
-
- 
-
-<!-- 
-<table id='tasks' align='center' width="80%">
-  <tr aligh='center'>
-    <th><%= link_to "Task Title", :sort => :title%></th>
-    <th><%= link_to "Course", :sort => :course%></th>
-    <th><%= link_to "Type", :sort => :kind%></th>
-    <th><%= link_to "Due Date", :sort => :due%></th>
-    <th><%= link_to "Status", :sort => :status%></th>
-    <th><%= link_to "Owner", :sort => :user_id%></th>
-    <th>Rate</th>
-  </tr>
-
-<% @tasks.each do |task| %>
-  <tr>
-    <td><%= task.title %></td>
-    <td><%= task.course %></td>
-    <td><%= task.kind %></td>
-    <td><%= task.remain_time %></td>
-    <td><%= task.status%></td>
-    <% if task.user != nil%>
-      <td><%= task.user.full_name%></td>
-    <% else %>
-      <td> NO USERS </td>
-    <% end %>
-    <td><%= task.rate%></td>
-  </tr>
-<% end %>
-</table>
- -->
 
   <div style="width:40%">
     <div>

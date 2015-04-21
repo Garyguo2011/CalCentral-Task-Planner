@@ -8,24 +8,24 @@
         <% elsif task_list[0].status == "Started" %>
           <% subs = "medium"; status_change = "Finish"; id = "Started" %>
         <% elsif task_list[0].status == "New"; %>
-          <% subs = "low"; status_change = "Start"; id = "New" %>
+          <% subs = "xlow"; status_change = "Start"; id = "New" %>
         <% else %>
           <% if @show_finish == true; status_change = "Reopen" %>
-            <% subs = "xlow"; id = "Finished" %>
+            <% subs = "low"; id = "Finished" %>
           <% else %>
             <% break %>
           <% end %>
         <% end %>
-        <div class="priority <%= subs %>" id="<%= id %>"><span><%= task_list[0].status %></span></div>
+        <div class="priority <%= subs %>" id = "<%= id %>"><span><%= task_list[0].status %></span></div>
         <% task_list.each do |task| %>
-          <div class="task <%= subs %>" id="<%=task.course%>_<%=task.title%>">
+          <div class="task <%= subs %>" id = "<%=task.course%>_<%=task.title%>">
             <div class="desc">
               <div id="<%=task.course%>_<%=task.title%>_listitem" class="title"><%= link_to task.title, task_path(task) %></div>
               <div><%= task.course + "     " %><%= task.kind %></div>
             </div>
               <div class="button_area" id="status_button_<%=task.id%>">
 
-              <%= link_to status_change, task_change_status_path(task.id), {:style=>'color:#FFFFFF;', :class => "btn btn-large btn-primary"}%>     
+              <%= link_to status_change, task_change_status_path(:id => task.id, :redirect_url => dashboard_path), {:style=>'color:#FFFFFF;', :class => "btn btn-large btn-primary"}%>
               </div>
             <div class="time">
               <div class="date"><%= task.due.strftime("%b %d") %></div>
