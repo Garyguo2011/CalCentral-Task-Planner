@@ -244,12 +244,12 @@ class TasksController < ApplicationController
       t[:user_id] = current_user.id
       Task.create!(t)
     end
-    redirect_to status_path
+    redirect_to status_path, notice: "We have generate demo data for you! Enjoy!"
   end
 
   def delete_generate_task
     current_user.tasks.where(:auto => true).delete_all
-    redirect_to status_path
+    redirect_to status_path, notice: "Demo data have been deleted!"
   end
 
 end
