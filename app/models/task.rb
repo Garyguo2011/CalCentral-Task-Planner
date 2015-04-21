@@ -177,6 +177,10 @@ class Task < ActiveRecord::Base
     return labels[self.status]
   end
 
+  def change_status_button
+    button = {"Past due" => '<i class="fa fa-check"></i> Finish', "New" => '<i class="fa fa-play"></i> Start', "Started" => '<i class="fa fa-check"></i> Finish', "Finished" => '<i class="fa fa-repeat"></i> Reopen'}
+    return button[self.status]
+  end
 
   #all tasks in array of hash format
   def self.all_tasks_in_array_of_hash

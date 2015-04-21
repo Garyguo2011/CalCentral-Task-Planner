@@ -167,22 +167,21 @@ class TasksController < ApplicationController
     new_status = ""
     case @task.status
     when "New"
-      @start_at = Time.now
       new_status = "Started"
     when "Started"
-      @finish_at = Time.now
       new_status = "Finished"
     when "Finished"
-      @start_at = Time.now
-      @finish_at = nil
       new_status = "Started"
     when "Past due"
-      @finish_at = Time.now
       new_status = "Finished"
     end
 
     @task.update_attribute :status, new_status
-    redirect_to "/tasks"
+    if params[:redirect_url] != nil
+      redirect_to params[:redirect_url]
+    else
+      redirect_to "/tasks"
+    end
   end
 
   def calendar

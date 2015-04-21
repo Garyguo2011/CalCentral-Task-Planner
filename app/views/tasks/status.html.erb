@@ -45,6 +45,7 @@
                 <th><%= link_to "Status", :sort => :status%>   <i class="fa fa-sort"></i></th>
                 <th>Rate</th>
                 <th>Action</th>
+                <th>Next Step</th>
               </tr>
             </thead>
 
@@ -66,6 +67,10 @@
                     <%= link_to '<i class="fa fa-edit"></i>'.html_safe, edit_task_path(task), :method => :get %> | 
                     <%= link_to '<i class="fa fa-trash-o"></i>'.html_safe, delete_path(task), :method => :get %>
                   </td>
+                  <td>
+                    <%= link_to task.change_status_button.html_safe, task_change_status_path(:id => task.id, :redirect_url => status_path)%>
+                  </td>
+
                 </tr>
               <% end %>
             </tbody>
