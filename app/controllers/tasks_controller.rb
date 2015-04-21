@@ -245,7 +245,8 @@ class TasksController < ApplicationController
   end
 
   def delete_generate_task
-    current_user.tasks.where(:auto => true).delete_all
+    @tasks = current_user.tasks
+    @tasks.where(:auto => true).delete_all
     redirect_to status_path
   end
 
