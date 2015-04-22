@@ -1,0 +1,25 @@
+Feature: Navigation Menu for Task planner
+
+As student in Berkeley
+In order to navigate my Calendar, my status, and my tasks easier
+I want to create a navigation menu above TO DO section
+
+Background: users and tasks have been added to database
+  
+  Given it is currently Mar,31 2015
+  And I am on the sign-in page
+  And I sign in "123454321@hotmail.com" with "123454321"
+  Given I am currently on the dashboard page
+
+Scenario: Nevigation menu should take me to exact page
+  When I follow "My Tasks"
+  Then I should be on Tasks page
+
+  When I follow "My Dashborad"
+  Then I should be on Dashborad page
+
+  When I follow "My Calendar"
+  Then I should be on Calendar page
+
+  When I follow "My Status"
+  Then I should be on the status page
