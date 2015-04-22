@@ -175,24 +175,24 @@
 
     <!-- <li data-ng-class="{true:&#39;active&#39;}[controllerName==&#39;DashboardController&#39;]" class="active"><a href="./CalCentral_files/CalCentral.html" data-ng-click="offCanvasMenu.show=false"><i class="fa fa-home"></i>My Dashboard</a></li> -->
 
+    <li data-ng-class="{true:&#39;active&#39;}[controllerName==&#39;CampusController&#39;]">
+      <%=link_to '<i class="fa fa-th-large"></i>My Dashboard'.html_safe, dashboard_path, id: "My Dashboard"%>
+    </li>
+
     <!-- ngIf: api.user.profile.hasAcademicsTab -->
 
-    <!-- <li data-ng-class="{true:&#39;active&#39;}[controllerName==&#39;AcademicsController&#39;]" data-ng-if="api.user.profile.hasAcademicsTab" class="ng-scope">
+    <li data-ng-class="{true:&#39;active&#39;}[controllerName==&#39;AcademicsController&#39;]" data-ng-if="api.user.profile.hasAcademicsTab" class="ng-scope">
       <a href="https://calcentral.berkeley.edu/academics" data-ng-click="offCanvasMenu.show=false"><i class="fa fa-book"></i>My Academics</a>
-    </li> -->
+    </li>
 
     <!-- end ngIf: api.user.profile.hasAcademicsTab -->
     <!-- ngIf: api.user.profile.hasFinancialsTab -->
 
-    <!-- <li data-ng-class="{true:&#39;active&#39;}[controllerName==&#39;MyFinancesController&#39;]" data-ng-if="api.user.profile.hasFinancialsTab" class="ng-scope"><a href="https://calcentral.berkeley.edu/finances" data-ng-click="offCanvasMenu.show=false"><i class="fa fa-usd"></i>My Finances</a></li> -->
+    <li data-ng-class="{true:&#39;active&#39;}[controllerName==&#39;MyFinancesController&#39;]" data-ng-if="api.user.profile.hasFinancialsTab" class="ng-scope"><a href="https://calcentral.berkeley.edu/finances" data-ng-click="offCanvasMenu.show=false"><i class="fa fa-usd"></i>My Finances</a></li>
 
     <!-- end ngIf: api.user.profile.hasFinancialsTab -->
 
-    <!-- <li data-ng-class="{true:&#39;active&#39;}[controllerName==&#39;CampusController&#39;]"><a href="https://calcentral.berkeley.edu/campus" data-ng-click="offCanvasMenu.show=false"><i class="fa fa-th-large"></i>My Campus</a></li> -->
-
-    <li data-ng-class="{true:&#39;active&#39;}[controllerName==&#39;CampusController&#39;]">
-      <%=link_to '<i class="fa fa-th-large"></i>My Dashboard'.html_safe, dashboard_path, id: "My Dashboard"%>
-    </li>
+    <li data-ng-class="{true:&#39;active&#39;}[controllerName==&#39;CampusController&#39;]"><a href="https://calcentral.berkeley.edu/campus" data-ng-click="offCanvasMenu.show=false"><i class="fa fa-th-large"></i>My Campus</a></li>
 
     <li data-ng-class="{true:&#39;active&#39;}[controllerName==&#39;CampusController&#39;]">
       <%=link_to '<i class="fa fa-th-large"></i>My Tasks'.html_safe, tasks_path, id: "My Tasks"%>
