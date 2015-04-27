@@ -18,7 +18,7 @@
         
         <div id="task_table">
           <div>        
-            <select id="MySelect" onchange="this.options[this.selectedIndex].value && (window.location = this.options[this.selectedIndex].value);" style="left: 100px; width: 140px;" class="btn btn-large btn-primary">
+            <select onchange="this.options[this.selectedIndex].value && (window.location = this.options[this.selectedIndex].value);" style="left: 100px; width: 140px;" class="btn btn-large btn-primary">
               <div class="box-content">
                   <option>Select Task Type</option>
                   <%= Task.all_kinds.each do |task| %>

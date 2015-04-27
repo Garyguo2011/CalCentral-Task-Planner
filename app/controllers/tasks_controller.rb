@@ -177,9 +177,12 @@ class TasksController < ApplicationController
     end
   end
 
-  def calendar
+  def find_tasks_in_hash
     @tasks = Task.accessible_by(current_ability)
     @all_tasks_array_of_hash = @tasks.all_tasks_in_array_of_hash
+  end
+  def calendar
+    find_tasks_in_hash
     # if(params[:task] != nil)
     #   course, title = params[:task].split(" ")
     #   task_to_change = Task.find_task_by_course_title(course, title)
@@ -192,6 +195,8 @@ class TasksController < ApplicationController
     if (!@view) 
       @view = 'tasklist'
     end
+    find_tasks_in_hash
+
     index_or_dashboard
   end
 

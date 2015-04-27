@@ -52,12 +52,13 @@ Given /I sign in "(.*)" with "(.*)"/ do |email, password|
   click_button("Log in")
 end
 
-When /I select (.*) to filter/ do |field|
+When /I select "(.*)" to filter/ do |field|
   # puts(page.html)
   within '#MySelect' do
-    click_link(find("option[value='/tasks?filter=#{field}']"))
+    find("option[value='/status?date=#{field}']").select_option()
+    require 'cgi'
+    visit "/status?date=" + CGI.escape("#{field}")
   end
-  puts(page.html)
 end
 
 
