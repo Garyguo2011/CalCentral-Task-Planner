@@ -128,7 +128,7 @@
   window.onload = function(){
     var ctx = document.getElementById("work_distribution_chart").getContext("2d");
     window.myBar = new Chart(ctx).StackedBar(data);
-    legend(document.getElementById('legendDiv'), data);
+    // legend(document.getElementById('legendDiv'), data);
   }
 </script>
 <script>
@@ -148,6 +148,16 @@
   // ];
 
   var data0 = <%= raw @taskDataPieChart.to_json %>;
+  var options = {
+      series: {
+        label: {
+              show: "auto",
+              formatter: function(label, slice) {
+                return "<div style='font-size:large;text-align:center;padding:2px;color:" + slice.color + ";'>" + label + "<br/>" + Math.round(slice.percent) + "%</div>";
+              }
+            }
+      }
+  };
   
   if($("#piechart").length)
   {
@@ -156,6 +166,10 @@
       series: {
           pie: {
               show: true
+          },
+          label: {
+            show: "auto",
+            formatter: labelFormatter
           }
       },
       grid: {
@@ -167,6 +181,11 @@
       },
       colors: ["#FA5833", "#2FABE9", "#FABB3D", "#78CD51"]
     });
+
+    function labelFormatter(label, series) {
+        return "<div style='font-size:16pt; text-align:center; padding:2px; color:white;'>"
+              + label + "<br/>" + Math.round(series.percent) + "%</div>";
+    }
     
     function pieHover(event, pos, obj)
     {

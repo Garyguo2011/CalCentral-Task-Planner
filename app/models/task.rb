@@ -135,7 +135,7 @@ class Task < ActiveRecord::Base
   end
 
   def self.work_distribution
-    n = 4 # to be modified
+    n = 8 # to be modified
     startDate = Date.today.at_beginning_of_week
     endDate = startDate + (n * 7).days
     hash = Hash.new
@@ -147,7 +147,7 @@ class Task < ActiveRecord::Base
   def self.wd_labels(startDate, n)
     labels = Array.new
     for i in 1..n
-      labels << startDate.strftime("%b%d").to_s + " - " + (startDate + 7.days).strftime("%b%d").to_s
+      labels << startDate.strftime("%b%d").to_s
       startDate += 7.days
     end
     return labels
@@ -159,8 +159,8 @@ class Task < ActiveRecord::Base
     all_tasks.each do |task|
       hash_task = Hash.new
       hash_task["label"] = "#{task.title}"
-      hash_task["fillColor"] = "#" + task.hash_to_hex_s
-      hash_task["highlightFill"] = "#" + task.hash_to_hex_s
+      hash_task["fillColor"] = "#2b6181"
+      hash_task["highlightFill"] = "#2b6181"
       task_arr = task.task_array(startDate, endDate)
       hash_task["data"] = task_arr
       arr << hash_task
