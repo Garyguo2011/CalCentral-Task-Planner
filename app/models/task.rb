@@ -44,6 +44,10 @@ class Task < ActiveRecord::Base
     ["Project", "Homework", "Paper", "Exam", "Other"]
   end
 
+  def self.all_status
+    ["Past due", "New", "Started", "Finished"]
+  end
+
   def self.task_by_status
     past_tasks = self.find_all_by_status("Past due")
     new_tasks = self.find_all_by_status("New")
@@ -55,6 +59,21 @@ class Task < ActiveRecord::Base
     ret.push(new_tasks)
     ret.push(finished_tasks)
     return ret
+  end
+
+  def self.pie_chart_data_generate
+    result = Array.new
+    for i in 0..3
+      result << self.hash_for_pie_chart(self.all_status[i])
+    end
+    return result
+  end
+
+  def self.hash_for_pie_chart(status)
+    result = Hash.new
+    result["label"] = status
+    result["data"] = self.find_all_by_status(status).size
+    return result
   end
 
   def self.check_past_due

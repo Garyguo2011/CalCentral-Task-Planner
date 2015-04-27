@@ -229,7 +229,8 @@ class TasksController < ApplicationController
       @show_finish = true
     end
 
-    @taskData = @tasks.work_distribution
+    @taskDataWorkDist = @tasks.work_distribution
+    @taskDataPieChart = @tasks.pie_chart_data_generate
 
     respond_to do |format|       
       format.html { render 'status.html.erb'}
