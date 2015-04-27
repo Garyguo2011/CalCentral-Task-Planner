@@ -17,7 +17,7 @@
 
         
         <div id="task_table">
-          <div>
+          <div>        
             <select id="MySelect" onchange="this.options[this.selectedIndex].value && (window.location = this.options[this.selectedIndex].value);" style="left: 100px; width: 140px;" class="btn btn-large btn-primary">
               <div class="box-content">
                   <option>Select Task Type</option>
@@ -25,6 +25,16 @@
                     <%=options_for_select([["#{task}", "/status?filter=#{task}"]])%>
                   <% end %>
                   <option value="/status?filter=Show All">Show All</option>
+              </div>
+            </select>
+        
+            <strong> In </strong>
+            <select id="MySelect" onchange="this.options[this.selectedIndex].value && (window.location = this.options[this.selectedIndex].value);" style="left: 100px; width: 150px;" class="btn btn-large btn-primary">
+            <div class="box-content"> 
+                  <option>Select Tasks range</option>             
+                  <%= Task.date_range.each do |date| %>
+                    <%=options_for_select([["#{date}", "/status?date=#{date}"]])%>
+                  <% end %>
               </div>
             </select>
             <div style="float:right;" class="btn btn-mini">

@@ -23,12 +23,8 @@ class TasksController < ApplicationController
   def sort_argument_helper
     if params[:sort] != nil
       sort_argument = params[:sort]
-      session[:sort] = sort_argument
-    elsif session[:sort] != nil
-      sort_argument = session[:sort]
     else
       sort_argument = :status
-      session[:sort] = sort_argument
     end
     return sort_argument
   end
@@ -36,19 +32,12 @@ class TasksController < ApplicationController
   def filter_argument_helper
     if params[:filter] != nil and params[:filter] != "Show All"
       filter_argument = params[:filter]
-      session[:filter] = filter_argument
-    elsif params[:filter] == nil
-      if session[:filter] == nil
-        filter_argument = nil
-      else
-        filter_argument = session[:filter]
-      end
     else
       filter_argument = nil
-      session[:filter] = filter_argument
     end
     return filter_argument
   end
+
 
 
   def prefill_subtasks_helper
@@ -207,8 +196,16 @@ class TasksController < ApplicationController
   end
 
   def status
-    @tasks = Task.accessible_by(current_ability)
+    @tasks = Task.accessible_by(current_ability) 
+    #filter task by date(this week, this month, this year)
+    show_tasks_in_selected_type
+    show_tasks_in_selected_date_range
+    @taskData = @tasks.work_distribution
 
+
+  end
+
+  def show_tasks_in_selected_type
     sort_argument = sort_argument_helper   
     filter_argument = filter_argument_helper
 
@@ -226,9 +223,20 @@ class TasksController < ApplicationController
       @tasks = @tasks.order(sort_argument)
       @show_finish = true
     end
+  end
 
-    @taskData = @tasks.work_distribution
-
+  def show_tasks_in_selected_date_range
+    #filter task by date(this week, this month, this year)
+    case params[:date]
+    when "this week"
+      @tasks = @tasks.find_tasks_in_same_week(Time.now)
+    when "this month"
+      @tasks = @tasks.find_tasks_in_same_month(Time.now)
+    when "this year"
+      @tasks = @tasks.find_tasks_in_same_year(Time.now)
+    when nil, "all time"
+      @tasks
+    end
   end
 
 end
