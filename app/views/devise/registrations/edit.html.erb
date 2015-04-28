@@ -71,7 +71,6 @@
       </div>
     </div>
   </div>
-
   <div class="actions">
     <%= f.submit "Update" %> | <%= link_to "Back", tasks_path %>
   </div>
@@ -96,8 +95,8 @@
                 <div class="col-lg-2">
                   <label>Need A Demo?</label>
                 </div>
-                <div class="col-lg-1">
-                  #Generate Button#
+                <div class="col-lg-2">
+                  <%= link_to 'Generate Task', generate_task_path %>
                 </div>
               </div>
             </div>
@@ -107,8 +106,8 @@
                 <div class="col-lg-2">
                   <label>Delete Demo Data</label>
                 </div>
-                <div class="col-lg-1">
-                  #Generate Button#
+                <div class="col-lg-2">
+                  <%= link_to 'Delete Generate Task', delete_generate_task_path%>
                 </div>
               </div>
             </div>
@@ -129,7 +128,7 @@
 
             <div class="row">
               <div class="field">
-                <div class="col-lg-1">
+                <div class="col-lg-2">
                   <label>Unhappy?</label>
                 </div>
                 <div class="col-lg-1">

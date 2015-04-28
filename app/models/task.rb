@@ -11,7 +11,7 @@ end
 
 class Task < ActiveRecord::Base
   include ActionView::Helpers::DateHelper
-  attr_accessible :due, :status, :title, :course, :kind, :release, :user_id, :rate
+  attr_accessible :due, :status, :title, :course, :kind, :release, :user_id, :rate, :auto
   belongs_to :user
   has_many :subtasks
   validates :title, :presence => true
@@ -22,7 +22,7 @@ class Task < ActiveRecord::Base
   validates :rate, :presence => true
   validates_with MyValidator
 
-  def all_course
+  def self.all_course
     arr = Array.new
     f = File.open("data.csv", "r")
     f.each_line { |line|
@@ -44,6 +44,10 @@ class Task < ActiveRecord::Base
     ["Project", "Homework", "Paper", "Exam", "Other"]
   end
 
+  def self.all_status
+    ["Past due", "New", "Started", "Finished"]
+  end
+
   def self.task_by_status
     past_tasks = self.find_all_by_status("Past due")
     new_tasks = self.find_all_by_status("New")
@@ -55,6 +59,21 @@ class Task < ActiveRecord::Base
     ret.push(new_tasks)
     ret.push(finished_tasks)
     return ret
+  end
+
+  def self.pie_chart_data_generate
+    result = Array.new
+    for i in 0..3
+      result << self.hash_for_pie_chart(self.all_status[i])
+    end
+    return result
+  end
+
+  def self.hash_for_pie_chart(status)
+    result = Hash.new
+    result["label"] = status
+    result["data"] = self.find_all_by_status(status).size
+    return result
   end
 
   def self.check_past_due
@@ -116,7 +135,7 @@ class Task < ActiveRecord::Base
   end
 
   def self.work_distribution
-    n = 4 # to be modified
+    n = 8 # to be modified
     startDate = Date.today.at_beginning_of_week
     endDate = startDate + (n * 7).days
     hash = Hash.new
@@ -128,7 +147,7 @@ class Task < ActiveRecord::Base
   def self.wd_labels(startDate, n)
     labels = Array.new
     for i in 1..n
-      labels << startDate.strftime("%b%d").to_s + " - " + (startDate + 7.days).strftime("%b%d").to_s
+      labels << startDate.strftime("%b%d").to_s
       startDate += 7.days
     end
     return labels
@@ -140,8 +159,8 @@ class Task < ActiveRecord::Base
     all_tasks.each do |task|
       hash_task = Hash.new
       hash_task["label"] = "#{task.title}"
-      hash_task["fillColor"] = "#" + task.hash_to_hex_s
-      hash_task["highlightFill"] = "#" + task.hash_to_hex_s
+      hash_task["fillColor"] = "#2b6181"
+      hash_task["highlightFill"] = "#2b6181"
       task_arr = task.task_array(startDate, endDate)
       hash_task["data"] = task_arr
       arr << hash_task
@@ -274,6 +293,71 @@ class Task < ActiveRecord::Base
     @m << "Kind: #{self.kind}\n"
     @m << "Due Time: #{self.due}\n"
     @m << "Remainning time: #{self.remain_time}\n\n"
+  end
+
+  def self.days_between_release_and_due(kind)
+    case kind
+    when 'Project', 'Paper'
+      return 2.weeks
+    when 'Homework'
+      return 7.days
+    when 'Exam'
+      return 3.hours
+    end
+  end
+
+  def self.is_tech(course)
+    return course.include?("Computer") || course.include?("Engineering")
+  end
+
+  def self.is_humanities(course)
+    return !self.is_tech(course) && !course.include?("Mathematics") && !course.include?("Statistics") && !course.include?("Physics") && !course.include?("Chemistry")
+  end
+
+  def self.generate_auto(num_of_courses)
+    @all_tasks = Array.new
+    @random = Random.new
+    @courses = self.all_course
+    for i in 1..num_of_courses
+      course = @courses[@random.rand(0..@courses.size-1)]
+      @all_tasks.concat(self.generate_tasks('Homework', @random.rand(3..6), course))
+      @all_tasks.concat(self.generate_tasks('Exam', @random.rand(1..3), course))
+      if self.is_tech(course)
+        @all_tasks.concat(self.generate_tasks('Project', @random.rand(1..4), course))
+      end
+      if self.is_humanities(course)
+        @all_tasks.concat(self.generate_tasks('Paper', @random.rand(1..3), course))
+      end
+    end
+    return @all_tasks
+  end
+
+  def self.generate_tasks(kind, n, course)
+    @days_between_tasks = (120/(n+1)).floor
+    release_dateTime = DateTime.now + Random.new.rand(7..13).days # Don't know where to start our tasks plan
+    if kind == 'Exam'
+      release_dateTime += 3.weeks
+    end
+    @tasks = Array.new
+    for i in 1..n
+      task = self.generate_task(kind, release_dateTime, i, course)
+      @tasks << task
+      release_dateTime += @days_between_tasks
+    end
+    return @tasks
+  end
+
+  def self.generate_task(kind, release_dateTime, i, course)
+    @task = Hash.new
+    @task[:status] = 'New'
+    @task[:release] = release_dateTime
+    @task[:due] = release_dateTime + self.days_between_release_and_due(kind)
+    @task[:rate] = Random.new.rand(1..5)
+    @task[:title] = kind + "#{i}"
+    @task[:course] = course
+    @task[:kind] = kind + ""
+    @task[:auto] = true
+    return @task
   end
 
 end
