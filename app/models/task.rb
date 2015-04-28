@@ -201,16 +201,6 @@ class Task < ActiveRecord::Base
     return button[self.status]
   end
 
-  #all tasks in array of hash format
-  def self.all_tasks_in_array_of_hash
-    tasks_array = []
-    self.all.each do |task|
-      title = task.course + " " + task.title
-      end_time = task.due
-      tasks_array.push({'title' => title, 'start' => end_time})
-    end
-    return tasks_array
-  end
 
   #find task by course + title
   # def self.find_task_by_course_title(target_course, target_title)
@@ -293,6 +283,66 @@ class Task < ActiveRecord::Base
     @m << "Kind: #{self.kind}\n"
     @m << "Due Time: #{self.due}\n"
     @m << "Remainning time: #{self.remain_time}\n\n"
+  end
+
+  #all tasks in array of hash format: {'title': **, 'start': **}
+  def self.all_tasks_in_array_of_hash
+    tasks_array = []
+    self.all.each do |task|
+      title = task.course + " " + task.title
+      end_time = task.due
+      tasks_array.push({'title' => title, 'start' => end_time})
+    end
+    return tasks_array
+  end
+
+
+  def self.date_range
+    return ["this week", "this month", "this year", "all time"]
+  end
+
+
+  #find tasks in same week as Time.now
+  def self.find_tasks_in_same_week(now)
+    tasks_array = []
+    #represent # of day in the year of the begin day of this week
+    begin_day = now.yday - now.wday 
+    #represent # of day in the year of the last day of this week
+    last_day = now.yday - now.wday + 6
+
+    #return self.where(due.yday: begin_day .. last_day)
+    self.all.each do |task|
+      puts task.due.yday
+      if (begin_day .. last_day).include? task.due.yday
+        tasks_array.push(task)
+      end
+    end
+    #tasks_array.map{|i| i.id}
+
+    return self.where(:id => tasks_array)
+  end
+
+  def self.find_tasks_in_same_month(now)
+    tasks_array = []
+
+    self.all.each do |task|
+      if now.month == task.due.month
+        tasks_array.push(task)
+      end
+    end
+    return self.where(:id => tasks_array)
+  end
+
+  def self.find_tasks_in_same_year(now)
+    tasks_array = []
+
+    self.all.each do |task|
+      if now.year == task.due.year
+        tasks_array.push(task)
+      end
+    end
+
+    return self.where(:id => tasks_array)
   end
 
   def self.days_between_release_and_due(kind)

@@ -23,12 +23,8 @@ class TasksController < ApplicationController
   def sort_argument_helper
     if params[:sort] != nil
       sort_argument = params[:sort]
-      session[:sort] = sort_argument
-    elsif session[:sort] != nil
-      sort_argument = session[:sort]
     else
       sort_argument = :status
-      session[:sort] = sort_argument
     end
     return sort_argument
   end
@@ -36,19 +32,12 @@ class TasksController < ApplicationController
   def filter_argument_helper
     if params[:filter] != nil and params[:filter] != "Show All"
       filter_argument = params[:filter]
-      session[:filter] = filter_argument
-    elsif params[:filter] == nil
-      if session[:filter] == nil
-        filter_argument = nil
-      else
-        filter_argument = session[:filter]
-      end
     else
       filter_argument = nil
-      session[:filter] = filter_argument
     end
     return filter_argument
   end
+
 
 
   def prefill_subtasks_helper
@@ -190,9 +179,12 @@ class TasksController < ApplicationController
     end
   end
 
-  def calendar
+  def find_tasks_in_hash
     @tasks = Task.accessible_by(current_ability)
     @all_tasks_array_of_hash = @tasks.all_tasks_in_array_of_hash
+  end
+  def calendar
+    find_tasks_in_hash
     # if(params[:task] != nil)
     #   course, title = params[:task].split(" ")
     #   task_to_change = Task.find_task_by_course_title(course, title)
@@ -205,12 +197,22 @@ class TasksController < ApplicationController
     if (!@view) 
       @view = 'tasklist'
     end
+    find_tasks_in_hash
+
     index_or_dashboard
   end
 
   def status
-    @tasks = Task.accessible_by(current_ability)
+    @tasks = Task.accessible_by(current_ability) 
+    #filter task by date(this week, this month, this year)
+    show_tasks_in_selected_type
+    show_tasks_in_selected_date_range
+    @taskData = @tasks.work_distribution
 
+
+  end
+
+  def show_tasks_in_selected_type
     sort_argument = sort_argument_helper   
     filter_argument = filter_argument_helper
 
@@ -227,6 +229,20 @@ class TasksController < ApplicationController
     else
       @tasks = @tasks.order(sort_argument)
       @show_finish = true
+    end
+  end
+
+  def show_tasks_in_selected_date_range
+    #filter task by date(this week, this month, this year)
+    case params[:date]
+    when "this week"
+      @tasks = @tasks.find_tasks_in_same_week(Time.now)
+    when "this month"
+      @tasks = @tasks.find_tasks_in_same_month(Time.now)
+    when "this year"
+      @tasks = @tasks.find_tasks_in_same_year(Time.now)
+    when nil, "all time"
+      @tasks
     end
 
     @taskDataWorkDist = @tasks.work_distribution
