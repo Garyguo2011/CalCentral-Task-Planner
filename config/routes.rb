@@ -14,6 +14,10 @@ CalcentralTaskPlanner::Application.routes.draw do
   get 'status', to:'tasks#status', :as => "status"
   get 'tasks/:id/delete', to: 'tasks#delete', :as => "delete"
 
+  get 'generate_task', to:'tasks#generate_task', :as => 'generate_task'
+  get 'delete_generate_task', to:'tasks#delete_generate_task', :as => "delete_generate_task"
+
+
   # The priority is based upon order of creation:
   # first created -> highest priority.
   # Sample of regular route:

@@ -5,8 +5,8 @@ class TasksController < ApplicationController
   # GET /tasks.json
   def index_or_dashboard 
     @tasks = Task.accessible_by(current_ability)
-    @tasks_by_status = Task.accessible_by(current_ability).task_by_status
-    @tasks_by_time = Task.accessible_by(current_ability).order(:due).find_all_by_status(["New", "Started", "Past due"])
+    @tasks_by_status = @tasks.task_by_status
+    @tasks_by_time = @tasks.order(:due).find_all_by_status(["New", "Started", "Past due"])
 
     show_finished = (params[:show_finished] == nil)? nil: "Finished"
     @show_finish = (show_finished == nil)? false: true
@@ -136,7 +136,9 @@ class TasksController < ApplicationController
     @task = Task.find(params[:id])
     title = @task.title
     @task.destroy
-    UserMailer.task_notification(current_user).deliver
+    if !@task[:auto]
+      UserMailer.task_notification(current_user).deliver
+    end
     respond_to do |format|
       format.html { redirect_to status_path, notice: "#{title} was successfully deleted." }
       format.json { head :no_content }
@@ -241,6 +243,32 @@ class TasksController < ApplicationController
       @tasks = @tasks.find_tasks_in_same_year(Time.now)
     when nil, "all time"
       @tasks
+    end
+
+    @taskDataWorkDist = @tasks.work_distribution
+    @taskDataPieChart = @tasks.pie_chart_data_generate
+
+    respond_to do |format|       
+      format.html { render 'status.html.erb'}
+      format.json { render json: @tasks }
+    end
+
+  end
+
+  def generate_task
+    @auto_tasks = Task.generate_auto(3) # Should be a param later on
+    @auto_tasks.each do |t|
+      t[:user_id] = current_user.id
+      Task.create!(t)
+    end
+    redirect_to status_path, notice: "We have generate demo data for you! Enjoy!"
+  end
+
+  def delete_generate_task
+    @tasks = current_user.tasks
+    @tasks.where(:auto => true).delete_all
+    respond_to do |format|       
+      format.html { render 'status.html.erb'}
     end
   end
 
