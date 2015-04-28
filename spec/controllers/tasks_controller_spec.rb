@@ -256,6 +256,12 @@ describe TasksController, :type => :controller do
       expect(response).to render_template("status")
     end
 
+    it "can filter based on date" do
+      get :status, :date => 'this week'
+      response.should be_success
+      expect(response).to render_template("status")
+    end
+
     it "can show all finished tasks" do
       get :status, :show_finished => 'Finished'
       response.should be_success
@@ -287,6 +293,7 @@ describe TasksController, :type => :controller do
       response.should be_success
       expect(response).to render_template("status")
     end
+
   end
 
   describe "get calendar" do
@@ -310,5 +317,6 @@ describe TasksController, :type => :controller do
       expect(response).to render_template("dashboard")
     end
   end
+
 
 end
