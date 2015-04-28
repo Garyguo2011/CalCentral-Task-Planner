@@ -125,6 +125,7 @@
     <%= render 'timeline' %>
   <% end %>
   </div>
+  <p>To <strong>generate demo tasks</strong>, click the <%= link_to 'Generate Demo Task', generate_task_path %></p>
   <p>To <strong>create a task</strong>, click the <em>New Task</em> button.</p>
 </div>
 <div class="cc-widget-tasks-no-items cc-widget-tasks-no-items-first ng-scope ng-hide" data-ng-show="counts.current === 0 &amp;&amp; counts.opposite === 0 &amp;&amp; !api.user.profile.hasGoogleAccessToken">
