@@ -1,4 +1,4 @@
-<div id="dashboard-body" class="container">
+<div id="dashboard-body">
 <!-- ngInclude: 'accessibility.html' --><div class="ng-scope" data-ng-include="'accessibility.html'"><div class="cc-accessibility-links ng-scope">
   <a style="display: block;" href="" data-cc-scroll-to-directive="#cc-main-content">Skip to content</a>
   <a style="display: none;" href="" data-cc-scroll-to-directive="#cc-local-navigation">Skip to local navigation</a>
@@ -30,7 +30,7 @@
 
 <div class="cc-off-canvas-container">
   <div class="cc-offcanvas-right">
-      <!-- ngView:  --><div class="cc-clearfix-container ng-scope" data-ng-view=""><div class="medium-5 columns medium-push-3 cc-page-dashboard-column-b ng-scope">
+      <!-- ngView:  --><div class="cc-clearfix-container"><div class="medium-5 columns medium-push-3 cc-page-dashboard-column-b">
   <!-- ngInclude: 'widgets/tasks.html' --><div class="ng-scope" data-ng-include="'widgets/tasks.html'"><div class="cc-widget cc-widget-tasks ng-scope" data-ng-controller="TasksController">
   <div class="ng-scope" data-ng-controller="TaskAdderController">
     <div class="cc-widget-title">
@@ -39,7 +39,6 @@
         <i class="fa fa-plus cc-button-plus-icon"></i>
         <span>New Task</span>
       </button>
-      <button class="cc-button cc-right cc-widget-title-button ng-hide" data-ng-show="completedTasks.length &amp;&amp; currentTaskMode=='completed'" data-ng-click="clearCompletedTasks()">Delete completed tasks</button>
     </div>
     <div class="cc-widget-body">
       <!-- ngInclude:  --><div class="ng-scope" data-ng-include="" src="%27dashboard_task_editor.html%27"><form class="cc-widget-tasks-form ng-pristine ng-scope ng-invalid ng-invalid-required ng-valid-cc-date-validator ng-hide" name="cc_widget_tasks_form" data-ng-submit="!editorEnabled &amp;&amp; addTask() || editorEnabled &amp;&amp; editTask(task)" data-ng-show="addTaskPanelState.showAddTask || editorEnabled" novalidate="">
@@ -185,7 +184,7 @@
 </div>
 </div>
 
-<div class="medium-4 columns medium-push-3 cc-page-dashboard-column-c cc-column-last ng-scope">
+<div class="column-fix medium-4 columns medium-push-3 cc-page-dashboard-column-c cc-column-last">
   <!-- ngInclude: 'widgets/activity.html' --><div class="ng-scope" data-ng-include="'widgets/activity.html'" class="ng-scope"><div class="cc-widget cc-widget-activities ng-scope" data-ng-controller="ActivityController">
   <div class="cc-widget-title"><div class="row"><div class="columns small-12" data-ng-class="small-12"><h2>Recent Activity</h2></div>
       </div>
