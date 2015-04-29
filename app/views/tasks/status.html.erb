@@ -27,9 +27,6 @@
                   <option value="/status?filter=Show All">Show All</option>
               </div>
             </select>
-<<<<<<< HEAD
-            <div style="float:right;">
-=======
             <strong> In </strong>
             <select id="MySelect" onchange="this.options[this.selectedIndex].value && (window.location = this.options[this.selectedIndex].value);" style="left: 100px; width: 150px;" class="btn btn-large btn-primary">
             <div class="box-content"> 
@@ -39,8 +36,7 @@
                   <% end %>
               </div>
             </select>
-            <div style="float:right;" class="btn btn-mini">
->>>>>>> f459c01403050531889921e010d53ce0042c580c
+            <div style="float:right;">
               <% if params[:show_finished] == nil %>
                 <td><%= link_to "Show finished tasks", '/status?show_finished=yes'+(params[:sort] ? '&sort='+params[:sort] : ''), { :class => "btn btn-large btn-primary" } %></td>
               <% else %>
@@ -148,8 +144,6 @@
   $('#piechart').height(temp);
   $('#work_distribution_chart').height(temp);
 </script>
-<<<<<<< HEAD
-=======
 <script id="PieChartData">
   /* ---------- Pie chart ---------- */
   // var data0 = [
@@ -211,4 +205,4 @@
     $("#piechart").bind("plothover", pieHover);
   }
 </script>
->>>>>>> f459c01403050531889921e010d53ce0042c580c
+
