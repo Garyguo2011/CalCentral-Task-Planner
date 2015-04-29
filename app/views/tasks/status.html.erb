@@ -38,27 +38,27 @@
             </select>
             <div style="float:right;">
               <% if params[:show_finished] == nil %>
-                <td><%= link_to "Show finished tasks", '/status?show_finished=yes'+(params[:sort] ? '&sort='+params[:sort] : ''), { :class => "btn btn-large btn-primary" } %></td>
+                <td><%= link_to "Show finished tasks", params.merge( { :show_finished => 'yes' } ), :class => "btn btn-mini btn-primary" %></td>
               <% else %>
-                <td><%= link_to "Hide finished tasks", '/status'+(params[:sort] ? '?sort='+params[:sort] : ''), { :class => "btn btn-large btn-primary" } %></td>
+                <td><%= link_to "Hide finished tasks", params.merge( { :show_finished => nil } ), :class => "btn btn-mini btn-primary" %></td>
               <% end %>
             </div>
-            <div style="float:right;" class="btn btn-mini">
-              <%= link_to 'Delete Generate Task', delete_generate_task_path%>
+            <div style="float:right;">
+              <%= link_to 'Delete Generate Task', delete_generate_task_path, :class => "btn btn-mini btn-primary" %>
             </div>
-            <div style="float:right;" class="btn btn-mini">
-              <%= link_to 'Generate Task', generate_task_path %>
+            <div style="float:right;">
+              <%= link_to 'Generate Task', generate_task_path, :class => "btn btn-mini btn-primary" %>
             </div>
 
           </div>
           <table class="table">
             <thead>
               <tr>
-                <th><%= link_to "Task Title", :sort => :title%>   <i class="fa fa-sort"></i></th>
-                <th><%= link_to "Course", :sort => :course%>   <i class="fa fa-sort"></i></th>
-                <th><%= link_to "Type", :sort => :kind%>   <i class="fa fa-sort"></i></th>
-                <th><%= link_to "Due Date", :sort => :due%>   <i class="fa fa-sort"></i></th>
-                <th><%= link_to "Status", :sort => :status%>   <i class="fa fa-sort"></i></th>
+                <th><%= link_to "Task Title", params.merge( { :sort => :title } ) %>   <i class="fa fa-sort"></i></th>
+                <th><%= link_to "Course", params.merge( { :sort => :course } ) %>   <i class="fa fa-sort"></i></th>
+                <th><%= link_to "Type", params.merge( { :sort => :kind } ) %>   <i class="fa fa-sort"></i></th>
+                <th><%= link_to "Due Date", params.merge( { :sort => :due } ) %>   <i class="fa fa-sort"></i></th>
+                <th><%= link_to "Status", params.merge( { :sort => :status } ) %>   <i class="fa fa-sort"></i></th>
                 <th>Rate</th>
                 <th>Action</th>
                 <th>Next Step</th>
