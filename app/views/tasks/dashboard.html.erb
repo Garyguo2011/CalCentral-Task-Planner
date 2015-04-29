@@ -34,7 +34,7 @@
   <!-- ngInclude: 'widgets/tasks.html' --><div class="ng-scope" data-ng-include="'widgets/tasks.html'"><div class="cc-widget cc-widget-tasks ng-scope" data-ng-controller="TasksController">
   <div class="ng-scope" data-ng-controller="TaskAdderController">
     <div class="cc-widget-title">
-      <h2 class="cc-left">Task&nbsp;Planner</h2>
+      <h2 class="cc-left">My&nbsp;Tasks</h2>
       <button type="button" class="cc-button cc-right cc-widget-title-button" onclick="window.location.assign('/tasks/new');">
         <i class="fa fa-plus cc-button-plus-icon"></i>
         <span>New Task</span>
@@ -190,7 +190,7 @@
     <div class="cc-widget cc-widget-activities ng-scope" data-ng-controller="ActivityController">
       <div class="cc-widget-title">
         <div class="row">
-          <div class="columns small-12" data-ng-class="small-12"><h2>Calendar</h2></div>
+          <div class="columns small-12" data-ng-class="small-12"><h2>My Calendar</h2></div>
         </div>
       </div>
       <div class="ng-scope" data-ng-include="'widgets/activity_list.html'">
@@ -223,6 +223,24 @@
 </div>
 
 <div class="medium-3 columns medium-pull-9 cc-page-dashboard-column-a ng-scope">
+  <!-- ngInclude: 'widgets/up_next.html' --><div class="ng-scope" data-ng-include="'widgets/up_next.html'"><div class="cc-widget cc-widget-mycalendar ng-scope" data-ng-controller="UpNextController">
+  <div class="cc-widget-title">
+    <h2>
+      <!-- ngIf: !lastModifiedDate -->
+      <span>Task Planner</span>
+    </h2>
+  </div>
+  <div aria-busy="false" aria-live="polite" class="cc-widget-mycalendar-container">
+    <div>
+    <ul id="task-navigation">
+      <li><%= link_to "My Tasks", tasks_path %></li>
+      <li><%= link_to "My Calendar", calendar_path %></li>
+      <li><%= link_to "My Status", status_path %></li>
+    </ul>
+    </div>
+  </div>
+</div>
+</div>
   <!-- ngInclude: 'widgets/up_next.html' --><div class="ng-scope" data-ng-include="'widgets/up_next.html'"><div class="cc-widget cc-widget-mycalendar ng-scope" data-ng-controller="UpNextController">
   <div class="cc-widget-title">
     <h2>
