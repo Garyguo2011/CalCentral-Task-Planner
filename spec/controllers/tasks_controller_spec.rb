@@ -318,5 +318,24 @@ describe TasksController, :type => :controller do
     end
   end
 
+  describe "Tasks data auto generation" do
+    it "should auto-generate tasks" do
+      get 'generate_task'
+      @tasks = subject.current_user.tasks
+      @tasks.each do |task|
+        task[:auto].should eq(true)
+      end
+    end
+
+    it "should delete all auto-generate tasks" do
+      get :delete_generate_task
+      response.should be_success
+      @tasks = subject.current_user.tasks
+      @tasks.each do |task|
+        task[:auto].should_not eq(true)
+      end
+    end
+  end
+
 
 end
