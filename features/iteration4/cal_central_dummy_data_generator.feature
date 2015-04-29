@@ -1,4 +1,4 @@
-Feature CalCentral Dummy Data Generator [Jinge] -- cucumber test
+Feature: CalCentral Dummy Data Generator [Jinge] -- cucumber test
 As Staff of CalCentral
 In order to let user quickly get used to our task planner
 We want to create a Dummy Data Generator to create dummy tasks as example of app
@@ -18,11 +18,11 @@ Background: users and tasks have been added to database
 
   Scenario: Auto-generate tasks
   Given I am on the status page
-  When I follow "Generate task"
+  When I follow "Generate Task"
   Then I should see more than 0 tasks
 
   Scenario: Delete all auto-generated tasks
   Given I am on the status page
-  When I follow "Generate task"
-  And I follow "Delete Generate task"
+  When I follow "Generate Task"
+  And I follow "Delete Generate Task"
   Then I should not see any tasks

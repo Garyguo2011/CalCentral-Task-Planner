@@ -261,3 +261,18 @@ end
 #     end
 #   end
 # end
+
+When /I should see more than (.*?) tasks$/ do |num|
+  assert(Task.all.size > num.to_i)
+end
+
+When /I should not see any tasks$/ do
+  assert(Task.all.size == 0)
+end
+
+And /I should have completeness of "(.*)" with percentage "(.*)"$/ do |status, percentage|
+  within("#piechart") do
+    page.html.should have_content(status)
+    page.html.should have_content((percentage.to_i * Task.all.size / 100).to_s)
+  end
+end
