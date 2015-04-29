@@ -17,8 +17,8 @@
 
         
         <div id="task_table">
-          <div>
-            <select id="MySelect" onchange="this.options[this.selectedIndex].value && (window.location = this.options[this.selectedIndex].value);" style="left: 100px; width: 140px;" class="btn btn-large btn-primary">
+          <div>        
+            <select onchange="this.options[this.selectedIndex].value && (window.location = this.options[this.selectedIndex].value);" style="left: 100px; width: 140px;" class="btn btn-large btn-primary">
               <div class="box-content">
                   <option>Select Task Type</option>
                   <%= Task.all_kinds.each do |task| %>
@@ -27,7 +27,15 @@
                   <option value="/status?filter=Show All">Show All</option>
               </div>
             </select>
-
+            <strong> In </strong>
+            <select id="MySelect" onchange="this.options[this.selectedIndex].value && (window.location = this.options[this.selectedIndex].value);" style="left: 100px; width: 150px;" class="btn btn-large btn-primary">
+            <div class="box-content"> 
+                  <option>Select Tasks range</option>             
+                  <%= Task.date_range.each do |date| %>
+                    <%=options_for_select([["#{date}", "/status?date=#{date}"]])%>
+                  <% end %>
+              </div>
+            </select>
             <div style="float:right;" class="btn btn-mini">
               <% if params[:show_finished] == nil %>
                 <td><%= link_to "Show finished tasks", :show_finished => :yes%></td>
