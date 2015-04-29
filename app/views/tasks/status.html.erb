@@ -29,9 +29,9 @@
             </select>
             <div style="float:right;">
               <% if params[:show_finished] == nil %>
-                <td><%= link_to "Show finished tasks", './?show_finished=yes', { :class => "btn btn-large btn-primary" } %></td>
+                <td><%= link_to "Show finished tasks", '/status?show_finished=yes'+(params[:sort] ? '&sort='+params[:sort] : ''), { :class => "btn btn-large btn-primary" } %></td>
               <% else %>
-                <td><%= link_to "Hide finished tasks", './', { :class => "btn btn-large btn-primary" } %></td>
+                <td><%= link_to "Hide finished tasks", '/status'+(params[:sort] ? '?sort='+params[:sort] : ''), { :class => "btn btn-large btn-primary" } %></td>
               <% end %>
             </div>
           </div>
