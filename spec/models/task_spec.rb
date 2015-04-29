@@ -290,4 +290,13 @@ describe Task do
       Task.all_tasks_in_array_of_hash
     end
   end
+
+  describe "auto generate tasks" do
+    it "should auto generate tasks for the next 4-month time span" do
+      @tasks = Task.generate_auto(3)
+      @tasks.each do |task|
+        task[:auto].should eq(true)
+      end
+    end
+  end
 end
