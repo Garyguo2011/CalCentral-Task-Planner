@@ -52,12 +52,13 @@ Given /I sign in "(.*)" with "(.*)"/ do |email, password|
   click_button("Log in")
 end
 
-When /I select (.*) to filter/ do |field|
+When /I select "(.*)" to filter/ do |field|
   # puts(page.html)
   within '#MySelect' do
-    click_link(find("option[value='/tasks?filter=#{field}']"))
+    find("option[value='/status?date=#{field}']").select_option()
+    require 'cgi'
+    visit "/status?date=" + CGI.escape("#{field}")
   end
-  puts(page.html)
 end
 
 
@@ -260,3 +261,18 @@ end
 #     end
 #   end
 # end
+
+When /I should see more than (.*?) tasks$/ do |num|
+  assert(Task.all.size > num.to_i)
+end
+
+When /I should not see any tasks$/ do
+  assert(Task.all.size == 0)
+end
+
+And /I should have completeness of "(.*)" with percentage "(.*)"$/ do |status, percentage|
+  within("#piechart") do
+    page.html.should have_content(status)
+    page.html.should have_content((percentage.to_i * Task.all.size / 100).to_s)
+  end
+end

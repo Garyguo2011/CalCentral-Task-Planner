@@ -39,7 +39,7 @@ describe Task do
             temp = t.split("\"")
             a << temp[0]
         end
-        a.should eq(@task.all_course)
+        a.should eq(Task.all_course)
     end
   end
 
@@ -141,7 +141,7 @@ describe Task do
         startDate = "30/Mar/2015".to_date
         n = 4
         # expect(Task.wd_labels(startDate, n)).to be(["Mar30 - Apr06", "Apr06 - Apr13", "Apr13 - Apr20", "Apr20 - Apr27"])/
-        Task.wd_labels(startDate, n).should ==(["Mar30 - Apr06", "Apr06 - Apr13", "Apr13 - Apr20", "Apr20 - Apr27"])
+        Task.wd_labels(startDate, n).should ==(["Mar30", "Apr06", "Apr13", "Apr20"])
       end
     end
 
@@ -288,6 +288,15 @@ describe Task do
   describe "all_tasks_in_array_of_hash" do
     it "should return all task as array or hash" do
       Task.all_tasks_in_array_of_hash
+    end
+  end
+
+  describe "auto generate tasks" do
+    it "should auto generate tasks for the next 4-month time span" do
+      @tasks = Task.generate_auto(3)
+      @tasks.each do |task|
+        task[:auto].should eq(true)
+      end
     end
   end
 end

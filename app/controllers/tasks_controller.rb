@@ -5,8 +5,8 @@ class TasksController < ApplicationController
   # GET /tasks.json
   def index_or_dashboard 
     @tasks = Task.accessible_by(current_ability)
-    @tasks_by_status = Task.accessible_by(current_ability).task_by_status
-    @tasks_by_time = Task.accessible_by(current_ability).order(:due).find_all_by_status(["New", "Started", "Past due"])
+    @tasks_by_status = @tasks.task_by_status
+    @tasks_by_time = @tasks.order(:due).find_all_by_status(["New", "Started", "Past due"])
 
     show_finished = (params[:show_finished] == nil)? nil: "Finished"
     @show_finish = (show_finished == nil)? false: true
@@ -23,12 +23,8 @@ class TasksController < ApplicationController
   def sort_argument_helper
     if params[:sort] != nil
       sort_argument = params[:sort]
-      session[:sort] = sort_argument
-    elsif session[:sort] != nil
-      sort_argument = session[:sort]
     else
       sort_argument = :status
-      session[:sort] = sort_argument
     end
     return sort_argument
   end
@@ -36,19 +32,12 @@ class TasksController < ApplicationController
   def filter_argument_helper
     if params[:filter] != nil and params[:filter] != "Show All"
       filter_argument = params[:filter]
-      session[:filter] = filter_argument
-    elsif params[:filter] == nil
-      if session[:filter] == nil
-        filter_argument = nil
-      else
-        filter_argument = session[:filter]
-      end
     else
       filter_argument = nil
-      session[:filter] = filter_argument
     end
     return filter_argument
   end
+
 
 
   def prefill_subtasks_helper
@@ -147,7 +136,9 @@ class TasksController < ApplicationController
     @task = Task.find(params[:id])
     title = @task.title
     @task.destroy
-    UserMailer.task_notification(current_user).deliver
+    if !@task[:auto]
+      UserMailer.task_notification(current_user).deliver
+    end
     respond_to do |format|
       format.html { redirect_to status_path, notice: "#{title} was successfully deleted." }
       format.json { head :no_content }
@@ -188,9 +179,12 @@ class TasksController < ApplicationController
     end
   end
 
-  def calendar
+  def find_tasks_in_hash
     @tasks = Task.accessible_by(current_ability)
     @all_tasks_array_of_hash = @tasks.all_tasks_in_array_of_hash
+  end
+  def calendar
+    find_tasks_in_hash
     # if(params[:task] != nil)
     #   course, title = params[:task].split(" ")
     #   task_to_change = Task.find_task_by_course_title(course, title)
@@ -203,12 +197,22 @@ class TasksController < ApplicationController
     if (!@view) 
       @view = 'tasklist'
     end
+    find_tasks_in_hash
+
     index_or_dashboard
   end
 
   def status
-    @tasks = Task.accessible_by(current_ability)
+    @tasks = Task.accessible_by(current_ability) 
+    #filter task by date(this week, this month, this year)
+    show_tasks_in_selected_type
+    show_tasks_in_selected_date_range
+    @taskData = @tasks.work_distribution
 
+
+  end
+
+  def show_tasks_in_selected_type
     sort_argument = sort_argument_helper   
     filter_argument = filter_argument_helper
 
@@ -226,9 +230,46 @@ class TasksController < ApplicationController
       @tasks = @tasks.order(sort_argument)
       @show_finish = true
     end
+  end
 
-    @taskData = @tasks.work_distribution
+  def show_tasks_in_selected_date_range
+    #filter task by date(this week, this month, this year)
+    case params[:date]
+    when "this week"
+      @tasks = @tasks.find_tasks_in_same_week(Time.now)
+    when "this month"
+      @tasks = @tasks.find_tasks_in_same_month(Time.now)
+    when "this year"
+      @tasks = @tasks.find_tasks_in_same_year(Time.now)
+    when nil, "all time"
+      @tasks
+    end
 
+    @taskDataWorkDist = @tasks.work_distribution
+    @taskDataPieChart = @tasks.pie_chart_data_generate
+
+    respond_to do |format|       
+      format.html { render 'status.html.erb'}
+      format.json { render json: @tasks }
+    end
+
+  end
+
+  def generate_task
+    @auto_tasks = Task.generate_auto(3) # Should be a param later on
+    @auto_tasks.each do |t|
+      t[:user_id] = current_user.id
+      Task.create!(t)
+    end
+    redirect_to status_path, notice: "We have generate demo data for you! Enjoy!"
+  end
+
+  def delete_generate_task
+    @tasks = current_user.tasks
+    @tasks.where(:auto => true).delete_all
+    respond_to do |format|       
+      format.html { render 'status.html.erb'}
+    end
   end
 
 end

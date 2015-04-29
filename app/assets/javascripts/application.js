@@ -21,3 +21,5 @@
 //= require fullcalendar
 //= require bootstrap
 //= require core
+//= require jquery.flot
+//= require jquery.flot.pie

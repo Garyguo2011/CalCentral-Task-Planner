@@ -17,8 +17,8 @@
 
         
         <div id="task_table">
-          <div>
-            <select id="MySelect" onchange="this.options[this.selectedIndex].value && (window.location = this.options[this.selectedIndex].value);" style="left: 100px; width: 140px;" class="btn btn-large btn-primary">
+          <div>        
+            <select onchange="this.options[this.selectedIndex].value && (window.location = this.options[this.selectedIndex].value);" style="left: 100px; width: 140px;" class="btn btn-large btn-primary">
               <div class="box-content">
                   <option>Select Task Type</option>
                   <%= Task.all_kinds.each do |task| %>
@@ -27,13 +27,33 @@
                   <option value="/status?filter=Show All">Show All</option>
               </div>
             </select>
+<<<<<<< HEAD
             <div style="float:right;">
+=======
+            <strong> In </strong>
+            <select id="MySelect" onchange="this.options[this.selectedIndex].value && (window.location = this.options[this.selectedIndex].value);" style="left: 100px; width: 150px;" class="btn btn-large btn-primary">
+            <div class="box-content"> 
+                  <option>Select Tasks range</option>             
+                  <%= Task.date_range.each do |date| %>
+                    <%=options_for_select([["#{date}", "/status?date=#{date}"]])%>
+                  <% end %>
+              </div>
+            </select>
+            <div style="float:right;" class="btn btn-mini">
+>>>>>>> f459c01403050531889921e010d53ce0042c580c
               <% if params[:show_finished] == nil %>
                 <td><%= link_to "Show finished tasks", '/status?show_finished=yes'+(params[:sort] ? '&sort='+params[:sort] : ''), { :class => "btn btn-large btn-primary" } %></td>
               <% else %>
                 <td><%= link_to "Hide finished tasks", '/status'+(params[:sort] ? '?sort='+params[:sort] : ''), { :class => "btn btn-large btn-primary" } %></td>
               <% end %>
             </div>
+            <div style="float:right;" class="btn btn-mini">
+              <%= link_to 'Delete Generate Task', delete_generate_task_path%>
+            </div>
+            <div style="float:right;" class="btn btn-mini">
+              <%= link_to 'Generate Task', generate_task_path %>
+            </div>
+
           </div>
           <table class="table">
             <thead>
@@ -86,86 +106,27 @@
   <div class="col-lg-4 col-md-4" id="to-do-list">
     <div class="box">
       <div class="box-header">
-        <h2><i class="fa fa-check"></i>Tasks This Week</h2>
+        <h2>Pie Chart for Tasks</h2>
         <div class="box-icon">
           <a href="status.html#" class="btn-setting"><i class="fa fa-wrench"></i></a>
           <a data-target="#todo-list" class="btn-minimize" data-toggle="collapse" aria-expanded="false"><i class="fa fa-chevron-up"></i></a>
           <a href="status.html#" class="btn-close"><i class="fa fa-times"></i></a>
         </div>
       </div>
-      <div class="box-content">
-        <div class="todo">
-          <ul class="todo-list">
-            <li>
-              <span class="todo-actions">
-                <a href="status.html#"><i class="fa fa-square-o"></i></a>
-              </span>
-              <span class="desc">Windows Phone 8 App</span> 
-              <span class="label label-important">today</span>          
-            </li>
-            <li>
-              <span class="todo-actions">
-                <a href="status.html#"><i class="fa fa-square-o"></i></a>
-              </span>
-              <span class="desc">New frontend layout</span>
-              <span class="label label-important">today</span>
-            </li>
-            <li>
-              <span class="todo-actions">
-                <a href="status.html#"><i class="fa fa-square-o"></i></a>
-              </span>
-              <span class="desc">Hire developers</span>
-              <span class="label label-warning">tommorow</span>
-            </li>
-            <li>
-              <span class="todo-actions">
-                <a href="status.html#"><i class="fa fa-square-o"></i></a>
-              </span>
-              <span class="desc">Windows Phone 8 App</span>
-              <span class="label label-warning">tommorow</span>
-            </li>
-            <li>
-              <span class="todo-actions">
-                <a href="status.html#"><i class="fa fa-square-o"></i></a>
-              </span>
-              <span class="desc">New frontend layout</span>
-              <span class="label label-success">this week</span>
-            </li>
-            <li>
-              <span class="todo-actions">
-                <a href="status.html#"><i class="fa fa-square-o"></i></a>
-              </span>
-              <span class="desc">Hire developers</span>
-              <span class="label label-success">this week</span>
-            </li>
-            <li>
-              <span class="todo-actions">
-                <a href="status.html#"><i class="fa fa-square-o"></i></a>
-              </span>
-              <span class="desc">New frontend layout</span>
-              <span class="label label-info">this month</span>
-            </li>
-            <li>
-              <span class="todo-actions">
-                <a href="status.html#"><i class="fa fa-square-o"></i></a>
-              </span>
-              <span class="desc">Hire developers</span>
-              <span class="label label-info">this month</span>
-            </li>
-          </ul>
-        </div>  
+      <div class="box-content" id="PieChart">
+        <div id="piechart" style="height:100px"></div>
       </div>
     </div>
           
   </div><!--/col-->
 
-  <div class="col-lg-8 col-md-8" id = "work_distribution_chart">
+  <div class="col-lg-8 col-md-8">
     <div class="box">
       <div class="box-header">
         <h2>Work Load Distribution</h2>
       </div>
-      <div>
-        <canvas id="canvas" width="450" height="300"></canvas>
+      <div class="box-content">
+        <canvas id = "work_distribution_chart" width="750" height="300"></canvas>
         <div id="legendDiv"></div>
       </div>
     </div>
@@ -175,15 +136,79 @@
 </div><!--/row--> 
 
 <script>
-  var data = <%=raw @taskData.to_json %>;
+  var data = <%=raw @taskDataWorkDist.to_json %>;
   window.onload = function(){
-    var ctx = document.getElementById("canvas").getContext("2d");
+    var ctx = document.getElementById("work_distribution_chart").getContext("2d");
     window.myBar = new Chart(ctx).StackedBar(data);
-    legend(document.getElementById('legendDiv'), data);
+    // legend(document.getElementById('legendDiv'), data);
   }
 </script>
 <script>
-  var temp = Math.max($('#to-do-list').height(), $('#work_distribution_chart').height());
-  $('#to-do-list').height(temp);
+  var temp = Math.max($('#piechart').height(), $('#work_distribution_chart').height());
+  $('#piechart').height(temp);
   $('#work_distribution_chart').height(temp);
 </script>
+<<<<<<< HEAD
+=======
+<script id="PieChartData">
+  /* ---------- Pie chart ---------- */
+  // var data0 = [
+  //   { label: "Internet Explorer",  data: 0.1},
+  //   { label: "Mobile",  data: 0.1},
+  //   { label: "Safari",  data: 0.2},
+  //   { label: "Opera",  data: 0.2},
+  //   { label: "Firefox",  data: 0.2},
+  //   { label: "Chrome",  data: 0.2}
+  // ];
+
+  var data0 = <%= raw @taskDataPieChart.to_json %>;
+  var options = {
+      series: {
+        label: {
+              show: "auto",
+              formatter: function(label, slice) {
+                return "<div style='font-size:large;text-align:center;padding:2px;color:" + slice.color + ";'>" + label + "<br/>" + Math.round(slice.percent) + "%</div>";
+              }
+            }
+      }
+  };
+  
+  if($("#piechart").length)
+  {
+    $.plot($("#piechart"), data0,
+    {
+      series: {
+          pie: {
+              show: true
+          },
+          label: {
+            show: "auto",
+            formatter: labelFormatter
+          }
+      },
+      grid: {
+          hoverable: true,
+          clickable: true
+      },
+      legend: {
+        show: false
+      },
+      colors: ["#FA5833", "#2FABE9", "#FABB3D", "#78CD51"]
+    });
+
+    function labelFormatter(label, series) {
+        return "<div style='font-size:16pt; text-align:center; padding:2px; color:white;'>"
+              + label + "<br/>" + Math.round(series.percent) + "%</div>";
+    }
+    
+    function pieHover(event, pos, obj)
+    {
+      if (!obj)
+          return;
+      percent = parseFloat(obj.series.percent).toFixed(2);
+      $("#hover").html('<span style="font-weight: bold; color: '+obj.series.color+'">'+obj.series.label+' ('+percent+'%)</span>');
+    }
+    $("#piechart").bind("plothover", pieHover);
+  }
+</script>
+>>>>>>> f459c01403050531889921e010d53ce0042c580c

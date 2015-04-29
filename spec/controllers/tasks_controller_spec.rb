@@ -256,6 +256,12 @@ describe TasksController, :type => :controller do
       expect(response).to render_template("status")
     end
 
+    it "can filter based on date" do
+      get :status, :date => 'this week'
+      response.should be_success
+      expect(response).to render_template("status")
+    end
+
     it "can show all finished tasks" do
       get :status, :show_finished => 'Finished'
       response.should be_success
@@ -287,6 +293,7 @@ describe TasksController, :type => :controller do
       response.should be_success
       expect(response).to render_template("status")
     end
+
   end
 
   describe "get calendar" do
@@ -310,5 +317,25 @@ describe TasksController, :type => :controller do
       expect(response).to render_template("dashboard")
     end
   end
+
+  describe "Tasks data auto generation" do
+    it "should auto-generate tasks" do
+      get 'generate_task'
+      @tasks = subject.current_user.tasks
+      @tasks.each do |task|
+        task[:auto].should eq(true)
+      end
+    end
+
+    it "should delete all auto-generate tasks" do
+      get :delete_generate_task
+      response.should be_success
+      @tasks = subject.current_user.tasks
+      @tasks.each do |task|
+        task[:auto].should_not eq(true)
+      end
+    end
+  end
+
 
 end

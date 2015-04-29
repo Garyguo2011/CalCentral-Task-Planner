@@ -124,6 +124,7 @@
     <%= render 'timeline' %>
   <% end %>
   </div>
+  <p>To <strong>generate demo tasks</strong>, click the <%= link_to 'Generate Demo Task', generate_task_path %></p>
   <p>To <strong>create a task</strong>, click the <em>New Task</em> button.</p>
 </div>
 <div class="cc-widget-tasks-no-items cc-widget-tasks-no-items-first ng-scope ng-hide" data-ng-show="counts.current === 0 &amp;&amp; counts.opposite === 0 &amp;&amp; !api.user.profile.hasGoogleAccessToken">
@@ -184,7 +185,28 @@
 </div>
 </div>
 
+<<<<<<< HEAD
 <div class="column-fix medium-4 columns medium-push-3 cc-page-dashboard-column-c cc-column-last">
+=======
+<div class="medium-4 columns medium-push-3 cc-page-dashboard-column-c cc-column-last ng-scope">
+  <!-- ngInclude: calendar.html --><div class="ng-scope" data-ng-include="'widgets/activity.html'" class="ng-scope">
+    <div class="cc-widget cc-widget-activities ng-scope" data-ng-controller="ActivityController">
+      <div class="cc-widget-title">
+        <div class="row">
+          <div class="columns small-12" data-ng-class="small-12"><h2>Calendar</h2></div>
+        </div>
+      </div>
+      <div class="ng-scope" data-ng-include="'widgets/activity_list.html'">
+        <div aria-busy="false" aria-live="polite" class="ng-scope" data-cc-spinner-directive="process.isLoading">
+          <div class="col-lg-12">
+            <%=hidden_field_tag :all_tasks, @all_tasks_array_of_hash.to_json%>
+            <p><div id="calendar_dashboard" class="col-lg-12"></div></p>
+          </div>  
+        </div>
+      </div>
+    </div>
+  </div><!--/row-->
+>>>>>>> f459c01403050531889921e010d53ce0042c580c
   <!-- ngInclude: 'widgets/activity.html' --><div class="ng-scope" data-ng-include="'widgets/activity.html'" class="ng-scope"><div class="cc-widget cc-widget-activities ng-scope" data-ng-controller="ActivityController">
   <div class="cc-widget-title"><div class="row"><div class="columns small-12" data-ng-class="small-12"><h2>Recent Activity</h2></div>
       </div>
@@ -201,6 +223,7 @@
 </div>
 </div>
 </div>
+
 </div>
 
 <div class="medium-3 columns medium-pull-9 cc-page-dashboard-column-a ng-scope">
