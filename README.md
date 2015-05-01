@@ -20,6 +20,10 @@ Run following commands will help you setup develop environement.
     open coverage/index.html
     open https://calcentral-task-planner.herokuapp.com/
 
+### Project Poster
+![CalCentral Task Planner](http://www.ibearhost.com/screenshot/poster.png)
+
+
 ### Core Features
 
 ##### Tasks Priority List & TimeLine
