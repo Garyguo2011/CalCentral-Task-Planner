@@ -95,6 +95,13 @@ h6 {
   width: 100% !important;
   margin-left: 0px !important;
 }
+
+#load-more.disable {
+    color: #AAA;
+    text-decoration: none;
+    cursor: default;
+}
+
 .well {
   border: 1px solid #ddd;
   background-color: #f6f6f6;
@@ -4646,9 +4653,16 @@ ul.messagesList li span.date {
   margin-left: -2px;
 }
 .timeslot {
-  display: inline-block;
+  display: none;
   position: relative;
   padding: 55px 1px;
+  width: 100%;
+  margin: 5px 0px;
+}
+.timeslot.active {
+  display: inline-block;
+  position: relative;
+  padding: 65px 1px;
   width: 100%;
   margin: 5px 0px;
 }
