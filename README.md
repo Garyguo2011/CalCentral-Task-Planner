@@ -8,6 +8,8 @@
 * Github: https://github.com/Garyguo2011/CalCentral-Task-Planner.git
 
 ### Documents
+
+##### Meetings
 * [Initial Client Meeting](https://www.youtube.com/watch?v=a9aJq5xb9OU)
 
 ##### Sketches/Lo fi mockups and simple description of first couple of stories
