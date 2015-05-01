@@ -337,5 +337,31 @@ describe TasksController, :type => :controller do
     end
   end
 
+  describe "delete request" do
+    it "should send delete request" do
+      @task = FactoryGirl.create(:task, id: 201, status: "New")
+      get "delete", {:id => 201}
+    end
+  end
+
+  describe "change status" do
+    it "should return redirect url" do
+      @task = FactoryGirl.create(:task, id: 201, status: "New")
+      get "changestatus", {:id => 201, :redirect_url => "/tasks"}
+    end
+  end
+
+  describe "show_tasks_in_selected_date_range" do
+    it "show_tasks_in_selected_date_range" do
+      get "status", {:date => "this month"}
+      response.should be_success
+    end
+
+    it "show_tasks_in_selected_date_range" do
+      get "status", {:date => "this year"}
+      response.should be_success
+    end
+  end
+
 
 end

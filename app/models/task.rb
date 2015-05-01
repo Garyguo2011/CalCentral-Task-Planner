@@ -33,6 +33,7 @@ class Task < ActiveRecord::Base
     arr.delete_at(0)
     arr = arr.sort
     a = Array.new
+    a << "General"
     arr.each do |t|
       temp = t.split("\"")
       a << temp[0]
@@ -312,7 +313,6 @@ class Task < ActiveRecord::Base
 
     #return self.where(due.yday: begin_day .. last_day)
     self.all.each do |task|
-      puts task.due.yday
       if (begin_day .. last_day).include? task.due.yday
         tasks_array.push(task)
       end
