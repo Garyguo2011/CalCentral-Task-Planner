@@ -1,11 +1,26 @@
 # CalCentral-Task-Planner 
+### General Information
 [![Build Status](https://travis-ci.org/Garyguo2011/CalCentral-Task-Planner.svg?branch=master)](https://travis-ci.org/Garyguo2011/CalCentral-Task-Planner) [![Test Coverage](https://codeclimate.com/github/Garyguo2011/CalCentral-Task-Planner/badges/coverage.svg)](https://codeclimate.com/github/Garyguo2011/CalCentral-Task-Planner) [![Code Climate](https://codeclimate.com/github/Garyguo2011/CalCentral-Task-Planner/badges/gpa.svg)](https://codeclimate.com/github/Garyguo2011/CalCentral-Task-Planner)
+* Demo: http://calcentral.iBearHost.com
 * Tracker: https://www.pivotaltracker.com/n/projects/1269296
 * Github: https://github.com/Garyguo2011/CalCentral-Task-Planner.git
 * CodeClimate: https://codeclimate.com/github/Garyguo2011/CalCentral-Task-Planner
 * Heroku: https://calcentral-task-planner.herokuapp.com
+* Landing Page: http://calcentral.instapage.com
+ 
+### Set Up
+Run following commands will help you setup develop environement.
+  
+    git clone https://github.com/Garyguo2011/CalCentral-Task-Planner.git
+    cd CalCentral-Task-Planner
+    bundle install --without production
+    rake db:migrate db:test:prepare db:seed
+    rake cucumber
+    rake spec
+    open coverage/index.html
+    open https://calcentral-task-planner.herokuapp.com/
 
-## Core Features
+### Core Features
 
 ##### Tasks Priority List & TimeLine
 ![Tasks Priority List & TimeLine](http://www.ibearhost.com/screenshot/timeline.png)
