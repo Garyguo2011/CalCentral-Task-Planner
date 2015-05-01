@@ -7,6 +7,26 @@
 
 ## Core Features
 
-### Alert Message
+##### Tasks Priority List & TimeLine
+![Tasks Priority List & TimeLine](http://www.ibearhost.com/screenshot/timeline.png)
 
-[![Alert Message](http://www.ibearhost.com/screenshot/alert.png)](https://codeclimate.com/github/Garyguo2011/CalCentral-Task-Planner)
+##### Important Due Data Calendar
+![Important Due Date Calendar](http://www.ibearhost.com/screenshot/calendar.png)
+
+##### Single Task Time Usage & Progress Tracking
+![Single Task Time Usage & Progress Tracking](http://www.ibearhost.com/screenshot/single_task.png)
+
+##### Create or Intelligently generate subtasks
+![Create or Intelligently generate subtasks](http://www.ibearhost.com/screenshot/subtasks.png)
+
+##### Email Notification
+![Email Notification](http://www.ibearhost.com/screenshot/email.png)
+
+##### Alert Message
+![Alert Message](http://www.ibearhost.com/screenshot/alert.png)
+
+##### All Task Control Panel & Analysis
+![All Task Control Panel & Analysis](http://www.ibearhost.com/screenshot/control_panel.png)
+
+
+
