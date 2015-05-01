@@ -7,7 +7,9 @@
 * CodeClimate: https://codeclimate.com/github/Garyguo2011/CalCentral-Task-Planner
 * Heroku: https://calcentral-task-planner.herokuapp.com
 * Landing Page: http://calcentral.instapage.com
-* [IBearHost Design Survey Report](https://docs.google.com/presentation/d/19tUvj-lFaFKDhZ8BwyUFdq-ZXYl9jws_TlcFhmqMkgg/edit?usp=sharing) 
+* [IBearHost Design Survey Report](https://docs.google.com/presentation/d/19tUvj-lFaFKDhZ8BwyUFdq-ZXYl9jws_TlcFhmqMkgg/edit?usp=sharing)
+
+
 ### Set Up
 Run following commands will help you setup develop environement. Running with ruby 1.9.3, rails 3.2.19
   
