@@ -8,15 +8,10 @@
 * Github: https://github.com/Garyguo2011/CalCentral-Task-Planner.git
 
 ### Documents
-
-##### Meetings
+Check release notes for feature user story
 * [Initial Client Meeting](https://www.youtube.com/watch?v=a9aJq5xb9OU)
-
-##### Sketches/Lo fi mockups and simple description of first couple of stories
 * [Lo-fi UI Mockup](https://ibearhost.atlassian.net/wiki/display/CAL/Iteration+1+Lo-fi+UI+Mockup)
 * [User Stories](https://ibearhost.atlassian.net/wiki/display/CAL/Iteration+1+User+Stories)
-
-##### Survey Presentation
 * [Survey Questions](http://survey.ibearhost.com)
 * [Online Report](https://docs.google.com/a/berkeley.edu/forms/d/1N0di7zn4hwAgEZncM-AERepqIKxCbAH0W44UGP5PwEY/viewanalytics#start=publishanalytics)
 * [iBearHost Survey Report](https://docs.google.com/a/berkeley.edu/presentation/d/19tUvj-lFaFKDhZ8BwyUFdq-ZXYl9jws_TlcFhmqMkgg/edit?usp=sharing)
