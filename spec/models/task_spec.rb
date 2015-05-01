@@ -35,6 +35,7 @@ describe Task do
         arr.delete_at(0)
         arr = arr.sort
         a = Array.new
+        a << "General"
         arr.each do |t|
             temp = t.split("\"")
             a << temp[0]

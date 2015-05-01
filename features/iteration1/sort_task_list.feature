@@ -27,8 +27,8 @@ Background: users and tasks have been added to database
 Scenario: sort tasks in ascending order of due dates
   When I follow "Due Date"
   And I follow "Show finished tasks"
-  Then I should see "MIDTERM1" before "PROJ1"
-  And I should see "HW1" before "HW2"
+  Then I should see "PROJ1" before "MIDTERM1"
+  And I should see "HW2" before "HW1"
 
 Scenario: sort tasks in ascending order of task titles
   When I follow "Task Title"

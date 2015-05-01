@@ -13,13 +13,13 @@ Background: users and tasks have been added to database
 
 Scenario: Nevigation menu should take me to exact page
   When I follow "My Tasks"
-  Then I should be on Tasks page
+  Then I should be on the tasks page
 
   When I follow "My Dashborad"
-  Then I should be on Dashborad page
+  Then I should be on the home page
 
   When I follow "My Calendar"
-  Then I should be on Calendar page
+  Then I should be on the calendar page
 
   When I follow "My Status"
   Then I should be on the status page

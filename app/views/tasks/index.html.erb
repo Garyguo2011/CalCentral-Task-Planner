@@ -109,7 +109,20 @@
               <% i += 1 %>
             <% end %>
             </div>
-
+            <p><a href="#" id="load-more">Load More</a></p>
+            <script>
+              var $timeslot = $( '.timeslot' );
+              var $timesslot_alt = $( '.timeslot alt' );
+              for (var i = 0; i < 6; i++){
+                var $hidden = $timeslot.filter(':hidden:first').addClass('active');
+              }
+              $("#load-more").click(function(){
+                if ($(this).hasClass('disable')) return;
+                for (var i = 0; i < 4; i ++){
+                    var $hidden = $timeslot.filter(':hidden:first').addClass('active');
+                }
+              });
+            </script>
           </div>
         
         </div><!--/col--> 
