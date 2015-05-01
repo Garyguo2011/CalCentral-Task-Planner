@@ -9,20 +9,19 @@
 * Landing Page: http://calcentral.instapage.com
  
 ### Set Up
-Run following commands will help you setup develop environement.
+Run following commands will help you setup develop environement. Running with ruby 1.9.3, rails 3.2.19
   
     git clone https://github.com/Garyguo2011/CalCentral-Task-Planner.git
     cd CalCentral-Task-Planner
     bundle install --without production
     rake db:migrate db:test:prepare db:seed
-    rake cucumber
-    rake spec
-    open coverage/index.html
-    open https://calcentral-task-planner.herokuapp.com/
+    rake cucumber                                                [Run Human Readable Cucumber Test]
+    rake spec                                                    [Run RSpec Unit Tests]
+    open coverage/index.html                                     [Show current C0 test coverage]
+    rails server                                                 [Server run on http://0.0.0.0:3000]
 
 ### Project Poster
 ![CalCentral Task Planner](http://www.ibearhost.com/screenshot/poster.png)
-
 
 ### Core Features
 
