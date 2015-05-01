@@ -22,6 +22,7 @@ module NavigationHelpers
     when /^add new task/ then '/tasks/new'
     when /^the status page/ then '/status'
     when /^the calendar page/ then '/calendar'
+    when /^the dashboard page/ then '/dashboard'
 
     when /^the detail page for "([^"]*)"$/i
      task_path(Task.find_by_title($1))

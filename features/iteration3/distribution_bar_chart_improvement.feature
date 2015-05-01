@@ -43,5 +43,6 @@ Background: users and tasks have been added to database
   	When I select "3" from "Rate"
   	And I press "Create Task"
   	Then I should see "Task was successfully created."
+    When I follow "My Dashboard"
   	When I follow "My Status"
   	Then I should see "CS169 HW7" with the scope of "work_distribution_chart"
