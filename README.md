@@ -17,10 +17,10 @@ Run following commands will help you setup develop environement. Running with ru
     cd CalCentral-Task-Planner
     bundle install --without production
     rake db:migrate db:test:prepare db:seed
-    rake cucumber                                                [Run Human Readable Cucumber Test]
-    rake spec                                                    [Run RSpec Unit Tests]
-    open coverage/index.html                                     [Show current C0 test coverage]
-    rails server                                                 [Server run on http://0.0.0.0:3000]
+    rake cucumber                                         [Run Human Readable Cucumber Test]
+    rake spec                                             [Run RSpec Unit Tests]
+    open coverage/index.html                              [Show current C0 test coverage]
+    rails server                                          [Server run on http://0.0.0.0:3000]
 
 ### Project Poster
 ![CalCentral Task Planner](http://www.ibearhost.com/screenshot/poster.png)
