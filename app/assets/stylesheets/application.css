@@ -15,6 +15,13 @@
  *= require cc-application
  */
 
+ul#task-navigation 
+{
+  margin-left: 15px;
+  list-style: square;
+  padding: 15px;
+}
+
 .task-col, 
 .timeline-col, 
 #status-box, 

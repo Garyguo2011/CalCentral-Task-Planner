@@ -175,7 +175,7 @@
     <!-- <li data-ng-class="{true:&#39;active&#39;}[controllerName==&#39;DashboardController&#39;]" class="active"><a href="./CalCentral_files/CalCentral.html" data-ng-click="offCanvasMenu.show=false"><i class="fa fa-home"></i>My Dashboard</a></li> -->
 
     <li data-ng-class="{true:&#39;active&#39;}[controllerName==&#39;CampusController&#39;]">
-      <%=link_to '<i class="fa fa-th-large"></i>My Dashboard'.html_safe, dashboard_path, id: "My Dashboard"%>
+      <%=link_to '<i class="fa fa-home"></i>My Dashboard'.html_safe, dashboard_path, id: "My Dashboard"%>
     </li>
 
     <!-- ngIf: api.user.profile.hasAcademicsTab -->
@@ -194,15 +194,15 @@
     <!-- <li data-ng-class="{true:&#39;active&#39;}[controllerName==&#39;CampusController&#39;]"><a href="https://calcentral.berkeley.edu/campus" data-ng-click="offCanvasMenu.show=false"><i class="fa fa-th-large"></i>My Campus</a></li> -->
 
     <li data-ng-class="{true:&#39;active&#39;}[controllerName==&#39;CampusController&#39;]">
-      <%=link_to '<i class="fa fa-th-large"></i>My Tasks'.html_safe, tasks_path, id: "My Tasks"%>
+      <%=link_to '<i class="fa fa-book"></i>My Academics'.html_safe, "https://calcentral.berkeley.edu/academics", id: "My Academics"%>
     </li>
 
     <li data-ng-class="{true:&#39;active&#39;}[controllerName==&#39;CampusController&#39;]">
-      <%=link_to '<i class="fa fa-th-large"></i>My Calendar'.html_safe, calendar_path, id: "My Calendar"%>
+      <%=link_to '<i class="fa fa-dollar"></i>My Finances'.html_safe, "https://calcentral.berkeley.edu/finances", id: "My Finances"%>
     </li>
 
     <li data-ng-class="{true:&#39;active&#39;}[controllerName==&#39;CampusController&#39;]">
-      <%=link_to '<i class="fa fa-th-large"></i>My Status'.html_safe, status_path, id: "My Status"%>
+      <%=link_to '<i class="fa fa-th-large"></i>My Campus'.html_safe, "https://calcentral.berkeley.edu/campus", id: "My Campus"%>
     </li>
 
 <!--
