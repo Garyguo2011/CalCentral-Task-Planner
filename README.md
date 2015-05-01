@@ -11,7 +11,8 @@
 
 
 ### Set Up
-Run following commands will help you setup develop environement. Running with ruby 1.9.3, rails 3.2.19
+Run following commands will help you setup develop environement.
+Running with ruby 1.9.3, rails 3.2.19
   
     git clone https://github.com/Garyguo2011/CalCentral-Task-Planner.git
     cd CalCentral-Task-Planner
