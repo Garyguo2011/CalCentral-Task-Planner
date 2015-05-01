@@ -12,7 +12,26 @@
  *= require_tree .
  *= require bootstrap
  *= require bootstrap-datetimepicker
+ *= require cc-application
  */
+
+.task-col, 
+.timeline-col, 
+#status-box, 
+#task-box
+{
+  padding-top: 15px;
+}
+
+#calendar-box div
+{
+  padding-top: 10px;
+}
+
+.cc-white-bg 
+{
+  background-color: #fff;
+}
 
 .cc-grey-bg
 {
@@ -45,7 +64,7 @@
 div#saas-content-body 
 {
   background-color: #f6f6f6;
-  padding-top: 15px;
+/*  padding-top: 15px; */
 }
 
 .center-text 
@@ -68,6 +87,11 @@ form.button_to
 {
 margin: 0;
 padding: 0;
+}
+
+.column-fix 
+{
+  padding: 0;
 }
 
 input.task-button, 
