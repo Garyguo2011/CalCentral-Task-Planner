@@ -6,11 +6,17 @@
 					  <div class="box-header" data-original-title>
 						  <h2><i class="fa fa-calendar"></i><span class="break"></span>Calendar</h2>
 					  </div>
-					  <div id="calendar-box" class="box-content">
+					  <div class="box-content">
+							<div class="row">
+								<div class="col-lg-12">
 									<%=hidden_field_tag :all_tasks, @all_tasks_array_of_hash.to_json%>
 									<div id="calendar" class="col-lg-12"></div>	
-					  </div>
+								</div>	
+							</div>
+						</div>
 					</div>
+				</div>
+			</div><!--/row-->
 
 		
 					
