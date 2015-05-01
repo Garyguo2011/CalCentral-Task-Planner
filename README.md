@@ -4,3 +4,9 @@
 * Github: https://github.com/Garyguo2011/CalCentral-Task-Planner.git
 * CodeClimate: https://codeclimate.com/github/Garyguo2011/CalCentral-Task-Planner
 * Heroku: https://calcentral-task-planner.herokuapp.com
+
+## Core Features
+
+### Alert Message
+
+[![Alert Message](http://www.ibearhost.com/screenshot/alert.png)](https://codeclimate.com/github/Garyguo2011/CalCentral-Task-Planner)
