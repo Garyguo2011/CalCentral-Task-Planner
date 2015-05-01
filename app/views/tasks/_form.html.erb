@@ -111,7 +111,7 @@
     <div class="col-lg-1">
       <%= f.label :rate %>
     </div>
-    <div class="col-lg-1">
+    <div class="col-lg-2">
       <% if @task.rate == nil %>
          <%= f.select :rate, options_for_select([["Select One", ""], 1, 2, 3, 4, 5])%>
       <% else %>
@@ -127,7 +127,7 @@
     <div class="col-lg-1">
       <%= f.label :kind %>
     </div>
-    <div class="col-lg-1">
+    <div class="col-lg-2">
       <% if @task.kind == nil %>
          <%= f.select :kind, options_for_select([["Select One", ""], "Project", "Homework", "Paper", "Exam", "Other"])%>
       <% else %>
