@@ -23,7 +23,8 @@
   padding-right: 0;
 }
 
-#calendar-body 
+#calendar-body, 
+#new-task-body
 {
   padding-top: 15px;
 }
