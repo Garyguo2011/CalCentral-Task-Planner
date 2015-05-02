@@ -300,4 +300,46 @@ describe Task do
       end
     end
   end
+
+  describe "task chagne status button" do
+    it "should return the proper color button to task" do
+      @task.status == "New"
+      @task.change_status_button.should eq('<i class="fa fa-play"></i> Start')
+    end
+  end
+
+  describe "task data range" do
+    it "should return this week this month ..." do
+      Task.date_range.should eq(["this week", "this month", "this year", "all time"])
+    end
+  end
+
+  describe "find_tasks_in_same_week" do
+    it "find_tasks_in_same_week" do
+      Time.stub(:now).and_return("3/Mar/2015 22:00:00 -0800".to_time)
+      Task.find_tasks_in_same_week(Time.now)
+    end
+  end
+
+  describe "find_tasks_in_same_month" do
+    it "find_tasks_in_same_month" do
+      Time.stub(:now).and_return("3/Mar/2015 22:00:00 -0800".to_time)
+      Task.find_tasks_in_same_month(Time.now)
+    end
+  end
+
+   describe "find_tasks_in_same_year" do
+    it "find_tasks_in_same_year" do
+      Time.stub(:now).and_return("3/Mar/2015 22:00:00 -0800".to_time)
+      Task.find_tasks_in_same_year(Time.now)
+    end
+  end
+
+  describe "generate_auto" do
+    it "generate_auto" do
+      Task.stub(:is_tech).and_return(true)
+      Task.generate_auto(3)
+    end
+  end
+
 end

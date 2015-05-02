@@ -313,7 +313,6 @@ class Task < ActiveRecord::Base
 
     #return self.where(due.yday: begin_day .. last_day)
     self.all.each do |task|
-      puts task.due.yday
       if (begin_day .. last_day).include? task.due.yday
         tasks_array.push(task)
       end

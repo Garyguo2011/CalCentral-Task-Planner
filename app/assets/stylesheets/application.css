@@ -15,6 +15,19 @@
  *= require cc-application
  */
 
+#column-b, 
+#column-a, 
+#column-c
+{
+  padding-left: 0;
+  padding-right: 0;
+}
+
+.column 
+{
+  float: left;
+}
+
 ul#task-navigation 
 {
   margin-left: 15px;
