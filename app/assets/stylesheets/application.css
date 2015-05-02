@@ -23,6 +23,11 @@
   padding-right: 0;
 }
 
+#calendar-body 
+{
+  padding-top: 15px;
+}
+
 .column 
 {
   float: left;
