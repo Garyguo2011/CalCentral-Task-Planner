@@ -230,12 +230,12 @@
       <span>Task Planner</span>
     </h2>
   </div>
-  <div aria-busy="false" aria-live="polite" class="cc-widget-mycalendar-container">
+  <div>
     <div>
     <ul id="task-navigation">
-      <li><%= link_to "My Tasks", tasks_path %></li>
-      <li><%= link_to "My Calendar", calendar_path %></li>
-      <li><%= link_to "My Status", status_path %></li>
+      <li><%= link_to 'My Tasks', tasks_path, :id => "My Tasks" %></li>
+      <li><%= link_to 'My Calendar', calendar_path, :id => "My Calendar" %></li>
+      <li><%= link_to 'My Status', status_path, :id => "My Status" %></li>
     </ul>
     </div>
   </div>
