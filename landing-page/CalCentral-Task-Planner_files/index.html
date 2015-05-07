@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<!-- saved from url=(0061)http://d3mwhxgzltpnyp.cloudfront.net/local-storage/index.html -->
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=windows-1252">
+		<script src="prototype.js"></script>
+		<script src="jstorage.js"></script>
+		<script>
+			function receiveMessage(event)
+			{
+				try
+				{
+					//var data = JSON.parse( event.data );
+					var data = event.data;
+					var data_to_send = {
+						good: true
+					};
+
+					if( data && data.good )
+					{
+						if( data.request === 'test' )
+						{
+							data_to_send.message = 'test';
+							data_to_send.response = 'ok';
+						}
+						else if( data.request === 'init' )
+						{
+							data_to_send.message = 'init';
+							data_to_send.response = data.key;
+						}
+						else if( data.request === 'get' && data.key )
+						{
+							data_to_send.message = 'get';
+							data_to_send.key = data.key;
+							data_to_send.response = $.jStorage.get( data.key );
+						}
+						else if( data.request === 'set' && data.key && data.val )
+						{
+							data_to_send.message = 'set';
+							data_to_send.response = $.jStorage.set( data.key, data.val );
+						}
+						else
+						{
+							throw( 'fatal error' );
+						}
+
+						event.source.postMessage( JSON.stringify( data_to_send ), event.origin );
+					}
+					else
+					{
+						throw( 'fatal error' );
+					}
+				}
+				catch( e )
+				{
+					var error = {
+						message: e.message,
+						error: true,
+						fatal: true,
+						data: event.data
+					};
+
+					event.source.postMessage( JSON.stringify( error ), event.origin );
+				}
+			}
+
+			window.addEventListener("message", receiveMessage, false);
+		</script>
+	</head>
+<body>
+
+</body></html>
